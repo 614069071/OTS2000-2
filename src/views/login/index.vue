@@ -93,36 +93,44 @@ export default {
       login_form
         .validate()
         .then(() => {
-          this.$load();
-
-          this.$http
-            .login(this.loginInfo)
-            .then(({ resp_code, resp_msg, datas }) => {
-              if (!resp_code) {
-                const { toKen, ...userInfo } = datas;
-
-                storages.set("userInfo", userInfo);
-
-                this.UPDATE_TOKEN(toKen);
-                this.getMenuTreeColle();
-              } else {
-                this.$message({
-                  type: "error",
-                  message: resp_msg,
-                });
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+          // this.$load();
+          this.simulateLogin();
         })
         .catch(() => {});
+    },
+    simulateLogin() {
+      setTimeout(() => {
+        this.UPDATE_TOKEN(123);
+        this.$router.push("/");
+      }, 1000);
+    },
+    loginRequest() {
+      this.$http
+        .login(this.loginInfo)
+        .then(({ resp_code, resp_msg, datas }) => {
+          if (!resp_code) {
+            const { toKen, ...userInfo } = datas;
+
+            storages.set("userInfo", userInfo);
+
+            this.UPDATE_TOKEN(toKen);
+            this.getMenuTreeColle();
+          } else {
+            this.$message({
+              type: "error",
+              message: resp_msg,
+            });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     getMenuTreeColle() {
       this.$load();
       this.$http.getPower().then(({ datas }) => {
         const { children } = datas[0];
-        // storages.set('MenuTreeColle', children);
+        storages.set("MenuTreeColle", children);
         this.$router.push("/");
       });
     },

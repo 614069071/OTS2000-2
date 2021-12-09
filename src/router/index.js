@@ -28,13 +28,19 @@ export const dynamicRouter = [
   {
     path: '/',
     component: () => import(/* webpackChunkName: "view" */ '@/views/resource'),
-    meta: { name: '资源管理' },
+    meta: { name: '设备管理' },
     children: [
       {
         path: '/',
         name: 'resource',
         component: () => import(/* webpackChunkName: "view" */ '@/views/resource/overview'),
-        meta: { name: '综合数据' },
+        meta: { name: '设备概览' },
+      },
+      {
+        path: '/veneer-list',
+        name: 'veneer-list',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/veneer-list/index.vue'),
+        meta: { name: '单板列表' },
       },
     ]
   },

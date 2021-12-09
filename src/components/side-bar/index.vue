@@ -48,7 +48,7 @@ export default {
               iconCls: "",
               menuId: 6,
               menuName: "设备概览",
-              menuLink: "/deviceOverview",
+              menuLink: "/",
               parentId: 1,
             },
             {
@@ -56,7 +56,7 @@ export default {
               iconCls: "",
               menuId: 7,
               menuName: "单板列表",
-              menuLink: "/boardList",
+              menuLink: "/veneer-list",
               parentId: 1,
             },
           ],

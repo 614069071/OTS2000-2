@@ -29,7 +29,24 @@
         </div>
       </div>
       <div class="inner-container-title">系统性能</div>
-      <div class="system-performance-wrapper"></div>
+      <div class="system-performance-wrapper">
+        <div class="fan-state-wrapper">
+          <div class="state-title">风扇状态</div>
+          <div class="state-inner-wrapper"></div>
+        </div>
+        <div class="cpu-state-wrapper">
+          <div class="state-title">CPU使用率</div>
+          <div class="state-inner-wrapper"></div>
+        </div>
+        <div class="memory-state-wrapper">
+          <div class="state-title">内存使用率</div>
+          <div class="state-inner-wrapper"></div>
+        </div>
+        <div class="temperature-state-wrapper">
+          <div class="state-title">设备温度</div>
+          <div class="state-inner-wrapper"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -103,5 +120,26 @@ export default {
 
 .system-info-wrapper + .system-info-wrapper {
   margin-top: 15px;
+}
+
+.system-performance-wrapper {
+  display: flex;
+
+  & > div {
+    width: 25%;
+  }
+
+  .state-title {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .state-inner-wrapper {
+    width: 120px;
+    height: 120px;
+    background-color: grey;
+    margin: 0 auto;
+  }
 }
 </style>

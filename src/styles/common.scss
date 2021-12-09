@@ -1,0 +1,153 @@
+@import url("//at.alicdn.com/t/font_2388906_wz7ob740st.css");
+
+:root {
+  --default-color: #409eff;
+  --second-color: #ecf5ff;
+  --font-color: #606266;
+  --font-color-1: #909399;
+  --font-color-3: #333;
+  --font-color-a6: #a6a6a6;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+
+.f-14 {
+  font-size: 14px;
+}
+
+.f-16 {
+  font-size: 16px;
+}
+
+.f-18 {
+  font-size: 18px;
+}
+
+.f-20 {
+  font-size: 20px;
+}
+
+// 清除scroll滚动条
+.clear-scroll-bar {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// 单行溢出隐藏
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 自定义scrollbar
+.scrollbar {
+  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    background-color: #999;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  font-size: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  width: 0;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearboth {
+  clear: both;
+}
+
+.side-btn {
+  cursor: pointer;
+}
+
+// 主体内容布局样式
+.inner-item {
+  background-color: #fff;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 0 24px 24px;
+}
+
+.view-wrapper {
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.inner-header-wrapper {
+  padding: 24px 0 2px 0;
+  min-height: 62px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.inner-container-wrapper {
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.inner-container-title {
+  height: 70px;
+  line-height: 70px;
+  font-size: 16px;
+  color: var(--font-color-3);
+  // font-weight: 700;
+}
+
+.inner-pagination-wrapper {
+  background-color: #fff;
+  text-align: right;
+  padding: 14px 24px 28px 24px;
+}
+
+// element
+.el-table__header-wrapper thead tr th {
+  background-color: #f5f7fa !important;
+}
+
+.el-input {
+  width: 240px !important;
+}
+
+.el-input-number .el-input,
+.el-pagination .el-input {
+  width: auto !important;
+}

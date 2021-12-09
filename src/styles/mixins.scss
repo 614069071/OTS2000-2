@@ -1,0 +1,8 @@
+// 多行省略
+@mixin multipleEllipsis($line: 2) {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

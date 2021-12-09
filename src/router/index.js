@@ -32,8 +32,8 @@ export const dynamicRouter = [
     children: [
       {
         path: '/',
-        name: 'resource',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/overview'),
+        name: 'equip-overview',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/equip-overview'),
         meta: { name: '设备概览' },
       },
       {

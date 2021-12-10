@@ -3,8 +3,7 @@
     <div class="layout-aside">
       <div class="aside-header-wrapper" :class="{ collapse: barCollapse }">
         <router-link tag="div" to="/" class="logo-wrapper">
-          <!-- <img src="../../assets/images/logo.png" alt="" /> -->
-          西迪特
+          <img src="../../assets/images/logo.png" alt="西迪特" />
         </router-link>
 
         <div class="aside-content-wrapper clear-scroll-bar">

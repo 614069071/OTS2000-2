@@ -120,7 +120,7 @@ export default {
               iconCls: "",
               menuId: 11,
               menuName: "级联配置",
-              menuLink: "/cascadeConfig",
+              menuLink: "/network-manage/cascade-config",
               parentId: 2,
             },
           ],

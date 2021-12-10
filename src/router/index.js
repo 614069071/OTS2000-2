@@ -88,6 +88,12 @@ export const dynamicRouter = [
         component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/port-info'),
         meta: { name: '端口信息' },
       },
+      {
+        path: '/network-manage/cascade-config',
+        name: 'cascade-config',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/cascade-config'),
+        meta: { name: '级联配置' },
+      },
 
     ]
   },

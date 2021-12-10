@@ -168,7 +168,7 @@ export default {
               iconCls: "",
               menuId: 15,
               menuName: "运行日志",
-              menuLink: "/runningLog",
+              menuLink: "/maint-manage/run-log",
               parentId: 2,
             },
           ],

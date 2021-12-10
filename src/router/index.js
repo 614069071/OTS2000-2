@@ -112,16 +112,16 @@ export const dynamicRouter = [
     ]
   },
   {
-    path: '/log',
+    path: '/maint-manage',
     name: 'log',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/log'),
-    meta: { name: '日志管理' },
+    component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage'),
+    meta: { name: '维护管理' },
     children: [
       {
-        path: '/log',
-        name: 'log-inquire',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/log/inquire'),
-        meta: { name: '日志查询' },
+        path: '/maint-manage/run-log',
+        name: 'run-log',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/run-log'),
+        meta: { name: '运行日志' },
       },
     ]
   },

@@ -112,7 +112,7 @@ export default {
               iconCls: "",
               menuId: 10,
               menuName: "串口信息",
-              menuLink: "/serialPort",
+              menuLink: "/network-manage/port-info",
               parentId: 2,
             },
             {

@@ -82,6 +82,12 @@ export const dynamicRouter = [
         component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/snmp-config'),
         meta: { name: 'SNMP配置' },
       },
+      {
+        path: '/network-manage/port-info',
+        name: 'port-info',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/port-info'),
+        meta: { name: '端口信息' },
+      },
 
     ]
   },

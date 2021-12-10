@@ -98,36 +98,16 @@ export const dynamicRouter = [
     ]
   },
   {
-    path: '/banner',
-    name: 'banner',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/banner'),
-    meta: { name: '广告管理' },
+    path: '/safety-manage',
+    name: 'safety-manage',
+    component: () => import(/* webpackChunkName: "view" */ '@/views/safety-manage'),
+    meta: { name: '安全管理' },
     children: [
       {
-        path: '/banner',
-        name: 'banner-manage',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list'),
+        path: '/safety-manage',
+        name: 'user-manage',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/safety-manage/user-manage'),
         meta: { name: '广告管理' },
-        children: [
-          {
-            path: '/banner',
-            name: 'banner-list',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list/list'),
-            meta: { name: '广告管理' },
-          },
-          {
-            path: '/banner/editor',
-            name: 'banner-editor',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list/editor'),
-            meta: { name: '广告编辑' },
-          },
-          {
-            path: '/banner/add',
-            name: 'banner-add',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list/add'),
-            meta: { name: '新增广告' },
-          }
-        ]
       }
     ]
   },

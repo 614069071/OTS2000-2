@@ -136,7 +136,7 @@ export default {
               iconCls: "",
               menuId: 12,
               menuName: "用户管理",
-              menuLink: "/userAdmin",
+              menuLink: "/safety-manage",
               parentId: 2,
             },
           ],

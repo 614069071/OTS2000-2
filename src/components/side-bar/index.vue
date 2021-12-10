@@ -96,7 +96,7 @@ export default {
               iconCls: "",
               menuId: 8,
               menuName: "IP地址配置",
-              menuLink: "/ipConfig",
+              menuLink: "/network-manage",
               parentId: 2,
             },
             {

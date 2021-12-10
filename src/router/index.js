@@ -65,16 +65,16 @@ export const dynamicRouter = [
     ]
   },
   {
-    path: '/product',
-    name: 'product',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/product'),
-    meta: { name: '产品管理' },
+    path: '/network-manage',
+    name: 'network-manage',
+    component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage'),
+    meta: { name: '网络管理' },
     children: [
       {
-        path: '/product',
-        name: 'product-inquire',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/product/inquire'),
-        meta: { name: '产品数据' },
+        path: '/network-manage',
+        name: 'ip-config',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/ip-config'),
+        meta: { name: 'IP地址配置' },
       },
     ]
   },

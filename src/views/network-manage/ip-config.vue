@@ -1,8 +1,8 @@
 <template>
-  <div class="veneer-list-view-wrapper view-wrapper">
+  <div class="ip-config-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
       <div class="inner-container-title">设备框图</div>
-      <div class="veneer-block-diagram-wrapper">
+      <div class="ip-config-diagram-wrapper">
         <!-- 设备框图 -->
       </div>
     </div>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-.veneer-block-diagram-wrapper {
+.ip-config-diagram-wrapper {
   width: 80%;
   height: 200px;
   background-color: grey;

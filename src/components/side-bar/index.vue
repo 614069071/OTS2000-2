@@ -104,7 +104,7 @@ export default {
               iconCls: "",
               menuId: 9,
               menuName: "SNMP配置",
-              menuLink: "/snmpConfig",
+              menuLink: "/network-manage/snmp-config",
               parentId: 2,
             },
             {

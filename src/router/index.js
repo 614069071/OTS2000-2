@@ -76,6 +76,13 @@ export const dynamicRouter = [
         component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/ip-config'),
         meta: { name: 'IP地址配置' },
       },
+      {
+        path: '/network-manage/snmp-config',
+        name: 'snmp-config',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/network-manage/snmp-config'),
+        meta: { name: 'SNMP配置' },
+      },
+
     ]
   },
   {

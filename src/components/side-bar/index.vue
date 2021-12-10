@@ -162,6 +162,32 @@ export default {
               menuName: "远程升级",
               menuLink: "/upgrade",
               parentId: 2,
+              children: [
+                {
+                  component: "",
+                  iconCls: "",
+                  menuId: 13,
+                  menuName: "备份与恢复出厂设置",
+                  menuLink: "/upgrade",
+                  parentId: 2,
+                },
+                {
+                  component: "",
+                  iconCls: "",
+                  menuId: 13,
+                  menuName: "系统升级",
+                  menuLink: "/upgrade/system-upgrade",
+                  parentId: 2,
+                },
+                {
+                  component: "",
+                  iconCls: "",
+                  menuId: 13,
+                  menuName: "单板升级",
+                  menuLink: "/upgrade/veneer-upgrade",
+                  parentId: 2,
+                },
+              ],
             },
             {
               component: "",

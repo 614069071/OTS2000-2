@@ -124,6 +124,32 @@ export const dynamicRouter = [
         meta: { name: '系统信息' },
       },
       {
+        path: '/upgrade',
+        name: 'upgrade',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade'),
+        meta: { name: '远程升级' },
+        children: [
+          {
+            path: '/upgrade',
+            name: 'backup-reboot',
+            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/backup-reboot'),
+            meta: { name: '备份与恢复出厂设置' },
+          },
+          {
+            path: '/upgrade/system-upgrade',
+            name: 'upgrade',
+            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/system-upgrade'),
+            meta: { name: '系统升级' },
+          },
+          {
+            path: '/upgrade/veneer-upgrade',
+            name: 'run-log',
+            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/veneer-upgrede'),
+            meta: { name: '单板升级' },
+          },
+        ]
+      },
+      {
         path: '/maint-manage/run-log',
         name: 'run-log',
         component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/run-log'),
@@ -131,50 +157,7 @@ export const dynamicRouter = [
       },
     ]
   },
-  {
-    path: '/system',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/system'),
-    meta: { name: '账号管理' },
-    children: [
-      {
-        path: '/system',
-        name: 'system-account',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/system/account'),
-        meta: { name: '账号管理' },
-      },
-    ]
-  },
-  {
-    path: '/ota',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/ota'),
-    meta: { name: '固件升级' },
-    children: [
-      {
-        path: '/ota',
-        name: 'ota-list',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/ota/list'),
-        meta: { name: '发布列表' },
-      },
-      {
-        path: '/ota/add',
-        name: 'ota-add',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/ota/add'),
-        meta: { name: '添加发布' },
-      },
-      {
-        path: '/ota/editor',
-        name: 'ota-editor',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/ota/editor'),
-        meta: { name: '编辑发布' },
-      },
-      {
-        path: '/ota/detail',
-        name: 'ota-detail',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/ota/detail'),
-        meta: { name: '发布详情' },
-      }
-    ]
-  }
+
 ];
 
 export const otherRouter = [

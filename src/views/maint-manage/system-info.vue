@@ -11,10 +11,10 @@
       <el-form :model="dataForm" label-width="120px" :inline="true">
         <div class="inner-container-title">设置时间</div>
         <el-form-item label="手动设置时间">
-          <el-checkbox v-model="dataForm.name1"></el-checkbox>
+          <el-input v-model="dataForm.name2"></el-input>
         </el-form-item>
         <el-form-item label="自动获取时间">
-          <el-input v-model="dataForm.name2"></el-input>
+          <el-checkbox v-model="dataForm.name1"></el-checkbox>
         </el-form-item>
         <el-form-item label="系统运行时间">
           <el-input v-model="dataForm.name3"></el-input>

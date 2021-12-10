@@ -107,7 +107,7 @@ export const dynamicRouter = [
         path: '/safety-manage',
         name: 'user-manage',
         component: () => import(/* webpackChunkName: "view" */ '@/views/safety-manage/user-manage'),
-        meta: { name: '广告管理' },
+        meta: { name: '用户管理' },
       }
     ]
   },

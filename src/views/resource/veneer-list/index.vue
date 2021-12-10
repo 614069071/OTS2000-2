@@ -10,8 +10,8 @@
     <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title">单板列表</div>
       <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-        <el-table-column prop="slot" label="订单编号" width="120"></el-table-column>
-        <el-table-column prop="boardType" label="SN" width="190"></el-table-column>
+        <el-table-column prop="slot" label="订单编号"></el-table-column>
+        <el-table-column prop="boardType" label="SN"></el-table-column>
         <el-table-column prop="hardwareVerson" label="订单数量"></el-table-column>
         <el-table-column prop="softwareVersion" label="单价（台）"></el-table-column>
         <el-table-column prop="produceDate" label="设备型号"></el-table-column>

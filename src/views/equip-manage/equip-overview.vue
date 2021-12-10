@@ -3,7 +3,7 @@
     <div class="inner-header-wrapper">
       <div class="inner-container-title custom-title">
         设备框图
-        <div>自动刷新剩余时间：60秒 <el-button size="mini" type="primary">立即刷新</el-button></div>
+        <div class="refresh-wrapper">自动刷新剩余时间：60秒 <el-button size="mini" type="primary">立即刷新</el-button></div>
       </div>
       <div class="veneer-block-diagram-wrapper">
         <!-- 设备框图 -->
@@ -83,6 +83,15 @@ export default {
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
   margin: 0 auto;
+}
+
+.refresh-wrapper {
+  display: flex;
+  align-items: center;
+
+  .el-button {
+    margin-left: 10px;
+  }
 }
 
 .system-info-cahnge-btn {

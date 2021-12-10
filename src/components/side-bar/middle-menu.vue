@@ -29,11 +29,12 @@ export default {
 </script>
 
 <style>
-.el-menu-item .m-icon {
-  margin-right: 12px;
+.middle-menu .m-icon {
+  margin-right: 4px;
   display: inline-block;
   width: 24px;
   text-align: center;
+  font-size: 16px;
 }
 .el-menu-item.is-active {
   background-color: var(--default-color) !important;

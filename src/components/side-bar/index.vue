@@ -38,208 +38,115 @@ export default {
     menuTreeColle() {
       return [
         {
-          component: "Home",
-          iconCls: "device-management",
-          menuId: 1,
+          icon: "el-icon-s-platform",
           menuName: "设备管理",
           children: [
             {
-              component: "",
-              iconCls: "",
-              menuId: 6,
+              icon: "",
               menuName: "设备概览",
               menuLink: "/",
-              parentId: 1,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 7,
+              icon: "",
               menuName: "单板列表",
               menuLink: "/veneer-list",
-              parentId: 1,
             },
           ],
         },
         {
-          component: "Home",
-          iconCls: "warning",
-          menuId: 2,
+          icon: "el-icon-message-solid",
           menuName: "告警管理",
           children: [
             {
-              component: "",
-              iconCls: "",
-              menuId: 8,
+              icon: "",
               menuName: "当前告警",
               menuLink: "/alarm-manage",
-              parentId: 2,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 9,
+              icon: "",
               menuName: "历史告警",
               menuLink: "/alarm-manage/history-alarm",
-              parentId: 2,
             },
           ],
         },
         {
-          component: "Home",
-          iconCls: "network",
-          menuId: 3,
+          icon: "el-icon-eleme",
           menuName: "网络管理",
           children: [
             {
-              component: "",
-              iconCls: "",
-              menuId: 8,
+              icon: "",
               menuName: "IP地址配置",
               menuLink: "/network-manage",
-              parentId: 2,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 9,
+              icon: "",
               menuName: "SNMP配置",
               menuLink: "/network-manage/snmp-config",
-              parentId: 2,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 10,
+              icon: "",
               menuName: "串口信息",
               menuLink: "/network-manage/port-info",
-              parentId: 2,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 11,
+              icon: "",
               menuName: "级联配置",
               menuLink: "/network-manage/cascade-config",
-              parentId: 2,
             },
           ],
         },
         {
-          component: "Home",
-          iconCls: "security",
-          menuId: 4,
+          icon: "el-icon-umbrella",
           menuName: "安全管理",
           children: [
             {
-              component: "",
-              iconCls: "",
-              menuId: 12,
+              icon: "",
               menuName: "用户管理",
               menuLink: "/safety-manage",
-              parentId: 2,
             },
           ],
         },
         {
-          component: "Home",
-          iconCls: "maintenance",
+          icon: "el-icon-s-tools",
           menuId: 5,
           menuName: "维护管理",
           children: [
             {
-              component: "",
-              iconCls: "",
-              menuId: 13,
+              icon: "",
               menuName: "系统信息",
               menuLink: "/maint-manage",
-              parentId: 2,
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 14,
+              icon: "",
               menuName: "远程升级",
               menuLink: "/upgrade",
-              parentId: 2,
               children: [
                 {
-                  component: "",
-                  iconCls: "",
-                  menuId: 13,
+                  icon: "",
                   menuName: "备份与恢复出厂设置",
                   menuLink: "/upgrade",
-                  parentId: 2,
                 },
                 {
-                  component: "",
-                  iconCls: "",
-                  menuId: 13,
+                  icon: "",
                   menuName: "系统升级",
                   menuLink: "/upgrade/system-upgrade",
-                  parentId: 2,
                 },
                 {
-                  component: "",
-                  iconCls: "",
-                  menuId: 13,
+                  icon: "",
                   menuName: "单板升级",
                   menuLink: "/upgrade/veneer-upgrade",
-                  parentId: 2,
                 },
               ],
             },
             {
-              component: "",
-              iconCls: "",
-              menuId: 15,
+              icon: "",
               menuName: "运行日志",
               menuLink: "/maint-manage/run-log",
-              parentId: 2,
             },
           ],
         },
       ];
     },
-    // mapMenuTree() {
-    // 	const items = [
-    // 		{
-    // 			title: '综合数据',
-    // 			icon: 'if if-appstore',
-    // 			path: '/',
-    // 			meta: {},
-    // 		},
-    // 		{
-    // 			title: '订单数据',
-    // 			icon: 'if if-barchart',
-    // 			path: '/order',
-    // 			meta: {},
-    // 		},
-    // 		{
-    // 			title: '产品数据',
-    // 			icon: 'if if-linechart',
-    // 			path: '/product',
-    // 			meta: {},
-    // 		},
-    // 		{
-    // 			title: '广告管理',
-    // 			icon: 'if if-edit-square',
-    // 			path: '/banner',
-    // 			meta: {},
-    // 		},
-    // 		{
-    // 			title: '日志查询',
-    // 			icon: 'if if-filesearch',
-    // 			path: '/log',
-    // 			meta: {},
-    // 		},
-    // 		{
-    // 			title: '账号管理',
-    // 			icon: 'if if-user',
-    // 			path: '/system',
-    // 			meta: {},
-    // 		},
-    // 	];
 
     // 	function deal(arr, pre) {
     // 		arr.forEach((e, i) => {
@@ -296,13 +203,6 @@ export default {
       display: none;
     }
   }
-}
-
-.el-menu-item .menu-icon {
-  margin-right: 12px;
-  display: inline-block;
-  width: 24px;
-  text-align: center;
 }
 
 .el-menu-item.is-active {

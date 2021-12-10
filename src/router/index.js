@@ -27,34 +27,40 @@ const staticRoutes = [
 export const dynamicRouter = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/resource'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/equip-manage'),
     meta: { name: '设备管理' },
     children: [
       {
         path: '/',
         name: 'equip-overview',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/equip-overview'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/equip-manage/equip-overview'),
         meta: { name: '设备概览' },
       },
       {
         path: '/veneer-list',
         name: 'veneer-list',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/veneer-list/index.vue'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/equip-manage/veneer-list'),
         meta: { name: '单板列表' },
       },
     ]
   },
   {
-    path: '/order',
-    name: 'order',
-    component: () => import(/* webpackChunkName: "view" */ '@/views/order'),
-    meta: { name: '订单管理' },
+    path: '/alarm-manage',
+    name: 'alarm-manage',
+    component: () => import(/* webpackChunkName: "view" */ '@/views/alarm-manage'),
+    meta: { name: '告警管理' },
     children: [
       {
-        path: '/order',
-        name: 'order-inquire',
-        component: () => import(/* webpackChunkName: "view" */ '@/views/order/inquire'),
-        meta: { name: '订单数据' },
+        path: '/alarm-manage',
+        name: 'current-alarm',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/alarm-manage/current-alarm'),
+        meta: { name: '当前告警' },
+      },
+      {
+        path: '/alarm-manage/history-alarm',
+        name: 'history-alarm',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/alarm-manage/history-alarm'),
+        meta: { name: '历史告警' },
       },
     ]
   },

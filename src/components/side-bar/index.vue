@@ -72,7 +72,7 @@ export default {
               iconCls: "",
               menuId: 8,
               menuName: "当前告警",
-              menuLink: "/currentWarnning",
+              menuLink: "/alarm-manage",
               parentId: 2,
             },
             {
@@ -80,7 +80,7 @@ export default {
               iconCls: "",
               menuId: 9,
               menuName: "历史告警",
-              menuLink: "/historyWarnning",
+              menuLink: "/alarm-manage/history-alarm",
               parentId: 2,
             },
           ],

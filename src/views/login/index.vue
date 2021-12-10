@@ -8,9 +8,9 @@
       <div class="login-banner-item-wrapper login-form-wrapper">
         <div class="login-form-logo-wrapper">
           <div class="login-logo-img-wrapper">
-            <img src="../../assets/images/logo2@2x.png" alt="" />
+            <!-- <img src="../../assets/images/logo2@2x.png" alt="" /> -->
           </div>
-          <div class="login-logo-welcome">欢迎登录NSS运营系统数据平台</div>
+          <div class="login-logo-welcome">欢迎登录OTS2000网关系统</div>
         </div>
 
         <el-form ref="login_form" :model="loginInfo" :rules="rules">

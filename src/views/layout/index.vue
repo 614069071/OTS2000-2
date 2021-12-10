@@ -3,7 +3,8 @@
     <div class="layout-aside">
       <div class="aside-header-wrapper" :class="{ collapse: barCollapse }">
         <router-link tag="div" to="/" class="logo-wrapper">
-          <img src="../../assets/images/logo.png" alt="" />
+          <!-- <img src="../../assets/images/logo.png" alt="" /> -->
+          西迪特
         </router-link>
 
         <div class="aside-content-wrapper clear-scroll-bar">
@@ -200,6 +201,9 @@ export default {
     overflow: hidden;
     margin: 30px auto;
     cursor: pointer;
+    background-color: #fff;
+    text-align: center;
+    line-height: 56px;
   }
 
   .aside-content-wrapper {

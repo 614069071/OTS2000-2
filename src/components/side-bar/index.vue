@@ -152,7 +152,7 @@ export default {
               iconCls: "",
               menuId: 13,
               menuName: "系统信息",
-              menuLink: "/systemInfo",
+              menuLink: "/maint-manage",
               parentId: 2,
             },
             {

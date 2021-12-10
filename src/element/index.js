@@ -2,7 +2,7 @@ import Vue from 'vue';
 import {
   Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Radio, Select, Input, InputNumber,
   DatePicker, Option, Col, Row, Pagination, Popover, Button, Avatar, Dialog, Progress,
-  Carousel, CarouselItem, Upload, MessageBox, Message, Notification, Loading, Switch
+  Carousel, CarouselItem, Upload, MessageBox, Message, Notification, Loading, Switch, Checkbox
 } from 'element-ui';
 
 export let load = null;
@@ -46,3 +46,4 @@ Vue
   .use(Upload)
   .use(Popover)
   .use(Switch)
+  .use(Checkbox)

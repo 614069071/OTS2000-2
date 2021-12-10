@@ -113,10 +113,16 @@ export const dynamicRouter = [
   },
   {
     path: '/maint-manage',
-    name: 'log',
+    name: 'maint-manage',
     component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage'),
     meta: { name: '维护管理' },
     children: [
+      {
+        path: '/maint-manage',
+        name: 'system-info',
+        component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/system-info'),
+        meta: { name: '系统信息' },
+      },
       {
         path: '/maint-manage/run-log',
         name: 'run-log',

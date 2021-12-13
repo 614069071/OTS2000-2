@@ -32,19 +32,30 @@
       <div class="system-performance-wrapper">
         <div class="fan-state-wrapper">
           <div class="state-title">风扇状态</div>
-          <div class="state-inner-wrapper"></div>
+          <div class="state-inner-wrapper">
+            <div class="fan-wrapper"></div>
+          </div>
         </div>
         <div class="cpu-state-wrapper">
           <div class="state-title">CPU使用率</div>
-          <div class="state-inner-wrapper"></div>
+          <div class="state-inner-wrapper">
+            <el-progress type="dashboard" :percentage="10"></el-progress>
+          </div>
         </div>
         <div class="memory-state-wrapper">
           <div class="state-title">内存使用率</div>
-          <div class="state-inner-wrapper"></div>
+          <div class="state-inner-wrapper">
+            <el-progress type="dashboard" :percentage="15"></el-progress>
+          </div>
         </div>
         <div class="temperature-state-wrapper">
           <div class="state-title">设备温度</div>
-          <div class="state-inner-wrapper"></div>
+          <div class="state-inner-wrapper">
+            <div class="temperature-wrapper">
+              <div class="temperature-inner-wrapper"></div>
+              <div class="temperature-value">27℃</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -147,8 +158,44 @@ export default {
   .state-inner-wrapper {
     width: 120px;
     height: 120px;
-    background-color: grey;
-    margin: 0 auto;
+    // background-color: grey;
+    margin: 10px auto 0;
+  }
+
+  .fan-wrapper {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/fan.png") center/contain no-repeat;
+    animation: fan-rotate linear 3s infinite;
+  }
+
+  .temperature-wrapper {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/temperature.png") center/contain no-repeat;
+    position: relative;
+  }
+
+  .temperature-inner-wrapper {
+    width: 6px;
+    height: 63px;
+    background-color: #c5eae4;
+    position: absolute;
+    left: 65px;
+    bottom: 40px;
+    border-radius: 3px 3px 0 0;
+  }
+  .temperature-value {
+    position: absolute;
+    right: -15px;
+    bottom: 55px;
+    font-size: 18px;
+  }
+}
+
+@keyframes fan-rotate {
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>

@@ -66,11 +66,6 @@ export default {
   margin: 0 auto;
 }
 
-.system-info-view-wrapper .inner-pagination-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
 .system-info-wrapper {
   display: flex;
   flex-wrap: wrap;

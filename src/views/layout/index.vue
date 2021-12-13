@@ -30,7 +30,7 @@
               <img src="../../assets/images/logo.png" alt="" />
             </el-avatar>
 
-            <div class="info-name">用户名</div>
+            <div class="info-name">webadmin</div>
           </div>
 
           <div class="user-info-popur-wrapper">

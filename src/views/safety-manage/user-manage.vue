@@ -27,8 +27,8 @@
         </el-table-column>
       </el-table>
 
-      <div class="inner-pagination-wrapper">
-        <div>
+      <div class="inner-pagination-wrapper inner-pagination-colle">
+        <div class="pagination-btns-wrapper">
           <el-button size="mini" type="primary">新增用户</el-button>
         </div>
         <el-pagination background layout="prev,pager,next,jumper" :total="1000" />
@@ -63,10 +63,5 @@ export default {
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
   margin: 0 auto;
-}
-
-.user-manage-view-wrapper .inner-pagination-wrapper {
-  display: flex;
-  justify-content: space-between;
 }
 </style>

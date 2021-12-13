@@ -38,8 +38,8 @@
       </el-table>
     </div>
 
-    <div class="inner-pagination-wrapper">
-      <div>
+    <div class="inner-pagination-wrapper inner-pagination-colle">
+      <div class="pagination-btns-wrapper">
         <el-button size="mini" type="danger">删除满足条件的警告</el-button>
         <el-button size="mini" type="danger">清除全部警告</el-button>
         <el-button size="mini" type="warning">确认满足条件的警告</el-button>

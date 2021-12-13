@@ -138,6 +138,16 @@
   padding: 14px 24px 28px 24px;
 }
 
+.inner-pagination-wrapper.inner-pagination-colle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner-pagination-wrapper.inner-pagination-colle .pagination-btns-wrapper {
+  display: flex;
+}
+
 // element
 .el-table__header-wrapper thead tr th {
   background-color: #f5f7fa !important;

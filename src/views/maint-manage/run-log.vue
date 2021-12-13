@@ -23,8 +23,8 @@
         </el-table-column>
       </el-table>
 
-      <div class="inner-pagination-wrapper">
-        <div>
+      <div class="inner-pagination-wrapper inner-pagination-colle">
+        <div class="pagination-btns-wrapper">
           <el-button size="mini" type="primary">应用</el-button>
         </div>
         <el-pagination background layout="prev,pager,next,jumper" :total="1000" />

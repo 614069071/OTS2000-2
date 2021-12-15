@@ -11,23 +11,40 @@
     </div>
 
     <div class="inner-container-wrapper banner-list">
-      <div class="inner-container-title custom-title">
-        系统信息
-        <el-button class="system-info-cahnge-btn" type="text" size="mini">修改 <i class="el-icon-arrow-right"></i></el-button>
-      </div>
-      <div class="system-info-wrapper">
-        <div class="system-info-item" v-for="({ name, value }, key) in systemInfo" :key="key">
-          <span>{{ name }}</span
-          ><span>{{ value }}</span>
+      <div class="inner-container-title custom-title">系统信息</div>
+      <div class="system-info-main">
+        <div class="system-info-wrapper">
+          <div class="system-info-item">
+            <span>设备型号</span><span><input class="def-input" type="text" /></span>
+          </div>
+          <div class="system-info-item">
+            <span>序列号</span><span><input class="def-input" type="text" /></span>
+          </div>
+          <div class="system-info-item"><span>硬件版本</span><span>V1.0</span></div>
+          <div class="system-info-item">
+            <span>设备标识</span><span><input class="def-input" type="text" /></span>
+          </div>
+          <div class="system-info-item">
+            <span>设备位置</span><span><input class="def-input" type="text" /></span>
+          </div>
+          <div class="system-info-item">
+            <span>联系人</span><span><input class="def-input" type="text" /></span>
+          </div>
+          <div class="system-info-change-wrapper">
+            <button class="def-btn">修改</button>
+          </div>
+        </div>
+
+        <div class="system-info-wrapper">
+          <div class="system-info-item"><span>电源1属性</span><span>交流 开 输出 11.658（V）</span></div>
+          <div class="system-info-item"><span>电源2属性</span><span>交流 开 输出 11.658（V）</span></div>
+          <div class="system-info-item"><span>固件版本</span><span>2.1.0</span></div>
+          <div class="system-info-item"><span>系统时间</span><span>2021年12月9日18时7分36秒</span></div>
+          <div class="system-info-item"><span>运行时间</span><span>0小时/9分/36秒</span></div>
+          <div class="system-info-item"><span>网关版本</span><span>4.2.25</span></div>
         </div>
       </div>
 
-      <div class="system-info-wrapper">
-        <div class="system-info-item" v-for="({ name, value }, key) in systemInfo" :key="key">
-          <span>{{ name }}</span
-          ><span>{{ value }}</span>
-        </div>
-      </div>
       <div class="inner-container-title">系统性能</div>
       <div class="system-performance-wrapper">
         <div class="fan-state-wrapper">
@@ -69,14 +86,6 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      systemInfo: {
-        power1: { name: "电源1属性", value: "交流 开 输出 11.658（V）" },
-        power2: { name: "电源2属性", value: "交流 关 输出 0（V）" },
-        firmwareVersion: { name: "固件版本", value: "2.1.0" },
-        systemTime: { name: "系统时间", value: "2021年12月9日18时7分36秒" },
-        operationTime: { name: "运行时间", value: "0小时/9分/36秒" },
-        networkVersion: { name: "网关版本", value: "4.2.25" },
-      },
     };
   },
   methods: {},
@@ -110,37 +119,39 @@ export default {
   font-size: 16px;
 }
 
-.system-info-wrapper {
+.system-info-main {
   display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid grey;
-  border-left: 1px solid grey;
+}
+
+.system-info-wrapper {
+  width: 50%;
   .system-info-item {
-    width: 33.33%;
     display: flex;
     align-items: center;
+    margin-top: 18px;
 
     span {
-      height: 48px;
-      border-right: 1px solid grey;
-      border-bottom: 1px solid grey;
-      line-height: 48px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 16px;
     }
 
     span:first-child {
-      background-color: #f4f7fa;
-      width: 120px;
-      text-align: center;
+      width: 138px;
+      padding-left: 23px;
     }
     span:last-child {
       flex: 1;
       padding-left: 15px;
     }
   }
-}
 
-.system-info-wrapper + .system-info-wrapper {
-  margin-top: 15px;
+  .system-info-change-wrapper {
+    padding: 10px 0 40px 0;
+    button {
+      margin-left: 264px;
+    }
+  }
 }
 
 .system-performance-wrapper {

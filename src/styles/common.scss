@@ -147,13 +147,20 @@
 }
 
 .def-btn {
-  padding: 0 5px;
+  padding: 0 10px;
   height: 28px;
   line-height: 28px;
   background-color: #c9c9c9;
   color: #fff;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.def-input {
+  width: 220px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #c9c9c9;
 }
 
 // element

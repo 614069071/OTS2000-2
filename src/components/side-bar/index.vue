@@ -30,7 +30,7 @@ export default {
     menuTreeColle() {
       return [
         {
-          icon: "el-icon-s-platform",
+          icon: "icon-system",
           menuName: "设备管理",
           children: [
             {
@@ -46,7 +46,7 @@ export default {
           ],
         },
         {
-          icon: "el-icon-message-solid",
+          icon: "icon-warning",
           menuName: "告警管理",
           children: [
             {
@@ -62,7 +62,7 @@ export default {
           ],
         },
         {
-          icon: "el-icon-eleme",
+          icon: "icon-earth",
           menuName: "网络管理",
           children: [
             {
@@ -88,7 +88,7 @@ export default {
           ],
         },
         {
-          icon: "el-icon-umbrella",
+          icon: "icon-security",
           menuName: "安全管理",
           children: [
             {
@@ -99,7 +99,7 @@ export default {
           ],
         },
         {
-          icon: "el-icon-s-tools",
+          icon: "icon-ampl",
           menuId: 5,
           menuName: "维护管理",
           children: [

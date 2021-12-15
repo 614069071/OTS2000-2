@@ -176,3 +176,46 @@
 .el-pagination .el-input {
   width: auto !important;
 }
+
+// icons
+.c-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: no-repeat center/contain;
+}
+
+.icon-ampl {
+  background-image: url(../assets/images/icons/ampl.png);
+}
+
+.icon-back {
+  background-image: url(../assets/images/icons/back.png);
+}
+.icon-cpu {
+  background-image: url(../assets/images/icons/cpu.png);
+}
+.icon-earth {
+  background-image: url(../assets/images/icons/earth.png);
+}
+.icon-memory {
+  background-image: url(../assets/images/icons/memory.png);
+}
+.icon-next {
+  background-image: url(../assets/images/icons/next.png);
+}
+.icon-security {
+  background-image: url(../assets/images/icons/security.png);
+}
+.icon-setting {
+  background-image: url(../assets/images/icons/setting.png);
+}
+.icon-system {
+  background-image: url(../assets/images/icons/system.png);
+}
+.icon-temper {
+  background-image: url(../assets/images/icons/temper.png);
+}
+.icon-warning {
+  background-image: url(../assets/images/icons/warning.png);
+}

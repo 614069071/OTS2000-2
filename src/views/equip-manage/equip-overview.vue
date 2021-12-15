@@ -48,25 +48,27 @@
       <div class="inner-container-title">系统性能</div>
       <div class="system-performance-wrapper">
         <div class="fan-state-wrapper">
-          <div class="state-title">风扇状态</div>
+          <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
           <div class="state-inner-wrapper">
-            <div class="fan-wrapper"></div>
+            <div class="fan-wrapper">
+              <div class="fan-inner-state">√</div>
+            </div>
           </div>
         </div>
         <div class="cpu-state-wrapper">
-          <div class="state-title">CPU使用率</div>
+          <div class="state-title"><i class="c-icon icon-cpu"></i>CPU使用率</div>
           <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="10"></el-progress>
+            <el-progress type="dashboard" :percentage="10" color="#003466"></el-progress>
           </div>
         </div>
         <div class="memory-state-wrapper">
-          <div class="state-title">内存使用率</div>
+          <div class="state-title"><i class="c-icon icon-memory"></i>内存使用率</div>
           <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="15"></el-progress>
+            <el-progress type="dashboard" :percentage="15" color="#003466"></el-progress>
           </div>
         </div>
         <div class="temperature-state-wrapper">
-          <div class="state-title">设备温度</div>
+          <div class="state-title"><i class="c-icon icon-temper"></i>设备温度</div>
           <div class="state-inner-wrapper">
             <div class="temperature-wrapper">
               <div class="temperature-inner-wrapper"></div>
@@ -129,6 +131,7 @@ export default {
     display: flex;
     align-items: center;
     margin-top: 18px;
+    white-space: nowrap;
 
     span {
       height: 32px;
@@ -156,29 +159,49 @@ export default {
 
 .system-performance-wrapper {
   display: flex;
+  padding: 0 0 60px 0;
 
   & > div {
     width: 25%;
   }
 
   .state-title {
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+
+    .c-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
   }
 
   .state-inner-wrapper {
     width: 120px;
     height: 120px;
-    // background-color: grey;
     margin: 10px auto 0;
   }
 
   .fan-wrapper {
     width: 100%;
     height: 100%;
-    background: url("../../assets/images/fan.png") center/contain no-repeat;
-    animation: fan-rotate linear 3s infinite;
+    background: url("../../assets/images/fans.png") center/contain no-repeat;
+    position: relative;
+
+    .fan-inner-state {
+      width: 23px;
+      height: 23px;
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: #202735;
+      border-radius: 50%;
+      color: #fff;
+    }
   }
 
   .temperature-wrapper {
@@ -189,12 +212,12 @@ export default {
   }
 
   .temperature-inner-wrapper {
-    width: 6px;
-    height: 63px;
-    background-color: #c5eae4;
+    width: 7px;
+    height: 43px;
+    background-color: #003466;
     position: absolute;
-    left: 65px;
-    bottom: 40px;
+    left: 60px;
+    bottom: 44px;
     border-radius: 3px 3px 0 0;
   }
   .temperature-value {
@@ -202,12 +225,6 @@ export default {
     right: -15px;
     bottom: 55px;
     font-size: 18px;
-  }
-}
-
-@keyframes fan-rotate {
-  to {
-    transform: rotate(360deg);
   }
 }
 </style>

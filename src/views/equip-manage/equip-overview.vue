@@ -127,6 +127,7 @@ export default {
 
 .system-info-wrapper {
   width: 50%;
+  min-width: 400px;
   .system-info-item {
     display: flex;
     align-items: center;

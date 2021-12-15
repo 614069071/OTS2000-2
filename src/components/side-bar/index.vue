@@ -171,7 +171,7 @@ export default {
   }
 
   .sidebar-el-menu:not(.el-menu--collapse) {
-    width: 300px;
+    width: 260px;
     // min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
   }
 

@@ -2,7 +2,7 @@
   <div class="equip-overview-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
       <div class="refresh-header-wrapper">
-        <div class="refresh-wrapper">自动刷新剩余时间：60秒 <el-button size="mini" type="primary">立即刷新</el-button></div>
+        <div class="refresh-wrapper">自动刷新剩余时间：60秒 <button class="def-btn">立即刷新</button></div>
       </div>
 
       <div class="veneer-block-diagram-wrapper">
@@ -91,9 +91,7 @@ export default {
   justify-content: right;
 
   .refresh-wrapper {
-    // display: flex;
-    // align-items: center;
-
+    font-size: 16px;
     .el-button {
       margin-left: 10px;
     }

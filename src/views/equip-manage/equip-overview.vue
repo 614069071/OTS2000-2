@@ -142,6 +142,7 @@ export default {
     span:first-child {
       width: 30%;
       min-width: 110px;
+      max-width: 138px;
       padding-left: 23px;
     }
     span:last-child {

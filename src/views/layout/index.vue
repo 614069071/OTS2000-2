@@ -116,6 +116,7 @@ export default {
     display: flex;
     height: 100%;
     flex-direction: column;
+    margin-right: 7px;
     justify-content: space-between;
   }
 
@@ -123,7 +124,7 @@ export default {
     flex: 1;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-color: #003466;
+    background-color: #fff;
   }
 }
 

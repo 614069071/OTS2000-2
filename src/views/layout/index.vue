@@ -21,8 +21,17 @@
 
         <div class="aside-footer-wrapper">
           <div class="setting-btns-wrapper">
-            <div>重启</div>
-            <div>退出</div>
+            <div class="setting-btn-wrapper">
+              <div><i class="c-icon icon-back"></i></div>
+              <div>重启</div>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="setting-btn-wrapper">
+              <div><i class="c-icon icon-next"></i></div>
+              <div>退出</div>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +148,10 @@ export default {
   }
 }
 
+.aside-footer-wrapper {
+  height: 200px;
+}
+
 .user-info-wrapper span + span {
   margin-left: 26px;
 }
@@ -146,5 +159,15 @@ export default {
 .setting-btns-wrapper {
   display: flex;
   justify-content: center;
+
+  .setting-btn-wrapper {
+    cursor: pointer;
+  }
+
+  .vertical-line {
+    height: 50px;
+    border-left: 1px solid #848484;
+    margin: 0 30px;
+  }
 }
 </style>

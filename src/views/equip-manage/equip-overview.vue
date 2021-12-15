@@ -1,10 +1,10 @@
 <template>
   <div class="equip-overview-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
-      <div class="inner-container-title custom-title">
-        设备框图
+      <div class="refresh-header-wrapper">
         <div class="refresh-wrapper">自动刷新剩余时间：60秒 <el-button size="mini" type="primary">立即刷新</el-button></div>
       </div>
+
       <div class="veneer-block-diagram-wrapper">
         <!-- 设备框图 -->
       </div>
@@ -84,25 +84,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.custom-title {
+.refresh-header-wrapper {
+  height: 57px;
+  padding: 30px 76px 0 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
+
+  .refresh-wrapper {
+    // display: flex;
+    // align-items: center;
+
+    .el-button {
+      margin-left: 10px;
+    }
+  }
 }
+
 .veneer-block-diagram-wrapper {
   width: 80%;
-  height: 200px;
+  height: 238px;
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
-  margin: 0 auto;
-}
-
-.refresh-wrapper {
-  display: flex;
-  align-items: center;
-
-  .el-button {
-    margin-left: 10px;
-  }
+  margin: 0 auto 40px auto;
 }
 
 .system-info-cahnge-btn {

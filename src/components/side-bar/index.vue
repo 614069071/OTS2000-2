@@ -197,6 +197,12 @@ export default {
   }
 }
 
+.el-submenu__title,
+.el-menu-item {
+  height: 66px !important;
+  line-height: 66px !important;
+}
+
 .el-menu-item.is-active {
   // background-color: var(--default-color) !important;
   background-color: #003466 !important;

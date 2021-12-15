@@ -22,10 +22,6 @@
         </el-table-column>
       </el-table>
     </div>
-
-    <div class="inner-pagination-wrapper">
-      <el-pagination background layout="prev, pager, next, jumper" :total="1000" />
-    </div>
   </div>
 </template>
 
@@ -36,18 +32,16 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [
-        {
-          id: 1,
-          slot: "SLOT#1",
-          slotStatus: "在位",
-          boardType: "4*10G OTU",
-          hardwareVerson: "1.1.0.2",
-          softwareVersion: "4.0.1",
-          produceDate: "2021-5-20",
-          detail: "点击查看",
-        },
-      ],
+      dataTable: new Array(15).fill({
+        id: 1,
+        slot: "SLOT#1",
+        slotStatus: "在位",
+        boardType: "4*10G OTU",
+        hardwareVerson: "1.1.0.2",
+        softwareVersion: "4.0.1",
+        produceDate: "2021-5-20",
+        detail: "点击查看",
+      }),
     };
   },
   methods: {

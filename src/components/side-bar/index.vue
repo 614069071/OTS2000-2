@@ -1,15 +1,7 @@
 <template>
   <div class="sidebar">
-    <el-menu
-      class="sidebar-el-menu"
-      :default-active="onRoutes"
-      :default-openeds="defaultOpenedsArray"
-      background-color="#001529"
-      text-color="rgba(255, 255, 255, 0.65)"
-      active-text-color="#fff"
-      unique-opened
-      :collapse="collapse"
-    >
+    <!-- background-color="#f0f7ff"  text-color="rgba(255, 255, 255, 0.65)" -->
+    <el-menu class="sidebar-el-menu" :default-active="onRoutes" :default-openeds="defaultOpenedsArray" text-color="#003466" active-text-color="#fff" unique-opened :collapse="collapse">
       <middle-menu v-for="(item, i) in menuTreeColle" :model="item" :key="item.path" :index="i" />
     </el-menu>
   </div>
@@ -206,6 +198,7 @@ export default {
 }
 
 .el-menu-item.is-active {
-  background-color: var(--default-color) !important;
+  // background-color: var(--default-color) !important;
+  background-color: #003466 !important;
 }
 </style>

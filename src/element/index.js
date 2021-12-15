@@ -4,6 +4,8 @@ import {
   Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover, Progress
 } from 'element-ui';
 
+import './element-variables.scss';
+
 export let load = null;
 
 Vue.prototype.$load = () => load = Loading.service();

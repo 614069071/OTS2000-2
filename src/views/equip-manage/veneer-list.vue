@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="inner-container-wrapper banner-list">
+    <div class="inner-container-wrapper veneer-list">
       <div class="inner-container-title">单板列表</div>
       <el-table border :data="dataTable" tooltip-effect="dark" style="width: 100%">
         <el-table-column prop="name1" label="槽位号"></el-table-column>
@@ -64,5 +64,9 @@ export default {
 
 .veneer-look-btn {
   color: #696969;
+}
+
+.veneer-list {
+  margin-top: 40px;
 }
 </style>

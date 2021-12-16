@@ -159,7 +159,6 @@ export default {
 
 .system-performance-wrapper {
   display: flex;
-  padding: 0 0 60px 0;
 
   & > div {
     width: 25%;

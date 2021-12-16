@@ -1,6 +1,8 @@
 <template>
   <div class="equip-overview-view-wrapper view-wrapper">
-    <div class="inner-header-wrapper">
+    <!-- <div class="inner-header-wrapper"></div> -->
+
+    <div class="inner-container-wrapper banner-list">
       <div class="refresh-header-wrapper">
         <div class="refresh-wrapper">自动刷新剩余时间：60秒 <button class="def-btn">立即刷新</button></div>
       </div>
@@ -8,9 +10,6 @@
       <div class="veneer-block-diagram-wrapper">
         <!-- 设备框图 -->
       </div>
-    </div>
-
-    <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title custom-title">系统信息</div>
       <div class="system-info-main">
         <div class="system-info-wrapper">
@@ -95,7 +94,7 @@ export default {
 <style scoped lang="scss">
 .refresh-header-wrapper {
   height: 57px;
-  padding: 30px 76px 0 0;
+  padding: 30px 0 0 0;
   display: flex;
   justify-content: right;
 

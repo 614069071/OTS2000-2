@@ -50,9 +50,7 @@
         <div class="fan-state-wrapper">
           <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
           <div class="state-inner-wrapper">
-            <div class="fan-wrapper">
-              <div class="fan-inner-state">√</div>
-            </div>
+            <div class="fan-wrapper error"></div>
           </div>
         </div>
         <div class="cpu-state-wrapper">
@@ -192,19 +190,12 @@ export default {
   .fan-wrapper {
     width: 100%;
     height: 100%;
-    background: url("../../assets/images/fans.png") center/contain no-repeat;
+    background: url("../../assets/images/fans.png") center/contain no-repeat, url("../../assets/images/icons/right.png") 85px 84px/24px 24px no-repeat;
     position: relative;
+  }
 
-    .fan-inner-state {
-      width: 23px;
-      height: 23px;
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background-color: #202735;
-      border-radius: 50%;
-      color: #fff;
-    }
+  .fan-wrapper.error {
+    background-image: url("../../assets/images/fans.png"), url("../../assets/images/icons/error.png");
   }
 
   .temperature-wrapper {

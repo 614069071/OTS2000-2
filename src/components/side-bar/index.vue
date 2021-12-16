@@ -202,6 +202,7 @@ export default {
   height: 66px !important;
   line-height: 66px !important;
   font-size: 18px;
+  border-bottom: 1px solid #edf0ef;
 }
 
 .el-menu-item.is-active {

@@ -2,12 +2,13 @@
   <div class="system-upgrade-view-wrapper">
     <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title">系统升级</div>
-      <el-upload class="upload-demo" accept=".bin" drag action="" :auto-upload="false" :file-list="fileList">
-        <i class="el-icon-upload"></i>
-        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-        <div class="el-upload__tip" slot="tip">只能上传bin文件</div>
-      </el-upload>
-      <button class="system-upgrade-submit" type="primary">升级</button>
+      <div class="chose-wrapper">
+        <span>选择升级文件</span>
+        <input type="file" accept=".bin" name="" id="" />
+      </div>
+      <div class="system-upgrade-submit-wrapper">
+        <button class="def-btn" type="primary">升级</button>
+      </div>
     </div>
   </div>
 </template>
@@ -31,8 +32,17 @@ export default {
 </script>
 
 <style scoped lang="css">
-.system-upgrade-submit {
-  margin-top: 20px;
-  width: 140px;
+.chose-wrapper {
+  margin-top: 16px;
+}
+
+.chose-wrapper > span {
+  display: inline-block;
+  text-align: center;
+  color: #959595;
+  width: 250px;
+}
+.system-upgrade-submit-wrapper {
+  text-align: right;
 }
 </style>

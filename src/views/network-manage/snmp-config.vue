@@ -35,7 +35,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <div class="add-trap-config-wrapper">
+
+      <div class="add-trap-config-wrapper" v-for="item in addTrapArg" :key="item">
         <input class="def-input" type="text" placeholder="主机名称" />
         <input class="def-input" type="text" placeholder="IP地址" />
         <input class="def-input" type="text" placeholder="UDP通信端口" />
@@ -43,7 +44,7 @@
         <button class="def-btn">启用</button>
       </div>
 
-      <div class="add-trap-wrapper"><button class="def-btn">增加Trap</button></div>
+      <div class="add-trap-wrapper"><button class="def-btn" @click="addTrapItme">增加Trap</button></div>
     </div>
   </div>
 </template>
@@ -62,9 +63,15 @@ export default {
           name4: "启用",
         },
       ],
+      addTrapArg: [],
     };
   },
-  methods: {},
+  methods: {
+    addTrapItme() {
+      const date = Date.now();
+      this.addTrapArg.push(date);
+    },
+  },
 };
 </script>
 

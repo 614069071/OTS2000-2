@@ -8,37 +8,42 @@
     </div>
 
     <div class="inner-container-wrapper banner-list">
-      <el-form :model="dataForm" label-width="120px" :inline="true">
-        <div class="inner-container-title">设置时间</div>
-        <el-form-item label="手动设置时间">
-          <el-input v-model="dataForm.name2"></el-input>
-        </el-form-item>
-        <el-form-item label="自动获取时间">
-          <el-checkbox v-model="dataForm.name1"></el-checkbox>
-        </el-form-item>
-        <el-form-item label="系统运行时间">
-          <el-input v-model="dataForm.name3"></el-input>
-        </el-form-item>
+      <div class="inner-container-title">设置时间</div>
+      <div class="system-info-wrapper">
+        <el-radio-group v-model="dataForm.name1">
+          <div class="system-info-item-other">
+            <span class="item-before"><el-radio label="1">手动</el-radio></span>
+            <span class="item-after"><el-date-picker size="mini" v-model="dataForm.name7" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"> </el-date-picker></span>
+          </div>
+          <div class="system-info-item-other">
+            <span class="item-before"><el-radio label="2">自动从互联网获取NTP Server</el-radio></span>
+            <span class="item-after"><input class="def-input" v-model="dataForm.name3" /></span>
+          </div>
+        </el-radio-group>
+        <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div>
+
         <div class="inner-container-title">机箱温度</div>
+        <div class="system-info-item-other">
+          <span class="item-before">最低温度</span>
+          <span class="item-after"><input type="text" class="def-input" /> ℃</span>
+        </div>
 
-        <el-form-item label="最低温度">
-          <el-input v-model="dataForm.name4"></el-input>
-        </el-form-item>
-        <el-form-item label="最高温度">
-          <el-input v-model="dataForm.name4"></el-input>
-        </el-form-item>
+        <div class="system-info-item-other">
+          <span class="item-before">最高温度</span><span class="item-after"><input type="text" class="def-input" /> ℃</span>
+        </div>
+      </div>
 
-        <el-form-item label="">
-          <el-button type="primary">应用</el-button>
-        </el-form-item>
-      </el-form>
+      <div class="system-info-btns">
+        <button class="def-btn">刷新</button>
+        <button class="def-btn">应用</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "veneer-list",
+  name: "system-info",
   data() {
     return {
       dataForm: {},
@@ -66,32 +71,28 @@ export default {
   margin: 0 auto;
 }
 
+.system-info-btns {
+  text-align: right;
+}
+
 .system-info-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid grey;
-  border-left: 1px solid grey;
-  .system-info-item {
-    width: 50%;
+  .system-info-item-other {
     display: flex;
     align-items: center;
+    color: #919191;
 
-    span {
+    .item-before,
+    .item-after {
+      width: 50%;
       height: 48px;
-      border-right: 1px solid grey;
-      border-bottom: 1px solid grey;
       line-height: 48px;
     }
-
-    span:first-child {
-      background-color: #f4f7fa;
-      width: 120px;
-      text-align: center;
-    }
-    span:last-child {
-      flex: 1;
-      padding-left: 15px;
-    }
   }
+}
+</style>
+
+<style lang="scss">
+.system-info-wrapper .el-radio-group {
+  width: 100%;
 }
 </style>

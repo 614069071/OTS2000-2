@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import {
   Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Select, Input, DatePicker, Option, Col, Row,
-  Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover, Progress
+  Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover,
+  Progress, Radio, RadioGroup
 } from 'element-ui';
 
-// import './element-variables.scss';
+import './element-variables.scss';
 
 export let load = null;
 
@@ -43,4 +44,6 @@ Vue
   .use(Checkbox)
   .use(Popover)
   .use(Progress)
+  .use(Radio)
+  .use(RadioGroup)
 

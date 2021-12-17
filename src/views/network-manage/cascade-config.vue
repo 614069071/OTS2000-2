@@ -9,23 +9,21 @@
 
     <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title">IP地址配置</div>
-      <el-form :model="dataForm" label-width="96px" :inline="true">
-        <el-form-item label="级联选择">
-          <el-select v-model="dataForm.name1" placeholder="请选择订单状态">
+      <div class="cascade-form-wrapper">
+        <div class="cascade-item-wrapper">
+          <el-select size="mini" v-model="dataForm.name1" placeholder="请选择订单状态">
             <el-option label="清除级联" value="1"></el-option>
           </el-select>
-        </el-form-item>
+          <button class="def-btn">确认</button>
+        </div>
 
-        <el-form-item label="网元">
-          <el-select v-model="dataForm.name2" placeholder="请选择订单状态">
+        <div class="cascade-item-wrapper">
+          <el-select size="mini" v-model="dataForm.name2" placeholder="请选择订单状态">
             <el-option label="主网元" value="1"></el-option>
           </el-select>
-        </el-form-item>
-
-        <el-form-item label="">
-          <el-button type="primary">确认</el-button>
-        </el-form-item>
-      </el-form>
+          <button class="def-btn">确认</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,5 +47,15 @@ export default {
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
   margin: 0 auto;
+}
+
+.cascade-form-wrapper {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cascade-item-wrapper button {
+  margin-left: 10px;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="port-info-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
-      <div class="inner-container-title">设备框图</div>
       <div class="port-info-diagram-wrapper">
         <!-- 设备框图 -->
       </div>
@@ -15,7 +14,6 @@
         <div class="system-info-item"><span>奇偶校验</span><span>none</span></div>
         <div class="system-info-item"><span>停止位</span><span>1</span></div>
         <div class="system-info-item"><span>流量控制</span><span>none</span></div>
-        <div class="system-info-item"><span></span><span></span></div>
       </div>
     </div>
   </div>
@@ -41,30 +39,28 @@ export default {
 }
 
 .port-info-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid grey;
-  border-left: 1px solid grey;
+  $color: #a2a2a2;
+  border-top: 1px solid $color;
+  border-left: 1px solid $color;
+  margin-top: 10px;
   .system-info-item {
-    width: 33.33%;
     display: flex;
     align-items: center;
+    color: $color;
 
     span {
+      width: 50%;
       height: 48px;
-      border-right: 1px solid grey;
-      border-bottom: 1px solid grey;
       line-height: 48px;
+      border-right: 1px solid $color;
+      border-bottom: 1px solid $color;
     }
 
     span:first-child {
-      background-color: #f4f7fa;
-      width: 120px;
       text-align: center;
     }
     span:last-child {
-      flex: 1;
-      padding-left: 15px;
+      padding-left: 50px;
     }
   }
 }

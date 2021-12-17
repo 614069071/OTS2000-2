@@ -12,7 +12,8 @@
 
       <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
         <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
-        <el-table-column prop="name2" label="用户名称"></el-table-column>
+        <el-table-column prop="name1" label="用户名称"></el-table-column>
+        <el-table-column prop="name2" label="密码"></el-table-column>
         <el-table-column prop="name3" label="用户级别"></el-table-column>
         <el-table-column prop="name4" label="创建时间"></el-table-column>
         <el-table-column label="修改密码" width="160">
@@ -23,10 +24,21 @@
         </el-table-column>
       </el-table>
 
+      <div class="add-user-config-wrapper" v-for="item in addUserArg" :key="item">
+        <input class="def-input" type="text" placeholder="用户名称" />
+        <input class="def-input" type="text" placeholder="密码" />
+        <input class="def-input" type="text" placeholder="创建时间" />
+        <el-select size="small" v-model="dataForm.name3">
+          <el-option label="管理员" value="1"></el-option>
+          <el-option label="一般用户" value="2"></el-option>
+        </el-select>
+        <button class="def-btn">确定</button>
+      </div>
+
       <div class="user-btns-wrapper">
         <button class="def-btn">刷新</button>
         <button class="def-btn">应用</button>
-        <button class="def-btn">新增用户</button>
+        <button class="def-btn" @click="addUserItem">新增用户</button>
       </div>
     </div>
   </div>
@@ -38,16 +50,22 @@ export default {
   data() {
     return {
       dataForm: {},
+      addUserArg: [],
       dataTable: [
         {
-          name2: "webadmin",
+          name1: "webadmin",
+          name2: "****",
           name3: "管理员",
           name4: "2020-2-10",
         },
       ],
     };
   },
-  methods: {},
+  methods: {
+    addUserItem() {
+      this.addUserArg.push(Date.now());
+    },
+  },
 };
 </script>
 
@@ -58,6 +76,14 @@ export default {
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
   margin: 0 auto;
+}
+
+.add-user-config-wrapper {
+  padding-right: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .user-btns-wrapper {

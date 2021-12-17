@@ -98,7 +98,4 @@ export default {
 .current-alarm-search-submit button + button {
   margin-left: 7px;
 }
-.def-btn + .def-btn {
-  margin-left: 10px;
-}
 </style>

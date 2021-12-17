@@ -162,6 +162,10 @@ button {
   border-radius: 4px;
 }
 
+.def-btn + .def-btn {
+  margin-left: 10px;
+}
+
 .def-input {
   width: 220px;
   height: 32px;

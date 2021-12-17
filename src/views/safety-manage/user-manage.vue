@@ -11,27 +11,22 @@
       <div class="inner-container-title">SNMP Trap配置</div>
 
       <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-        <el-table-column type="index" label="序号" width="50"> </el-table-column>
+        <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
         <el-table-column prop="name2" label="用户名称"></el-table-column>
         <el-table-column prop="name3" label="用户级别"></el-table-column>
         <el-table-column prop="name4" label="创建时间"></el-table-column>
-        <el-table-column label="修改密码" width="120">
+        <el-table-column label="修改密码" width="160">
           <template slot-scope="scope">
-            <el-button type="danger" size="mini">点击修改</el-button>
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" width="120">
-          <template slot-scope="scope">
-            <el-button type="primary" size="mini">编辑</el-button>
+            <button class="def-btn">点击修改</button>
+            <button class="def-btn">删除</button>
           </template>
         </el-table-column>
       </el-table>
 
-      <div class="inner-pagination-wrapper inner-pagination-colle">
-        <div class="pagination-btns-wrapper">
-          <el-button size="mini" type="primary">新增用户</el-button>
-        </div>
-        <el-pagination background layout="prev,pager,next,jumper" :total="1000" />
+      <div class="user-btns-wrapper">
+        <button class="def-btn">刷新</button>
+        <button class="def-btn">应用</button>
+        <button class="def-btn">新增用户</button>
       </div>
     </div>
   </div>
@@ -63,5 +58,10 @@ export default {
   background-color: grey;
   background: url("../../assets/images/machine1.png") center/contain no-repeat;
   margin: 0 auto;
+}
+
+.user-btns-wrapper {
+  margin-top: 10px;
+  text-align: right;
 }
 </style>

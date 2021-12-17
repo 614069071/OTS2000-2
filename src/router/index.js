@@ -128,26 +128,6 @@ export const dynamicRouter = [
         name: 'upgrade',
         component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade'),
         meta: { name: '远程升级' },
-        children: [
-          {
-            path: '/upgrade',
-            name: 'backup-reboot',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/backup-reboot'),
-            meta: { name: '备份与恢复出厂设置' },
-          },
-          {
-            path: '/upgrade/system-upgrade',
-            name: 'upgrade',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/system-upgrade'),
-            meta: { name: '系统升级' },
-          },
-          {
-            path: '/upgrade/veneer-upgrade',
-            name: 'run-log',
-            component: () => import(/* webpackChunkName: "view" */ '@/views/maint-manage/upgrade/veneer-upgrede'),
-            meta: { name: '单板升级' },
-          },
-        ]
       },
       {
         path: '/maint-manage/run-log',

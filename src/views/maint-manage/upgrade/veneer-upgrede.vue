@@ -1,5 +1,5 @@
 <template>
-  <div class="veneer-upgrede-view-wrapper view-wrapper">
+  <div class="veneer-upgrede-view-wrapper">
     <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title">需要升级的单板</div>
       <div>

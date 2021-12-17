@@ -25,10 +25,9 @@
       </el-table>
 
       <div class="add-user-config-wrapper" v-for="item in addUserArg" :key="item">
-        <input class="def-input" type="text" placeholder="用户名称" />
-        <input class="def-input" type="text" placeholder="密码" />
-        <input class="def-input" type="text" placeholder="创建时间" />
-        <el-select size="small" v-model="dataForm.name3">
+        <input class="def-input" type="text" placeholder="请输入用户名称" />
+        <input class="def-input" type="text" placeholder="请输入密码" />
+        <el-select size="small" placeholder="请选择用户级别" v-model="dataForm.name3">
           <el-option label="管理员" value="1"></el-option>
           <el-option label="一般用户" value="2"></el-option>
         </el-select>

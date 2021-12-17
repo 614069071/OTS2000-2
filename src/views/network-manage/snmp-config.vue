@@ -37,9 +37,9 @@
       </el-table>
 
       <div class="add-trap-config-wrapper" v-for="item in addTrapArg" :key="item">
-        <input class="def-input" type="text" placeholder="主机名称" />
-        <input class="def-input" type="text" placeholder="IP地址" />
-        <input class="def-input" type="text" placeholder="UDP通信端口" />
+        <input class="def-input" type="text" placeholder="请输入主机名称" />
+        <input class="def-input" type="text" placeholder="请输入IP地址" />
+        <input class="def-input" type="text" placeholder="请输入UDP通信端口" />
 
         <button class="def-btn">启用</button>
       </div>

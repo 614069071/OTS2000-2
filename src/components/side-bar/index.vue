@@ -112,23 +112,6 @@ export default {
               icon: "",
               menuName: "远程升级",
               menuLink: "/upgrade",
-              children: [
-                {
-                  icon: "",
-                  menuName: "备份与恢复出厂设置",
-                  menuLink: "/upgrade",
-                },
-                {
-                  icon: "",
-                  menuName: "系统升级",
-                  menuLink: "/upgrade/system-upgrade",
-                },
-                {
-                  icon: "",
-                  menuName: "单板升级",
-                  menuLink: "/upgrade/veneer-upgrade",
-                },
-              ],
             },
             {
               icon: "",

@@ -1,5 +1,5 @@
 <template>
-  <div class="system-upgrade-view-wrapper view-wrapper">
+  <div class="system-upgrade-view-wrapper">
     <div class="inner-container-wrapper banner-list">
       <div class="inner-container-title">系统升级</div>
       <el-upload class="upload-demo" accept=".bin" drag action="" :auto-upload="false" :file-list="fileList">

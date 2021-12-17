@@ -205,6 +205,11 @@ export default {
   border-bottom: 1px solid #edf0ef;
 }
 
+.el-submenu__title:hover,
+.el-menu-item:hover {
+  background-color: #fff !important;
+}
+
 .el-menu-item.is-active {
   // background-color: var(--default-color) !important;
   background-color: #003466 !important;

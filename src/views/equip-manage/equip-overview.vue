@@ -100,7 +100,7 @@ export default {
 
   .refresh-wrapper {
     font-size: 16px;
-    .el-button {
+    .button {
       margin-left: 10px;
     }
   }

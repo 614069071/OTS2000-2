@@ -11,11 +11,11 @@
       <el-checkbox>恢复出厂IP</el-checkbox>
 
       <div class="setting-btns">
-        <el-button type="primary" size="mini">备份</el-button>
-        <el-button type="primary" size="mini">全选</el-button>
-        <el-button type="primary" size="mini">反选</el-button>
-        <el-button type="primary" size="mini">全不选</el-button>
-        <el-button type="danger" size="mini">恢复出厂设置</el-button>
+        <button type="primary" size="mini">备份</button>
+        <button type="primary" size="mini">全选</button>
+        <button type="primary" size="mini">反选</button>
+        <button type="primary" size="mini">全不选</button>
+        <button type="danger" size="mini">恢复出厂设置</button>
       </div>
     </div>
   </div>

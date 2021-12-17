@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import {
   Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Select, Input, DatePicker, Option, Col, Row,
-  Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover,
-  Progress, Radio
+  Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Progress, Radio
 } from 'element-ui';
 
 import './element-variables.scss';
@@ -28,21 +27,17 @@ Vue
   .use(Submenu)
   .use(Table)
   .use(TableColumn)
-  .use(Form)
-  .use(FormItem)
+  // .use(Form)
+  // .use(FormItem)
   .use(Select)
   .use(Option)
   .use(Col)
   .use(Row)
-  .use(Button)
-  .use(Avatar)
-  .use(Pagination)
   .use(Input)
   .use(DatePicker)
   .use(Dialog)
   .use(Upload)
   .use(Checkbox)
-  .use(Popover)
   .use(Progress)
   .use(Radio)
 

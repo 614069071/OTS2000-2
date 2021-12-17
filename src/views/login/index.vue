@@ -29,7 +29,7 @@
           </el-popover>
         </div>
 
-        <el-button class="login-form-item" type="primary" @click="login">登录</el-button>
+        <button class="login-form-item" type="primary" @click="login">登录</button>
       </div>
     </div>
   </div>

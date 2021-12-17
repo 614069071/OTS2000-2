@@ -18,16 +18,16 @@
         <el-table-column prop="name5" label="操作方式"></el-table-column>
         <el-table-column label="操作" width="120">
           <template slot-scope="scope">
-            <el-button type="danger" size="mini">删除</el-button>
+            <button class="def-btn">删除</button>
           </template>
         </el-table-column>
       </el-table>
 
       <div class="inner-pagination-wrapper inner-pagination-colle">
         <div class="pagination-btns-wrapper">
-          <el-button size="mini" type="primary">应用</el-button>
+          <button class="def-btn">应用</button>
         </div>
-        <el-pagination background layout="prev,pager,next,jumper" :total="1000" />
+        <!-- <el-pagination background layout="prev,pager,next,jumper" :total="1000" /> -->
       </div>
     </div>
   </div>

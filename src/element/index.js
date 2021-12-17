@@ -4,7 +4,7 @@ import {
   Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover, Progress
 } from 'element-ui';
 
-import './element-variables.scss';
+// import './element-variables.scss';
 
 export let load = null;
 

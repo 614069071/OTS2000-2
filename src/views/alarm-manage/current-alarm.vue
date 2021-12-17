@@ -1,7 +1,9 @@
 <template>
   <div class="current-alarm-view-wrapper view-wrapper">
-    <div class="inner-header-wrapper">
-      <el-form inline label-width="100px" :model="dataForm">
+    <div class="inner-header-wrapper current-alarm-header-wrapper">
+      <div class="inner-container-title">查询条件</div>
+
+      <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm">
         <el-form-item label="起止日期">
           <el-date-picker v-model="dataForm.name7" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"> </el-date-picker>
         </el-form-item>
@@ -12,10 +14,12 @@
             <el-option label="槽位1" value="2"></el-option>
           </el-select>
         </el-form-item>
-
-        <el-button type="primary">查询</el-button>
-        <el-button>重置</el-button>
       </el-form>
+
+      <div class="current-alarm-search-submit">
+        <button class="def-btn">查询</button>
+        <button class="def-btn">重置</button>
+      </div>
     </div>
 
     <div class="inner-container-wrapper banner-list">
@@ -31,8 +35,8 @@
         <el-table-column prop="name8" label="告警状态"></el-table-column>
         <el-table-column label="操作" width="160">
           <template slot-scope="scope">
-            <el-button type="primary" size="mini">编辑</el-button>
-            <el-button type="danger" size="mini">删除</el-button>
+            <button class="def-btn">编辑</button>
+            <button class="def-btn">删除</button>
           </template>
         </el-table-column>
       </el-table>
@@ -40,12 +44,16 @@
 
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
-        <el-button size="mini" type="danger">删除满足条件的警告</el-button>
-        <el-button size="mini" type="danger">清除全部警告</el-button>
-        <el-button size="mini" type="warning">确认满足条件的警告</el-button>
-        <el-button size="mini" type="warning">确认全部警告</el-button>
+        <button class="def-btn">删除满足条件的警告</button>
+        <button class="def-btn">清除全部警告</button>
+        <button class="def-btn">确认满足条件的警告</button>
+        <button class="def-btn">确认全部警告</button>
       </div>
-      <el-pagination background layout="prev, pager, next, jumper" :total="1000" />
+
+      <div class="pagination-switch-btns">
+        <button class="def-btn">上一页</button>
+        <button class="def-btn">下一页</button>
+      </div>
     </div>
   </div>
 </template>
@@ -74,3 +82,23 @@ export default {
   methods: {},
 };
 </script>
+
+<style scoped>
+.current-alarm-header-wrapper {
+  padding-bottom: 20px;
+}
+.current-alarm-search {
+  margin-top: 20px;
+}
+
+.current-alarm-search-submit {
+  text-align: right;
+}
+
+.current-alarm-search-submit button + button {
+  margin-left: 7px;
+}
+.def-btn + .def-btn {
+  margin-left: 10px;
+}
+</style>

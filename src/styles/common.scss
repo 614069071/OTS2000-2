@@ -142,8 +142,11 @@
   align-items: center;
 }
 
-.inner-pagination-wrapper.inner-pagination-colle .pagination-btns-wrapper {
-  display: flex;
+.inner-pagination-wrapper.inner-pagination-colle {
+  .pagination-btns-wrapper,
+  .pagination-switch-btns {
+    display: flex;
+  }
 }
 
 button {

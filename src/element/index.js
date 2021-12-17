@@ -2,7 +2,7 @@ import Vue from 'vue';
 import {
   Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Select, Input, DatePicker, Option, Col, Row,
   Pagination, Button, Avatar, Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Popover,
-  Progress, Radio, RadioGroup
+  Progress, Radio
 } from 'element-ui';
 
 import './element-variables.scss';
@@ -45,5 +45,4 @@ Vue
   .use(Popover)
   .use(Progress)
   .use(Radio)
-  .use(RadioGroup)
 

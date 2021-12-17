@@ -46,3 +46,9 @@ export default {
   margin-top: 24px;
 }
 </style>
+
+<style>
+.backup-reboot-checks .el-checkbox {
+  margin-bottom: 24px;
+}
+</style>

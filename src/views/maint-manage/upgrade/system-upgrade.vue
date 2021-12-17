@@ -1,6 +1,6 @@
 <template>
   <div class="system-upgrade-view-wrapper">
-    <div class="inner-container-wrapper banner-list">
+    <div class="inner-container-wrapper">
       <div class="inner-container-title">系统升级</div>
       <div class="chose-wrapper">
         <span>选择升级文件</span>

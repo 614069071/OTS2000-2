@@ -2,7 +2,7 @@
   <div class="layout-wrapper">
     <div class="layout-header">
       <router-link tag="div" to="/" class="logo-wrapper">
-        <img src="../../assets/images/logo.png" alt="西迪特" />
+        <img src="../../assets/images/logo-red.png" alt="西迪特" />
       </router-link>
 
       <div class="user-info-wrapper">

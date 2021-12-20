@@ -1,37 +1,40 @@
 <template>
   <div class="login-view-wrapper">
-    <div class="login-inner-wrapper">
-      <div class="login-banner-item-wrapper">
-        <img src="../../assets/images/banner@2x.png" alt="" />
+    <!-- <img src="../../assets/images/banner.png" alt="" /> -->
+    <div class="login-header-wrapper">
+      <div class="logo-wrapper">
+        <img src="../../assets/images/logo-white.png" alt="" />
       </div>
-
-      <div class="login-banner-item-wrapper login-form-wrapper">
-        <div class="login-form-logo-wrapper">
-          <div class="login-logo-img-wrapper">
-            <!-- <img src="../../assets/images/logo2@2x.png" alt="" /> -->
-          </div>
-          <div class="login-logo-welcome">欢迎登录OTS2000网关系统</div>
-        </div>
-
-        <el-form ref="login_form" :model="loginInfo" :rules="rules">
-          <el-form-item prop="loginAccount">
-            <el-input class="login-form-item" v-model="loginInfo.loginAccount" @keyup.enter.native="login"></el-input>
-          </el-form-item>
-          <el-form-item prop="loginPassword" class="login-form-password">
-            <el-input type="password" class="login-form-item" v-model="loginInfo.loginPassword" @keyup.enter.native="login"></el-input>
-          </el-form-item>
-        </el-form>
-
-        <div class="login-form-forgot-password">
-          <el-popover placement="bottom-start" width="244" trigger="click">
-            <div class="login-forgot-mes">若忘记密码，请联系超级管理员</div>
-            <span class="login-forgot-btn" slot="reference">忘记密码</span>
-          </el-popover>
-        </div>
-
-        <button class="login-form-item" type="primary" @click="login">登录</button>
+      <div class="login-lang-set">
+        <span>语言</span>
+        <select>
+          <option value="1">中文</option>
+          <option value="2">English</option>
+        </select>
       </div>
     </div>
+
+    <div class="login-main">
+      <div class="login-main-left">
+        <div class="login-banner-wrapper"><img src="../../assets/images/banner.png" alt="" /></div>
+      </div>
+
+      <div class="login-main-right">
+        <div class="login-user-main">
+          <div class="login-user-wrapper">
+            <div class="login-user-before"></div>
+            <input type="text" placeholder="账户" />
+          </div>
+          <div class="login-ps-wrapper">
+            <div class="login-ps-before"></div>
+            <input type="text" placeholder="密码" />
+          </div>
+          <button class="login-submit" @click="simulateLogin">登录</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="login-footer f16">www.cdatatec.com</footer>
   </div>
 </template>
 
@@ -144,68 +147,107 @@ export default {
   height: 100vh;
   min-height: 600px;
   position: relative;
-  background-color: #f5f9fd;
-}
-
-.login-inner-wrapper {
+  background-color: #003366;
   display: flex;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.03);
+  flex-direction: column;
+  color: #fff;
 }
 
-.login-banner-item-wrapper {
-  width: 400px;
-  height: 500px;
+.login-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+  margin-top: 58px;
+}
+
+.logo-wrapper {
+  height: 80px;
+  width: 172px;
+}
+
+.login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.login-main-left,
+.login-main-right {
+  width: 50%;
+}
+
+.login-main-left {
+  display: flex;
+  justify-content: right;
+  padding-right: 120px;
+}
+
+.login-main-right {
+  padding-left: 45px;
+}
+
+.login-user-main {
+  width: 679px;
+  height: 365px;
+  border-radius: 34px;
+  padding-top: 58px;
   box-sizing: border-box;
+  background-color: rgba(96, 96, 96, 0.5);
 }
 
-.login-form-wrapper {
-  padding-left: 80px;
-  background-color: #fff;
-  border-radius: 0px 5px 5px 0px;
-}
+.login-user-wrapper,
+.login-ps-wrapper {
+  height: 66px;
+  width: 433px;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 
-.login-form-logo-wrapper {
-  padding-top: 108px;
-  padding-bottom: 24px;
-  .login-logo-img-wrapper {
-    width: 101px;
-    height: 34px;
-  }
-
-  .login-logo-welcome {
-    height: 20px;
-    line-height: 20px;
-    margin-top: 10px;
-    color: var(--font-color);
+  input {
+    flex: 1;
+    background-color: transparent;
+    color: #b0c3be;
+    font-size: 24px;
   }
 }
 
-.login-form-forgot-password {
-  text-align: right;
-  padding-right: 80px;
-  padding-bottom: 24px;
+.login-ps-wrapper {
+  margin-top: 53px;
 }
 
-.login-forgot-mes {
-  height: 36px;
-  line-height: 36px;
+.login-user-before,
+.login-ps-before {
+  width: 46px;
+  height: 46px;
+  margin: 0 15px 0 5px;
+  background: url(../../assets/images/user.png) center/contain no-repeat;
+}
+
+.login-ps-before {
+  background-image: url(../../assets/images/pasword.png);
+}
+
+.login-submit {
+  display: block;
+  width: 95px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
+  margin: 44px auto 0;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #606060;
+  font-size: 18px;
 }
 
-.login-forgot-btn {
-  color: var(--default-color);
-  cursor: pointer;
+.login-banner-wrapper {
+  width: 660px;
+  height: 133px;
 }
 
-.login-form-item {
-  width: 240px;
-}
-
-.login-form-password {
-  margin-bottom: 12px;
+.login-footer {
+  margin-bottom: 85px;
+  text-align: center;
 }
 </style>

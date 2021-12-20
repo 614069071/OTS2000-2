@@ -28,7 +28,7 @@
 
             <div class="vertical-line"></div>
 
-            <div class="setting-btn-wrapper">
+            <div class="setting-btn-wrapper" @click="$router.push('/login')">
               <div><i class="c-icon icon-next"></i></div>
               <div>退出</div>
             </div>

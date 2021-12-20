@@ -27,7 +27,7 @@
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="text" placeholder="密码" />
+            <input type="password" placeholder="密码" />
           </div>
           <button class="login-submit" @click="simulateLogin">登录</button>
         </div>

@@ -1,7 +1,6 @@
 <template>
   <div class="veneer-list-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
-      <div class="inner-container-title">设备框图</div>
       <div class="veneer-block-diagram-wrapper">
         <!-- 设备框图 -->
       </div>

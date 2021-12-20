@@ -25,9 +25,13 @@
 
       <div class="inner-pagination-wrapper inner-pagination-colle">
         <div class="pagination-btns-wrapper">
-          <button class="def-btn">应用</button>
+          <button class="def-btn">删除全部日志</button>
         </div>
-        <!-- <el-pagination background layout="prev,pager,next,jumper" :total="1000" /> -->
+
+        <div class="pagination-switch-btns">
+          <button class="def-btn">上一页</button>
+          <button class="def-btn">下一页</button>
+        </div>
       </div>
     </div>
   </div>

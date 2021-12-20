@@ -160,6 +160,11 @@ export default {
   margin-top: 58px;
 }
 
+.login-header-wrapper select {
+  background-color: #003366;
+  color: #fff;
+}
+
 .logo-wrapper {
   height: 80px;
   width: 172px;

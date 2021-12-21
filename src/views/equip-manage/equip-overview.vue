@@ -14,23 +14,26 @@
       <div class="system-info-main">
         <div class="system-info-wrapper">
           <div class="system-info-item">
-            <span>设备型号</span><span><input class="def-input" type="text"/></span>
+            <span>设备型号</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>序列号</span><span><input class="def-input" type="text"/></span>
-          </div>
-          <div class="system-info-item"><span>硬件版本</span><span>V1.0</span></div>
-          <div class="system-info-item">
-            <span>设备标识</span><span><input class="def-input" type="text"/></span>
+            <span>序列号</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>设备位置</span><span><input class="def-input" type="text"/></span>
+            <span>硬件版本</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>联系人</span><span><input class="def-input" type="text"/></span>
+            <span>设备标识</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+          </div>
+          <div class="system-info-item">
+            <span>设备位置</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+          </div>
+          <div class="system-info-item">
+            <span>联系人</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
           </div>
           <div class="system-info-change-wrapper">
-            <button class="def-btn">修改</button>
+            <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
+            <button v-else class="def-btn">提交</button>
           </div>
         </div>
 
@@ -84,14 +87,16 @@ export default {
   data() {
     return {
       dataForm: {},
+      isTatic: true,
       inquireLoading: false,
     };
   },
   created() {
-    this.getInfo();
+    this.getSystemInfo();
   },
   methods: {
-    getInfo() {
+    // 首页概览
+    getSystemInfo() {
       this.$http
         .post({
           otn2000: {

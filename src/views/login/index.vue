@@ -6,8 +6,8 @@
         <img src="../../assets/images/logo-white.png" alt="" />
       </div>
       <div class="login-lang-set">
-        <span>语言</span>
-        <select>
+        <span>{{ $t("LANGUAGE") }}</span>
+        <select v-model="langType" @change="langChange">
           <option value="1">中文</option>
           <option value="2">English</option>
         </select>
@@ -23,13 +23,13 @@
         <div class="login-user-main">
           <div class="login-user-wrapper">
             <div class="login-user-before"></div>
-            <input type="text" placeholder="账户" />
+            <input type="text" :placeholder="$t('USER_NAME')" />
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="password" placeholder="密码" />
+            <input type="password" :placeholder="$t('PASSWORD')" />
           </div>
-          <button class="login-submit" @click="simulateLogin">登录</button>
+          <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN") }}</button>
         </div>
       </div>
     </div>
@@ -46,6 +46,7 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      langType: "1",
       loginInfo: {
         loginAccount: "", //admin
         loginPassword: "", //admin
@@ -83,7 +84,11 @@ export default {
     // store.commit('CLEAR_CACHE_ROUTER');
     next();
   },
-  created() {},
+  created() {
+    const lang = localStorage.getItem("ost-lang") || "zh";
+    this.$i18n.locale = lang;
+    this.langType = lang === "zh" ? "1" : "2";
+  },
   computed: {
     ...mapState(["routerDefaultActive"]),
   },
@@ -136,6 +141,13 @@ export default {
         storages.set("MenuTreeColle", children);
         this.$router.push("/");
       });
+    },
+    langChange(e) {
+      const value = e.target.value;
+      const lang = value === "1" ? "zh" : "en";
+      this.$i18n.locale = lang;
+
+      localStorage.setItem("ost-lang", lang);
     },
   },
 };

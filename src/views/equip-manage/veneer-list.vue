@@ -18,7 +18,7 @@
         <el-table-column prop="name7" label="生产日期"></el-table-column>
         <el-table-column label="详情信息" width="100">
           <template slot-scope="scope">
-            <button class="veneer-look-btn" @click="lookDetail">点击查看</button>
+            <button class="veneer-look-btn" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
           </template>
         </el-table-column>
       </el-table>
@@ -71,10 +71,10 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: new Array(15).fill({
+      dataTable: new Array(1).fill({
         name1: "SLOT#1",
         name2: "在位",
-        name3: "nms",
+        name3: "edfa",
         name4: "nms20212102544",
         name5: "1.1.0.2",
         name6: "4.0.1",
@@ -84,10 +84,24 @@ export default {
     };
   },
   methods: {
-    lookDetail() {
-      console.log("查看详情");
+    lookDetail(index, data) {
+      console.log("查看详情", data);
 
       this.dialogVisible = true;
+
+      this.$http
+        .post({
+          otn2000: {
+            boardname: "sys_view",
+            type: "get_info",
+          },
+        })
+        .then((res) => {
+          console.log("get_info", res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };

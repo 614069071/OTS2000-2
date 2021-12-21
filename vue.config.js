@@ -3,16 +3,16 @@ const path = require('path');
 const resolve = (dir) => path.resolve(__dirname, dir);
 
 module.exports = {
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://192.168.8.160:9000/',
-  //       changeOrigin: true,
-  //       pathRewrite: { '^/api': '' },
-  //       secure: false
-  //     }
-  //   }
-  // },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://192.168.20.110:8080/',
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' },
+        secure: false
+      }
+    }
+  },
   lintOnSave: false,
   chainWebpack: config => {
     config.resolve.alias

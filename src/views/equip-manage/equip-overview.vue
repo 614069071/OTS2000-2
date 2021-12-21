@@ -14,20 +14,20 @@
       <div class="system-info-main">
         <div class="system-info-wrapper">
           <div class="system-info-item">
-            <span>设备型号</span><span><input class="def-input" type="text" /></span>
+            <span>设备型号</span><span><input class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>序列号</span><span><input class="def-input" type="text" /></span>
+            <span>序列号</span><span><input class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item"><span>硬件版本</span><span>V1.0</span></div>
           <div class="system-info-item">
-            <span>设备标识</span><span><input class="def-input" type="text" /></span>
+            <span>设备标识</span><span><input class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>设备位置</span><span><input class="def-input" type="text" /></span>
+            <span>设备位置</span><span><input class="def-input" type="text"/></span>
           </div>
           <div class="system-info-item">
-            <span>联系人</span><span><input class="def-input" type="text" /></span>
+            <span>联系人</span><span><input class="def-input" type="text"/></span>
           </div>
           <div class="system-info-change-wrapper">
             <button class="def-btn">修改</button>
@@ -87,7 +87,26 @@ export default {
       inquireLoading: false,
     };
   },
-  methods: {},
+  created() {
+    this.getInfo();
+  },
+  methods: {
+    getInfo() {
+      this.$http
+        .post({
+          otn2000: {
+            type: "get_info",
+            boardname: "sys_view",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 

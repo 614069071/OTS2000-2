@@ -45,15 +45,16 @@
       </div>
       <div class="veneer-edfa-item">
         <span>工作模式</span>
-        <span class="edfa-after">
-          <select size="mini" v-model="changeForm.name2">
-            <option value="1">APC</option>
-            <option value="2">AGC</option>
-            <option value="2">ACC</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: 'APC', value: 'APC' },
+            { label: 'AGC', value: 'AGC' },
+            { label: 'ACC', value: 'ACC' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>输入光功率门限（dBm）</span>
@@ -154,13 +155,17 @@
 </template>
 
 <script>
+import CustomSelect from "../../components/custom-select";
+
 export default {
   name: "edfa",
+  components: { CustomSelect },
   data() {
     return {
       changeForm: {
         name1: "",
         name2: "1",
+        name10: "APC",
       },
     };
   },
@@ -228,20 +233,11 @@ export default {
     margin-top: 7px;
     display: flex;
     align-items: center;
-
-    .edfa-input {
-      width: 80px;
-      height: 28px;
-      margin-left: 10px;
-    }
   }
 
   .veneer-edfa-item > span:first-child {
     width: 65%;
     text-align: center;
-  }
-  .veneer-edfa-item > span:last-child {
-    display: flex;
   }
 }
 </style>

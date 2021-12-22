@@ -182,7 +182,6 @@ router.afterEach(({ matched = [] }) => {
   const exclude = ['/login', '/error'];
   const isExclude = exclude.includes(route.path);
 
-  !isExclude && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
   !isExclude && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
 
   NProgress.done();

@@ -45,15 +45,14 @@
 
 <script>
 import store from "@store";
-import { mapState, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 import SideBar from "@components/side-bar";
-import TabCard from "./components/tab-card.vue";
 import NProgress from "nprogress";
 import { storages } from "@utils";
 
 export default {
   name: "layout",
-  components: { SideBar, TabCard },
+  components: { SideBar },
   data() {
     return {
       barCollapse: false,
@@ -73,9 +72,6 @@ export default {
     }
   },
   created() {},
-  computed: {
-    ...mapState(["breadcrumbRouter"]),
-  },
   methods: {
     initUserinfo() {
       const userInfo = storages.get("userInfo") || {};

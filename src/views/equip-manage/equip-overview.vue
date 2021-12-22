@@ -15,10 +15,7 @@
         <div class="system-info-wrapper">
           <div class="system-info-item">
             <span>设备型号</span>
-            <span>
-              <template v-if="isTatic">{{ systemInfo.device_type }}</template>
-              <input v-else class="def-input" type="text" />
-            </span>
+            <span>{{ systemInfo.device_type }} </span>
           </div>
           <div class="system-info-item">
             <span>序列号</span>
@@ -29,10 +26,7 @@
           </div>
           <div class="system-info-item">
             <span>硬件版本</span>
-            <span>
-              <template v-if="isTatic">V{{ systemInfo.h_ver }}</template>
-              <input v-else class="def-input" type="text" />
-            </span>
+            <span>V{{ systemInfo.h_ver }} </span>
           </div>
           <div class="system-info-item">
             <span>设备标识</span>
@@ -169,11 +163,15 @@ export default {
       timerCount: 60,
     };
   },
-  created() {
-    this.getSystemInfo();
-  },
+  created() {},
   mounted() {
+    this.getSystemInfo();
     this.startTimer();
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+    this.timer = null;
+    this.timerCount = 60;
   },
   methods: {
     // 首页概览

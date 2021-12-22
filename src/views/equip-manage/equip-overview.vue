@@ -14,22 +14,46 @@
       <div class="system-info-main">
         <div class="system-info-wrapper">
           <div class="system-info-item">
-            <span>设备型号</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>设备型号</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.device_type }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-item">
-            <span>序列号</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>序列号</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.serial_no }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-item">
-            <span>硬件版本</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>硬件版本</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.h_ver }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-item">
-            <span>设备标识</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>设备标识</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-item">
-            <span>设备位置</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>设备位置</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.location }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-item">
-            <span>联系人</span><span><template v-if="isTatic">123</template><input v-else class="def-input" type="text"/></span>
+            <span>联系人</span>
+            <span>
+              <template v-if="isTatic">{{ systemInfo.contacts }}</template>
+              <input v-else class="def-input" type="text" />
+            </span>
           </div>
           <div class="system-info-change-wrapper">
             <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
@@ -38,12 +62,24 @@
         </div>
 
         <div class="system-info-wrapper">
-          <div class="system-info-item"><span>电源1属性</span><span>交流 开 输出 11.658（V）</span></div>
-          <div class="system-info-item"><span>电源2属性</span><span>交流 开 输出 11.658（V）</span></div>
-          <div class="system-info-item"><span>固件版本</span><span>2.1.0</span></div>
-          <div class="system-info-item"><span>系统时间</span><span>2021年12月9日18时7分36秒</span></div>
-          <div class="system-info-item"><span>运行时间</span><span>0小时/9分/36秒</span></div>
-          <div class="system-info-item"><span>网关版本</span><span>4.2.25</span></div>
+          <div class="system-info-item">
+            <span>电源1属性</span><span>{{ (systemInfo.source_1 || {}).type ? "直流" : "交流" }} {{ systemInfo.source_1.on_off ? "开" : "关" }} 输出 {{ systemInfo.source_1.output }}（V）</span>
+          </div>
+          <div class="system-info-item">
+            <span>电源2属性</span><span>{{ systemInfo.source_2.type ? "直流" : "交流" }} {{ systemInfo.source_2.on_off ? "开" : "关" }} 输出 {{ systemInfo.source_2.output }}（V）</span>
+          </div>
+          <div class="system-info-item">
+            <span>固件版本</span><span>{{ systemInfo.p_ver }}</span>
+          </div>
+          <div class="system-info-item">
+            <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
+          </div>
+          <div class="system-info-item">
+            <span>运行时间</span><span>{{ systemInfo.run_time }}</span>
+          </div>
+          <div class="system-info-item">
+            <span>网关版本</span><span>{{ systemInfo.web_ver }}</span>
+          </div>
         </div>
       </div>
 
@@ -52,27 +88,27 @@
         <div class="fan-state-wrapper">
           <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
           <div class="state-inner-wrapper">
-            <div class="fan-wrapper error"></div>
+            <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'"></div>
           </div>
         </div>
         <div class="cpu-state-wrapper">
           <div class="state-title"><i class="c-icon icon-cpu"></i>CPU使用率</div>
           <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="10" color="#003466"></el-progress>
+            <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.cpu_rate)" color="#003466"></el-progress>
           </div>
         </div>
         <div class="memory-state-wrapper">
           <div class="state-title"><i class="c-icon icon-memory"></i>内存使用率</div>
           <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="15" color="#003466"></el-progress>
+            <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.mem_rate)" color="#003466"></el-progress>
           </div>
         </div>
         <div class="temperature-state-wrapper">
           <div class="state-title"><i class="c-icon icon-temper"></i>设备温度</div>
           <div class="state-inner-wrapper">
             <div class="temperature-wrapper">
-              <div class="temperature-inner-wrapper"></div>
-              <div class="temperature-value">27℃</div>
+              <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
+              <div class="temperature-value">{{ systemInfo.temp }}℃</div>
             </div>
           </div>
         </div>
@@ -89,6 +125,32 @@ export default {
       dataForm: {},
       isTatic: true,
       inquireLoading: false,
+      systemInfo: {
+        boardname: "",
+        device_type: "",
+        source_1: {
+          type: 0,
+          on_off: 0,
+          output: 0,
+        },
+        source_2: {
+          type: 0,
+          on_off: 0,
+          output: 0,
+        },
+        serial_no: "",
+        h_ver: "",
+        sys_time: "",
+        run_time: 0,
+        web_ver: "",
+        fan_status: "",
+        cpu_rate: "",
+        mem_rate: "",
+        temp: "",
+        location: "",
+        contacts: "",
+        dev_sign: "",
+      },
     };
   },
   created() {
@@ -106,6 +168,8 @@ export default {
         })
         .then((res) => {
           console.log(res);
+
+          this.systemInfo = res.otn2000_ack;
         })
         .catch((err) => {
           console.log(err);
@@ -238,7 +302,7 @@ export default {
   }
   .temperature-value {
     position: absolute;
-    right: -15px;
+    left: 95px;
     bottom: 55px;
     font-size: 18px;
   }

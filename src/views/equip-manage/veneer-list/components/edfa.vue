@@ -1,6 +1,6 @@
 <template>
   <div class="edfa-cps-wrapper">
-    <div class="veneer-header-wrapper">我是图</div>
+    <div class="veneer-header-wrapper">EDFA</div>
     <div class="veneer-main-wrapper">
       <div class="veneer-channel-item"><span class="border">硬件版本</span><span class="border"></span></div>
       <div class="veneer-channel-item"><span class="border">软件件版本</span><span class="border"></span></div>

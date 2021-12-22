@@ -24,51 +24,69 @@
       </el-table>
     </div>
 
-    <el-dialog title="单板详情" :visible.sync="dialogVisible" width="70%"><Nmu></Nmu></el-dialog>
+    <el-dialog :title="`${veneerType}详情`" :visible.sync="dialogVisible" width="70%">
+      <component :is="veneerType" :info="veneerData"></component>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import Nmu from "./components/nmu";
+import Edfa from "./components/edfa";
 
 export default {
   name: "veneer-list",
-  components: { Nmu },
+  components: { Nmu, Edfa },
   data() {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: new Array(1).fill({
-        name1: "SLOT#1",
-        name2: "在位",
-        name3: "edfa",
-        name4: "nms20212102544",
-        name5: "1.1.0.2",
-        name6: "4.0.1",
-        name7: "2121-5-20",
-      }),
+      dataTable: [
+        {
+          name1: "SLOT#1",
+          name2: "在位",
+          name3: "nmu",
+          name4: "nms20212102544",
+          name5: "1.1.0.2",
+          name6: "4.0.1",
+          name7: "2121-5-20",
+        },
+        {
+          name1: "SLOT#1",
+          name2: "在位",
+          name3: "edfa",
+          name4: "nms20212102544",
+          name5: "1.1.0.2",
+          name6: "4.0.1",
+          name7: "2121-5-20",
+        },
+      ],
       dialogVisible: false,
+      veneerType: "",
+      veneerData: {},
     };
   },
   methods: {
     lookDetail(index, data) {
-      console.log("查看详情", data);
+      console.log("查看详情", data.name3);
+      this.veneerType = data.name3;
+      this.veneerData = data;
 
       this.dialogVisible = true;
 
-      this.$http
-        .post({
-          otn2000: {
-            boardname: "sys_view",
-            type: "get_info",
-          },
-        })
-        .then((res) => {
-          console.log("get_info", res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // this.$http
+      //   .post({
+      //     otn2000: {
+      //       boardname: "sys_view",
+      //       type: "get_info",
+      //     },
+      //   })
+      //   .then((res) => {
+      //     console.log("get_info", res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     },
   },
 };

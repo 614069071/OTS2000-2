@@ -9,13 +9,17 @@
     <div class="inner-container-wrapper veneer-list">
       <div class="inner-container-title">单板列表</div>
       <el-table border :data="dataTable" tooltip-effect="dark" style="width: 100%">
-        <el-table-column prop="name1" label="槽位号"></el-table-column>
-        <el-table-column prop="name2" label="槽位状态"></el-table-column>
-        <el-table-column prop="name3" label="单板型号"></el-table-column>
-        <el-table-column prop="name4" label="序列号" min-width="140"></el-table-column>
-        <el-table-column prop="name5" label="硬件版本"></el-table-column>
-        <el-table-column prop="name6" label="软件版本"></el-table-column>
-        <el-table-column prop="name7" label="生产日期"></el-table-column>
+        <el-table-column prop="slot" label="槽位号"></el-table-column>
+        <el-table-column prop="status" label="槽位状态">
+          <template slot-scope="scoped">
+            {{ scoped.row.status ? "在位" : "脱位" }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="boardname" label="单板型号"></el-table-column>
+        <!-- <el-table-column prop="name4" label="序列号" min-width="140"></el-table-column> -->
+        <el-table-column prop="h_ver" label="硬件版本"></el-table-column>
+        <el-table-column prop="s_ver" label="软件版本"></el-table-column>
+        <el-table-column prop="mfgdate" label="生产日期"></el-table-column>
         <el-table-column label="详情信息" width="100">
           <template slot-scope="scope">
             <button class="veneer-look-btn" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
@@ -41,35 +45,35 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [
-        {
-          name1: "SLOT#1",
-          name2: "在位",
-          name3: "nmu",
-          name4: "nms20212102544",
-          name5: "1.1.0.2",
-          name6: "4.0.1",
-          name7: "2121-5-20",
-        },
-        {
-          name1: "SLOT#1",
-          name2: "在位",
-          name3: "edfa",
-          name4: "nms20212102544",
-          name5: "1.1.0.2",
-          name6: "4.0.1",
-          name7: "2121-5-20",
-        },
-      ],
+      dataTable: [],
       dialogVisible: false,
       veneerType: "",
       veneerData: {},
     };
   },
+  created() {
+    this.getVeneerList();
+  },
   methods: {
+    getVeneerList() {
+      this.$http
+        .post({
+          otn2000: {
+            boardname: "board_view",
+            type: "get_info",
+          },
+        })
+        .then((res) => {
+          console.log("list", res);
+          this.dataTable = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     lookDetail(index, data) {
-      console.log("查看详情", data.name3);
-      this.veneerType = data.name3;
+      console.log("查看详情", data.boardname);
+      this.veneerType = data.boardname;
       this.veneerData = data;
 
       this.dialogVisible = true;

@@ -194,6 +194,8 @@ export default {
         .then((res) => {
           console.log(res);
 
+          if (!res) return;
+
           this.systemInfo = res.otn2000_ack;
         })
         .catch((err) => {

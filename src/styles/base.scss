@@ -87,12 +87,17 @@ table {
 
 button,
 input,
-select,
 textarea {
   font-size: 100%;
   outline: none;
   border-radius: 0;
   border: 0;
+  background-color: #fff;
+}
+
+select {
+  outline: none;
+  height: 30px;
   background-color: #fff;
 }
 

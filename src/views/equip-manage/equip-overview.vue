@@ -4,7 +4,7 @@
 
     <div class="inner-container-wrapper banner-list">
       <div class="refresh-header-wrapper">
-        <div class="refresh-wrapper">自动刷新剩余时间：60秒 <button class="def-btn">立即刷新</button></div>
+        <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
       </div>
 
       <div class="veneer-block-diagram-wrapper">
@@ -30,7 +30,7 @@
           <div class="system-info-item">
             <span>硬件版本</span>
             <span>
-              <template v-if="isTatic">{{ systemInfo.h_ver }}</template>
+              <template v-if="isTatic">V{{ systemInfo.h_ver }}</template>
               <input v-else class="def-input" type="text" />
             </span>
           </div>
@@ -63,13 +63,27 @@
 
         <div class="system-info-wrapper">
           <div class="system-info-item">
-            <span>电源1属性</span><span>{{ (systemInfo.source_1 || {}).type ? "直流" : "交流" }} {{ systemInfo.source_1.on_off ? "开" : "关" }} 输出 {{ systemInfo.source_1.output }}（V）</span>
+            <span>电源1属性</span>
+            <span>
+              {{
+                systemInfo.source_1.output > 0
+                  ? `${systemInfo.source_1.type ? "直流" : "交流"}${systemInfo.source_1.on_off ? "开" : "关"} 输出 ${systemInfo.source_1.output.toFixed(2)}（V）`
+                  : "无电源"
+              }}
+            </span>
           </div>
           <div class="system-info-item">
-            <span>电源2属性</span><span>{{ systemInfo.source_2.type ? "直流" : "交流" }} {{ systemInfo.source_2.on_off ? "开" : "关" }} 输出 {{ systemInfo.source_2.output }}（V）</span>
+            <span>电源2属性</span>
+            <span>
+              {{
+                systemInfo.source_2.output > 0
+                  ? `${systemInfo.source_2.type ? "直流" : "交流"}${systemInfo.source_2.on_off ? "开" : "关"} 输出 ${systemInfo.source_2.output.toFixed(2)}（V）`
+                  : "无电源"
+              }}
+            </span>
           </div>
           <div class="system-info-item">
-            <span>固件版本</span><span>{{ systemInfo.p_ver }}</span>
+            <span>固件版本</span><span>V{{ systemInfo.p_ver }}</span>
           </div>
           <div class="system-info-item">
             <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
@@ -78,7 +92,7 @@
             <span>运行时间</span><span>{{ systemInfo.run_time }}</span>
           </div>
           <div class="system-info-item">
-            <span>网关版本</span><span>{{ systemInfo.web_ver }}</span>
+            <span>网关版本</span><span>V{{ systemInfo.web_ver }}</span>
           </div>
         </div>
       </div>
@@ -151,10 +165,15 @@ export default {
         contacts: "",
         dev_sign: "",
       },
+      timer: null,
+      timerCount: 60,
     };
   },
   created() {
     this.getSystemInfo();
+  },
+  mounted() {
+    this.startTimer();
   },
   methods: {
     // 首页概览
@@ -174,6 +193,21 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.timerCount -= 1;
+        if (this.timerCount <= 0) {
+          this.timerCount = 60;
+          this.getSystemInfo();
+        }
+      }, 1000);
+    },
+    refreshSystem() {
+      this.timer && clearInterval(this.timer);
+      this.timerCount = 60;
+      this.getSystemInfo();
+      this.startTimer();
     },
   },
 };

@@ -51,7 +51,10 @@
           </div>
           <div class="system-info-change-wrapper">
             <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
-            <button v-else class="def-btn">提交</button>
+            <template v-else>
+              <button class="def-btn">提交</button>
+              <button class="def-btn" @click="cancelChangeForm">取消</button>
+            </template>
           </div>
         </div>
 
@@ -212,6 +215,25 @@ export default {
       this.getSystemInfo();
       this.startTimer();
     },
+    submitChangeFrom() {
+      this.$http
+        .post(this.dataForm)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    cancelChangeForm() {
+      this.isTatic = true;
+      this.dataForm = {
+        dev_sign: "",
+        serial_no: "",
+        contacts: "",
+        location: "",
+      };
+    },
   },
 };
 </script>
@@ -276,8 +298,8 @@ export default {
 
   .system-info-change-wrapper {
     padding: 10px 0 40px 0;
-    button {
-      margin-left: 264px;
+    button:first-child {
+      margin-left: 246px;
     }
   }
 }

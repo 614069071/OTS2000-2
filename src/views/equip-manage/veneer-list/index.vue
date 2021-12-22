@@ -63,9 +63,37 @@ export default {
             type: "get_info",
           },
         })
-        .then((res) => {
-          console.log("list", res);
+        .then((res = { otn2000_ack: { channels: [] } }) => {
           this.dataTable = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getVeneerTitle(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_title",
+          boardname: "edfa",
+          slot,
+        },
+      });
+    },
+    getVeneerInfo(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_info",
+          boardname: "edfa",
+          slot,
+        },
+      });
+    },
+    getVeneerDetail(slot) {
+      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+        .then((res) => {
+          console.log("getVeneerDetail", res);
+
+          this.veneerData = res;
         })
         .catch((err) => {
           console.log(err);
@@ -74,23 +102,12 @@ export default {
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
       this.veneerType = data.boardname;
-      this.veneerData = data;
 
       this.dialogVisible = true;
 
-      // this.$http
-      //   .post({
-      //     otn2000: {
-      //       boardname: "sys_view",
-      //       type: "get_info",
-      //     },
-      //   })
-      //   .then((res) => {
-      //     console.log("get_info", res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
+      if (data.boardname === "edfa") {
+        this.getVeneerDetail(data.slot);
+      }
     },
   },
 };

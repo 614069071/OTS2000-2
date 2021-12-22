@@ -58,92 +58,97 @@
       </div>
       <div class="veneer-edfa-item">
         <span>输入光功率门限（dBm）</span>
-        <span class="edfa-after">
-          <select size="mini" v-model="changeForm.name2">
-            <option value="1">-20</option>
-            <option value="2">-26</option>
-            <option value="2">-31</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '-20', value: '0' },
+            { label: '-26', value: '1' },
+            { label: '-31', value: '2' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>输出光功率门限（dBm）</span>
-        <span class="edfa-after">
-          <select size="mini" v-model="changeForm.name2">
-            <option value="1">-2</option>
-            <option value="2">-5</option>
-            <option value="2">-3</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '-2', value: '0' },
+            { label: '-5', value: '1' },
+            { label: '-3', value: '2' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>PUMP电流门限（mA）</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">600</option>
-            <option value="2">800</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '600', value: '0' },
+            { label: '800', value: '1' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>PUMP关断电流（mA）</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">50</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '50', value: '0' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>模块温度低门限（℃）</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">-30</option>
-            <option value="1">-40</option>
-            <option value="1">-50</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '-30', value: '0' },
+            { label: '-40', value: '2' },
+            { label: '-50', value: '3' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>PUMP温度低门限（℃）</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">20</option>
-            <option value="3">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '20', value: '0' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>模块温度高门限</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">50</option>
-            <option value="2">60</option>
-            <option value="3">70</option>
-            <option value="4">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '50', value: '0' },
+            { label: '60', value: '1' },
+            { label: '70', value: '2' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
       <div class="veneer-edfa-item">
         <span>PUMP温度高门限（℃）</span>
-        <span class="edfa-after">
-          <select v-model="changeForm.name2">
-            <option value="1">30</option>
-            <option value="4">自定义</option>
-          </select>
-          <input class="def-input edfa-input" type="text" />
-        </span>
+
+        <CustomSelect
+          v-model="changeForm.name10"
+          :options="[
+            { label: '1', value: '0' },
+            { label: '4', value: '1' },
+            { label: '自定义', value: 'custom' },
+          ]"
+        />
       </div>
     </div>
     <div class="venner-change-btns">

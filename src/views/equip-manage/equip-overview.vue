@@ -20,8 +20,8 @@
           <div class="system-info-item">
             <span>序列号</span>
             <span>
-              <template v-if="isTatic">{{ systemInfo.serial_no }}</template>
-              <input v-else class="def-input" type="text" />
+              <template v-if="!$store.state.iSuper">{{ systemInfo.serial_no }}</template>
+              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="dataForm.serial_no" />
             </span>
           </div>
           <div class="system-info-item">
@@ -32,21 +32,21 @@
             <span>设备标识</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
-              <input v-else class="def-input" type="text" />
+              <input v-else class="def-input" type="text" v-model="dataForm.dev_sign" />
             </span>
           </div>
           <div class="system-info-item">
             <span>设备位置</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.location }}</template>
-              <input v-else class="def-input" type="text" />
+              <input v-else class="def-input" type="text" v-model="dataForm.location" />
             </span>
           </div>
           <div class="system-info-item">
             <span>联系人</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.contacts }}</template>
-              <input v-else class="def-input" type="text" />
+              <input v-else class="def-input" type="text" v-model="dataForm.contacts" />
             </span>
           </div>
           <div class="system-info-change-wrapper">
@@ -130,7 +130,12 @@ export default {
   name: "equip-overview",
   data() {
     return {
-      dataForm: {},
+      dataForm: {
+        dev_sign: "",
+        serial_no: "",
+        contacts: "",
+        location: "",
+      },
       isTatic: true,
       inquireLoading: false,
       systemInfo: {

@@ -9,6 +9,7 @@ export default new Store({
     __accessToken__: storages.get('__accessToken__') || '',
     routerDefaultActive: '/' || storages.get('DEFAULT_ACTIVE') || '',
     defaultOpenedsArray: [],
+    iSuper: false,
   },
   mutations: {
     // 登录成功设置

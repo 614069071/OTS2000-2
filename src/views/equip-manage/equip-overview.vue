@@ -52,7 +52,7 @@
           <div class="system-info-change-wrapper">
             <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
             <template v-else>
-              <button class="def-btn">提交</button>
+              <button class="def-btn" @click="submitChangeFrom">提交</button>
               <button class="def-btn" @click="cancelChangeForm">取消</button>
             </template>
           </div>
@@ -134,8 +134,8 @@ export default {
   data() {
     return {
       dataForm: {
+        // serial_no: "",
         dev_sign: "",
-        serial_no: "",
         contacts: "",
         location: "",
       },
@@ -216,10 +216,14 @@ export default {
       this.startTimer();
     },
     submitChangeFrom() {
+      const data = { otn2000: { boardname: "sys_view", type: "post_info", ...this.dataForm } };
+      console.log(data);
+
       this.$http
-        .post(this.dataForm)
+        .post(data)
         .then((res) => {
-          console.log(res);
+          this.systemInfo = res.otn2000_ack;
+          this.isTatic = true;
         })
         .catch((err) => {
           console.log(err);

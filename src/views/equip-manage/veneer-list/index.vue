@@ -29,7 +29,7 @@
     </div>
 
     <el-dialog :title="`${veneerType}详情`" :visible.sync="dialogVisible" width="70%">
-      <component :is="veneerType" :info="veneerData"></component>
+      <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </el-dialog>
   </div>
 </template>
@@ -70,44 +70,13 @@ export default {
           console.log(err);
         });
     },
-    getVeneerTitle(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_title",
-          boardname: "edfa",
-          slot,
-        },
-      });
-    },
-    getVeneerInfo(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_info",
-          boardname: "edfa",
-          slot,
-        },
-      });
-    },
-    getVeneerDetail(slot) {
-      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
-        .then((res) => {
-          console.log("getVeneerDetail", res);
 
-          this.veneerData = res;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
       this.veneerType = data.boardname;
+      this.veneerData = data;
 
       this.dialogVisible = true;
-
-      if (data.boardname === "edfa") {
-        this.getVeneerDetail(data.slot);
-      }
     },
   },
 };

@@ -2,15 +2,33 @@
   <div class="edfa-cps-wrapper">
     <div class="veneer-header-wrapper">EDFA</div>
     <div class="veneer-main-wrapper">
-      <div class="veneer-channel-item"><span class="border">硬件版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">软件件版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">协议版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">生产日期</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">序列号</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">运行时间</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">设备类型</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">状态</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">信息描述</span><span class="border"></span></div>
+      <div class="veneer-channel-item">
+        <span class="border">硬件版本</span><span class="border">{{ veneerTitleData.h_ver }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">软件版本</span><span class="border">{{ veneerTitleData.s_ver }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">协议版本</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">生产日期</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">序列号</span><span class="border">{{ veneerTitleData.serial_no }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">运行时间</span><span class="border">{{ veneerTitleData.run_time }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">设备类型</span><span class="border">{{ veneerTitleData.device_type }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">状态</span><span class="border">{{ veneerTitleData.status }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">信息描述</span><span class="border">{{ veneerTitleData.desc }}</span>
+      </div>
     </div>
 
     <div class="venner-change-btns">
@@ -164,6 +182,7 @@ import CustomSelect from "../../components/custom-select";
 
 export default {
   name: "edfa",
+  props: ["info", "visible"],
   components: { CustomSelect },
   data() {
     return {
@@ -172,13 +191,49 @@ export default {
         name2: "1",
         name10: "APC",
       },
+      veneerTitleData: {},
+      veneerInfoData: {},
     };
   },
-  created() {
-    console.log("created");
-  },
+  created() {},
   mounted() {
-    console.log("mounted");
+    console.log("mounted", 123);
+  },
+  watch: {
+    visible(n) {
+      if (!n) return;
+      this.getVeneerDetail(this.info.slot);
+    },
+  },
+  methods: {
+    getVeneerTitle(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_title",
+          boardname: "edfa",
+          slot,
+        },
+      });
+    },
+    getVeneerInfo(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_info",
+          boardname: "edfa",
+          slot,
+        },
+      });
+    },
+    getVeneerDetail(slot) {
+      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+        .then((res) => {
+          this.veneerTitleData = res[0];
+          this.veneerInfoData = res[1];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

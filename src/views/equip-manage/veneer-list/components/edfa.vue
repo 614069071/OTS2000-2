@@ -3,10 +3,10 @@
     <div class="veneer-header-wrapper">EDFA</div>
     <div class="veneer-main-wrapper">
       <div class="veneer-channel-item">
-        <span class="border">硬件版本</span><span class="border">{{ veneerTitleData.h_ver }}</span>
+        <span class="border">硬件版本</span><span class="border">{{ veneerTitleData.h_rev }}</span>
       </div>
       <div class="veneer-channel-item">
-        <span class="border">软件版本</span><span class="border">{{ veneerTitleData.s_ver }}</span>
+        <span class="border">软件版本</span><span class="border">{{ veneerTitleData.s_rev }}</span>
       </div>
       <div class="veneer-channel-item">
         <span class="border">协议版本</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
@@ -15,7 +15,7 @@
         <span class="border">生产日期</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
       </div>
       <div class="veneer-channel-item">
-        <span class="border">序列号</span><span class="border">{{ veneerTitleData.serial_no }}</span>
+        <span class="border">序列号</span><span class="border">{{ veneerTitleData.serialnum }}</span>
       </div>
       <div class="veneer-channel-item">
         <span class="border">运行时间</span><span class="border">{{ veneerTitleData.run_time }}</span>
@@ -37,17 +37,39 @@
     </div>
     <!-- 状态信息 -->
     <div class="veneer-main-wrapper">
-      <div class="veneer-channel-item"><span class="border">输入光功率（dBm）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">输出光功率（dBm）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">TEC制冷电流（mA）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">模块温度（℃）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">PUMP温度（℃）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">PUMP电流（mA）</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">输入功率告警</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">输出功率告警</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">PUMP电流告警</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">模块温度告警</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">PUMP温度告警</span><span class="border"></span></div>
+      <div class="veneer-channel-item">
+        <span class="border">输入光功率（dBm）</span><span class="border">{{ veneerInfoData.lum_input }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">输出光功率（dBm）</span><span class="border">{{ veneerInfoData.lum_output }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">TEC制冷电流（mA）</span><span class="border">{{ veneerInfoData.tec_cold_cur }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">模块温度（℃）</span><span class="border">{{ veneerInfoData.mod_temp }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">PUMP温度（℃）</span><span class="border">{{ veneerInfoData.pump_temp }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">PUMP电流（mA）</span><span class="border">{{ veneerInfoData.cur }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">输入功率告警</span><span class="border">{{ veneerInfoData.lum_input_thr }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">输出功率告警</span><span class="border">{{ veneerInfoData.lum_output_thr }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">PUMP电流告警</span><span class="border"> {{ veneerInfoData.pump_cur_thr }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">模块温度告警</span><span class="border"> {{ veneerInfoData.mod_temp_alarm }}</span>
+      </div>
+      <div class="veneer-channel-item">
+        <span class="border">PUMP温度告警</span><span class="border">{{ veneerInfoData.pump_temp_alarm }}</span>
+      </div>
       <div class="veneer-channel-item"><span class="border"></span><span class="border"></span></div>
     </div>
 
@@ -55,9 +77,9 @@
       <div class="veneer-edfa-item">
         <span>PUMP关断</span>
         <span>
-          <select size="mini" v-model="changeForm.name1">
-            <option value="1">打开</option>
-            <option value="2">关闭</option>
+          <select size="mini" v-model="veneerInfoData.pump_sw">
+            <option :value="1">打开</option>
+            <option :value="0">关闭</option>
           </select>
         </span>
       </div>
@@ -65,11 +87,11 @@
         <span>工作模式</span>
 
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="veneerInfoData.mode"
           :options="[
-            { label: 'APC', value: 'APC' },
-            { label: 'AGC', value: 'AGC' },
-            { label: 'ACC', value: 'ACC' },
+            { label: 'APC', value: 0 },
+            { label: 'AGC', value: 1 },
+            { label: 'ACC', value: 2 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -202,6 +224,7 @@ export default {
   watch: {
     visible(n) {
       if (!n) return;
+      console.log("this.info", this.info);
       this.getVeneerDetail(this.info.slot);
     },
   },
@@ -227,8 +250,8 @@ export default {
     getVeneerDetail(slot) {
       Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
         .then((res) => {
-          this.veneerTitleData = res[0];
-          this.veneerInfoData = res[1];
+          this.veneerTitleData = res[0].otn2000_ack;
+          this.veneerInfoData = res[1].otn2000_ack;
         })
         .catch((err) => {
           console.log(err);

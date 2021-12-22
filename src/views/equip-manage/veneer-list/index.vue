@@ -28,7 +28,7 @@
       </el-table>
     </div>
 
-    <el-dialog :title="`${veneerType}详情`" :visible.sync="dialogVisible" width="70%">
+    <el-dialog :title="`${veneerType.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </el-dialog>
   </div>
@@ -45,7 +45,7 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [],
+      dataTable: [{ boardname: "edfa", slot: 6 }],
       dialogVisible: false,
       veneerType: "",
       veneerData: {},
@@ -63,7 +63,8 @@ export default {
             type: "get_info",
           },
         })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
+        .then((res) => {
+          if (!res) return;
           this.dataTable = res.otn2000_ack.channels || [];
         })
         .catch((err) => {

@@ -73,11 +73,12 @@
       <div class="veneer-channel-item"><span class="border"></span><span class="border"></span></div>
     </div>
 
+    <!-- 修改信息 -->
     <div class="veneer-edfa-setting-wrapper">
       <div class="veneer-edfa-item">
         <span>PUMP关断</span>
         <span>
-          <select size="mini" v-model="veneerInfoData.pump_sw">
+          <select size="mini" v-model="changeForm.pump_sw">
             <option :value="1">打开</option>
             <option :value="0">关闭</option>
           </select>
@@ -87,11 +88,11 @@
         <span>工作模式</span>
 
         <CustomSelect
-          v-model="veneerInfoData.mode"
+          v-model="changeForm.mode"
           :options="[
-            { label: 'APC', value: 0 },
-            { label: 'AGC', value: 1 },
-            { label: 'ACC', value: 2 },
+            { label: 'APC', value: 'APC' },
+            { label: 'AGC', value: 'AGC' },
+            { label: 'ACC', value: 'ACC' },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -99,11 +100,13 @@
       <div class="veneer-edfa-item">
         <span>输入光功率门限（dBm）</span>
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.lum_input_thr"
           :options="[
-            { label: '-20', value: '0' },
-            { label: '-26', value: '1' },
-            { label: '-31', value: '2' },
+            { label: '-20', value: -20 },
+            { label: '-24', value: -24 },
+            { label: '-26', value: -26 },
+            { label: '-28', value: -28 },
+            { label: '-31', value: -31 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -111,11 +114,11 @@
       <div class="veneer-edfa-item">
         <span>输出光功率门限（dBm）</span>
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.lum_output_thr"
           :options="[
-            { label: '-2', value: '0' },
-            { label: '-5', value: '1' },
-            { label: '-3', value: '2' },
+            { label: '-5', value: -5 },
+            { label: '-3', value: -3 },
+            { label: '-2', value: -2 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -123,10 +126,10 @@
       <div class="veneer-edfa-item">
         <span>PUMP电流门限（mA）</span>
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.pump_cur_thr"
           :options="[
-            { label: '600', value: '0' },
-            { label: '800', value: '1' },
+            { label: '600', value: 600 },
+            { label: '800', value: 800 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -135,9 +138,9 @@
         <span>PUMP关断电流（mA）</span>
 
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.pump_sw_cur"
           :options="[
-            { label: '50', value: '0' },
+            { label: '50', value: 50 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -145,11 +148,12 @@
       <div class="veneer-edfa-item">
         <span>模块温度低门限（℃）</span>
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.mod_temp_low"
           :options="[
-            { label: '-30', value: '0' },
-            { label: '-40', value: '2' },
-            { label: '-50', value: '3' },
+            { label: '-40', value: -40 },
+            { label: '-45', value: -45 },
+            { label: '-50', value: -50 },
+            { label: '-55', value: -55 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -158,9 +162,9 @@
         <span>PUMP温度低门限（℃）</span>
 
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.pump_temp_low"
           :options="[
-            { label: '20', value: '0' },
+            { label: '20', value: 20 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -169,11 +173,12 @@
         <span>模块温度高门限</span>
 
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.mod_temp_high"
           :options="[
-            { label: '50', value: '0' },
-            { label: '60', value: '1' },
-            { label: '70', value: '2' },
+            { label: '55', value: 55 },
+            { label: '60', value: 60 },
+            { label: '65', value: 65 },
+            { label: '70', value: 70 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -182,10 +187,9 @@
         <span>PUMP温度高门限（℃）</span>
 
         <CustomSelect
-          v-model="changeForm.name10"
+          v-model="changeForm.pump_temp_high"
           :options="[
-            { label: '1', value: '0' },
-            { label: '4', value: '1' },
+            { label: '30', value: 30 },
             { label: '自定义', value: 'custom' },
           ]"
         />
@@ -209,9 +213,16 @@ export default {
   data() {
     return {
       changeForm: {
-        name1: "",
-        name2: "1",
-        name10: "APC",
+        mode: "",
+        pump_sw: 0,
+        lum_input_thr: 0,
+        lum_output_thr: 0,
+        pump_cur_thr: 0,
+        pump_sw_cur: 0,
+        mod_temp_low: 0,
+        pump_temp_low: 0,
+        mod_temp_high: 0,
+        pump_temp_high: 0,
       },
       veneerTitleData: {},
       veneerInfoData: {},
@@ -252,6 +263,19 @@ export default {
         .then((res) => {
           this.veneerTitleData = res[0].otn2000_ack;
           this.veneerInfoData = res[1].otn2000_ack;
+
+          this.changeForm = {
+            mode: res[1].otn2000_ack.mode,
+            pump_sw: res[1].otn2000_ack.pump_sw,
+            lum_input_thr: res[1].otn2000_ack.lum_input_thr,
+            lum_output_thr: res[1].otn2000_ack.lum_output_thr,
+            pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
+            pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
+            mod_temp_low: res[1].otn2000_ack.mod_temp_low,
+            pump_temp_low: res[1].otn2000_ack.pump_temp_low,
+            mod_temp_high: res[1].otn2000_ack.mod_temp_high,
+            pump_temp_high: res[1].otn2000_ack.pump_temp_high,
+          };
         })
         .catch((err) => {
           console.log(err);

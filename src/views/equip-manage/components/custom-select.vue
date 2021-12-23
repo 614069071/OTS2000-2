@@ -1,9 +1,9 @@
 <template>
   <span class="custom-select-wrapper">
     <select v-model="selectVal" @change="selectChange">
-      <option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</option>
+      <option v-for="(item, index) in options" :value="item.value" :key="`${index}${item.value}`">{{ item.label }}</option>
     </select>
-    <input v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model="selectCustomVal" />
+    <input v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
   </span>
 </template>
 
@@ -33,6 +33,7 @@ export default {
         if (!isHave) {
           //自定义值
           this.selectVal = "custom";
+          this.selectCustomVal = this.value;
         }
       },
       immediate: true,
@@ -49,8 +50,12 @@ export default {
       if (value === "custom") {
         this.$emit("input", this.selectCustomVal);
       } else {
-        this.selectCustomVal = "";
-        this.$emit("input", value);
+        // this.selectCustomVal = "";
+
+        const isNan = isNaN(parseFloat(value));
+        const val = isNan ? value : parseFloat(value);
+
+        this.$emit("input", val);
       }
     },
   },

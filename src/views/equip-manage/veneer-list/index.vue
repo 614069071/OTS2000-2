@@ -50,15 +50,17 @@ import Otu4x10g from "./components/otu4x10g";
 import Otu4x25g from "./components/otu4x25g";
 import Otu40g100g from "./components/otu40g100g";
 import Otucfpdco200g from "./components/otucfpdco200g";
+import Ocp2x10g from "./components/ocp2x10g";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g },
+  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g, Ocp2x10g },
   data() {
     return {
       dataForm: {},
       inquireLoading: false,
       dataTable: [
+        { boardname: "ocp2x10g", slot: 6 },
         { boardname: "d16", slot: 6 },
         { boardname: "d40", slot: 6 },
         { boardname: "dcm", slot: 6 },

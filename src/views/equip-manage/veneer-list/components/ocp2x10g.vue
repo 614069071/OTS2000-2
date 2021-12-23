@@ -1,6 +1,6 @@
 <template>
-  <div class="otu40g100g-cps-wrapper">
-    <div class="veneer-header-wrapper">otu40g100g</div>
+  <div class="otu4x10g-cps-wrapper">
+    <div class="veneer-header-wrapper">ocp2x10g</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
         <td>硬件版本</td>
@@ -37,28 +37,32 @@
       <tr>
         <td></td>
         <td class="no-right-border">
-          <div class="coll-4">SFP28光模块</div>
+          <div class="coll-2">通道1</div>
         </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
         <td></td>
         <td class="no-right-border">
-          <div class="coll-4">QSFP28光模块</div>
+          <div class="coll-2">通道2</div>
         </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2">通道3</div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2">通道4</div>
+        </td>
         <td></td>
       </tr>
       <tr>
-        <td>通道</td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
+        <td>端口</td>
+        <td>Clinet</td>
+        <td>Pri-Line</td>
+        <td>Clinet</td>
+        <td>Pri-Line</td>
+        <td>Clinet</td>
+        <td>Pri-Line</td>
+        <td>Clinet</td>
+        <td>Pri-Line</td>
       </tr>
       <tr>
         <td>在位状态</td>
@@ -66,11 +70,9 @@
         <td></td>
         <td></td>
         <td></td>
-        <td class="no-right-border">
-          <div class="coll-4"></div>
-        </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
       <tr>
@@ -85,26 +87,19 @@
         <td></td>
       </tr>
       <tr>
-        <td>属性</td>
+        <td>工作状态</td>
+        <td class="no-right-border">
+          <div class="coll-4"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
         <td></td>
+        <td class="no-right-border">
+          <div class="coll-4"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>波道</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>NA</td>
-        <td>NA</td>
-        <td>NA</td>
-        <td>NA</td>
       </tr>
       <tr>
         <td>波长（nm）</td>
@@ -118,7 +113,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>距离（km）</td>
+        <td>距离</td>
         <td></td>
         <td></td>
         <td></td>
@@ -129,7 +124,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>发射功率（dBm）</td>
+        <td>发射光功率（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -140,18 +135,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>接受功率（dBm）</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>偏置电流（mA）</td>
+        <td>接受光功率（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -167,11 +151,20 @@
         <td></td>
         <td></td>
         <td></td>
-        <td class="no-right-border">
-          <div class="coll-4"></div>
-        </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>偏置电流（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
       <tr>
@@ -180,11 +173,9 @@
         <td></td>
         <td></td>
         <td></td>
-        <td class="no-right-border">
-          <div class="coll-4"></div>
-        </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
       <tr>
@@ -193,26 +184,13 @@
         <td></td>
         <td></td>
         <td></td>
-        <td class="no-right-border">
-          <div class="coll-4"></div>
-        </td>
-        <td class="no-right-border"></td>
-        <td class="no-right-border"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>激光器</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
-        <td>误码检测</td>
+        <td>激光器开关</td>
         <td></td>
         <td></td>
         <td></td>
@@ -225,47 +203,80 @@
       <tr>
         <td>速率（Mbps）</td>
         <td class="no-right-border">
-          <div class="coll-4"></div>
+          <div class="coll-2"></div>
         </td>
         <td class="no-right-border"></td>
         <td class="no-right-border"></td>
         <td></td>
         <td class="no-right-border">
-          <div class="coll-4"></div>
+          <div class="coll-2"></div>
         </td>
         <td class="no-right-border"></td>
         <td class="no-right-border"></td>
         <td></td>
       </tr>
-
       <tr>
-        <td>输入EQ（dB）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>主备线路初始功率差（dB）</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
         <td></td>
         <td class="no-right-border">
-          <div class="coll-4">NA</div>
+          <div class="coll-2"></div>
         </td>
         <td class="no-right-border"></td>
         <td class="no-right-border"></td>
         <td></td>
       </tr>
       <tr>
-        <td>输出幅度（mVpp）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>倒换条件差值（dB）</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
         <td></td>
         <td class="no-right-border">
-          <div class="coll-4">NA</div>
+          <div class="coll-2"></div>
         </td>
         <td class="no-right-border"></td>
         <td class="no-right-border"></td>
         <td></td>
       </tr>
       <tr>
-        <td>接受光功率过低阈值（dBm）</td>
+        <td>保护模式</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>回切WTR时间（s）</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td class="no-right-border"></td>
+        <td class="no-right-border"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率过低阈值（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -276,7 +287,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>接受光功率过载阈值（dBm）</td>
+        <td>接收光功率过载阈值（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -298,7 +309,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>接受光功率过载阈值（dBm）</td>
+        <td>发送光功率过载阈值（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -343,7 +354,7 @@
 
 <script>
 export default {
-  name: "otu4x10g",
+  name: "ocp2x10g",
   data() {
     return {
       veneerTitleData: {},

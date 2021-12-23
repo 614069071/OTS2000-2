@@ -46,10 +46,11 @@ import M40 from "./components/m40";
 import Md8 from "./components/md8";
 import D16 from "./components/d16";
 import M16 from "./components/m16";
+import Otu4x10g from "./components/otu4x10g";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16 },
+  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g },
   data() {
     return {
       dataForm: {},
@@ -84,7 +85,7 @@ export default {
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
       // this.veneerType = data.boardname;
-      this.veneerType = "m16";
+      this.veneerType = "otu4x10g";
       this.veneerData = data;
 
       this.dialogVisible = true;
@@ -142,16 +143,21 @@ export default {
     border-bottom: 1px solid $border-color;
     border-left: none;
     border-top: none;
-  }
-
-  tr td:nth-child(odd) {
+    position: relative;
+    padding: 0 10px;
+    box-sizing: border-box;
     text-align: center;
   }
 
-  tr td:nth-child(even) {
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
+  .no-right-border {
+    border-right: 1px solid transparent;
+  }
+
+  .coll-2 {
+    width: 200%;
+    text-align: center;
+    position: absolute;
+    left: 0;
   }
 }
 

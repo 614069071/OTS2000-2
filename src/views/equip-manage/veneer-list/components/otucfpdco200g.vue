@@ -76,7 +76,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>lINK状态</td>
+        <td>LINK状态</td>
         <td></td>
         <td></td>
         <td></td>
@@ -113,7 +113,18 @@
         <td></td>
       </tr>
       <tr>
-        <td>发射光功率</td>
+        <td>发射光功率（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率（dBm）</td>
         <td></td>
         <td></td>
         <td></td>

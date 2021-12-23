@@ -15,7 +15,7 @@
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
-        <td>运行时间</td>
+        <td>OLP型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>
       <tr>
@@ -37,20 +37,8 @@
       <tr>
         <td>工作状态</td>
         <td></td>
+        <td>当前工作模式</td>
         <td></td>
-        <td></td>
-        <td>主线路设置</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>主线路收光信号</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
-        <td>备线路收光信号</td>
-        <td>{{ veneerTitleData.serialnum }}</td>
-        <td>备本地收光信号</td>
-        <td>{{ veneerTitleData.run_time }}</td>
-      </tr>
-      <tr>
         <td>强制倒换</td>
         <td>
           <CustomSelect
@@ -63,10 +51,22 @@
             ]"
           />
         </td>
-        <td>是否回切</td>
+      </tr>
+      <tr>
+        <td>主线路收光信号</td>
+        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>备线路收光信号</td>
+        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>本地线路收光信号</td>
+        <td>{{ veneerTitleData.run_time }}</td>
+      </tr>
+      <tr>
+        <td>是否自动回切</td>
         <td>{{ veneerTitleData.status }}</td>
         <td>回切WTR时间</td>
         <td>{{ veneerTitleData.desc }}</td>
+        <td>主线路告警门限（dBm）</td>
+        <td></td>
       </tr>
       <tr>
         <td>主备初始差异（dB）</td>

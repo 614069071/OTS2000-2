@@ -16,7 +16,6 @@
           </template>
         </el-table-column>
         <el-table-column prop="boardname" label="单板型号"></el-table-column>
-        <!-- <el-table-column prop="name4" label="序列号" min-width="140"></el-table-column> -->
         <el-table-column prop="h_ver" label="硬件版本"></el-table-column>
         <el-table-column prop="s_ver" label="软件版本"></el-table-column>
         <el-table-column prop="mfgdate" label="生产日期"></el-table-column>

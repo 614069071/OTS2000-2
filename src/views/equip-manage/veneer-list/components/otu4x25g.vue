@@ -15,7 +15,7 @@
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
-        <td>运行时间</td>
+        <td>板型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>
       <tr>
@@ -76,7 +76,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>lINK状态</td>
+        <td>LINK状态</td>
         <td></td>
         <td></td>
         <td></td>
@@ -109,7 +109,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>波长（nm）</td>
+        <td>波长</td>
         <td></td>
         <td></td>
         <td></td>
@@ -163,8 +163,9 @@
         <td></td>
         <td></td>
       </tr>
+
       <tr>
-        <td>偏置电流（mA）</td>
+        <td>偏置电流（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -176,6 +177,135 @@
       </tr>
       <tr>
         <td>温度（℃）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>预留1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>激光器</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>误码检测</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>速率（Mbps）</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>输入EQ（dB）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>输出幅度（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率过低阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率过载阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>发送光功率过载阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>预留2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>预留3</td>
         <td></td>
         <td></td>
         <td></td>
@@ -198,7 +328,7 @@
 
 <script>
 export default {
-  name: "otu4x10g",
+  name: "otu4x25g",
   data() {
     return {
       veneerTitleData: {},

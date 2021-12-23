@@ -15,7 +15,7 @@
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
-        <td>运行时间</td>
+        <td>板型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>
       <tr>
@@ -50,7 +50,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>端口</td>
+        <td>通道</td>
         <td>1</td>
         <td>2</td>
         <td>3</td>
@@ -74,7 +74,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>lINK状态</td>
+        <td>LINK状态</td>
         <td></td>
         <td></td>
         <td></td>
@@ -266,6 +266,28 @@
       </tr>
       <tr>
         <td>接受光功率过低阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接受光功率过载阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>发送光功率过低阈值（dBm）</td>
         <td></td>
         <td></td>
         <td></td>

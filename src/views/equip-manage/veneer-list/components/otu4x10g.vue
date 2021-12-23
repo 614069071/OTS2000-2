@@ -15,7 +15,7 @@
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
-        <td>运行时间</td>
+        <td>板型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>
       <tr>
@@ -65,7 +65,7 @@
         <td>Line</td>
       </tr>
       <tr>
-        <td>lINK状态</td>
+        <td>在位状态</td>
         <td></td>
         <td></td>
         <td></td>
@@ -76,7 +76,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>速率（Mbps）</td>
+        <td>LINK状态</td>
         <td></td>
         <td></td>
         <td></td>
@@ -87,7 +87,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>LOOP模式</td>
+        <td>属性</td>
         <td></td>
         <td></td>
         <td></td>
@@ -98,7 +98,18 @@
         <td></td>
       </tr>
       <tr>
-        <td>频率（GHz）</td>
+        <td>波道</td>
+        <td>NA</td>
+        <td></td>
+        <td>NA</td>
+        <td></td>
+        <td>NA</td>
+        <td></td>
+        <td>NA</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>波长</td>
         <td></td>
         <td></td>
         <td></td>
@@ -109,7 +120,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>波长（nm）</td>
+        <td>距离（km）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -120,7 +131,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>发射功率（dBm）</td>
+        <td>发射光功率（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -131,18 +142,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>接受功率（dBm）</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>接受阈值（dBm）</td>
+        <td>接受光功率（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -163,8 +163,9 @@
         <td></td>
         <td></td>
       </tr>
+
       <tr>
-        <td>电流（mA）</td>
+        <td>偏置电流（dBm）</td>
         <td></td>
         <td></td>
         <td></td>
@@ -176,6 +177,80 @@
       </tr>
       <tr>
         <td>温度（℃）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>预留1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>激光器开关</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>速率（Mbps）</td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+        <td class="no-right-border">
+          <div class="coll-2"></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>环回控制</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率过低阈值（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接收光功率过载阈值（dBm）</td>
         <td></td>
         <td></td>
         <td></td>

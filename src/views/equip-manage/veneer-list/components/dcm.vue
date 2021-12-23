@@ -15,7 +15,7 @@
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
-        <td>运行时间</td>
+        <td>DCM型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>
       <tr>

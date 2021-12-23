@@ -47,15 +47,34 @@ import Md8 from "./components/md8";
 import D16 from "./components/d16";
 import M16 from "./components/m16";
 import Otu4x10g from "./components/otu4x10g";
+import Otu4x25g from "./components/otu4x25g";
+import Otu40g100g from "./components/otu40g100g";
+import Otucfpdco200g from "./components/otucfpdco200g";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g },
+  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g },
   data() {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [{ boardname: "edfa", slot: 6 }],
+      dataTable: [
+        { boardname: "d16", slot: 6 },
+        { boardname: "d40", slot: 6 },
+        { boardname: "dcm", slot: 6 },
+        { boardname: "edfa", slot: 6 },
+        { boardname: "m16", slot: 6 },
+        { boardname: "m40", slot: 6 },
+        { boardname: "md8", slot: 6 },
+        { boardname: "md16sfa", slot: 6 },
+        { boardname: "md16sfb", slot: 6 },
+        { boardname: "nmu", slot: 6 },
+        { boardname: "olp", slot: 6 },
+        { boardname: "otu4x10g", slot: 6 },
+        { boardname: "otu4x25g", slot: 6 },
+        { boardname: "otu40g100g", slot: 6 },
+        { boardname: "otucfpdco200g", slot: 6 },
+      ],
       dialogVisible: false,
       veneerType: "",
       veneerData: {},
@@ -84,8 +103,7 @@ export default {
 
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
-      // this.veneerType = data.boardname;
-      this.veneerType = "otu4x10g";
+      this.veneerType = data.boardname;
       this.veneerData = data;
 
       this.dialogVisible = true;
@@ -135,7 +153,7 @@ export default {
   }
 
   td {
-    height: 34px;
+    min-height: 34px;
     line-height: 34px;
     color: #666;
     flex: 1;
@@ -155,6 +173,12 @@ export default {
 
   .coll-2 {
     width: 200%;
+    text-align: center;
+    position: absolute;
+    left: 0;
+  }
+  .coll-4 {
+    width: 400%;
     text-align: center;
     position: absolute;
     left: 0;

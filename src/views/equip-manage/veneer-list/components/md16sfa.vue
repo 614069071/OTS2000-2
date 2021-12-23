@@ -1,6 +1,6 @@
 <template>
-  <div class="md16sfb-cps-wrapper">
-    <div class="veneer-header-wrapper">md16sfb</div>
+  <div class="md16sfa-cps-wrapper">
+    <div class="veneer-header-wrapper">md16sfa</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
         <td>硬件版本</td>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "md16sfb",
+  name: "md16sfa",
   props: ["info"],
   data() {
     return {

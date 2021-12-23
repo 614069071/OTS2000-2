@@ -1,5 +1,5 @@
 <template>
-  <div class="olp-view-wrapper">
+  <div class="olp-cps-wrapper">
     <div class="veneer-header-wrapper">olp</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>

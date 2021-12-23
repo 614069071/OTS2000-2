@@ -38,10 +38,18 @@
 import Nmu from "./components/nmu";
 import Edfa from "./components/edfa";
 import Olp from "./components/olp";
+import Dcm from "./components/dcm";
+import Md16sfb from "./components/md16sfb";
+import Md16sfa from "./components/md16sfa";
+import D40 from "./components/d40";
+import M40 from "./components/m40";
+import Md8 from "./components/md8";
+import D16 from "./components/d16";
+import M16 from "./components/m16";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp },
+  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16 },
   data() {
     return {
       dataForm: {},
@@ -76,7 +84,7 @@ export default {
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
       // this.veneerType = data.boardname;
-      this.veneerType = "olp";
+      this.veneerType = "m16";
       this.veneerData = data;
 
       this.dialogVisible = true;

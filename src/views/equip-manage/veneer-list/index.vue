@@ -37,10 +37,11 @@
 <script>
 import Nmu from "./components/nmu";
 import Edfa from "./components/edfa";
+import Olp from "./components/olp";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa },
+  components: { Nmu, Edfa, Olp },
   data() {
     return {
       dataForm: {},
@@ -141,6 +142,8 @@ export default {
 
   tr td:nth-child(even) {
     padding-left: 10px;
+    display: flex;
+    align-items: center;
   }
 }
 

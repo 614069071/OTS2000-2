@@ -121,6 +121,12 @@
         <td></td>
         <td></td>
       </tr>
+      <tr>
+        <td>双工</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
   </div>
 </template>

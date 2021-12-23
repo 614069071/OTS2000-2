@@ -74,7 +74,8 @@ export default {
 
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
-      this.veneerType = data.boardname;
+      // this.veneerType = data.boardname;
+      this.veneerType = "olp";
       this.veneerData = data;
 
       this.dialogVisible = true;
@@ -101,13 +102,56 @@ export default {
 }
 </style>
 
-<style>
-.border {
-  height: 36px;
-  line-height: 36px;
-  border-right: 1px solid #e8e8e8;
-  border-bottom: 1px solid #e8e8e8;
-  text-align: center;
-  box-sizing: border-box;
+<style lang="scss">
+// 单板详情表格
+.veneer-header-wrapper {
+  height: 77px;
+  border: 1px solid red;
+}
+
+.veneer-table {
+  $border-color: #e8e8e8;
+  width: 100%;
+  border-collapse: collapse !important;
+  margin-top: 20px;
+  border-left: 1px solid $border-color;
+  border-top: 1px solid $border-color;
+  border-bottom: none;
+  border-right: none;
+
+  tr {
+    display: flex;
+    border: none;
+  }
+
+  td {
+    height: 34px;
+    line-height: 34px;
+    color: #666;
+    flex: 1;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    border-left: none;
+    border-top: none;
+  }
+
+  tr td:nth-child(odd) {
+    text-align: center;
+  }
+
+  tr td:nth-child(even) {
+    padding-left: 10px;
+  }
+}
+
+.veneer-title-table {
+  td {
+    width: 16.66%;
+  }
+}
+
+.venner-change-btns {
+  text-align: right;
+  margin-top: 20px;
 }
 </style>

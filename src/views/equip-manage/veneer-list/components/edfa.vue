@@ -1,77 +1,78 @@
 <template>
   <div class="edfa-cps-wrapper">
     <div class="veneer-header-wrapper">EDFA</div>
-    <div class="veneer-main-wrapper">
-      <div class="veneer-channel-item">
-        <span class="border">硬件版本</span><span class="border">{{ veneerTitleData.h_rev }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">软件版本</span><span class="border">{{ veneerTitleData.s_rev }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">协议版本</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">生产日期</span><span class="border">{{ veneerTitleData.mfgdate }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">序列号</span><span class="border">{{ veneerTitleData.serialnum }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">运行时间</span><span class="border">{{ veneerTitleData.run_time }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">设备类型</span><span class="border">{{ veneerTitleData.device_type }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">状态</span><span class="border">{{ veneerTitleData.status }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">信息描述</span><span class="border">{{ veneerTitleData.desc }}</span>
-      </div>
-    </div>
+
+    <table class="veneer-table veneer-title-table" border="1">
+      <tr>
+        <td>硬件版本</td>
+        <td>{{ veneerTitleData.h_rev }}</td>
+        <td>软件版本</td>
+        <td>{{ veneerTitleData.s_rev }}</td>
+        <td>协议版本</td>
+        <td>{{ veneerTitleData.mfgdate }}</td>
+      </tr>
+      <tr>
+        <td>生产日期</td>
+        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>序列号</td>
+        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>运行时间</td>
+        <td>{{ veneerTitleData.run_time }}</td>
+      </tr>
+      <tr>
+        <td>设备类型</td>
+        <td>{{ veneerTitleData.device_type }}</td>
+        <td>状态</td>
+        <td>{{ veneerTitleData.status }}</td>
+        <td>信息描述</td>
+        <td>{{ veneerTitleData.desc }}</td>
+      </tr>
+    </table>
 
     <div class="venner-change-btns">
       <button class="def-btn">刷新</button>
       <button class="def-btn">应用</button>
     </div>
+
     <!-- 状态信息 -->
-    <div class="veneer-main-wrapper">
-      <div class="veneer-channel-item">
-        <span class="border">输入光功率（dBm）</span><span class="border">{{ veneerInfoData.lum_input }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">输出光功率（dBm）</span><span class="border">{{ veneerInfoData.lum_output }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">TEC制冷电流（mA）</span><span class="border">{{ veneerInfoData.tec_cold_cur }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">模块温度（℃）</span><span class="border">{{ veneerInfoData.mod_temp }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">PUMP温度（℃）</span><span class="border">{{ veneerInfoData.pump_temp }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">PUMP电流（mA）</span><span class="border">{{ veneerInfoData.cur }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">输入功率告警</span><span class="border">{{ veneerInfoData.lum_input_thr }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">输出功率告警</span><span class="border">{{ veneerInfoData.lum_output_thr }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">PUMP电流告警</span><span class="border"> {{ veneerInfoData.pump_cur_thr }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">模块温度告警</span><span class="border"> {{ veneerInfoData.mod_temp_alarm }}</span>
-      </div>
-      <div class="veneer-channel-item">
-        <span class="border">PUMP温度告警</span><span class="border">{{ veneerInfoData.pump_temp_alarm }}</span>
-      </div>
-      <div class="veneer-channel-item"><span class="border"></span><span class="border"></span></div>
-    </div>
+
+    <table class="veneer-table" border="1">
+      <tr>
+        <td>输入光功率（dBm）</td>
+        <td>{{ veneerInfoData.lum_input }}</td>
+        <td>输出光功率（dBm）</td>
+        <td>{{ veneerInfoData.lum_output }}</td>
+        <td>TEC制冷电流（mA）</td>
+        <td>{{ veneerInfoData.tec_cold_cur }}</td>
+      </tr>
+
+      <tr>
+        <td>模块温度（℃）</td>
+        <td>{{ veneerInfoData.mod_temp }}</td>
+        <td>PUMP温度（℃）</td>
+        <td>{{ veneerInfoData.pump_temp }}</td>
+        <td>PUMP电流（mA）</td>
+        <td>{{ veneerInfoData.cur }}</td>
+      </tr>
+
+      <tr>
+        <td>输入功率告警</td>
+        <td>{{ veneerInfoData.lum_input_thr }}</td>
+        <td>输出功率告警</td>
+        <td>{{ veneerInfoData.lum_output_thr }}</td>
+        <td>PUMP电流告警</td>
+        <td>{{ veneerInfoData.pump_cur_thr }}</td>
+      </tr>
+
+      <tr>
+        <td>模块温度告警</td>
+        <td>{{ veneerInfoData.mod_temp_alarm }}</td>
+        <td>PUMP温度告警</td>
+        <td>{{ veneerInfoData.pump_temp_alarm }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
 
     <!-- 修改信息 -->
     <div class="veneer-edfa-setting-wrapper">
@@ -286,51 +287,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.veneer-header-wrapper {
-  height: 77px;
-  border: 1px solid red;
-}
-.veneer-main-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  border-top: 1px solid #e8e8e8;
-  border-left: 1px solid #e8e8e8;
-
-  .veneer-channel-item {
-    width: 33.33%;
-    display: flex;
-  }
-
-  .veneer-channel-item span:first-child {
-    width: 40%;
-    text-align: center;
-  }
-
-  .veneer-channel-item span:last-child {
-    flex: 1;
-    padding-left: 10px;
-  }
-}
-
-.venner-change-btns {
-  text-align: right;
-  padding: 10px 0;
-}
-
-.venner-change-info-wrapper {
-  margin-top: 40px;
-  border-top: 1px solid #e8e8e8;
-  border-left: 1px solid #e8e8e8;
-  .venner-change-info-item {
-    display: flex;
-
-    span {
-      width: 25%;
-    }
-  }
-}
-
 .veneer-edfa-setting-wrapper {
   display: flex;
   flex-wrap: wrap;

@@ -1,40 +1,127 @@
 <template>
   <div class="num-cps-wrapper">
     <div class="veneer-header-wrapper">Nmu</div>
-    <div class="veneer-main-wrapper">
-      <div class="veneer-channel-item"><span class="border">硬件版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">软件件版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">协议版本</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">生产日期</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">序列号</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">运行时间</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">设备类型</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">状态</span><span class="border"></span></div>
-      <div class="veneer-channel-item"><span class="border">信息描述</span><span class="border"></span></div>
-    </div>
+    <table class="veneer-table veneer-title-table" border="1">
+      <tr>
+        <td>硬件版本</td>
+        <td>{{ veneerTitleData.h_rev }}</td>
+        <td>软件版本</td>
+        <td>{{ veneerTitleData.s_rev }}</td>
+        <td>协议版本</td>
+        <td>{{ veneerTitleData.mfgdate }}</td>
+      </tr>
+      <tr>
+        <td>生产日期</td>
+        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>序列号</td>
+        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>运行时间</td>
+        <td>{{ veneerTitleData.run_time }}</td>
+      </tr>
+      <tr>
+        <td>设备类型</td>
+        <td>{{ veneerTitleData.device_type }}</td>
+        <td>状态</td>
+        <td>{{ veneerTitleData.status }}</td>
+        <td>信息描述</td>
+        <td>{{ veneerTitleData.desc }}</td>
+      </tr>
+    </table>
 
     <div class="venner-change-btns">
       <button class="def-btn">刷新</button>
       <button class="def-btn">应用</button>
     </div>
 
-    <div class="venner-change-info-wrapper">
-      <div class="venner-change-info-item">
-        <span class="border">SFP端口</span>
-        <span class="border">SFP1</span>
-        <span class="border">SFP2</span>
-        <span class="border">SFP3</span>
-      </div>
-    </div>
+    <table class="veneer-table veneer-title-table" border="1">
+      <tr>
+        <td>SFP端口</td>
+        <td>SFP1</td>
+        <td>SFP2</td>
+        <td>SFP3</td>
+      </tr>
+      <tr>
+        <td>在位状态</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>LINK状态</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>速率（Mbps）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>波长（nm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>距离（km）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>发送光功率（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>接受光功率（dBm）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>电压（V）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>电流（mA）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>温度（℃）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
 
-    <div class="venner-change-info-wrapper">
-      <div class="venner-change-info-item">
-        <span class="border">ETH端口</span>
-        <span class="border">ETH1</span>
-        <span class="border">ETH2</span>
-        <span class="border">ETH3</span>
-      </div>
-    </div>
+    <table class="veneer-table">
+      <tr>
+        <td>ETH端口</td>
+        <td>ETH1</td>
+        <td>ETH2</td>
+        <td>ETH3</td>
+      </tr>
+      <tr>
+        <td>LINK状态</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>速率（Mbps）</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -43,7 +130,9 @@ export default {
   name: "nmu",
   props: ["info"],
   data() {
-    return {};
+    return {
+      veneerTitleData: {},
+    };
   },
   created() {
     console.log("created");
@@ -54,49 +143,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.veneer-header-wrapper {
-  height: 77px;
-  border: 1px solid red;
-}
-.veneer-main-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  border-top: 1px solid #e8e8e8;
-  border-left: 1px solid #e8e8e8;
-
-  .veneer-channel-item {
-    width: 33.33%;
-    display: flex;
-  }
-
-  .veneer-channel-item span:first-child {
-    width: 40%;
-    text-align: center;
-  }
-
-  .veneer-channel-item span:last-child {
-    flex: 1;
-    padding-left: 10px;
-  }
-}
-
-.venner-change-btns {
-  text-align: right;
-  padding: 10px 0;
-}
-
-.venner-change-info-wrapper {
-  margin-top: 40px;
-  border-top: 1px solid #e8e8e8;
-  border-left: 1px solid #e8e8e8;
-  .venner-change-info-item {
-    display: flex;
-
-    span {
-      width: 25%;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

@@ -192,8 +192,6 @@ export default {
           },
         })
         .then((res) => {
-          console.log(res);
-
           if (!res) return;
 
           this.systemInfo = res.otn2000_ack;
@@ -219,7 +217,6 @@ export default {
     },
     submitChangeFrom() {
       const data = { otn2000: { boardname: "sys_view", type: "post_info", ...this.dataForm } };
-      console.log(data);
 
       this.$http
         .post(data)

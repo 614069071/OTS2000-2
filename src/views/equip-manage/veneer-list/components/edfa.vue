@@ -364,7 +364,7 @@ export default {
     restoreDefaultInfo() {
       // const data = {
       //   otn2000: {
-      //     type: "post_title",
+      //     type: "default",
       //     boardname: "edfa",
       //     slot: this.info.slot,
       //   },

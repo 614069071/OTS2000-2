@@ -52,23 +52,23 @@
         <td>PUMP温度（℃）</td>
         <td>{{ veneerInfoData.pump_temp }}</td>
         <td>PUMP电流（mA）</td>
-        <td>{{ veneerInfoData.cur }}</td>
+        <td>{{ veneerInfoData.pump_cur }}</td>
       </tr>
 
       <tr>
         <td>输入功率告警</td>
-        <td>{{ veneerInfoData.lum_input_thr }}</td>
+        <td>{{ veneerInfoData.lum_input_thr ? "告警" : "正常" }}</td>
         <td>输出功率告警</td>
-        <td>{{ veneerInfoData.lum_output_thr }}</td>
+        <td>{{ veneerInfoData.lum_output_thr ? "告警" : "正常" }}</td>
         <td>PUMP电流告警</td>
-        <td>{{ veneerInfoData.pump_cur_thr }}</td>
+        <td>{{ veneerInfoData.pump_cur_thr ? "告警" : "正常" }}</td>
       </tr>
 
       <tr>
         <td>模块温度告警</td>
-        <td>{{ veneerInfoData.mod_temp_alarm }}</td>
+        <td>{{ veneerInfoData.mod_temp_alarm ? "告警" : "正常" }}</td>
         <td>PUMP温度告警</td>
-        <td>{{ veneerInfoData.pump_temp_alarm }}</td>
+        <td>{{ veneerInfoData.pump_temp_alarm ? "告警" : "正常" }}</td>
         <td></td>
         <td></td>
       </tr>
@@ -79,8 +79,8 @@
     <table class="veneer-table" border="1">
       <tr>
         <td>PUMP关断</td>
-        <td>
-          <select v-model="changeForm.pump_sw">
+        <td style="text-align: left;">
+          <select style="width: 66px;" v-model="changeForm.pump_sw">
             <option :value="1">打开</option>
             <option :value="0">关闭</option>
           </select>
@@ -90,16 +90,16 @@
           <CustomSelect
             v-model="changeForm.mode"
             :options="[
-              { label: 'APC', value: 'APC' },
-              { label: 'AGC', value: 'AGC' },
-              { label: 'ACC', value: 'ACC' },
+              { label: 'ACC', value: 0 },
+              { label: 'APC', value: 2 },
+              { label: 'AGC', value: 3 },
               { label: '自定义', value: 'custom' },
             ]"
           />
         </td>
       </tr>
       <tr>
-        <td>输入光功率门限（dBm）</td>
+        <td>输入光功率告警门限（dBm）</td>
         <td>
           <CustomSelect
             v-model="changeForm.lum_input_thr"
@@ -113,7 +113,7 @@
             ]"
           />
         </td>
-        <td>输出光功率门限（dBm）</td>
+        <td>输出光功率告警门限（dBm）</td>
         <td>
           <CustomSelect
             v-model="changeForm.lum_output_thr"
@@ -204,7 +204,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" @click="changeInfo">应用</button>
       <button class="def-btn">恢复默认</button>
     </div>
   </div>
@@ -317,6 +317,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+          this.veneerTitleData.desc = "";
         });
     },
     refreshInfo() {
@@ -336,6 +337,25 @@ export default {
             mod_temp_high: res[1].otn2000_ack.mod_temp_high,
             pump_temp_high: res[1].otn2000_ack.pump_temp_high,
           };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    changeInfo() {
+      const data = {
+        otn2000: {
+          type: "post_info",
+          boardname: "edfa",
+          slot: this.info.slot,
+          ...this.changeForm,
+        },
+      };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("changeInfo", res);
         })
         .catch((err) => {
           console.log(err);

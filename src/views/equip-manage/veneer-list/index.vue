@@ -61,23 +61,16 @@
 import Nmu from "./components/nmu";
 import Edfa from "./components/edfa";
 import Olp from "./components/olp";
-import Dcm from "./components/dcm";
-import Md16sfb from "./components/md16sfb";
-import Md16sfa from "./components/md16sfa";
-import D40 from "./components/d40";
-import M40 from "./components/m40";
-import Md8 from "./components/md8";
-import D16 from "./components/d16";
-import M16 from "./components/m16";
 import Otu4x10g from "./components/otu4x10g";
 import Otu4x25g from "./components/otu4x25g";
 import Otu40g100g from "./components/otu40g100g";
 import Otucfpdco200g from "./components/otucfpdco200g";
 import Ocp2x10g from "./components/ocp2x10g";
+import Similar from "./components/similar";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Dcm, Md16sfb, Md16sfa, D40, M40, Md8, D16, M16, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g, Ocp2x10g },
+  components: { Nmu, Edfa, Olp, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar },
   data() {
     return {
       dataForm: {},
@@ -127,10 +120,15 @@ export default {
     },
 
     lookDetail(index, data) {
-      console.log("查看详情", data.boardname);
-      this.veneerType = data.boardname.toLowerCase();
-      this.veneerData = data;
+      const veneerName = data.boardname.toLowerCase();
+      const similarVeneerArg = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
+      if (similarVeneerArg.includes(veneerName)) {
+        this.veneerType = "similar";
+      } else {
+        this.veneerType = veneerName;
+      }
 
+      this.veneerData = data;
       this.dialogVisible = true;
     },
   },

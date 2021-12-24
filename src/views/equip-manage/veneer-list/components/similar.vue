@@ -1,6 +1,6 @@
 <template>
-  <div class="m16-cps-wrapper">
-    <div class="veneer-header-wrapper">m16</div>
+  <div class="similar-cps-wrapper">
+    <div class="veneer-header-wrapper">similar {{ info.boardname }}</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
         <td>硬件版本</td>
@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "m16",
+  name: "similar",
   props: ["info", "visible"],
   data() {
     return {
@@ -78,7 +78,7 @@ export default {
         .post({
           otn2000: {
             type: "get_title",
-            boardname: "m16",
+            boardname: this.info.boardname,
             slot,
           },
         })
@@ -103,7 +103,7 @@ export default {
       const data = {
         otn2000: {
           type: "post_title",
-          boardname: "m16",
+          boardname: this.info.boardname,
           desc: this.veneerTitleData.desc,
           slot: this.info.slot,
           ...iSuperData,
@@ -113,7 +113,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("m16 changeTilte", res);
+          console.log("changeTilte", res);
         })
         .catch((err) => {
           console.log(err);
@@ -123,5 +123,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss"></style>

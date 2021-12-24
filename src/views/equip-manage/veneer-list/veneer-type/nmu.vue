@@ -149,7 +149,7 @@
 // import CustomSelect from "../../components/custom-select";
 
 export default {
-  name: "edfa",
+  name: "nmu",
   props: ["info", "visible"],
   // components: { CustomSelect },
   data() {
@@ -172,7 +172,6 @@ export default {
   },
   created() {},
   mounted() {
-    // console.log("mounted", 123);
     this.getVeneerDetail(this.info.slot);
   },
   watch: {

@@ -52,7 +52,15 @@
         <td>工作状态</td>
         <td></td>
         <td>当前工作模式</td>
-        <td></td>
+        <td>
+          <CustomSelect
+            v-model="veneerTitleData.mode"
+            :options="[
+              { label: '自动', value: 0 },
+              { label: '手动', value: 1 },
+            ]"
+          />
+        </td>
         <td>强制倒换</td>
         <td>
           <CustomSelect
@@ -101,20 +109,20 @@
     </table>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
-      <button class="def-btn">恢复默认</button>
+      <button class="def-btn" @click="refreshInfo">刷新</button>
+      <button class="def-btn" @click="changeInfo">应用</button>
+      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
 
 <script>
-// import CustomSelect from "../../components/custom-select";
+import CustomSelect from "../../components/custom-select";
 
 export default {
   name: "olp",
   props: ["info", "visible"],
-  // components: { CustomSelect },
+  components: { CustomSelect },
   data() {
     return {
       changeForm: {

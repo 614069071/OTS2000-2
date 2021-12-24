@@ -5,11 +5,11 @@
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
         <td>硬件版本</td>
-        <td>{{ veneerTitleData.h_rev }}</td>
+        <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
         <td>软件版本</td>
-        <td>{{ veneerTitleData.s_rev }}</td>
+        <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
         <td>协议版本</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
       </tr>
       <tr>
         <td>生产日期</td>
@@ -17,21 +17,21 @@
         <td>序列号</td>
         <td>{{ veneerTitleData.serialnum }}</td>
         <td>EDFA型号</td>
-        <td>{{ veneerTitleData.run_time }}</td>
+        <td>{{ veneerTitleData.edfa_type }}</td>
       </tr>
       <tr>
         <td>设备类型</td>
         <td>{{ veneerTitleData.device_type }}</td>
         <td>状态</td>
-        <td>{{ veneerTitleData.status }}</td>
+        <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
         <td>信息描述</td>
-        <td>{{ veneerTitleData.desc }}</td>
+        <td><input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" /></td>
       </tr>
     </table>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" @click="refreshTitle">刷新</button>
+      <button class="def-btn" @click="changeTilte">应用</button>
     </div>
 
     <!-- 状态信息 -->
@@ -75,129 +75,135 @@
     </table>
 
     <!-- 修改信息 -->
-    <div class="veneer-edfa-setting-wrapper">
-      <div class="veneer-edfa-item">
-        <span>PUMP关断</span>
-        <span>
-          <select size="mini" v-model="changeForm.pump_sw">
+
+    <table class="veneer-table" border="1">
+      <tr>
+        <td>PUMP关断</td>
+        <td>
+          <select v-model="changeForm.pump_sw">
             <option :value="1">打开</option>
             <option :value="0">关闭</option>
           </select>
-        </span>
-      </div>
-      <div class="veneer-edfa-item">
-        <span>工作模式</span>
+        </td>
+        <td>工作模式</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.mode"
+            :options="[
+              { label: 'APC', value: 'APC' },
+              { label: 'AGC', value: 'AGC' },
+              { label: 'ACC', value: 'ACC' },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>输入光功率门限（dBm）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.lum_input_thr"
+            :options="[
+              { label: '-20', value: -20 },
+              { label: '-24', value: -24 },
+              { label: '-26', value: -26 },
+              { label: '-28', value: -28 },
+              { label: '-31', value: -31 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+        <td>输出光功率门限（dBm）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.lum_output_thr"
+            :options="[
+              { label: '-5', value: -5 },
+              { label: '-3', value: -3 },
+              { label: '-2', value: -2 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+      </tr>
 
-        <CustomSelect
-          v-model="changeForm.mode"
-          :options="[
-            { label: 'APC', value: 'APC' },
-            { label: 'AGC', value: 'AGC' },
-            { label: 'ACC', value: 'ACC' },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>输入光功率门限（dBm）</span>
-        <CustomSelect
-          v-model="changeForm.lum_input_thr"
-          :options="[
-            { label: '-20', value: -20 },
-            { label: '-24', value: -24 },
-            { label: '-26', value: -26 },
-            { label: '-28', value: -28 },
-            { label: '-31', value: -31 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>输出光功率门限（dBm）</span>
-        <CustomSelect
-          v-model="changeForm.lum_output_thr"
-          :options="[
-            { label: '-5', value: -5 },
-            { label: '-3', value: -3 },
-            { label: '-2', value: -2 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>PUMP电流门限（mA）</span>
-        <CustomSelect
-          v-model="changeForm.pump_cur_thr"
-          :options="[
-            { label: '600', value: 600 },
-            { label: '800', value: 800 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>PUMP关断电流（mA）</span>
+      <tr>
+        <td>PUMP电流门限（mA）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.pump_cur_thr"
+            :options="[
+              { label: '600', value: 600 },
+              { label: '800', value: 800 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+        <td>PUMP关断电流（mA）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.pump_sw_cur"
+            :options="[
+              { label: '50', value: 50 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>模块温度低门限（℃）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.mod_temp_low"
+            :options="[
+              { label: '-40', value: -40 },
+              { label: '-45', value: -45 },
+              { label: '-50', value: -50 },
+              { label: '-55', value: -55 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+        <td>PUMP温度低门限（℃）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.pump_temp_low"
+            :options="[
+              { label: '20', value: 20 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>模块温度高门限</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.mod_temp_high"
+            :options="[
+              { label: '55', value: 55 },
+              { label: '60', value: 60 },
+              { label: '65', value: 65 },
+              { label: '70', value: 70 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+        <td>PUMP温度高门限（℃）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.pump_temp_high"
+            :options="[
+              { label: '30', value: 30 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
+        </td>
+      </tr>
+    </table>
 
-        <CustomSelect
-          v-model="changeForm.pump_sw_cur"
-          :options="[
-            { label: '50', value: 50 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>模块温度低门限（℃）</span>
-        <CustomSelect
-          v-model="changeForm.mod_temp_low"
-          :options="[
-            { label: '-40', value: -40 },
-            { label: '-45', value: -45 },
-            { label: '-50', value: -50 },
-            { label: '-55', value: -55 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>PUMP温度低门限（℃）</span>
-
-        <CustomSelect
-          v-model="changeForm.pump_temp_low"
-          :options="[
-            { label: '20', value: 20 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>模块温度高门限</span>
-
-        <CustomSelect
-          v-model="changeForm.mod_temp_high"
-          :options="[
-            { label: '55', value: 55 },
-            { label: '60', value: 60 },
-            { label: '65', value: 65 },
-            { label: '70', value: 70 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-      <div class="veneer-edfa-item">
-        <span>PUMP温度高门限（℃）</span>
-
-        <CustomSelect
-          v-model="changeForm.pump_temp_high"
-          :options="[
-            { label: '30', value: 30 },
-            { label: '自定义', value: 'custom' },
-          ]"
-        />
-      </div>
-    </div>
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
+      <button class="def-btn" @click="refreshInfo">刷新</button>
       <button class="def-btn">应用</button>
       <button class="def-btn">恢复默认</button>
     </div>
@@ -231,7 +237,8 @@ export default {
   },
   created() {},
   mounted() {
-    console.log("mounted", 123);
+    // console.log("mounted", 123);
+    this.getVeneerDetail(this.info.slot);
   },
   watch: {
     visible(n) {
@@ -262,9 +269,61 @@ export default {
     getVeneerDetail(slot) {
       Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
         .then((res) => {
+          console.log("res", res);
           this.veneerTitleData = res[0].otn2000_ack;
-          this.veneerInfoData = res[1].otn2000_ack;
+          this.veneerInfoData = res[1].otn2000_ack || {};
 
+          this.changeForm = {
+            mode: res[1].otn2000_ack.mode,
+            pump_sw: res[1].otn2000_ack.pump_sw,
+            lum_input_thr: res[1].otn2000_ack.lum_input_thr,
+            lum_output_thr: res[1].otn2000_ack.lum_output_thr,
+            pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
+            pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
+            mod_temp_low: res[1].otn2000_ack.mod_temp_low,
+            pump_temp_low: res[1].otn2000_ack.pump_temp_low,
+            mod_temp_high: res[1].otn2000_ack.mod_temp_high,
+            pump_temp_high: res[1].otn2000_ack.pump_temp_high,
+          };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshTitle() {
+      this.getVeneerTitle(this.info.slot)
+        .then((res) => {
+          console.log(res);
+          this.veneerTitleData = res.otn2000_ack;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    changeTilte() {
+      const data = {
+        otn2000: {
+          type: "post_title",
+          boardname: "edfa",
+          desc: this.veneerTitleData.desc,
+          slot: this.info.slot,
+        },
+      };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("changeTilte", res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshInfo() {
+      this.getVeneerInfo(this.info.slot)
+        .then((res) => {
+          console.log(res);
+          this.veneerInfoData = res.otn2000_ack;
           this.changeForm = {
             mode: res[1].otn2000_ack.mode,
             pump_sw: res[1].otn2000_ack.pump_sw,
@@ -286,21 +345,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.veneer-edfa-setting-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  .veneer-edfa-item {
-    width: 50%;
-    height: 30px;
-    margin-top: 7px;
-    display: flex;
-    align-items: center;
-  }
-
-  .veneer-edfa-item > span:first-child {
-    width: 65%;
-    text-align: center;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

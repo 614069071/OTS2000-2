@@ -163,7 +163,11 @@ button {
   white-space: nowrap;
 }
 
-.def-btn + .def-btn {
+button:disabled {
+  cursor: not-allowed;
+}
+
+button + button {
   margin-left: 10px;
 }
 

@@ -127,6 +127,8 @@ export const formatTime = (time, type = false) => {
   return type ? ymd + ' ' + hms : ymd;
 }
 
+console.log(formatTime(60));
+
 // 批量设置cookie
 export function setCookie(data = {}, expires = 7) {
   for (let key in data) {

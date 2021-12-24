@@ -15,19 +15,43 @@
             {{ scoped.row.status ? "在位" : "脱位" }}
           </template>
         </el-table-column>
-        <el-table-column prop="boardname" label="单板型号"></el-table-column>
-        <el-table-column prop="h_ver" label="硬件版本"></el-table-column>
-        <el-table-column prop="s_ver" label="软件版本"></el-table-column>
-        <el-table-column prop="mfgdate" label="生产日期"></el-table-column>
+        <el-table-column prop="boardname" label="单板型号">
+          <template slot-scope="scope">
+            <template v-if="scope.row.status">
+              {{ scope.row.boardname }}
+            </template>
+          </template>
+        </el-table-column>
+        <el-table-column prop="h_ver" label="硬件版本">
+          <template slot-scope="scope">
+            <template v-if="scope.row.status">
+              {{ scope.row.h_ver }}
+            </template>
+          </template>
+        </el-table-column>
+        <el-table-column prop="s_ver" label="软件版本">
+          <template slot-scope="scope">
+            <template v-if="scope.row.status">
+              {{ scope.row.s_ver }}
+            </template>
+          </template>
+        </el-table-column>
+        <el-table-column prop="mfgdate" label="生产日期">
+          <template slot-scope="scope">
+            <template v-if="scope.row.status">
+              {{ scope.row.mfgdate }}
+            </template>
+          </template>
+        </el-table-column>
         <el-table-column label="详情信息" width="100">
           <template slot-scope="scope">
-            <button class="veneer-look-btn" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
+            <button v-if="scope.row.status" class="veneer-look-btn" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
           </template>
         </el-table-column>
       </el-table>
     </div>
 
-    <el-dialog :title="`${veneerType.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%">
+    <el-dialog :title="`${veneerType.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%" :append-to-body="true">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </el-dialog>
   </div>
@@ -178,11 +202,17 @@ export default {
     position: absolute;
     left: 0;
   }
+
   .coll-4 {
     width: 400%;
     text-align: center;
     position: absolute;
     left: 0;
+  }
+
+  .veneer-input {
+    height: 28px;
+    width: 90%;
   }
 }
 

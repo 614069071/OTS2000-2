@@ -4,17 +4,29 @@
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
         <td>硬件版本</td>
-        <td>{{ veneerTitleData.h_rev }}</td>
+        <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
         <td>软件版本</td>
-        <td>{{ veneerTitleData.s_rev }}</td>
+        <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
         <td>协议版本</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
       </tr>
       <tr>
         <td>生产日期</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.mfgdate" />
+
+          <template v-else>
+            {{ veneerTitleData.mfgdate }}
+          </template>
+        </td>
         <td>序列号</td>
-        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.serialnum" />
+
+          <template v-else>
+            {{ veneerTitleData.serialnum }}
+          </template>
+        </td>
         <td></td>
         <td></td>
       </tr>
@@ -22,15 +34,17 @@
         <td>设备类型</td>
         <td>{{ veneerTitleData.device_type }}</td>
         <td>状态</td>
-        <td>{{ veneerTitleData.status }}</td>
+        <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
         <td>信息描述</td>
-        <td>{{ veneerTitleData.desc }}</td>
+        <td>
+          <input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" />
+        </td>
       </tr>
     </table>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" @click="refreshTitle">刷新</button>
+      <button class="def-btn" @click="changeTilte">应用</button>
     </div>
   </div>
 </template>
@@ -38,7 +52,7 @@
 <script>
 export default {
   name: "m16",
-  props: ["info"],
+  props: ["info", "visible"],
   data() {
     return {
       veneerTitleData: {},
@@ -49,6 +63,63 @@ export default {
   },
   mounted() {
     console.log("mounted");
+    this.getVeneerTitle(this.info.slot);
+  },
+  watch: {
+    visible(n) {
+      if (!n) return;
+      console.log("this.info", this.info);
+      this.getVeneerTitle(this.info.slot);
+    },
+  },
+  methods: {
+    getVeneerTitle(slot) {
+      this.$http
+        .post({
+          otn2000: {
+            type: "get_title",
+            boardname: "m16",
+            slot,
+          },
+        })
+        .then((res) => {
+          this.veneerTitleData = res.otn2000_ack;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshTitle() {
+      this.getVeneerTitle(this.info.slot);
+    },
+    changeTilte() {
+      const iSuperData = this.$store.state.iSuper
+        ? {
+            mfgdate: this.veneerTitleData.mfgdate,
+            serialnum: this.veneerTitleData.serialnum,
+          }
+        : {};
+
+      const data = {
+        otn2000: {
+          type: "post_title",
+          boardname: "m16",
+          desc: this.veneerTitleData.desc,
+          slot: this.info.slot,
+          ...iSuperData,
+        },
+      };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("m16 changeTilte", res);
+        })
+        .catch((err) => {
+          console.log(err);
+          this.veneerTitleData.desc = "";
+        });
+    },
   },
 };
 </script>

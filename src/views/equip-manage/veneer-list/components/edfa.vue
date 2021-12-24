@@ -13,9 +13,21 @@
       </tr>
       <tr>
         <td>生产日期</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.mfgdate" />
+
+          <template v-else>
+            {{ veneerTitleData.mfgdate }}
+          </template>
+        </td>
         <td>序列号</td>
-        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.serialnum" />
+
+          <template v-else>
+            {{ veneerTitleData.serialnum }}
+          </template>
+        </td>
         <td>EDFA型号</td>
         <td>{{ veneerTitleData.edfa_type }}</td>
       </tr>
@@ -301,12 +313,20 @@ export default {
         });
     },
     changeTilte() {
+      const iSuperData = this.$store.state.iSuper
+        ? {
+            mfgdate: this.veneerTitleData.mfgdate,
+            serialnum: this.veneerTitleData.serialnum,
+          }
+        : {};
+
       const data = {
         otn2000: {
           type: "post_title",
           boardname: "edfa",
           desc: this.veneerTitleData.desc,
           slot: this.info.slot,
+          ...iSuperData,
         },
       };
 

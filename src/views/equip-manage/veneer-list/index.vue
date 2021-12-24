@@ -51,22 +51,22 @@
       </el-table>
     </div>
 
-    <el-dialog :title="`${veneerType.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%" :append-to-body="true">
+    <el-dialog :title="`${veneerTilte.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%" :append-to-body="true">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import Nmu from "./components/nmu";
-import Edfa from "./components/edfa";
-import Olp from "./components/olp";
-import Otu4x10g from "./components/otu4x10g";
-import Otu4x25g from "./components/otu4x25g";
-import Otu40g100g from "./components/otu40g100g";
-import Otucfpdco200g from "./components/otucfpdco200g";
-import Ocp2x10g from "./components/ocp2x10g";
-import Similar from "./components/similar";
+import Nmu from "./veneer-type/nmu";
+import Edfa from "./veneer-type/edfa";
+import Olp from "./veneer-type/olp";
+import Otu4x10g from "./veneer-type/otu4x10g";
+import Otu4x25g from "./veneer-type/otu4x25g";
+import Otu40g100g from "./veneer-type/otu40g100g";
+import Otucfpdco200g from "./veneer-type/otucfpdco200g";
+import Ocp2x10g from "./veneer-type/ocp2x10g";
+import Similar from "./veneer-type/similar";
 
 export default {
   name: "veneer-list",
@@ -95,6 +95,7 @@ export default {
       ],
       dialogVisible: false,
       veneerType: "",
+      veneerTilte: "",
       veneerData: {},
     };
   },
@@ -128,6 +129,7 @@ export default {
         this.veneerType = veneerName;
       }
 
+      this.veneerTilte = veneerName;
       this.veneerData = data;
       this.dialogVisible = true;
     },

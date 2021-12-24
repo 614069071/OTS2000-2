@@ -205,7 +205,7 @@
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
       <button class="def-btn" @click="changeInfo">应用</button>
-      <button class="def-btn">恢复默认</button>
+      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
@@ -326,16 +326,16 @@ export default {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
           this.changeForm = {
-            mode: res[1].otn2000_ack.mode,
-            pump_sw: res[1].otn2000_ack.pump_sw,
-            lum_input_thr: res[1].otn2000_ack.lum_input_thr,
-            lum_output_thr: res[1].otn2000_ack.lum_output_thr,
-            pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
-            mod_temp_low: res[1].otn2000_ack.mod_temp_low,
-            pump_temp_low: res[1].otn2000_ack.pump_temp_low,
-            mod_temp_high: res[1].otn2000_ack.mod_temp_high,
-            pump_temp_high: res[1].otn2000_ack.pump_temp_high,
+            mode: res.otn2000_ack.mode,
+            pump_sw: res.otn2000_ack.pump_sw,
+            lum_input_thr: res.otn2000_ack.lum_input_thr,
+            lum_output_thr: res.otn2000_ack.lum_output_thr,
+            pump_cur_thr: res.otn2000_ack.pump_cur_thr,
+            pump_sw_cur: res.otn2000_ack.pump_sw_cur,
+            mod_temp_low: res.otn2000_ack.mod_temp_low,
+            pump_temp_low: res.otn2000_ack.pump_temp_low,
+            mod_temp_high: res.otn2000_ack.mod_temp_high,
+            pump_temp_high: res.otn2000_ack.pump_temp_high,
           };
         })
         .catch((err) => {
@@ -360,6 +360,24 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    restoreDefaultInfo() {
+      // const data = {
+      //   otn2000: {
+      //     type: "post_title",
+      //     boardname: "edfa",
+      //     slot: this.info.slot,
+      //   },
+      // };
+      // this.$http
+      //   .post(data)
+      //   .then((res) => {
+      //     console.log("restoreDefaultInfo", res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //     this.veneerTitleData.desc = "";
+      //   });
     },
   },
 };

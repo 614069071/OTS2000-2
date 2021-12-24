@@ -127,7 +127,16 @@ export const formatTime = (time, type = false) => {
   return type ? ymd + ' ' + hms : ymd;
 }
 
-console.log(formatTime(60));
+export function formatSeconds(value) {
+  let result = parseInt(value);
+  let h = Math.floor(result / 3600);
+  let m = Math.floor((result / 60 % 60));
+  let s = Math.floor((result % 60));
+
+  result = `${h ? h + '时' : ''}${m ? m + '分' : ''}${s}秒`;
+
+  return result
+}
 
 // 批量设置cookie
 export function setCookie(data = {}, expires = 7) {

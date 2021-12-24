@@ -128,7 +128,7 @@ export default {
 
     lookDetail(index, data) {
       console.log("查看详情", data.boardname);
-      this.veneerType = data.boardname;
+      this.veneerType = data.boardname.toLowerCase();
       this.veneerData = data;
 
       this.dialogVisible = true;

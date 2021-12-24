@@ -86,7 +86,7 @@
             <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
           </div>
           <div class="system-info-item">
-            <span>运行时间</span><span>{{ systemInfo.run_time }}</span>
+            <span>运行时间</span><span>{{ systemInfo.run_time | formatSeconds }}</span>
           </div>
           <div class="system-info-item">
             <span>网关版本</span><span>V{{ systemInfo.web_ver }}</span>

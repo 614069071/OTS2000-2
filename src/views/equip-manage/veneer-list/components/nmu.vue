@@ -146,6 +146,26 @@ export default {
   mounted() {
     console.log("mounted");
   },
+  methods: {
+    getNmuTitle(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_title",
+          boardname: "nmu",
+          slot,
+        },
+      });
+    },
+    getNmuInfo(slot) {
+      return this.$http.post({
+        otn2000: {
+          type: "get_info",
+          boardname: "nmu",
+          slot,
+        },
+      });
+    },
+  },
 };
 </script>
 

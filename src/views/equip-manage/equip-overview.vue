@@ -227,7 +227,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
-          this.$message.error("失败");
+          this.$message("失败");
         });
     },
     cancelChangeForm() {

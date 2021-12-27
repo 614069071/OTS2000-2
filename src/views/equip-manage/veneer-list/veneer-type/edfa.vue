@@ -307,9 +307,11 @@ export default {
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
+          this.$message({ message: "成功" });
         })
         .catch((err) => {
           console.log(err);
+          this.$message({ message: "失败" });
         });
     },
     changeTilte() {
@@ -335,12 +337,12 @@ export default {
         .then((res) => {
           console.log("changeTilte", res);
 
-          this.$message({ type: "success", massge: "成功" });
+          this.$message({ type: "success", massage: "成功" });
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
-          this.$message.error("失败");
+          this.$message("失败");
         });
     },
     refreshInfo() {
@@ -360,9 +362,12 @@ export default {
             mod_temp_high: res.otn2000_ack.mod_temp_high,
             pump_temp_high: res.otn2000_ack.pump_temp_high,
           };
+
+          this.$message({ type: "success", message: "成功" });
         })
         .catch((err) => {
           console.log(err);
+          this.$message({ message: "失败" });
         });
     },
     changeInfo() {
@@ -383,7 +388,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
-          this.$message.error("失败");
+          this.$message("失败");
         });
     },
     restoreDefaultInfo() {

@@ -124,10 +124,7 @@ export default {
             this.UPDATE_TOKEN(toKen);
             this.getMenuTreeColle();
           } else {
-            this.$message({
-              type: "error",
-              message: resp_msg,
-            });
+            this.$message({ message: resp_msg });
           }
         })
         .catch((err) => {

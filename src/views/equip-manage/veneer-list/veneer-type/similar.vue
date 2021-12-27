@@ -84,9 +84,11 @@ export default {
         })
         .then((res) => {
           this.veneerTitleData = res.otn2000_ack;
+          this.$message({ type: "sucess", message: "成功" });
         })
         .catch((err) => {
           console.log(err);
+          this.$message.error("失败");
         });
     },
     refreshTitle() {

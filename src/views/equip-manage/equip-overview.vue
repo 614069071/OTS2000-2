@@ -223,9 +223,11 @@ export default {
         .then((res) => {
           this.systemInfo = res.otn2000_ack;
           this.isTatic = true;
+          this.$message({ type: "sucess", message: "成功" });
         })
         .catch((err) => {
           console.log(err);
+          this.$message.error("失败");
         });
     },
     cancelChangeForm() {

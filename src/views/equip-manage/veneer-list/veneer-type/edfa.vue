@@ -334,10 +334,13 @@ export default {
         .post(data)
         .then((res) => {
           console.log("changeTilte", res);
+
+          this.$message({ type: "success", massge: "成功" });
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.$message.error("失败");
         });
     },
     refreshInfo() {
@@ -376,28 +379,30 @@ export default {
         .post(data)
         .then((res) => {
           console.log("changeInfo", res);
+          this.$message({ type: "success", massge: "成功" });
         })
         .catch((err) => {
           console.log(err);
+          this.$message.error("失败");
         });
     },
     restoreDefaultInfo() {
-      // const data = {
-      //   otn2000: {
-      //     type: "default",
-      //     boardname: "edfa",
-      //     slot: this.info.slot,
-      //   },
-      // };
-      // this.$http
-      //   .post(data)
-      //   .then((res) => {
-      //     console.log("restoreDefaultInfo", res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //     this.veneerTitleData.desc = "";
-      //   });
+      const data = {
+        otn2000: {
+          type: "default",
+          boardname: "edfa",
+          slot: this.info.slot,
+        },
+      };
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("restoreDefaultInfo", res);
+        })
+        .catch((err) => {
+          console.log(err);
+          this.veneerTitleData.desc = "";
+        });
     },
   },
 };

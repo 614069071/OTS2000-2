@@ -151,17 +151,25 @@
             ]"
           />
         </td>
+        <!-- <td>PUMP关断电流（mA）</td>
         <td>
-          <!-- PUMP关断电流（mA） -->
-        </td>
-        <td>
-          <!-- <CustomSelect
+          <CustomSelect
             v-model="changeForm.pump_sw_cur"
             :options="[
               { label: '50', value: 50 },
               { label: '自定义', value: 'custom' },
             ]"
-          /> -->
+          />
+        </td> -->
+        <td>PUMP温度高门限（℃）</td>
+        <td>
+          <CustomSelect
+            v-model="changeForm.pump_temp_high"
+            :options="[
+              { label: '30', value: 30 },
+              { label: '自定义', value: 'custom' },
+            ]"
+          />
         </td>
       </tr>
       <tr>
@@ -203,15 +211,15 @@
             ]"
           />
         </td>
-        <td>PUMP温度高门限（℃）</td>
+        <td><!--PUMP温度高门限（℃）--></td>
         <td>
-          <CustomSelect
+          <!-- <CustomSelect
             v-model="changeForm.pump_temp_high"
             :options="[
               { label: '30', value: 30 },
               { label: '自定义', value: 'custom' },
             ]"
-          />
+          /> -->
         </td>
       </tr>
     </table>
@@ -309,11 +317,11 @@ export default {
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
-          this.$message({ message: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
-          this.$message({ message: "失败" });
+          this.$message("失败");
         });
     },
     changeTilte() {
@@ -339,7 +347,7 @@ export default {
         .then((res) => {
           console.log("changeTilte", res);
 
-          this.$message({ type: "success", massage: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
@@ -365,11 +373,11 @@ export default {
             pump_temp_high: res.otn2000_ack.pump_temp_high,
           };
 
-          this.$message({ type: "success", message: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
-          this.$message({ message: "失败" });
+          this.$message("失败");
         });
     },
     changeInfo() {
@@ -386,7 +394,7 @@ export default {
         .post(data)
         .then((res) => {
           console.log("changeInfo", res);
-          this.$message({ type: "success", massge: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);

@@ -7,7 +7,7 @@
       </div>
       <div class="login-lang-set">
         <span>{{ $t("LANGUAGE") }}</span>
-        <select v-model="langType" @change="langChange">
+        <select class="lang-select" v-model="langType" @change="langChange">
           <option value="1">中文</option>
           <option value="2">English</option>
         </select>
@@ -263,5 +263,9 @@ export default {
 .login-footer {
   margin-bottom: 85px;
   text-align: center;
+}
+
+.lang-select {
+  border: none;
 }
 </style>

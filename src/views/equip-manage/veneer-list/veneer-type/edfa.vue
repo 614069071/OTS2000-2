@@ -151,15 +151,17 @@
             ]"
           />
         </td>
-        <td>PUMP关断电流（mA）</td>
         <td>
-          <CustomSelect
+          <!-- PUMP关断电流（mA） -->
+        </td>
+        <td>
+          <!-- <CustomSelect
             v-model="changeForm.pump_sw_cur"
             :options="[
               { label: '50', value: 50 },
               { label: '自定义', value: 'custom' },
             ]"
-          />
+          /> -->
         </td>
       </tr>
       <tr>
@@ -232,16 +234,16 @@ export default {
   data() {
     return {
       changeForm: {
-        mode: "",
-        pump_sw: 0,
-        lum_input_thr: 0,
-        lum_output_thr: 0,
-        pump_cur_thr: 0,
-        pump_sw_cur: 0,
-        mod_temp_low: 0,
-        pump_temp_low: 0,
-        mod_temp_high: 0,
-        pump_temp_high: 0,
+        mode: null,
+        pump_sw: null,
+        lum_input_thr: null,
+        lum_output_thr: null,
+        pump_cur_thr: null,
+        pump_sw_cur: null,
+        mod_temp_low: null,
+        pump_temp_low: null,
+        mod_temp_high: null,
+        pump_temp_high: null,
       },
       veneerTitleData: {},
       veneerInfoData: {},

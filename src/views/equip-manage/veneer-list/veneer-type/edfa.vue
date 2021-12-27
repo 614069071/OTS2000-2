@@ -69,11 +69,11 @@
 
       <tr>
         <td>输入功率告警</td>
-        <td>{{ veneerInfoData.lum_input_thr ? "告警" : "正常" }}</td>
+        <td>{{ veneerInfoData.input_power_alarm ? "告警" : "正常" }}</td>
         <td>输出功率告警</td>
-        <td>{{ veneerInfoData.lum_output_thr ? "告警" : "正常" }}</td>
+        <td>{{ veneerInfoData.output_power_alarm ? "告警" : "正常" }}</td>
         <td>PUMP电流告警</td>
-        <td>{{ veneerInfoData.pump_cur_thr ? "告警" : "正常" }}</td>
+        <td>{{ veneerInfoData.pump_cur_alarm ? "告警" : "正常" }}</td>
       </tr>
 
       <tr>

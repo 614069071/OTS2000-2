@@ -184,13 +184,10 @@ export default {
   methods: {
     // 首页概览
     getSystemInfo() {
+      const data = { otn2000: { type: "get_info", boardname: "sys_view" } };
+
       this.$http
-        .post({
-          otn2000: {
-            type: "get_info",
-            boardname: "sys_view",
-          },
-        })
+        .post(data)
         .then((res) => {
           if (!res) return;
 
@@ -232,12 +229,7 @@ export default {
     },
     cancelChangeForm() {
       this.isTatic = true;
-      this.dataForm = {
-        dev_sign: "",
-        sn: "",
-        contacts: "",
-        location: "",
-      };
+      this.dataForm = { dev_sign: "", sn: "", contacts: "", location: "" };
     },
   },
 };

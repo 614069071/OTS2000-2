@@ -62,7 +62,7 @@ import Nmu from "./veneer-type/nmu";
 import Edfa from "./veneer-type/edfa";
 import Olp from "./veneer-type/olp";
 import Otu4x10g from "./veneer-type/otu4x10g";
-import Otu4x25g from "./veneer-type/otu4x25g";
+import Otu25g from "./veneer-type/otu25g";
 import Otu40g100g from "./veneer-type/otu40g100g";
 import Otucfpdco200g from "./veneer-type/otucfpdco200g";
 import Ocp2x10g from "./veneer-type/ocp2x10g";
@@ -70,7 +70,7 @@ import Similar from "./veneer-type/similar";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu4x10g, Otu4x25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar },
+  components: { Nmu, Edfa, Olp, Otu4x10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar },
   data() {
     return {
       dataForm: {},
@@ -173,6 +173,11 @@ export default {
     padding: 0 10px;
     box-sizing: border-box;
     text-align: center;
+    display: flex;
+  }
+
+  td > * {
+    margin: auto;
   }
 
   .no-right-border {
@@ -208,5 +213,9 @@ export default {
 .venner-change-btns {
   text-align: right;
   margin-top: 20px;
+}
+
+.def-input {
+  width: 80%;
 }
 </style>

@@ -274,7 +274,7 @@ export default {
       return this.$http.post({
         otn2000: {
           type: "get_title",
-          boardname: "edfa",
+          boardname: this.info.boardname,
           slot,
         },
       });
@@ -283,7 +283,7 @@ export default {
       return this.$http.post({
         otn2000: {
           type: "get_info",
-          boardname: "edfa",
+          boardname: this.info.boardname,
           slot,
         },
       });
@@ -335,7 +335,7 @@ export default {
       const data = {
         otn2000: {
           type: "post_title",
-          boardname: "edfa",
+          boardname: this.info.boardname,
           desc: this.veneerTitleData.desc,
           slot: this.info.slot,
           ...iSuperData,
@@ -384,7 +384,7 @@ export default {
       const data = {
         otn2000: {
           type: "post_info",
-          boardname: "edfa",
+          boardname: this.info.boardname,
           slot: this.info.slot,
           ...this.changeForm,
         },

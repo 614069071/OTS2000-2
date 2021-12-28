@@ -63,36 +63,47 @@ export default {
   },
   mounted() {
     console.log("mounted");
-    this.getVeneerTitle(this.info.slot);
+    this.getVeneerTitle(this.info.slot)
+      .then((res) => {
+        this.veneerTitleData = res.otn2000_ack;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   watch: {
     visible(n) {
       if (!n) return;
       console.log("this.info", this.info);
-      this.getVeneerTitle(this.info.slot);
+      this.getVeneerTitle(this.info.slot)
+        .then((res) => {
+          this.veneerTitleData = res.otn2000_ack;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   methods: {
     getVeneerTitle(slot) {
-      this.$http
-        .post({
-          otn2000: {
-            type: "get_title",
-            boardname: this.info.boardname,
-            slot,
-          },
-        })
+      return this.$http.post({
+        otn2000: {
+          type: "get_title",
+          boardname: this.info.boardname,
+          slot,
+        },
+      });
+    },
+    refreshTitle() {
+      this.getVeneerTitle(this.info.slot)
         .then((res) => {
           this.veneerTitleData = res.otn2000_ack;
-          this.$message({ type: "sucess", message: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
         });
-    },
-    refreshTitle() {
-      this.getVeneerTitle(this.info.slot);
     },
     changeTilte() {
       const iSuperData = this.$store.state.iSuper
@@ -116,10 +127,12 @@ export default {
         .post(data)
         .then((res) => {
           console.log("changeTilte", res);
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.$message("失败");
         });
     },
   },

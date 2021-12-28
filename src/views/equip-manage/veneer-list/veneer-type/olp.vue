@@ -13,7 +13,7 @@
       <tr>
         <td>生产日期</td>
         <td>
-          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.mfgdate" />
+          <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
           <template v-else>
             {{ veneerTitleData.mfgdate }}

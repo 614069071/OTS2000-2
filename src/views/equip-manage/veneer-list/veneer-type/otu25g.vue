@@ -714,8 +714,8 @@ export default {
 
           return this.getVeneerInfo(slot);
         })
-        .then((res) => {
-          this.veneerInfoData = res.otn2000_ack.channels || {};
+        .then((res = { otn2000_ack: { channels: [] } }) => {
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
         .catch((err) => {
           console.log(err);
@@ -762,14 +762,8 @@ export default {
         });
     },
     setInfo() {
-      const data = {
-        otn2000: {
-          type: "post_info",
-          boardname: this.info.boardname,
-          slot: this.info.slot,
-          ...this.changeForm,
-        },
-      };
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
 
       this.$http
         .post(data)

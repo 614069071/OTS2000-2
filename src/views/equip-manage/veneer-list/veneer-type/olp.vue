@@ -244,14 +244,8 @@ export default {
         });
     },
     setInfo() {
-      const data = {
-        otn2000: {
-          type: "post_info",
-          boardname: this.info.boardname,
-          slot: this.info.slot,
-          ...this.changeForm,
-        },
-      };
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
 
       this.$http
         .post(data)

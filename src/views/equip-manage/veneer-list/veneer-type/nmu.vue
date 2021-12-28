@@ -44,7 +44,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="changeTilte">应用</button>
+      <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
     <table class="veneer-table veneer-title-table" border="1">
@@ -234,7 +234,7 @@ export default {
           console.log(err);
         });
     },
-    changeTilte() {
+    setTilte() {
       const { mfgdate, sn, desc } = this.veneerTitleData;
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
@@ -243,7 +243,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeTilte", res);
+          console.log("setTilte", res);
         })
         .catch((err) => {
           console.log(err);
@@ -272,7 +272,7 @@ export default {
           console.log(err);
         });
     },
-    changeInfo() {
+    setInfo() {
       const data = {
         otn2000: {
           type: "post_info",
@@ -285,7 +285,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeInfo", res);
+          console.log("setInfo", res);
         })
         .catch((err) => {
           console.log(err);

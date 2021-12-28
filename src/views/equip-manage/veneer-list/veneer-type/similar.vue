@@ -44,7 +44,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="changeTilte">应用</button>
+      <button class="def-btn" @click="setTilte">应用</button>
     </div>
   </div>
 </template>
@@ -105,7 +105,7 @@ export default {
           this.$message("失败");
         });
     },
-    changeTilte() {
+    setTilte() {
       const { mfgdate, sn, desc } = this.veneerTitleData;
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
@@ -114,7 +114,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeTilte", res);
+          console.log("setTilte", res);
           this.$message("成功");
         })
         .catch((err) => {

@@ -43,7 +43,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="changeTilte">应用</button>
+      <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
     <!-- 状态信息 -->
@@ -226,7 +226,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
-      <button class="def-btn" @click="changeInfo">应用</button>
+      <button class="def-btn" @click="setInfo">应用</button>
       <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
@@ -324,7 +324,7 @@ export default {
           this.$message("失败");
         });
     },
-    changeTilte() {
+    setTilte() {
       const { mfgdate, sn, desc } = this.veneerTitleData;
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
@@ -333,7 +333,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeTilte", res);
+          console.log("setTilte", res);
 
           this.$message("成功");
         })
@@ -368,14 +368,14 @@ export default {
           this.$message("失败");
         });
     },
-    changeInfo() {
+    setInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
 
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeInfo", res);
+          console.log("setInfo", res);
           this.$message("成功");
         })
         .catch((err) => {

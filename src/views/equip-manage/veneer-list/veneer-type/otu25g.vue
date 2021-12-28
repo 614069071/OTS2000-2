@@ -42,7 +42,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="changeTilte">应用</button>
+      <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
     <table class="veneer-table veneer-title-table" border="1">
@@ -212,49 +212,49 @@
       <tr>
         <td>激光器开关</td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
         </td>
         <td>
-          <select v-model="veneerInfoData.jiguang1">
+          <select>
             <option :value="0">关</option>
             <option :value="1">开</option>
           </select>
@@ -469,7 +469,7 @@
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
-      <button class="def-btn" @click="changeInfo">应用</button>
+      <button class="def-btn" @click="setInfo">应用</button>
       <button class="def-btn" @click="restorInfo">复位</button>
       <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
@@ -733,7 +733,7 @@ export default {
           this.$message("失败");
         });
     },
-    changeTilte() {
+    setTilte() {
       const { mfgdate, sn, desc } = this.veneerTitleData;
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
@@ -761,7 +761,7 @@ export default {
           this.$message("失败");
         });
     },
-    changeInfo() {
+    setInfo() {
       const data = {
         otn2000: {
           type: "post_info",
@@ -774,7 +774,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("changeInfo", res);
+          console.log("setInfo", res);
           this.$message("成功");
         })
         .catch((err) => {

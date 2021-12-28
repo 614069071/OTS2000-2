@@ -734,32 +734,17 @@ export default {
         });
     },
     changeTilte() {
-      const iSuperData = this.$store.state.iSuper
-        ? {
-            mfgdate: this.veneerTitleData.mfgdate,
-            sn: this.veneerTitleData.sn,
-          }
-        : {};
-
-      const data = {
-        otn2000: {
-          type: "post_title",
-          boardname: this.info.boardname,
-          desc: this.veneerTitleData.desc,
-          slot: this.info.slot,
-          ...iSuperData,
-        },
-      };
+      const { mfgdate, sn, desc } = this.veneerTitleData;
+      const { boardname, slot } = this.info;
+      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
+      const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("changeTilte", res);
-
+        .then(() => {
           this.$message("成功");
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           this.veneerTitleData.desc = "";
           this.$message("失败");
         });
@@ -767,7 +752,6 @@ export default {
     refreshInfo() {
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
-          console.log(res);
           this.veneerInfoData = res.otn2000_ack;
 
           this.$message("成功");

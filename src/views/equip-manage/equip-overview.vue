@@ -20,8 +20,8 @@
           <div class="system-info-item">
             <span>序列号</span>
             <span>
-              <template v-if="!$store.state.iSuper">{{ systemInfo.serial_no }}</template>
-              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="dataForm.serial_no" />
+              <template v-if="!$store.state.iSuper">{{ systemInfo.sn }}</template>
+              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="dataForm.sn" />
             </span>
           </div>
           <div class="system-info-item">
@@ -134,7 +134,7 @@ export default {
   data() {
     return {
       dataForm: {
-        // serial_no: "",
+        // sn: "",
         dev_sign: "",
         contacts: "",
         location: "",
@@ -154,7 +154,7 @@ export default {
           on_off: 0,
           output: 0,
         },
-        serial_no: "",
+        sn: "",
         h_ver: "",
         sys_time: "",
         run_time: 0,
@@ -234,7 +234,7 @@ export default {
       this.isTatic = true;
       this.dataForm = {
         dev_sign: "",
-        serial_no: "",
+        sn: "",
         contacts: "",
         location: "",
       };

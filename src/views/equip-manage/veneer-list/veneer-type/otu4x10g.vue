@@ -14,7 +14,7 @@
         <td>生产日期</td>
         <td>{{ veneerTitleData.mfgdate }}</td>
         <td>序列号</td>
-        <td>{{ veneerTitleData.serialnum }}</td>
+        <td>{{ veneerTitleData.sn }}</td>
         <td>板型号</td>
         <td>{{ veneerTitleData.run_time }}</td>
       </tr>

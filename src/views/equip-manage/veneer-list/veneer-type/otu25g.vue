@@ -21,10 +21,10 @@
         </td>
         <td>序列号</td>
         <td>
-          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.serialnum" />
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
 
           <template v-else>
-            {{ veneerTitleData.serialnum }}
+            {{ veneerTitleData.sn }}
           </template>
         </td>
         <td>版型号</td>
@@ -468,10 +468,10 @@
     </table>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
-      <button class="def-btn">复位</button>
-      <button class="def-btn">恢复默认</button>
+      <button class="def-btn" @click="refreshInfo">刷新</button>
+      <button class="def-btn" @click="changeInfo">应用</button>
+      <button class="def-btn" @click="restorInfo">复位</button>
+      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
@@ -494,7 +494,7 @@ export default {
         mfgdate: "",
         p_rev: "",
         s_rev: "",
-        serialnum: "",
+        sn: "",
         status: null,
       },
       veneerInfoData: [
@@ -679,7 +679,6 @@ export default {
   },
   created() {},
   mounted() {
-    // console.log("mounted", 123);
     this.getVeneerDetail(this.info.slot);
   },
   watch: {
@@ -709,29 +708,6 @@ export default {
       });
     },
     getVeneerDetail(slot) {
-      // Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
-      //   .then(([resTitle = {}, resInfo = {}]) => {
-      //     console.log("res", resTitle, resInfo);
-      //     this.veneerTitleData = resTitle.otn2000_ack;
-      //     this.veneerInfoData = resInfo.otn2000_ack.channels || {};
-
-      //     // this.changeForm = {
-      //     //   mode: res[1].otn2000_ack.mode,
-      //     //   pump_sw: res[1].otn2000_ack.pump_sw,
-      //     //   lum_input_thr: res[1].otn2000_ack.lum_input_thr,
-      //     //   lum_output_thr: res[1].otn2000_ack.lum_output_thr,
-      //     //   pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
-      //     //   pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
-      //     //   mod_temp_low: res[1].otn2000_ack.mod_temp_low,
-      //     //   pump_temp_low: res[1].otn2000_ack.pump_temp_low,
-      //     //   mod_temp_high: res[1].otn2000_ack.mod_temp_high,
-      //     //   pump_temp_high: res[1].otn2000_ack.pump_temp_high,
-      //     // };
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-
       this.getVeneerTitle(slot)
         .then((res) => {
           this.veneerTitleData = res.otn2000_ack;
@@ -761,7 +737,7 @@ export default {
       const iSuperData = this.$store.state.iSuper
         ? {
             mfgdate: this.veneerTitleData.mfgdate,
-            serialnum: this.veneerTitleData.serialnum,
+            sn: this.veneerTitleData.sn,
           }
         : {};
 
@@ -793,18 +769,6 @@ export default {
         .then((res) => {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
-          this.changeForm = {
-            mode: res.otn2000_ack.mode,
-            pump_sw: res.otn2000_ack.pump_sw,
-            lum_input_thr: res.otn2000_ack.lum_input_thr,
-            lum_output_thr: res.otn2000_ack.lum_output_thr,
-            pump_cur_thr: res.otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res.otn2000_ack.pump_sw_cur,
-            mod_temp_low: res.otn2000_ack.mod_temp_low,
-            pump_temp_low: res.otn2000_ack.pump_temp_low,
-            mod_temp_high: res.otn2000_ack.mod_temp_high,
-            pump_temp_high: res.otn2000_ack.pump_temp_high,
-          };
 
           this.$message("成功");
         })
@@ -835,23 +799,22 @@ export default {
         });
     },
     restoreDefaultInfo() {
-      const data = {
-        otn2000: {
-          type: "default",
-          boardname: "edfa",
-          slot: this.info.slot,
-        },
-      };
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "default", boardname, slot } };
+
       this.$http
         .post(data)
         .then((res) => {
           console.log("restoreDefaultInfo", res);
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.$message("失败");
         });
     },
+    restorInfo() {},
   },
 };
 </script>

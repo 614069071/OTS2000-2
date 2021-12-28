@@ -21,10 +21,10 @@
         </td>
         <td>序列号</td>
         <td>
-          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.serialnum" />
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
 
           <template v-else>
-            {{ veneerTitleData.serialnum }}
+            {{ veneerTitleData.sn }}
           </template>
         </td>
         <td></td>
@@ -238,7 +238,7 @@ export default {
       const iSuperData = this.$store.state.iSuper
         ? {
             mfgdate: this.veneerTitleData.mfgdate,
-            serialnum: this.veneerTitleData.serialnum,
+            sn: this.veneerTitleData.sn,
           }
         : {};
 

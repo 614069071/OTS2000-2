@@ -28,7 +28,7 @@
           </template>
         </td>
         <td>版型号</td>
-        <td>{{ veneerTitleData.ve_type }}</td>
+        <td>{{ veneerTitleData.bdtype }}</td>
       </tr>
       <tr>
         <td>设备类型</td>
@@ -275,13 +275,13 @@
         <td>速率（Mbps）</td>
         <td class="no-right-border">
           <div class="coll-2">
-            <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[0].speed">
+            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
               <option value="eCPRI-25GE">eCPRI-25GE</option>
               <option value="Other">Other</option>
             </select>
 
             <select v-else v-model="veneerInfoData[0].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="25GE-28GE">25GE-28GE</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -289,12 +289,12 @@
         <td></td>
         <td class="no-right-border">
           <div class="coll-2">
-            <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[1].speed">
+            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
               <option value="eCPRI-25GE">eCPRI-25GE</option>
               <option value="Other">Other</option>
             </select>
             <select v-else v-model="veneerInfoData[1].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="25GE-28GE">25GE-28GE</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -302,12 +302,12 @@
         <td></td>
         <td class="no-right-border">
           <div class="coll-2">
-            <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[2].speed">
+            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
               <option value="eCPRI-25GE">eCPRI-25GE</option>
               <option value="Other">Other</option>
             </select>
             <select v-else v-model="veneerInfoData[2].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="25GE-28GE">25GE-28GE</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -315,11 +315,12 @@
         <td></td>
         <td class="no-right-border">
           <div class="coll-2">
-            <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[3].speed">
-              <option :value="1">开</option>
+            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
             <select v-else v-model="veneerInfoData[3].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="25GE-28GE">25GE-28GE</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -485,7 +486,17 @@ export default {
   data() {
     return {
       changeForm: {},
-      veneerTitleData: {},
+      veneerTitleData: {
+        bdtype: "",
+        desc: "",
+        device_type: "",
+        h_rev: "",
+        mfgdate: "",
+        p_rev: "",
+        s_rev: "",
+        serialnum: "",
+        status: null,
+      },
       veneerInfoData: [
         {
           channel: 1,
@@ -698,24 +709,37 @@ export default {
       });
     },
     getVeneerDetail(slot) {
-      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
-        .then(([resTitle = {}, resInfo = {}]) => {
-          console.log("res", resTitle, resInfo);
-          this.veneerTitleData = resTitle.otn2000_ack;
-          this.veneerInfoData = resInfo.otn2000_ack.channels || {};
+      // Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+      //   .then(([resTitle = {}, resInfo = {}]) => {
+      //     console.log("res", resTitle, resInfo);
+      //     this.veneerTitleData = resTitle.otn2000_ack;
+      //     this.veneerInfoData = resInfo.otn2000_ack.channels || {};
 
-          // this.changeForm = {
-          //   mode: res[1].otn2000_ack.mode,
-          //   pump_sw: res[1].otn2000_ack.pump_sw,
-          //   lum_input_thr: res[1].otn2000_ack.lum_input_thr,
-          //   lum_output_thr: res[1].otn2000_ack.lum_output_thr,
-          //   pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
-          //   pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
-          //   mod_temp_low: res[1].otn2000_ack.mod_temp_low,
-          //   pump_temp_low: res[1].otn2000_ack.pump_temp_low,
-          //   mod_temp_high: res[1].otn2000_ack.mod_temp_high,
-          //   pump_temp_high: res[1].otn2000_ack.pump_temp_high,
-          // };
+      //     // this.changeForm = {
+      //     //   mode: res[1].otn2000_ack.mode,
+      //     //   pump_sw: res[1].otn2000_ack.pump_sw,
+      //     //   lum_input_thr: res[1].otn2000_ack.lum_input_thr,
+      //     //   lum_output_thr: res[1].otn2000_ack.lum_output_thr,
+      //     //   pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
+      //     //   pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
+      //     //   mod_temp_low: res[1].otn2000_ack.mod_temp_low,
+      //     //   pump_temp_low: res[1].otn2000_ack.pump_temp_low,
+      //     //   mod_temp_high: res[1].otn2000_ack.mod_temp_high,
+      //     //   pump_temp_high: res[1].otn2000_ack.pump_temp_high,
+      //     // };
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+
+      this.getVeneerTitle(slot)
+        .then((res) => {
+          this.veneerTitleData = res.otn2000_ack;
+
+          return this.getVeneerInfo(slot);
+        })
+        .then((res) => {
+          this.veneerInfoData = res.otn2000_ack.channels || {};
         })
         .catch((err) => {
           console.log(err);

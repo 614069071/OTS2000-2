@@ -29,7 +29,7 @@
           </template>
         </td>
         <td>EDFA型号</td>
-        <td>{{ veneerTitleData.edfa_type }}</td>
+        <td>{{ veneerTitleData.bdtype }}</td>
       </tr>
       <tr>
         <td>设备类型</td>

@@ -189,6 +189,7 @@ export default {
     text-align: center;
     position: absolute;
     left: 0;
+    z-index: 10;
   }
 
   .coll-4 {
@@ -196,6 +197,7 @@ export default {
     text-align: center;
     position: absolute;
     left: 0;
+    z-index: 10;
   }
 
   .veneer-input {

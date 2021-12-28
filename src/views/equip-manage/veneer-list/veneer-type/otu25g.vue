@@ -276,13 +276,13 @@
         <td class="no-right-border">
           <div class="coll-2">
             <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[0].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
 
             <select v-else v-model="veneerInfoData[0].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </td>
@@ -290,12 +290,12 @@
         <td class="no-right-border">
           <div class="coll-2">
             <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[1].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
             <select v-else v-model="veneerInfoData[1].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </td>
@@ -303,11 +303,12 @@
         <td class="no-right-border">
           <div class="coll-2">
             <select v-if="veneerInfoData.ve_type === '25G-OTUL'" v-model="veneerInfoData[2].speed">
-              <option :value="0">关</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
             <select v-else v-model="veneerInfoData[2].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </td>
@@ -318,8 +319,8 @@
               <option :value="1">开</option>
             </select>
             <select v-else v-model="veneerInfoData[3].speed">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option value="eCPRI-25GE">eCPRI-25GE</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </td>

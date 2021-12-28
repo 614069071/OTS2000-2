@@ -235,22 +235,10 @@ export default {
         });
     },
     changeTilte() {
-      const iSuperData = this.$store.state.iSuper
-        ? {
-            mfgdate: this.veneerTitleData.mfgdate,
-            sn: this.veneerTitleData.sn,
-          }
-        : {};
-
-      const data = {
-        otn2000: {
-          type: "post_title",
-          boardname: this.info.boardname,
-          desc: this.veneerTitleData.desc,
-          slot: this.info.slot,
-          ...iSuperData,
-        },
-      };
+      const { mfgdate, sn, desc } = this.veneerTitleData;
+      const { boardname, slot } = this.info;
+      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
+      const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.$http
         .post(data)

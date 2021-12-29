@@ -151,8 +151,72 @@ export default {
   props: ["info", "visible"],
   data() {
     return {
-      veneerTitleData: {},
-      veneerInfoData: {},
+      veneerTitleData: {
+        boardname: "",
+        type: "",
+        h_rev: "",
+        s_rev: "",
+        p_rev: "",
+        mfgdate: "",
+        sn: "",
+        runtime: 0,
+        device_type: "",
+        status: 0,
+        desc: "",
+      },
+      veneerInfoData: {
+        sfp1: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        sfp2: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        sfp3: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        eth1: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+        eth2: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+        eth3: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+      },
     };
   },
   created() {},
@@ -181,22 +245,25 @@ export default {
     getVeneerDetail() {
       Promise.all([this.getVeneerTitle(), this.getVeneerInfo()])
         .then((res) => {
-          console.log("res", res);
-          this.veneerTitleData = res[0].otn2000_ack;
-          this.veneerInfoData = res[1].otn2000_ack || {};
+          const [resTitle, resInfo] = res;
+
+          this.veneerTitleData = resTitle.otn2000_ack;
+          this.veneerInfoData = resInfo.otn2000_ack || {};
         })
         .catch((err) => {
           console.log(err);
         });
     },
     refreshTitle() {
-      this.getVeneerTitle(this.info.slot)
+      this.getVeneerTitle()
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
+          this.$message("失败");
         });
     },
     setTilte() {

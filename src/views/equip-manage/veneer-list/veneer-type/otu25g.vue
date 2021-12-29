@@ -752,7 +752,7 @@ export default {
     refreshInfo() {
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
-          this.veneerInfoData = res.otn2000_ack;
+          this.veneerInfoData = res.otn2000_ack.channels;
 
           this.$message("成功");
         })

@@ -51,7 +51,7 @@
       </el-table>
     </div>
 
-    <el-dialog :title="`${veneerTilte.toUpperCase()}详情`" :visible.sync="dialogVisible" width="70%" :append-to-body="true">
+    <el-dialog :title="`${veneerTilte.toUpperCase()}详情`" :visible.sync="dialogVisible" width="90%" :append-to-body="true">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </el-dialog>
   </div>

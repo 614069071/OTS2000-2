@@ -56,63 +56,63 @@
       </tr>
       <tr>
         <td>在位状态</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? "在位" : "脱位" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? "在位" : "脱位" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? "在位" : "脱位" }}</td>
       </tr>
       <tr>
         <td>LINK状态</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? (veneerInfoData.sfp1.link_status ? "UP" : "DOWN") : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? (veneerInfoData.sfp2.link_status ? "UP" : "DOWN") : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? (veneerInfoData.sfp3.link_status ? "UP" : "DOWN") : "NA" }}</td>
       </tr>
       <tr>
         <td>速率（Mbps）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.speed_Gbps : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.speed_Gbps : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.speed_Gbps : "NA" }}</td>
       </tr>
       <tr>
         <td>波长（nm）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.wave_len : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.wave_len : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.wave_len : "NA" }}</td>
       </tr>
       <tr>
         <td>距离（km）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.tx_distanst : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.tx_distanst : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.tx_distanst : "NA" }}</td>
       </tr>
       <tr>
         <td>发送光功率（dBm）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.launch_power : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.launch_power : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.launch_power : "NA" }}</td>
       </tr>
       <tr>
         <td>接受光功率（dBm）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.rcv_power : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.rcv_power : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.rcv_power : "NA" }}</td>
       </tr>
       <tr>
         <td>电压（V）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.voltage : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.voltage : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.voltage : "NA" }}</td>
       </tr>
       <tr>
         <td>电流（mA）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.current : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.current : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.current : "NA" }}</td>
       </tr>
       <tr>
         <td>温度（℃）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.temp : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.temp : "NA" }}</td>
+        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.temp : "NA" }}</td>
       </tr>
     </table>
 
@@ -125,100 +125,65 @@
       </tr>
       <tr>
         <td>LINK状态</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.eth1.eth_status ? "UP" : "DOWN" }}</td>
+        <td>{{ veneerInfoData.eth2.eth_status ? "UP" : "DOWN" }}</td>
+        <td>{{ veneerInfoData.eth3.eth_status ? "UP" : "DOWN" }}</td>
       </tr>
       <tr>
         <td>速率（Mbps）</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.eth1.ethspeed }}</td>
+        <td>{{ veneerInfoData.eth2.ethspeed }}</td>
+        <td>{{ veneerInfoData.eth3.ethspeed }}</td>
       </tr>
       <tr>
         <td>双工</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ veneerInfoData.eth1.full_status ? "全双工" : "半双工" }}</td>
+        <td>{{ veneerInfoData.eth2.full_status ? "全双工" : "半双工" }}</td>
+        <td>{{ veneerInfoData.eth3.full_status ? "全双工" : "半双工" }}</td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-// import CustomSelect from "../../components/custom-select";
-
 export default {
   name: "nmu",
   props: ["info", "visible"],
-  // components: { CustomSelect },
   data() {
     return {
-      changeForm: {
-        mode: "",
-        pump_sw: 0,
-        lum_input_thr: 0,
-        lum_output_thr: 0,
-        pump_cur_thr: 0,
-        pump_sw_cur: 0,
-        mod_temp_low: 0,
-        pump_temp_low: 0,
-        mod_temp_high: 0,
-        pump_temp_high: 0,
-      },
       veneerTitleData: {},
       veneerInfoData: {},
     };
   },
   created() {},
   mounted() {
-    this.getVeneerDetail(this.info.slot);
+    this.getVeneerDetail();
   },
   watch: {
     visible(n) {
       if (!n) return;
-      console.log("this.info", this.info);
-      this.getVeneerDetail(this.info.slot);
+      this.getVeneerDetail();
     },
   },
   methods: {
-    getVeneerTitle(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_title",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerTitle() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_title", boardname, slot } };
+
+      return this.$http.post(data);
     },
-    getVeneerInfo(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_info",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_info", boardname, slot } };
+
+      return this.$http.post(data);
     },
-    getVeneerDetail(slot) {
-      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+    getVeneerDetail() {
+      Promise.all([this.getVeneerTitle(), this.getVeneerInfo()])
         .then((res) => {
           console.log("res", res);
           this.veneerTitleData = res[0].otn2000_ack;
           this.veneerInfoData = res[1].otn2000_ack || {};
-
-          this.changeForm = {
-            mode: res[1].otn2000_ack.mode,
-            pump_sw: res[1].otn2000_ack.pump_sw,
-            lum_input_thr: res[1].otn2000_ack.lum_input_thr,
-            lum_output_thr: res[1].otn2000_ack.lum_output_thr,
-            pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
-            mod_temp_low: res[1].otn2000_ack.mod_temp_low,
-            pump_temp_low: res[1].otn2000_ack.pump_temp_low,
-            mod_temp_high: res[1].otn2000_ack.mod_temp_high,
-            pump_temp_high: res[1].otn2000_ack.pump_temp_high,
-          };
         })
         .catch((err) => {
           console.log(err);
@@ -255,53 +220,10 @@ export default {
         .then((res) => {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
-          this.changeForm = {
-            mode: res.otn2000_ack.mode,
-            pump_sw: res.otn2000_ack.pump_sw,
-            lum_input_thr: res.otn2000_ack.lum_input_thr,
-            lum_output_thr: res.otn2000_ack.lum_output_thr,
-            pump_cur_thr: res.otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res.otn2000_ack.pump_sw_cur,
-            mod_temp_low: res.otn2000_ack.mod_temp_low,
-            pump_temp_low: res.otn2000_ack.pump_temp_low,
-            mod_temp_high: res.otn2000_ack.mod_temp_high,
-            pump_temp_high: res.otn2000_ack.pump_temp_high,
-          };
         })
         .catch((err) => {
           console.log(err);
         });
-    },
-    setInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
-
-      this.$http
-        .post(data)
-        .then((res) => {
-          console.log("setInfo", res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    restoreDefaultInfo() {
-      // const data = {
-      //   otn2000: {
-      //     type: "default",
-      //     boardname: this.info.boardname,
-      //     slot: this.info.slot,
-      //   },
-      // };
-      // this.$http
-      //   .post(data)
-      //   .then((res) => {
-      //     console.log("restoreDefaultInfo", res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //     this.veneerTitleData.desc = "";
-      //   });
     },
   },
 };

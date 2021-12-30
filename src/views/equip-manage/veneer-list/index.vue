@@ -1,8 +1,13 @@
 <template>
   <div class="veneer-list-view-wrapper view-wrapper">
     <div class="inner-header-wrapper">
+      <!-- 设备框图 -->
       <div class="veneer-block-diagram-wrapper">
-        <!-- 设备框图 -->
+        <!-- <div class="veneer-inner-wrapper">
+          <div class="veneer-item-wrapper" v-for="(item, index) in 8" :key="index">
+            <veneer-nmu :index="index"></veneer-nmu>
+          </div>
+        </div> -->
       </div>
     </div>
 
@@ -51,9 +56,13 @@
       </el-table>
     </div>
 
-    <el-dialog :visible.sync="dialogVisible" width="90%" :append-to-body="true">
+    <!-- <el-dialog :visible.sync="dialogVisible" width="70%" :append-to-body="true">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
-    </el-dialog>
+    </el-dialog> -->
+
+    <pupur :visible.sync="dialogVisible">
+      <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
+    </pupur>
   </div>
 </template>
 
@@ -68,9 +77,11 @@ import Otucfpdco200g from "./veneer-type/otucfpdco200g";
 import Ocp2x10g from "./veneer-type/ocp2x10g";
 import Similar from "./veneer-type/similar";
 
+import VeneerNmu from "./components/nmu";
+
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu4x10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar },
+  components: { Nmu, Edfa, Olp, Otu4x10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, VeneerNmu },
   data() {
     return {
       dataForm: {},
@@ -121,13 +132,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// 单板构图 start
 .veneer-block-diagram-wrapper {
-  width: 80%;
-  height: 200px;
+  width: 1000px;
+  height: 283px;
   background-color: grey;
-  background: url("../../../assets/images/machine1.png") center/contain no-repeat;
+  background: url("../../../assets/images/entirety.png") center/contain no-repeat;
   margin: 0 auto;
+  position: relative;
 }
+
+.veneer-inner-wrapper {
+  width: 1000px;
+  height: 240px;
+  border: 1px solid red;
+  position: absolute;
+  left: 30px;
+  bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.veneer-item-wrapper {
+  height: 20px;
+  width: 50% !important;
+}
+
+// 单板构图 end
 
 .veneer-look-btn {
   color: #696969;
@@ -139,25 +171,39 @@ export default {
 </style>
 
 <style lang="scss">
+.cps-wrapper {
+  background-color: #fff;
+  padding: 10px;
+}
 // 单板详情表格
 .veneer-header-wrapper {
   height: 77px;
   border: 1px solid red;
+  margin-bottom: 20px;
 }
 
 .veneer-table {
   $border-color: #e8e8e8;
   width: 100%;
   border-collapse: collapse !important;
-  margin-top: 20px;
-  border-left: 1px solid $border-color;
-  border-top: 1px solid $border-color;
-  border-bottom: none;
-  border-right: none;
+  // border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 
-  tr {
+  thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff !important;
+    z-index: 100;
+  }
+
+  tr,
+  th {
     display: flex;
     border: none;
+    font-weight: normal;
   }
 
   td {
@@ -165,39 +211,35 @@ export default {
     line-height: 34px;
     color: #666;
     flex: 1;
-    border-right: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
-    border-left: none;
-    border-top: none;
     position: relative;
     padding: 0 10px;
     box-sizing: border-box;
     text-align: center;
     display: flex;
+    box-sizing: border-box;
   }
 
   td > * {
     margin: auto;
   }
 
-  .no-right-border {
-    border-right: 1px solid transparent;
+  .coll-2,
+  .coll-4 {
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    border-bottom: 1px solid #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
   }
 
   .coll-2 {
     width: 200%;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    z-index: 10;
   }
-
   .coll-4 {
     width: 400%;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    z-index: 10;
   }
 
   .veneer-input {
@@ -207,14 +249,26 @@ export default {
 }
 
 .veneer-title-table {
+  border-top: none;
+
   td {
     width: 16.66%;
   }
 }
 
+.veneer-info-table {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
 .venner-change-btns {
   text-align: right;
-  margin-top: 20px;
+  padding: 20px 0;
 }
 
 .def-input {

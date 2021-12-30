@@ -10,7 +10,6 @@
 <script>
 import MiddleMenu from "./middle-menu";
 import { mapState } from "vuex";
-import { storages } from "@utils";
 
 export default {
   name: "side-bar",
@@ -154,7 +153,7 @@ export default {
   }
 
   .sidebar-el-menu:not(.el-menu--collapse) {
-    width: 260px;
+    width: 180px;
     // min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
   }
 

@@ -56,15 +56,16 @@ export default {
     display: flex;
     justify-content: flex-end;
     background-color: #fff;
-    padding: 10px 10px 0 0;
+    // padding: 10px 10px 0 0;
 
     .close-button {
       width: 30px;
       height: 30px;
       text-align: center;
       line-height: 30px;
-      margin: -10px -10px 0 0;
+      // margin: -10px -10px 0 0;
       cursor: pointer;
+      text-align: center;
     }
   }
 

@@ -192,11 +192,12 @@ $border-color: #aaa;
 
 .cps-wrapper {
   background-color: #fff;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   max-height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-sizing: border-box;
 }
 // 单板详情表格
 .veneer-header-wrapper {

@@ -144,6 +144,10 @@
         </tr>
       </table>
     </div>
+
+    <div class="venner-change-btns">
+      <button class="def-btn" @click="refreshInfo">刷新</button>
+    </div>
   </div>
 </template>
 

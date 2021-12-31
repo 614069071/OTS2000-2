@@ -87,25 +87,25 @@
 
         <tr>
           <td>在位状态</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[0].link_status.line ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[1].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[1].link_status.line ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[2].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[2].link_status.line ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[3].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[3].link_status.line ? "在位" : "脱位" }}</td>
         </tr>
         <tr>
           <td>LINK状态</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].los.client ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[0].los.line ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[1].los.client ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[1].los.line ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[2].los.client ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[2].los.line ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[3].los.client ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData[3].los.line ? "UP" : "DOWN" }}</td>
         </tr>
         <tr>
           <td>属性</td>
@@ -131,14 +131,14 @@
         </tr>
         <tr>
           <td>波长</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].wave_len.client }}</td>
+          <td>{{ veneerInfoData[0].wave_len.line }}</td>
+          <td>{{ veneerInfoData[1].wave_len.client }}</td>
+          <td>{{ veneerInfoData[1].wave_len.line }}</td>
+          <td>{{ veneerInfoData[2].wave_len.client }}</td>
+          <td>{{ veneerInfoData[2].wave_len.line }}</td>
+          <td>{{ veneerInfoData[3].wave_len.client }}</td>
+          <td>{{ veneerInfoData[3].wave_len.line }}</td>
         </tr>
         <tr>
           <td>距离（km）</td>
@@ -153,70 +153,59 @@
         </tr>
         <tr>
           <td>发射光功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].launch_power.client }}</td>
+          <td>{{ veneerInfoData[0].launch_power.line }}</td>
+          <td>{{ veneerInfoData[1].launch_power.client }}</td>
+          <td>{{ veneerInfoData[1].launch_power.line }}</td>
+          <td>{{ veneerInfoData[2].launch_power.client }}</td>
+          <td>{{ veneerInfoData[2].launch_power.line }}</td>
+          <td>{{ veneerInfoData[3].launch_power.client }}</td>
+          <td>{{ veneerInfoData[3].launch_power.line }}</td>
         </tr>
         <tr>
           <td>接受光功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].rcv_power.client }}</td>
+          <td>{{ veneerInfoData[0].rcv_power.line }}</td>
+          <td>{{ veneerInfoData[1].rcv_power.client }}</td>
+          <td>{{ veneerInfoData[1].rcv_power.line }}</td>
+          <td>{{ veneerInfoData[2].rcv_power.client }}</td>
+          <td>{{ veneerInfoData[2].rcv_power.line }}</td>
+          <td>{{ veneerInfoData[3].rcv_power.client }}</td>
+          <td>{{ veneerInfoData[3].rcv_power.line }}</td>
         </tr>
         <tr>
           <td>电压（V）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].voltage.client }}</td>
+          <td>{{ veneerInfoData[0].voltage.line }}</td>
+          <td>{{ veneerInfoData[1].voltage.client }}</td>
+          <td>{{ veneerInfoData[1].voltage.line }}</td>
+          <td>{{ veneerInfoData[2].voltage.client }}</td>
+          <td>{{ veneerInfoData[2].voltage.line }}</td>
+          <td>{{ veneerInfoData[3].voltage.client }}</td>
+          <td>{{ veneerInfoData[3].voltage.line }}</td>
         </tr>
 
         <tr>
           <td>偏置电流（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].current.client }}</td>
+          <td>{{ veneerInfoData[0].current.line }}</td>
+          <td>{{ veneerInfoData[1].current.client }}</td>
+          <td>{{ veneerInfoData[1].current.line }}</td>
+          <td>{{ veneerInfoData[2].current.client }}</td>
+          <td>{{ veneerInfoData[2].current.line }}</td>
+          <td>{{ veneerInfoData[3].current.client }}</td>
+          <td>{{ veneerInfoData[3].current.line }}</td>
         </tr>
         <tr>
           <td>温度（℃）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>预留1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ veneerInfoData[0].temp.client }}</td>
+          <td>{{ veneerInfoData[0].temp.line }}</td>
+          <td>{{ veneerInfoData[1].temp.client }}</td>
+          <td>{{ veneerInfoData[1].temp.line }}</td>
+          <td>{{ veneerInfoData[2].temp.client }}</td>
+          <td>{{ veneerInfoData[2].temp.line }}</td>
+          <td>{{ veneerInfoData[3].temp.client }}</td>
+          <td>{{ veneerInfoData[3].temp.line }}</td>
         </tr>
         <tr>
           <td>激光器开关</td>

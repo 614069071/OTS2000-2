@@ -5,33 +5,49 @@
     <table class="veneer-table" border="1">
       <tr>
         <td>硬件版本</td>
-        <td>{{ veneerTitleData.h_rev }}</td>
+        <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
         <td>软件版本</td>
-        <td>{{ veneerTitleData.s_rev }}</td>
+        <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
         <td>协议版本</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
       </tr>
+
       <tr>
         <td>生产日期</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
+        <td>
+          <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+
+          <template v-else>
+            {{ veneerTitleData.mfgdate }}
+          </template>
+        </td>
         <td>序列号</td>
-        <td>{{ veneerTitleData.sn }}</td>
-        <td>板型号</td>
-        <td>{{ veneerTitleData.run_time }}</td>
+        <td>
+          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+
+          <template v-else>
+            {{ veneerTitleData.sn }}
+          </template>
+        </td>
+
+        <td>版型号</td>
+        <td>{{ veneerTitleData.bdtype }}</td>
       </tr>
       <tr>
         <td>设备类型</td>
         <td>{{ veneerTitleData.device_type }}</td>
         <td>状态</td>
-        <td>{{ veneerTitleData.status }}</td>
+        <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
         <td>信息描述</td>
-        <td>{{ veneerTitleData.desc }}</td>
+        <td>
+          <input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" />
+        </td>
       </tr>
     </table>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" @click="refreshTitle">刷新</button>
+      <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
     <div class="veneer-table-container">
@@ -279,19 +295,151 @@
 
 <script>
 export default {
-  name: "otu4x10g",
+  name: "nmu",
+  props: ["info", "visible"],
   data() {
     return {
-      veneerTitleData: {},
+      veneerTitleData: {
+        boardname: "",
+        type: "",
+        h_rev: "",
+        s_rev: "",
+        p_rev: "",
+        mfgdate: "",
+        sn: "",
+        runtime: 0,
+        device_type: "",
+        status: 0,
+        desc: "",
+      },
+      veneerInfoData: {
+        sfp1: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        sfp2: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        sfp3: {
+          online_status: 0,
+          link_status: 0,
+          speed_Gbps: "",
+          wave_len: "",
+          tx_distanst: "",
+          launch_power: "",
+          rcv_power: "",
+          voltage: "",
+          current: "",
+          temp: "",
+        },
+        eth1: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+        eth2: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+        eth3: {
+          eth_status: 0,
+          full_status: 0,
+          ethspeed: 0,
+        },
+      },
     };
   },
-  created() {
-    console.log("created");
-  },
+  created() {},
   mounted() {
-    console.log("mounted");
+    this.getVeneerDetail();
+  },
+  watch: {
+    visible(n) {
+      if (!n) return;
+      this.getVeneerDetail();
+    },
+  },
+  methods: {
+    getVeneerTitle() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_title", boardname, slot } };
+
+      return this.$http.post(data);
+    },
+    getVeneerInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_info", boardname, slot } };
+
+      return this.$http.post(data);
+    },
+    getVeneerDetail() {
+      Promise.all([this.getVeneerTitle(), this.getVeneerInfo()])
+        .then((res) => {
+          const [resTitle, resInfo] = res;
+
+          this.veneerTitleData = resTitle.otn2000_ack;
+          this.veneerInfoData = resInfo.otn2000_ack || {};
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshTitle() {
+      this.getVeneerTitle()
+        .then((res) => {
+          console.log(res);
+          this.veneerTitleData = res.otn2000_ack;
+          this.$message("成功");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$message("失败");
+        });
+    },
+    setTilte() {
+      const { mfgdate, sn, desc } = this.veneerTitleData;
+      const { boardname, slot } = this.info;
+      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
+      const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("setTilte", res);
+        })
+        .catch((err) => {
+          console.log(err);
+          this.veneerTitleData.desc = "";
+        });
+    },
+    refreshInfo() {
+      this.getVeneerInfo(this.info.slot)
+        .then((res) => {
+          console.log(res);
+          this.veneerInfoData = res.otn2000_ack;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
-
-<style scoped lang="css"></style>

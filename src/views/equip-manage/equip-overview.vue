@@ -20,8 +20,8 @@
           <div class="system-info-item">
             <span>序列号</span>
             <span>
-              <template v-if="!$store.state.iSuper">{{ systemInfo.sn }}</template>
-              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="dataForm.sn" />
+              <template v-if="isTatic || !$store.state.iSuper">{{ systemInfo.sn }}</template>
+              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
             </span>
           </div>
           <div class="system-info-item">
@@ -32,21 +32,21 @@
             <span>设备标识</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
-              <input v-else class="def-input" type="text" v-model="dataForm.dev_sign" />
+              <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" />
             </span>
           </div>
           <div class="system-info-item">
             <span>设备位置</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.location }}</template>
-              <input v-else class="def-input" type="text" v-model="dataForm.location" />
+              <input v-else class="def-input" type="text" v-model="systemInfo.location" />
             </span>
           </div>
           <div class="system-info-item">
             <span>联系人</span>
             <span>
               <template v-if="isTatic">{{ systemInfo.contacts }}</template>
-              <input v-else class="def-input" type="text" v-model="dataForm.contacts" />
+              <input v-else class="def-input" type="text" v-model="systemInfo.contacts" />
             </span>
           </div>
           <div class="system-info-change-wrapper">
@@ -133,12 +133,6 @@ export default {
   name: "equip-overview",
   data() {
     return {
-      dataForm: {
-        // sn: "",
-        dev_sign: "",
-        contacts: "",
-        location: "",
-      },
       isTatic: true,
       inquireLoading: false,
       systemInfo: {
@@ -213,14 +207,16 @@ export default {
       this.startTimer();
     },
     submitChangeFrom() {
-      const data = { otn2000: { boardname: "sys_view", type: "post_info", ...this.dataForm } };
+      const { dev_sign, contacts, location, sn } = this.systemInfo;
+      const asin = this.$state.iSuper ? { sn } : {};
+      const data = { otn2000: { boardname: "sys_view", type: "post_info", dev_sign, contacts, location, ...asin } };
 
       this.$http
         .post(data)
         .then((res) => {
           this.systemInfo = res.otn2000_ack;
           this.isTatic = true;
-          this.$message({ type: "sucess", message: "成功" });
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
@@ -229,7 +225,6 @@ export default {
     },
     cancelChangeForm() {
       this.isTatic = true;
-      this.dataForm = { dev_sign: "", sn: "", contacts: "", location: "" };
     },
   },
 };

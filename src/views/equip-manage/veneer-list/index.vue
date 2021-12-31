@@ -70,7 +70,7 @@
 import Nmu from "./veneer-type/nmu";
 import Edfa from "./veneer-type/edfa";
 import Olp from "./veneer-type/olp";
-import Otu4x10g from "./veneer-type/otu4x10g";
+import Otu10g from "./veneer-type/otu10g";
 import Otu25g from "./veneer-type/otu25g";
 import Otu40g100g from "./veneer-type/otu40g100g";
 import Otucfpdco200g from "./veneer-type/otucfpdco200g";
@@ -81,7 +81,7 @@ import VeneerNmu from "./components/nmu";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu4x10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, VeneerNmu },
+  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, VeneerNmu },
   data() {
     return {
       dataForm: {},
@@ -262,6 +262,10 @@ $border-color: #aaa;
   }
 
   .def-input {
+    width: 100%;
+  }
+
+  .el-date-editor.el-input {
     width: 100%;
   }
 }

@@ -201,13 +201,13 @@ button + button {
   background-color: #f5f7fa !important;
 }
 
-.el-input {
-  width: 240px !important;
-}
-
 .el-input-number .el-input,
 .el-pagination .el-input {
   width: auto !important;
+}
+
+.el-input input {
+  border-radius: 0 !important;
 }
 
 // icons

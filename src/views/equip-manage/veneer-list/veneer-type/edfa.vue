@@ -1,5 +1,5 @@
 <template>
-  <div class="edfa-cps-wrapper">
+  <div class="edfa-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">EDFA</div>
 
     <table class="veneer-table veneer-title-table" border="1">

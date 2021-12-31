@@ -41,6 +41,7 @@ export default {
   left: 0;
   top: 0;
   display: flex;
+  z-index: 100;
 
   .pupur-container-wrapper {
     width: 80%;

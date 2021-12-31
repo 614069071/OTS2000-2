@@ -1,5 +1,5 @@
 <template>
-  <div class="otu25g-cps-wrapper">
+  <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">otu4x25g</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
@@ -45,427 +45,403 @@
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
-    <table class="veneer-table veneer-title-table" border="1">
-      <tr>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">通道1</div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">通道2</div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">通道3</div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">通道4</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>端口</td>
-        <td>Client</td>
-        <td>Line</td>
-        <td>Client</td>
-        <td>Line</td>
-        <td>Client</td>
-        <td>Line</td>
-        <td>Client</td>
-        <td>Line</td>
-      </tr>
-      <tr>
-        <td>在位状态</td>
-        <td>{{ veneerInfoData[0].link_status.client ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[0].link_status.line ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[1].link_status.client ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[1].link_status.line ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[2].link_status.client ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[2].link_status.line ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[3].link_status.client ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData[3].link_status.line ? "在位" : "脱位" }}</td>
-      </tr>
-      <tr>
-        <td>LINK状态</td>
-        <td>{{ veneerInfoData[0].los.client ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[0].los.line ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[1].los.client ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[1].los.line ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[2].los.client ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[2].los.line ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[3].los.client ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData[3].los.line ? "UP" : "DOWN" }}</td>
-      </tr>
-      <tr>
-        <td>属性</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>波道</td>
-        <td>NA</td>
-        <td></td>
-        <td>NA</td>
-        <td></td>
-        <td>NA</td>
-        <td></td>
-        <td>NA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>波长</td>
-        <td>{{ veneerInfoData[0].wave_len.client }}</td>
-        <td>{{ veneerInfoData[0].wave_len.line }}</td>
-        <td>{{ veneerInfoData[1].wave_len.client }}</td>
-        <td>{{ veneerInfoData[1].wave_len.line }}</td>
-        <td>{{ veneerInfoData[2].wave_len.client }}</td>
-        <td>{{ veneerInfoData[2].wave_len.line }}</td>
-        <td>{{ veneerInfoData[3].wave_len.client }}</td>
-        <td>{{ veneerInfoData[3].wave_len.line }}</td>
-      </tr>
-      <tr>
-        <td>距离（km）</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>发射功率（dBm）</td>
-        <td>{{ veneerInfoData[0].launch_power.client }}</td>
-        <td>{{ veneerInfoData[0].launch_power.line }}</td>
-        <td>{{ veneerInfoData[1].launch_power.client }}</td>
-        <td>{{ veneerInfoData[1].launch_power.line }}</td>
-        <td>{{ veneerInfoData[2].launch_power.client }}</td>
-        <td>{{ veneerInfoData[2].launch_power.line }}</td>
-        <td>{{ veneerInfoData[3].launch_power.client }}</td>
-        <td>{{ veneerInfoData[3].launch_power.line }}</td>
-      </tr>
-      <tr>
-        <td>接受功率（dBm）</td>
-        <td>{{ veneerInfoData[0].rcv_power.client }}</td>
-        <td>{{ veneerInfoData[0].rcv_power.line }}</td>
-        <td>{{ veneerInfoData[1].rcv_power.client }}</td>
-        <td>{{ veneerInfoData[1].rcv_power.line }}</td>
-        <td>{{ veneerInfoData[2].rcv_power.client }}</td>
-        <td>{{ veneerInfoData[2].rcv_power.line }}</td>
-        <td>{{ veneerInfoData[3].rcv_power.client }}</td>
-        <td>{{ veneerInfoData[3].rcv_power.line }}</td>
-      </tr>
-      <tr>
-        <td>电压（V）</td>
-        <td>{{ veneerInfoData[0].voltage.client }}</td>
-        <td>{{ veneerInfoData[0].voltage.line }}</td>
-        <td>{{ veneerInfoData[1].voltage.client }}</td>
-        <td>{{ veneerInfoData[1].voltage.line }}</td>
-        <td>{{ veneerInfoData[2].voltage.client }}</td>
-        <td>{{ veneerInfoData[2].voltage.line }}</td>
-        <td>{{ veneerInfoData[3].voltage.client }}</td>
-        <td>{{ veneerInfoData[3].voltage.line }}</td>
-      </tr>
+    <div class="veneer-table-main">
+      <table class="veneer-table veneer-info-table" border="1">
+        <thead>
+          <th>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">通道1</div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">通道2</div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">通道3</div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">通道4</div>
+            </td>
+            <td></td>
+          </th>
+          <th>
+            <td>端口</td>
+            <td>Client</td>
+            <td>Line</td>
+            <td>Client</td>
+            <td>Line</td>
+            <td>Client</td>
+            <td>Line</td>
+            <td>Client</td>
+            <td>Line</td>
+          </th>
+        </thead>
 
-      <tr>
-        <td>偏置电流（dBm）</td>
-        <td>{{ veneerInfoData[0].current.client }}</td>
-        <td>{{ veneerInfoData[0].current.line }}</td>
-        <td>{{ veneerInfoData[1].current.client }}</td>
-        <td>{{ veneerInfoData[1].current.line }}</td>
-        <td>{{ veneerInfoData[2].current.client }}</td>
-        <td>{{ veneerInfoData[2].current.line }}</td>
-        <td>{{ veneerInfoData[3].current.client }}</td>
-        <td>{{ veneerInfoData[3].current.line }}</td>
-      </tr>
-      <tr>
-        <td>温度（℃）</td>
-        <td>{{ veneerInfoData[0].temp.client }}</td>
-        <td>{{ veneerInfoData[0].temp.line }}</td>
-        <td>{{ veneerInfoData[1].temp.client }}</td>
-        <td>{{ veneerInfoData[1].temp.line }}</td>
-        <td>{{ veneerInfoData[2].temp.client }}</td>
-        <td>{{ veneerInfoData[2].temp.line }}</td>
-        <td>{{ veneerInfoData[3].temp.client }}</td>
-        <td>{{ veneerInfoData[3].temp.line }}</td>
-      </tr>
-      <tr>
-        <td>预留1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>激光器开关</td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-        <td>
-          <select>
-            <option :value="0">关</option>
-            <option :value="1">开</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>误码检测</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>速率（Mbps）</td>
-        <td class="no-right-border">
-          <div class="coll-2">
-            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
-              <option value="Other">Other</option>
-            </select>
+        <tbody>
+          <tr>
+            <td>在位状态</td>
+            <td>{{ veneerInfoData[0].link_status.client ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[0].link_status.line ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[1].link_status.client ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[1].link_status.line ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[2].link_status.client ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[2].link_status.line ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[3].link_status.client ? "在位" : "脱位" }}</td>
+            <td>{{ veneerInfoData[3].link_status.line ? "在位" : "脱位" }}</td>
+          </tr>
+          <tr>
+            <td>LINK状态</td>
+            <td>{{ veneerInfoData[0].los.client ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[0].los.line ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[1].los.client ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[1].los.line ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[2].los.client ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[2].los.line ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[3].los.client ? "UP" : "DOWN" }}</td>
+            <td>{{ veneerInfoData[3].los.line ? "UP" : "DOWN" }}</td>
+          </tr>
+          <tr>
+            <td>属性</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>波道</td>
+            <td>NA</td>
+            <td></td>
+            <td>NA</td>
+            <td></td>
+            <td>NA</td>
+            <td></td>
+            <td>NA</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>波长</td>
+            <td>{{ veneerInfoData[0].wave_len.client }}</td>
+            <td>{{ veneerInfoData[0].wave_len.line }}</td>
+            <td>{{ veneerInfoData[1].wave_len.client }}</td>
+            <td>{{ veneerInfoData[1].wave_len.line }}</td>
+            <td>{{ veneerInfoData[2].wave_len.client }}</td>
+            <td>{{ veneerInfoData[2].wave_len.line }}</td>
+            <td>{{ veneerInfoData[3].wave_len.client }}</td>
+            <td>{{ veneerInfoData[3].wave_len.line }}</td>
+          </tr>
+          <tr>
+            <td>距离（km）</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>发射功率（dBm）</td>
+            <td>{{ veneerInfoData[0].launch_power.client }}</td>
+            <td>{{ veneerInfoData[0].launch_power.line }}</td>
+            <td>{{ veneerInfoData[1].launch_power.client }}</td>
+            <td>{{ veneerInfoData[1].launch_power.line }}</td>
+            <td>{{ veneerInfoData[2].launch_power.client }}</td>
+            <td>{{ veneerInfoData[2].launch_power.line }}</td>
+            <td>{{ veneerInfoData[3].launch_power.client }}</td>
+            <td>{{ veneerInfoData[3].launch_power.line }}</td>
+          </tr>
+          <tr>
+            <td>接受功率（dBm）</td>
+            <td>{{ veneerInfoData[0].rcv_power.client }}</td>
+            <td>{{ veneerInfoData[0].rcv_power.line }}</td>
+            <td>{{ veneerInfoData[1].rcv_power.client }}</td>
+            <td>{{ veneerInfoData[1].rcv_power.line }}</td>
+            <td>{{ veneerInfoData[2].rcv_power.client }}</td>
+            <td>{{ veneerInfoData[2].rcv_power.line }}</td>
+            <td>{{ veneerInfoData[3].rcv_power.client }}</td>
+            <td>{{ veneerInfoData[3].rcv_power.line }}</td>
+          </tr>
+          <tr>
+            <td>电压（V）</td>
+            <td>{{ veneerInfoData[0].voltage.client }}</td>
+            <td>{{ veneerInfoData[0].voltage.line }}</td>
+            <td>{{ veneerInfoData[1].voltage.client }}</td>
+            <td>{{ veneerInfoData[1].voltage.line }}</td>
+            <td>{{ veneerInfoData[2].voltage.client }}</td>
+            <td>{{ veneerInfoData[2].voltage.line }}</td>
+            <td>{{ veneerInfoData[3].voltage.client }}</td>
+            <td>{{ veneerInfoData[3].voltage.line }}</td>
+          </tr>
 
-            <select v-else v-model="veneerInfoData[0].speed">
-              <option value="25GE-28GE">25GE-28GE</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">
-            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
-              <option value="Other">Other</option>
-            </select>
-            <select v-else v-model="veneerInfoData[1].speed">
-              <option value="25GE-28GE">25GE-28GE</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">
-            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
-              <option value="Other">Other</option>
-            </select>
-            <select v-else v-model="veneerInfoData[2].speed">
-              <option value="25GE-28GE">25GE-28GE</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </td>
-        <td></td>
-        <td class="no-right-border">
-          <div class="coll-2">
-            <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
-              <option value="eCPRI-25GE">eCPRI-25GE</option>
-              <option value="Other">Other</option>
-            </select>
-            <select v-else v-model="veneerInfoData[3].speed">
-              <option value="25GE-28GE">25GE-28GE</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>输入EQ（dB）</td>
-        <td v-for="item in 8" :key="item">
-          <select>
-            <option v-for="item in ['自适应', 0, 0.6, 1.2, 1.8, 2.4, 3.0, 3.6, 4.2, 4.8, 5.4, 6.0, 6.6, 7.2, 7.8, 8.4, 9.0, 9.6, 10.2, 10.8, 11.4, 12.0]" :key="item" :value="item">{{ item }}</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>输出幅度（dBm）</td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-        <td>
-          <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
-        </td>
-      </tr>
-      <tr>
-        <td>接收光功率过低阈值（dBm）</td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-      </tr>
-      <tr>
-        <td>接收光功率过载阈值（dBm）</td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-      </tr>
-      <tr>
-        <td>发送光功率过载阈值（dBm）</td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-        <td>
-          <input type="text" class="def-input" />
-        </td>
-      </tr>
-      <tr>
-        <td>预留2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>预留3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+          <tr>
+            <td>偏置电流（dBm）</td>
+            <td>{{ veneerInfoData[0].current.client }}</td>
+            <td>{{ veneerInfoData[0].current.line }}</td>
+            <td>{{ veneerInfoData[1].current.client }}</td>
+            <td>{{ veneerInfoData[1].current.line }}</td>
+            <td>{{ veneerInfoData[2].current.client }}</td>
+            <td>{{ veneerInfoData[2].current.line }}</td>
+            <td>{{ veneerInfoData[3].current.client }}</td>
+            <td>{{ veneerInfoData[3].current.line }}</td>
+          </tr>
+          <tr>
+            <td>温度（℃）</td>
+            <td>{{ veneerInfoData[0].temp.client }}</td>
+            <td>{{ veneerInfoData[0].temp.line }}</td>
+            <td>{{ veneerInfoData[1].temp.client }}</td>
+            <td>{{ veneerInfoData[1].temp.line }}</td>
+            <td>{{ veneerInfoData[2].temp.client }}</td>
+            <td>{{ veneerInfoData[2].temp.line }}</td>
+            <td>{{ veneerInfoData[3].temp.client }}</td>
+            <td>{{ veneerInfoData[3].temp.line }}</td>
+          </tr>
+          <tr>
+            <td>激光器开关</td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+            <td>
+              <select>
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>误码检测</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>速率（Mbps）</td>
+            <td class="no-right-border">
+              <div class="coll-2">
+                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
+                  <option value="eCPRI-25GE">eCPRI-25GE</option>
+                  <option value="Other">Other</option>
+                </select>
+
+                <select v-else v-model="veneerInfoData[0].speed">
+                  <option value="25GE-28GE">25GE-28GE</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">
+                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
+                  <option value="eCPRI-25GE">eCPRI-25GE</option>
+                  <option value="Other">Other</option>
+                </select>
+                <select v-else v-model="veneerInfoData[1].speed">
+                  <option value="25GE-28GE">25GE-28GE</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">
+                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
+                  <option value="eCPRI-25GE">eCPRI-25GE</option>
+                  <option value="Other">Other</option>
+                </select>
+                <select v-else v-model="veneerInfoData[2].speed">
+                  <option value="25GE-28GE">25GE-28GE</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+            <td class="no-right-border">
+              <div class="coll-2">
+                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
+                  <option value="eCPRI-25GE">eCPRI-25GE</option>
+                  <option value="Other">Other</option>
+                </select>
+                <select v-else v-model="veneerInfoData[3].speed">
+                  <option value="25GE-28GE">25GE-28GE</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>输入EQ（dB）</td>
+            <td v-for="item in 8" :key="item">
+              <select>
+                <option v-for="item in ['自适应', 0, 0.6, 1.2, 1.8, 2.4, 3.0, 3.6, 4.2, 4.8, 5.4, 6.0, 6.6, 7.2, 7.8, 8.4, 9.0, 9.6, 10.2, 10.8, 11.4, 12.0]" :key="item" :value="item">{{
+                  item
+                }}</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>输出幅度（dBm）</td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+            <td>
+              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+            </td>
+          </tr>
+          <tr>
+            <td>接收光功率过低阈值（dBm）</td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+          </tr>
+          <tr>
+            <td>接收光功率过载阈值（dBm）</td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+          </tr>
+          <tr>
+            <td>发送光功率过载阈值（dBm）</td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+            <td>
+              <input type="text" class="def-input" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
@@ -797,7 +773,23 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.otu25g-cps-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.veneer-table-main {
+  $border-color: #e8e8e8;
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  position: relative;
+}
+
 .otu25g-cps-wrapper .el-input-number--mini {
   width: 110px;
 }

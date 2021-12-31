@@ -1,5 +1,5 @@
 <template>
-  <div class="num-cps-wrapper">
+  <div class="num-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">Nmu</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>

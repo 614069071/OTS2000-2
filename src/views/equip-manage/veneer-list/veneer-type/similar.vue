@@ -1,5 +1,5 @@
 <template>
-  <div class="similar-cps-wrapper">
+  <div class="similar-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">similar {{ info.boardname }}</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>

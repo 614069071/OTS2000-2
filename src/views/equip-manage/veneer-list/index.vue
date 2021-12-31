@@ -86,24 +86,7 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [
-        { boardname: "ocp2x10g", status: 1 },
-        { boardname: "d16", status: 1 },
-        { boardname: "d40", status: 1 },
-        { boardname: "dcm", status: 1 },
-        { boardname: "edfa", status: 1 },
-        { boardname: "m16", status: 1 },
-        { boardname: "m40", status: 1 },
-        { boardname: "md8", status: 1 },
-        { boardname: "md16sfa", status: 1 },
-        { boardname: "md16sfb", status: 1 },
-        { boardname: "nmu", status: 1 },
-        { boardname: "olp", status: 1 },
-        { boardname: "otu4x10g", status: 1 },
-        { boardname: "otu25g", status: 1 },
-        { boardname: "otu40g100g", status: 1 },
-        { boardname: "otucfpdco200g", status: 1 },
-      ], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
+      dataTable: [], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
       dialogVisible: false,
       veneerType: "",
       veneerTilte: "",

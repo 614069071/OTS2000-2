@@ -2,7 +2,7 @@
   <div class="edfa-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">EDFA</div>
 
-    <table class="veneer-table veneer-title-table" border="1">
+    <table class="veneer-table" border="1">
       <tr>
         <td>硬件版本</td>
         <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
@@ -47,111 +47,111 @@
     </div>
 
     <!-- 状态信息 -->
+    <div class="veneer-table-container">
+      <table class="veneer-table" border="1">
+        <tr>
+          <td>输入光功率（dBm）</td>
+          <td>{{ veneerInfoData.lum_input }}</td>
+          <td>输出光功率（dBm）</td>
+          <td>{{ veneerInfoData.lum_output }}</td>
+          <td>TEC制冷电流（mA）</td>
+          <td>{{ veneerInfoData.tec_cold_cur }}</td>
+        </tr>
 
-    <table class="veneer-table" border="1">
-      <tr>
-        <td>输入光功率（dBm）</td>
-        <td>{{ veneerInfoData.lum_input }}</td>
-        <td>输出光功率（dBm）</td>
-        <td>{{ veneerInfoData.lum_output }}</td>
-        <td>TEC制冷电流（mA）</td>
-        <td>{{ veneerInfoData.tec_cold_cur }}</td>
-      </tr>
+        <tr>
+          <td>模块温度（℃）</td>
+          <td>{{ veneerInfoData.mod_temp }}</td>
+          <td>PUMP温度（℃）</td>
+          <td>{{ veneerInfoData.pump_temp }}</td>
+          <td>PUMP电流（mA）</td>
+          <td>{{ veneerInfoData.pump_cur }}</td>
+        </tr>
 
-      <tr>
-        <td>模块温度（℃）</td>
-        <td>{{ veneerInfoData.mod_temp }}</td>
-        <td>PUMP温度（℃）</td>
-        <td>{{ veneerInfoData.pump_temp }}</td>
-        <td>PUMP电流（mA）</td>
-        <td>{{ veneerInfoData.pump_cur }}</td>
-      </tr>
+        <tr>
+          <td>输入功率告警</td>
+          <td>{{ veneerInfoData.input_power_alarm ? "告警" : "正常" }}</td>
+          <td>输出功率告警</td>
+          <td>{{ veneerInfoData.output_power_alarm ? "告警" : "正常" }}</td>
+          <td>PUMP电流告警</td>
+          <td>{{ veneerInfoData.pump_cur_alarm ? "告警" : "正常" }}</td>
+        </tr>
 
-      <tr>
-        <td>输入功率告警</td>
-        <td>{{ veneerInfoData.input_power_alarm ? "告警" : "正常" }}</td>
-        <td>输出功率告警</td>
-        <td>{{ veneerInfoData.output_power_alarm ? "告警" : "正常" }}</td>
-        <td>PUMP电流告警</td>
-        <td>{{ veneerInfoData.pump_cur_alarm ? "告警" : "正常" }}</td>
-      </tr>
+        <tr>
+          <td>模块温度告警</td>
+          <td>{{ veneerInfoData.mod_temp_alarm ? "告警" : "正常" }}</td>
+          <td>PUMP温度告警</td>
+          <td>{{ veneerInfoData.pump_temp_alarm ? "告警" : "正常" }}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
 
-      <tr>
-        <td>模块温度告警</td>
-        <td>{{ veneerInfoData.mod_temp_alarm ? "告警" : "正常" }}</td>
-        <td>PUMP温度告警</td>
-        <td>{{ veneerInfoData.pump_temp_alarm ? "告警" : "正常" }}</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+      <!-- 修改信息 -->
 
-    <!-- 修改信息 -->
+      <table class="veneer-table" border="1">
+        <tr>
+          <td>PUMP关断</td>
+          <td style="text-align: left">
+            <select style="width: 66px" v-model="changeForm.pump_sw">
+              <option :value="1">打开</option>
+              <option :value="0">关闭</option>
+            </select>
+          </td>
+          <td>工作模式</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.mode"
+              :options="[
+                { label: 'ACC', value: 0 },
+                { label: 'APC', value: 2 },
+                { label: 'AGC', value: 3 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>输入光功率告警门限（dBm）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.lum_input_thr"
+              :options="[
+                { label: '-20', value: -20 },
+                { label: '-24', value: -24 },
+                { label: '-26', value: -26 },
+                { label: '-28', value: -28 },
+                { label: '-31', value: -31 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+          <td>输出光功率告警门限（dBm）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.lum_output_thr"
+              :options="[
+                { label: '-5', value: -5 },
+                { label: '-3', value: -3 },
+                { label: '-2', value: -2 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+        </tr>
 
-    <table class="veneer-table" border="1">
-      <tr>
-        <td>PUMP关断</td>
-        <td style="text-align: left;">
-          <select style="width: 66px;" v-model="changeForm.pump_sw">
-            <option :value="1">打开</option>
-            <option :value="0">关闭</option>
-          </select>
-        </td>
-        <td>工作模式</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.mode"
-            :options="[
-              { label: 'ACC', value: 0 },
-              { label: 'APC', value: 2 },
-              { label: 'AGC', value: 3 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>输入光功率告警门限（dBm）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.lum_input_thr"
-            :options="[
-              { label: '-20', value: -20 },
-              { label: '-24', value: -24 },
-              { label: '-26', value: -26 },
-              { label: '-28', value: -28 },
-              { label: '-31', value: -31 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-        <td>输出光功率告警门限（dBm）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.lum_output_thr"
-            :options="[
-              { label: '-5', value: -5 },
-              { label: '-3', value: -3 },
-              { label: '-2', value: -2 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-      </tr>
-
-      <tr>
-        <td>PUMP电流门限（mA）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.pump_cur_thr"
-            :options="[
-              { label: '600', value: 600 },
-              { label: '800', value: 800 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-        <!-- <td>PUMP关断电流（mA）</td>
+        <tr>
+          <td>PUMP电流门限（mA）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.pump_cur_thr"
+              :options="[
+                { label: '600', value: 600 },
+                { label: '800', value: 800 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+          <!-- <td>PUMP关断电流（mA）</td>
         <td>
           <CustomSelect
             v-model="changeForm.pump_sw_cur"
@@ -161,68 +161,69 @@
             ]"
           />
         </td> -->
-        <td>PUMP温度高门限（℃）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.pump_temp_high"
-            :options="[
-              { label: '30', value: 30 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>模块温度低门限（℃）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.mod_temp_low"
-            :options="[
-              { label: '-40', value: -40 },
-              { label: '-45', value: -45 },
-              { label: '-50', value: -50 },
-              { label: '-55', value: -55 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-        <td>PUMP温度低门限（℃）</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.pump_temp_low"
-            :options="[
-              { label: '20', value: 20 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>模块温度高门限</td>
-        <td>
-          <CustomSelect
-            v-model="changeForm.mod_temp_high"
-            :options="[
-              { label: '55', value: 55 },
-              { label: '60', value: 60 },
-              { label: '65', value: 65 },
-              { label: '70', value: 70 },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-        <td><!--PUMP温度高门限（℃）--></td>
-        <td>
-          <!-- <CustomSelect
+          <td>PUMP温度高门限（℃）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.pump_temp_high"
+              :options="[
+                { label: '30', value: 30 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>模块温度低门限（℃）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.mod_temp_low"
+              :options="[
+                { label: '-40', value: -40 },
+                { label: '-45', value: -45 },
+                { label: '-50', value: -50 },
+                { label: '-55', value: -55 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+          <td>PUMP温度低门限（℃）</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.pump_temp_low"
+              :options="[
+                { label: '20', value: 20 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>模块温度高门限</td>
+          <td>
+            <CustomSelect
+              v-model="changeForm.mod_temp_high"
+              :options="[
+                { label: '55', value: 55 },
+                { label: '60', value: 60 },
+                { label: '65', value: 65 },
+                { label: '70', value: 70 },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+          <td><!--PUMP温度高门限（℃）--></td>
+          <td>
+            <!-- <CustomSelect
             v-model="changeForm.pump_temp_high"
             :options="[
               { label: '30', value: 30 },
               { label: '自定义', value: 'custom' },
             ]"
           /> -->
-        </td>
-      </tr>
-    </table>
+          </td>
+        </tr>
+      </table>
+    </div>
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
@@ -416,5 +417,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss"></style>

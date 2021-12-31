@@ -222,53 +222,112 @@
           <td>速率（Mbps）</td>
           <td class="no-right-border">
             <div class="coll-2">
-              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
-                <option value="eCPRI-25GE">eCPRI-25GE</option>
-                <option value="Other">Other</option>
+              <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[0].speed">
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
+                <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f">OTU1f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
 
               <select v-else v-model="veneerInfoData[0].speed">
-                <option value="25GE-28GE">25GE-28GE</option>
-                <option value="Other">Other</option>
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="10G FC">10G FC</option>
+                <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
             </div>
           </td>
           <td></td>
           <td class="no-right-border">
             <div class="coll-2">
-              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
-                <option value="eCPRI-25GE">eCPRI-25GE</option>
-                <option value="Other">Other</option>
+              <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[1].speed">
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
+                <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f">OTU1f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
+
               <select v-else v-model="veneerInfoData[1].speed">
-                <option value="25GE-28GE">25GE-28GE</option>
-                <option value="Other">Other</option>
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="10G FC">10G FC</option>
+                <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
             </div>
           </td>
           <td></td>
           <td class="no-right-border">
             <div class="coll-2">
-              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
-                <option value="eCPRI-25GE">eCPRI-25GE</option>
-                <option value="Other">Other</option>
+              <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[2].speed">
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
+                <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f">OTU1f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
+
               <select v-else v-model="veneerInfoData[2].speed">
-                <option value="25GE-28GE">25GE-28GE</option>
-                <option value="Other">Other</option>
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="10G FC">10G FC</option>
+                <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
             </div>
           </td>
           <td></td>
           <td class="no-right-border">
             <div class="coll-2">
-              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
-                <option value="eCPRI-25GE">eCPRI-25GE</option>
-                <option value="Other">Other</option>
+              <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[3].speed">
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
+                <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f">OTU1f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
+
               <select v-else v-model="veneerInfoData[3].speed">
-                <option value="25GE-28GE">25GE-28GE</option>
-                <option value="Other">Other</option>
+                <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
+                <option value="GE/10GE">GE/10GE</option>
+                <option value="STM-16/STM-64">STM-16/STM-64</option>
+                <option value="10G FC">10G FC</option>
+                <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
+                <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
+                <option value="OTU1/OTU1e">OTU1/OTU1e</option>
+                <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
+                <option value="OTU2/OTU2e">OTU2/OTU2e</option>
               </select>
             </div>
           </td>
@@ -587,10 +646,12 @@ export default {
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
           console.log(res);
-          this.veneerInfoData = res.otn2000_ack;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
+          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
+          this.$message("失败");
         });
     },
     setInfo() {

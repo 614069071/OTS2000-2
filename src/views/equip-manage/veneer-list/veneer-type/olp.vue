@@ -1,5 +1,5 @@
 <template>
-  <div class="olp-cps-wrapper">
+  <div class="olp-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">olp</div>
     <table class="veneer-table veneer-title-table" border="1">
       <tr>
@@ -47,66 +47,68 @@
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
-    <table class="veneer-table veneer-title-table" border="1">
-      <tr>
-        <td>工作状态</td>
-        <td></td>
-        <td>当前工作模式</td>
-        <td>
-          <CustomSelect
-            v-model="veneerTitleData.mode"
-            :options="[
-              { label: '自动', value: 0 },
-              { label: '手动', value: 1 },
-            ]"
-          />
-        </td>
-        <td>强制倒换</td>
-        <td>
-          <CustomSelect
-            v-model="veneerTitleData.mode"
-            :options="[
-              { label: 'APC', value: 'APC' },
-              { label: 'AGC', value: 'AGC' },
-              { label: 'ACC', value: 'ACC' },
-              { label: '自定义', value: 'custom' },
-            ]"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>主线路收光信号</td>
-        <td>{{ veneerTitleData.mfgdate }}</td>
-        <td>备线路收光信号</td>
-        <td>{{ veneerTitleData.sn }}</td>
-        <td>本地线路收光信号</td>
-        <td>{{ veneerTitleData.run_time }}</td>
-      </tr>
-      <tr>
-        <td>是否自动回切</td>
-        <td>{{ veneerTitleData.status }}</td>
-        <td>回切WTR时间</td>
-        <td>{{ veneerTitleData.desc }}</td>
-        <td>主线路告警门限（dBm）</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>主备初始差异（dB）</td>
-        <td>{{ veneerTitleData.device_type }}</td>
-        <td>倒换条件差异值（dB）</td>
-        <td>{{ veneerTitleData.status }}</td>
-        <td>告警门限</td>
-        <td>{{ veneerTitleData.desc }}</td>
-      </tr>
-      <tr>
-        <td>时间设置</td>
-        <td>{{ veneerTitleData.device_type }}</td>
-        <td>IP地址设置</td>
-        <td>{{ veneerTitleData.status }}</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <div class="veneer-table-container">
+      <table class="veneer-table veneer-title-table" border="1">
+        <tr>
+          <td>工作状态</td>
+          <td></td>
+          <td>当前工作模式</td>
+          <td>
+            <CustomSelect
+              v-model="veneerTitleData.mode"
+              :options="[
+                { label: '自动', value: 0 },
+                { label: '手动', value: 1 },
+              ]"
+            />
+          </td>
+          <td>强制倒换</td>
+          <td>
+            <CustomSelect
+              v-model="veneerTitleData.mode"
+              :options="[
+                { label: 'APC', value: 'APC' },
+                { label: 'AGC', value: 'AGC' },
+                { label: 'ACC', value: 'ACC' },
+                { label: '自定义', value: 'custom' },
+              ]"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>主线路收光信号</td>
+          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>备线路收光信号</td>
+          <td>{{ veneerTitleData.sn }}</td>
+          <td>本地线路收光信号</td>
+          <td>{{ veneerTitleData.run_time }}</td>
+        </tr>
+        <tr>
+          <td>是否自动回切</td>
+          <td>{{ veneerTitleData.status }}</td>
+          <td>回切WTR时间</td>
+          <td>{{ veneerTitleData.desc }}</td>
+          <td>主线路告警门限（dBm）</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>主备初始差异（dB）</td>
+          <td>{{ veneerTitleData.device_type }}</td>
+          <td>倒换条件差异值（dB）</td>
+          <td>{{ veneerTitleData.status }}</td>
+          <td>告警门限</td>
+          <td>{{ veneerTitleData.desc }}</td>
+        </tr>
+        <tr>
+          <td>时间设置</td>
+          <td>{{ veneerTitleData.device_type }}</td>
+          <td>IP地址设置</td>
+          <td>{{ veneerTitleData.status }}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>

@@ -1,7 +1,7 @@
 <template>
   <div class="num-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">Nmu</div>
-    <table class="veneer-table veneer-title-table" border="1">
+    <table class="veneer-table" border="1">
       <tr>
         <td>硬件版本</td>
         <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
@@ -47,101 +47,103 @@
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
-    <table class="veneer-table veneer-title-table" border="1">
-      <tr>
-        <td>SFP端口</td>
-        <td>SFP1</td>
-        <td>SFP2</td>
-        <td>SFP3</td>
-      </tr>
-      <tr>
-        <td>在位状态</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? "在位" : "脱位" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? "在位" : "脱位" }}</td>
-      </tr>
-      <tr>
-        <td>LINK状态</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? (veneerInfoData.sfp1.link_status ? "UP" : "DOWN") : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? (veneerInfoData.sfp2.link_status ? "UP" : "DOWN") : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? (veneerInfoData.sfp3.link_status ? "UP" : "DOWN") : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>速率（Mbps）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.speed_Gbps : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.speed_Gbps : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.speed_Gbps : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>波长（nm）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.wave_len : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.wave_len : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.wave_len : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>距离（km）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.tx_distanst : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.tx_distanst : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.tx_distanst : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>发送光功率（dBm）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.launch_power : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.launch_power : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.launch_power : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>接受光功率（dBm）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.rcv_power : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.rcv_power : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.rcv_power : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>电压（V）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.voltage : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.voltage : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.voltage : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>电流（mA）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.current : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.current : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.current : "NA" }}</td>
-      </tr>
-      <tr>
-        <td>温度（℃）</td>
-        <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.temp : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.temp : "NA" }}</td>
-        <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.temp : "NA" }}</td>
-      </tr>
-    </table>
+    <div class="veneer-table-container">
+      <table class="veneer-table" border="1">
+        <tr>
+          <td>SFP端口</td>
+          <td>SFP1</td>
+          <td>SFP2</td>
+          <td>SFP3</td>
+        </tr>
+        <tr>
+          <td>在位状态</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? "在位" : "脱位" }}</td>
+        </tr>
+        <tr>
+          <td>LINK状态</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? (veneerInfoData.sfp1.link_status ? "UP" : "DOWN") : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? (veneerInfoData.sfp2.link_status ? "UP" : "DOWN") : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? (veneerInfoData.sfp3.link_status ? "UP" : "DOWN") : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>速率（Mbps）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.speed_Gbps : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.speed_Gbps : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.speed_Gbps : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>波长（nm）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.wave_len : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.wave_len : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.wave_len : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>距离（km）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.tx_distanst : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.tx_distanst : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.tx_distanst : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>发送光功率（dBm）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.launch_power : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.launch_power : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.launch_power : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>接受光功率（dBm）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.rcv_power : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.rcv_power : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.rcv_power : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>电压（V）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.voltage : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.voltage : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.voltage : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>电流（mA）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.current : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.current : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.current : "NA" }}</td>
+        </tr>
+        <tr>
+          <td>温度（℃）</td>
+          <td>{{ veneerInfoData.sfp1.online_status ? veneerInfoData.sfp1.temp : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp2.online_status ? veneerInfoData.sfp2.temp : "NA" }}</td>
+          <td>{{ veneerInfoData.sfp3.online_status ? veneerInfoData.sfp3.temp : "NA" }}</td>
+        </tr>
+      </table>
 
-    <table class="veneer-table">
-      <tr>
-        <td>ETH端口</td>
-        <td>ETH1</td>
-        <td>ETH2</td>
-        <td>ETH3</td>
-      </tr>
-      <tr>
-        <td>LINK状态</td>
-        <td>{{ veneerInfoData.eth1.eth_status ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData.eth2.eth_status ? "UP" : "DOWN" }}</td>
-        <td>{{ veneerInfoData.eth3.eth_status ? "UP" : "DOWN" }}</td>
-      </tr>
-      <tr>
-        <td>速率（Mbps）</td>
-        <td>{{ veneerInfoData.eth1.ethspeed }}</td>
-        <td>{{ veneerInfoData.eth2.ethspeed }}</td>
-        <td>{{ veneerInfoData.eth3.ethspeed }}</td>
-      </tr>
-      <tr>
-        <td>双工</td>
-        <td>{{ veneerInfoData.eth1.full_status ? "全双工" : "半双工" }}</td>
-        <td>{{ veneerInfoData.eth2.full_status ? "全双工" : "半双工" }}</td>
-        <td>{{ veneerInfoData.eth3.full_status ? "全双工" : "半双工" }}</td>
-      </tr>
-    </table>
+      <table class="veneer-table" style="margin-top: 20px" border="1">
+        <tr>
+          <td>ETH端口</td>
+          <td>ETH1</td>
+          <td>ETH2</td>
+          <td>ETH3</td>
+        </tr>
+        <tr>
+          <td>LINK状态</td>
+          <td>{{ veneerInfoData.eth1.eth_status ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData.eth2.eth_status ? "UP" : "DOWN" }}</td>
+          <td>{{ veneerInfoData.eth3.eth_status ? "UP" : "DOWN" }}</td>
+        </tr>
+        <tr>
+          <td>速率（Mbps）</td>
+          <td>{{ veneerInfoData.eth1.ethspeed }}</td>
+          <td>{{ veneerInfoData.eth2.ethspeed }}</td>
+          <td>{{ veneerInfoData.eth3.ethspeed }}</td>
+        </tr>
+        <tr>
+          <td>双工</td>
+          <td>{{ veneerInfoData.eth1.full_status ? "全双工" : "半双工" }}</td>
+          <td>{{ veneerInfoData.eth2.full_status ? "全双工" : "半双工" }}</td>
+          <td>{{ veneerInfoData.eth3.full_status ? "全双工" : "半双工" }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 

@@ -193,7 +193,7 @@ $border-color: #aaa;
 .cps-wrapper {
   background-color: #fff;
   padding: 10px;
-  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;

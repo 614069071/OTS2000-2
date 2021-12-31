@@ -1,7 +1,8 @@
 <template>
   <div class="similar-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">similar {{ info.boardname }}</div>
-    <table class="veneer-table veneer-title-table" border="1">
+
+    <table class="veneer-table" border="1">
       <tr>
         <td>硬件版本</td>
         <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>

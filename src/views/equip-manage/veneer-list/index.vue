@@ -86,7 +86,24 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
+      dataTable: [
+        { boardname: "ocp2x10g", status: 1 },
+        { boardname: "d16", status: 1 },
+        { boardname: "d40", status: 1 },
+        { boardname: "dcm", status: 1 },
+        { boardname: "edfa", status: 1 },
+        { boardname: "m16", status: 1 },
+        { boardname: "m40", status: 1 },
+        { boardname: "md8", status: 1 },
+        { boardname: "md16sfa", status: 1 },
+        { boardname: "md16sfb", status: 1 },
+        { boardname: "nmu", status: 1 },
+        { boardname: "olp", status: 1 },
+        { boardname: "otu4x10g", status: 1 },
+        { boardname: "otu25g", status: 1 },
+        { boardname: "otu40g100g", status: 1 },
+        { boardname: "otucfpdco200g", status: 1 },
+      ], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
       dialogVisible: false,
       veneerType: "",
       veneerTilte: "",
@@ -171,9 +188,15 @@ export default {
 </style>
 
 <style lang="scss">
+$border-color: #aaa;
+
 .cps-wrapper {
   background-color: #fff;
   padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 // 单板详情表格
 .veneer-header-wrapper {
@@ -183,13 +206,14 @@ export default {
 }
 
 .veneer-table {
-  $border-color: #e8e8e8;
   width: 100%;
   border-collapse: collapse !important;
-  // border: none;
   padding: 0;
   display: flex;
   flex-direction: column;
+  border: none;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 
   thead {
     position: sticky;
@@ -212,7 +236,7 @@ export default {
     color: #666;
     flex: 1;
     position: relative;
-    padding: 0 10px;
+    padding: 0 3px;
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -248,30 +272,18 @@ export default {
   }
 }
 
-.veneer-title-table {
-  border-top: none;
-
-  td {
-    width: 16.66%;
-  }
-}
-
-.veneer-info-table {
-  border-left: none;
-  border-top: none;
-  border-right: none;
-
-  tr:last-child td {
-    border-bottom: none;
-  }
-}
-
 .venner-change-btns {
   text-align: right;
   padding: 20px 0;
 }
 
 .def-input {
-  width: 80%;
+  width: 100%;
+}
+
+.veneer-table-container {
+  flex: 1;
+  overflow: auto;
+  position: relative;
 }
 </style>

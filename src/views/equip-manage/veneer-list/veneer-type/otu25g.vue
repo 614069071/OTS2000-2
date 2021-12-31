@@ -1,7 +1,7 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">otu4x25g</div>
-    <table class="veneer-table veneer-title-table" border="1">
+    <table class="veneer-table" border="1">
       <tr>
         <td>硬件版本</td>
         <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
@@ -45,8 +45,8 @@
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
-    <div class="veneer-table-main">
-      <table class="veneer-table veneer-info-table" border="1">
+    <div class="veneer-table-container">
+      <table class="veneer-table" border="1">
         <thead>
           <th>
             <td></td>
@@ -774,22 +774,6 @@ export default {
 </script>
 
 <style lang="scss">
-.otu25g-cps-wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.veneer-table-main {
-  $border-color: #e8e8e8;
-  flex: 1;
-  overflow: auto;
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
-  position: relative;
-}
-
 .otu25g-cps-wrapper .el-input-number--mini {
   width: 110px;
 }

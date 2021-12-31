@@ -245,7 +245,7 @@ $border-color: #aaa;
   }
 
   td > * {
-    margin: auto;
+    margin: auto 0;
   }
 
   .coll-2,
@@ -271,15 +271,15 @@ $border-color: #aaa;
     height: 28px;
     width: 90%;
   }
+
+  .def-input {
+    width: 100%;
+  }
 }
 
 .venner-change-btns {
   text-align: right;
   padding: 20px 0;
-}
-
-.def-input {
-  width: 100%;
 }
 
 .veneer-table-container {

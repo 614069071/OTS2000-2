@@ -88,7 +88,7 @@
 
       <!-- 修改信息 -->
 
-      <table class="veneer-table" border="1">
+      <table class="veneer-table" style="margin-top: 20px" border="1">
         <tr>
           <td>PUMP关断</td>
           <td style="text-align: left">

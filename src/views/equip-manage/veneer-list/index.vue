@@ -222,6 +222,11 @@ $border-color: #aaa;
     left: 0;
     background-color: #fff !important;
     z-index: 100;
+
+    .coll-2,
+    .coll-4 {
+      text-align: center;
+    }
   }
 
   tr,
@@ -251,13 +256,14 @@ $border-color: #aaa;
   .coll-2,
   .coll-4 {
     height: 100%;
-    text-align: center;
     background-color: #fff;
     position: absolute;
-    border-bottom: 1px solid #fff;
     top: 0;
     left: 0;
     z-index: 10;
+    padding: 0 2px;
+    text-align: left;
+    box-sizing: border-box;
   }
 
   .coll-2 {

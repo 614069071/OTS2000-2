@@ -49,12 +49,15 @@
 
     <div class="veneer-table-container">
       <table class="veneer-table" border="1">
-        <tr>
-          <td>SFP端口</td>
-          <td>SFP1</td>
-          <td>SFP2</td>
-          <td>SFP3</td>
-        </tr>
+        <thead>
+          <tr>
+            <td>SFP端口</td>
+            <td>SFP1</td>
+            <td>SFP2</td>
+            <td>SFP3</td>
+          </tr>
+        </thead>
+
         <tr>
           <td>在位状态</td>
           <td>{{ veneerInfoData.sfp1.online_status ? "在位" : "脱位" }}</td>

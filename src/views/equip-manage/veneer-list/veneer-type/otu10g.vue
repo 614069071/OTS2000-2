@@ -221,19 +221,56 @@
         <tr>
           <td>速率（Mbps）</td>
           <td class="no-right-border">
-            <div class="coll-2"></div>
+            <div class="coll-2">
+              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
+                <option value="eCPRI-25GE">eCPRI-25GE</option>
+                <option value="Other">Other</option>
+              </select>
+
+              <select v-else v-model="veneerInfoData[0].speed">
+                <option value="25GE-28GE">25GE-28GE</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td class="no-right-border">
-            <div class="coll-2"></div>
+            <div class="coll-2">
+              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
+                <option value="eCPRI-25GE">eCPRI-25GE</option>
+                <option value="Other">Other</option>
+              </select>
+              <select v-else v-model="veneerInfoData[1].speed">
+                <option value="25GE-28GE">25GE-28GE</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td class="no-right-border">
-            <div class="coll-2"></div>
+            <div class="coll-2">
+              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
+                <option value="eCPRI-25GE">eCPRI-25GE</option>
+                <option value="Other">Other</option>
+              </select>
+              <select v-else v-model="veneerInfoData[2].speed">
+                <option value="25GE-28GE">25GE-28GE</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td class="no-right-border">
-            <div class="coll-2"></div>
+            <div class="coll-2">
+              <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
+                <option value="eCPRI-25GE">eCPRI-25GE</option>
+                <option value="Other">Other</option>
+              </select>
+              <select v-else v-model="veneerInfoData[3].speed">
+                <option value="25GE-28GE">25GE-28GE</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </td>
           <td></td>
         </tr>
@@ -274,10 +311,10 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
-      <button class="def-btn">复位</button>
-      <button class="def-btn">恢复默认</button>
+      <button class="def-btn" @click="refreshInfo">刷新</button>
+      <button class="def-btn" @click="setInfo">应用</button>
+      <button class="def-btn" @click="restorInfo">复位</button>
+      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
@@ -301,59 +338,184 @@ export default {
         status: 0,
         desc: "",
       },
-      veneerInfoData: {
-        sfp1: {
-          online_status: 0,
-          link_status: 0,
-          speed_Gbps: "",
-          wave_len: "",
-          tx_distanst: "",
-          launch_power: "",
-          rcv_power: "",
-          voltage: "",
-          current: "",
-          temp: "",
+      veneerInfoData: [
+        {
+          channel: 1,
+          link_status: {
+            client: null,
+            line: null,
+          },
+          los: {
+            client: null,
+            line: null,
+          },
+          speed: null,
+          freq: {
+            client: null,
+            line: null,
+          },
+          wave_len: {
+            client: null,
+            line: null,
+          },
+          launch_power: {
+            client: null,
+            line: null,
+          },
+          rcv_power: {
+            client: null,
+            line: null,
+          },
+          rcv_thr: {
+            client: null,
+            line: null,
+          },
+          voltage: {
+            client: null,
+            line: null,
+          },
+          current: {
+            client: null,
+            line: null,
+          },
+          temp: {
+            client: null,
+            line: null,
+          },
         },
-        sfp2: {
-          online_status: 0,
-          link_status: 0,
-          speed_Gbps: "",
-          wave_len: "",
-          tx_distanst: "",
-          launch_power: "",
-          rcv_power: "",
-          voltage: "",
-          current: "",
-          temp: "",
+        {
+          channel: 1,
+          link_status: {
+            client: null,
+            line: null,
+          },
+          los: {
+            client: null,
+            line: null,
+          },
+          speed: null,
+          freq: {
+            client: null,
+            line: null,
+          },
+          wave_len: {
+            client: null,
+            line: null,
+          },
+          launch_power: {
+            client: null,
+            line: null,
+          },
+          rcv_power: {
+            client: null,
+            line: null,
+          },
+          rcv_thr: {
+            client: null,
+            line: null,
+          },
+          voltage: {
+            client: null,
+            line: null,
+          },
+          current: {
+            client: null,
+            line: null,
+          },
+          temp: {
+            client: null,
+            line: null,
+          },
         },
-        sfp3: {
-          online_status: 0,
-          link_status: 0,
-          speed_Gbps: "",
-          wave_len: "",
-          tx_distanst: "",
-          launch_power: "",
-          rcv_power: "",
-          voltage: "",
-          current: "",
-          temp: "",
+        {
+          channel: 1,
+          link_status: {
+            client: null,
+            line: null,
+          },
+          los: {
+            client: null,
+            line: null,
+          },
+          speed: null,
+          freq: {
+            client: null,
+            line: null,
+          },
+          wave_len: {
+            client: null,
+            line: null,
+          },
+          launch_power: {
+            client: null,
+            line: null,
+          },
+          rcv_power: {
+            client: null,
+            line: null,
+          },
+          rcv_thr: {
+            client: null,
+            line: null,
+          },
+          voltage: {
+            client: null,
+            line: null,
+          },
+          current: {
+            client: null,
+            line: null,
+          },
+          temp: {
+            client: null,
+            line: null,
+          },
         },
-        eth1: {
-          eth_status: 0,
-          full_status: 0,
-          ethspeed: 0,
+        {
+          channel: 1,
+          link_status: {
+            client: null,
+            line: null,
+          },
+          los: {
+            client: null,
+            line: null,
+          },
+          speed: null,
+          freq: {
+            client: null,
+            line: null,
+          },
+          wave_len: {
+            client: null,
+            line: null,
+          },
+          launch_power: {
+            client: null,
+            line: null,
+          },
+          rcv_power: {
+            client: null,
+            line: null,
+          },
+          rcv_thr: {
+            client: null,
+            line: null,
+          },
+          voltage: {
+            client: null,
+            line: null,
+          },
+          current: {
+            client: null,
+            line: null,
+          },
+          temp: {
+            client: null,
+            line: null,
+          },
         },
-        eth2: {
-          eth_status: 0,
-          full_status: 0,
-          ethspeed: 0,
-        },
-        eth3: {
-          eth_status: 0,
-          full_status: 0,
-          ethspeed: 0,
-        },
-      },
+      ],
     };
   },
   created() {},
@@ -380,12 +542,14 @@ export default {
       return this.$http.post(data);
     },
     getVeneerDetail() {
-      Promise.all([this.getVeneerTitle(), this.getVeneerInfo()])
+      this.getVeneerTitle()
         .then((res) => {
-          const [resTitle, resInfo] = res;
+          this.veneerTitleData = res.otn2000_ack || {};
 
-          this.veneerTitleData = resTitle.otn2000_ack;
-          this.veneerInfoData = resInfo.otn2000_ack || {};
+          return this.getVeneerInfo();
+        })
+        .then((res) => {
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
         .catch((err) => {
           console.log(err);
@@ -394,7 +558,7 @@ export default {
     refreshTitle() {
       this.getVeneerTitle()
         .then((res) => {
-          console.log(res);
+          console.log(res.otn2000_ack);
           this.veneerTitleData = res.otn2000_ack;
           this.$message("成功");
         })
@@ -429,6 +593,38 @@ export default {
           console.log(err);
         });
     },
+    setInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("setInfo", res);
+          this.$message("成功");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$message("失败");
+        });
+    },
+    restoreDefaultInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "default", boardname, slot } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("restoreDefaultInfo", res);
+          this.$message("成功");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.veneerTitleData.desc = "";
+          this.$message("失败");
+        });
+    },
+    restorInfo() {},
   },
 };
 </script>

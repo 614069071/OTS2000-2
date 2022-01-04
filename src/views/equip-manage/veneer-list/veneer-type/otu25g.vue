@@ -274,7 +274,7 @@
             </td>
             
           </tr>
-          <tr>
+          <tr class="prbs-tr">
             <td>误码检测</td>
             <td>
               <div v-if="veneerInfoData[0].link_status.client">
@@ -341,8 +341,8 @@
             </td>
             <td>
               <div v-if="veneerInfoData[3].link_status.line">
-                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 0">开始</button>
-                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 1">停止</button>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 0" @click="detectionPrbs(3,'line',1)">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 1" @click="detectionPrbs(3,'line',0)">停止</button>
                 结果：{{veneerInfoData[3].prbs.line ? '有':'无'}}误码
               </div>
 
@@ -789,6 +789,12 @@ export default {
       console.log("this.info", this.info);
       this.getVeneerDetail(this.info.slot);
     },
+    veneerInfoData:{
+      handler(n){
+        console.log('veneerInfoData',n);
+      },
+      deep:true
+    }
   },
   methods: {
     getVeneerTitle(slot) {
@@ -910,12 +916,35 @@ export default {
           this.$message("失败");
         });
     },
+    detectionPrbs(i,status,state){
+      
+      this.veneerInfoData[i].prbs_en[status] = state;
+
+      if(state){
+        // 开始检测
+        console.log('开始检测');
+      }else{
+        // 停止检测
+        console.log('停止检测');
+      }
+    }
   },
 };
 </script>
 
 <style lang="scss">
-.otu25g-cps-wrapper .el-input-number--mini {
-  width: 110px;
+.otu25g-cps-wrapper{
+  .el-input-number--mini {
+    width: 100px;
+  }
+
+  .el-input-number__decrease,
+  .el-input-number__increase{
+    width: 18px;
+  }
+} 
+
+.prbs-tr .def-btn + .def-btn{
+  margin-left: 0;
 }
 </style>

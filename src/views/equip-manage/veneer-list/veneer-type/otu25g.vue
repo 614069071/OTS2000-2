@@ -278,76 +278,77 @@
             <td>误码检测</td>
             <td>
               <div v-if="veneerInfoData[0].link_status.client">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[0].prbs_en.client === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[0].prbs_en.client === 1">停止</button>
+                结果：{{veneerInfoData[0].prbs.client ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[0].link_status.line">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[0].prbs_en.line === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[0].prbs_en.line === 1">停止</button>
+                结果：{{veneerInfoData[0].prbs.line ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[1].link_status.client">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[1].prbs_en.client === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[1].prbs_en.client === 1">停止</button>
+                结果：{{veneerInfoData[1].prbs.client ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[1].link_status.line">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[1].prbs_en.line === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[1].prbs_en.line === 1">停止</button>
+                结果：{{veneerInfoData[1].prbs.line ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[2].link_status.client">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[2].prbs_en.client === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[2].prbs_en.client === 1">停止</button>
+                结果：{{veneerInfoData[2].prbs.client ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[2].link_status.line">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[2].prbs_en.line === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[2].prbs_en.line === 1">停止</button>
+                结果：{{veneerInfoData[2].prbs.line ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[3].link_status.client">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.client === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.client === 1">停止</button>
+                结果：{{veneerInfoData[3].prbs.client ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="veneerInfoData[3].link_status.line">
-                <button class="def-btn">开始</button>
-                <button class="def-btn" style="margin-left:5px;">停止</button>
-                <p>结果：无误码</p>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 0">开始</button>
+                <button class="def-btn" v-show="veneerInfoData[3].prbs_en.line === 1">停止</button>
+                结果：{{veneerInfoData[3].prbs.line ? '有':'无'}}误码
               </div>
 
               <template v-else>NA</template>
             </td>
+            
           </tr>
           <tr>
             <td>速率（Mbps）</td>

@@ -1,44 +1,47 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">otu4x25g</div>
-    <table class="veneer-table" border="1">
-      <tr>
-        <td>硬件版本</td>
-        <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
-        <td>软件版本</td>
-        <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
-        <td>协议版本</td>
-        <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
-      </tr>
-      <tr>
-        <td>生产日期</td>
-        <td>
-          <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+    <div class="veneer-table-title">
+      <table class="veneer-table" border="1">
+        <tr>
+          <td>硬件版本</td>
+          <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
+          <td>软件版本</td>
+          <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
+          <td>协议版本</td>
+          <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
+        </tr>
+        <tr>
+          <td>生产日期</td>
+          <td>
+            <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
-          <template v-else>
-            {{ veneerTitleData.mfgdate }}
-          </template>
-        </td>
-        <td>序列号</td>
-        <td>
-          <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+            <template v-else>
+              {{ veneerTitleData.mfgdate }}
+            </template>
+          </td>
+          <td>序列号</td>
+          <td>
+            <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
 
-          <template v-else>
-            {{ veneerTitleData.sn }}
-          </template>
-        </td>
-        <td>版型号</td>
-        <td>{{ veneerTitleData.bdtype }}</td>
-      </tr>
-      <tr>
-        <td>设备类型</td>
-        <td>{{ veneerTitleData.device_type }}</td>
-        <td>状态</td>
-        <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
-        <td>信息描述</td>
-        <td><input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" /></td>
-      </tr>
-    </table>
+            <template v-else>
+              {{ veneerTitleData.sn }}
+            </template>
+          </td>
+          <td>版型号</td>
+          <td>{{ veneerTitleData.bdtype }}</td>
+        </tr>
+        <tr>
+          <td>设备类型</td>
+          <td>{{ veneerTitleData.device_type }}</td>
+          <td>状态</td>
+          <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
+          <td>信息描述</td>
+          <td><input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" /></td>
+        </tr>
+      </table>
+    </div>
+
 
     <div class="venner-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
@@ -105,25 +108,25 @@
           </tr>
           <tr>
             <td>属性</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ veneerInfoData[0].rw_type.client }}</td>
+            <td>{{ veneerInfoData[0].rw_type.line }}</td>
+            <td>{{ veneerInfoData[1].rw_type.client }}</td>
+            <td>{{ veneerInfoData[1].rw_type.line }}</td>
+            <td>{{ veneerInfoData[2].rw_type.client }}</td>
+            <td>{{ veneerInfoData[2].rw_type.line }}</td>
+            <td>{{ veneerInfoData[3].rw_type.client }}</td>
+            <td>{{ veneerInfoData[3].rw_type.line }}</td>
           </tr>
           <tr>
             <td>波道</td>
             <td>NA</td>
-            <td></td>
+            <td>{{veneerInfoData[0].wave_channel.line}}</td>
             <td>NA</td>
-            <td></td>
+            <td>{{veneerInfoData[1].wave_channel.line}}</td>
             <td>NA</td>
-            <td></td>
+            <td>{{veneerInfoData[2].wave_channel.line}}</td>
             <td>NA</td>
-            <td></td>
+            <td>{{veneerInfoData[3].wave_channel.line}}</td>
           </tr>
           <tr>
             <td>波长</td>
@@ -138,14 +141,14 @@
           </tr>
           <tr>
             <td>距离（km）</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ veneerInfoData[0].launch_range.client }}</td>
+            <td>{{ veneerInfoData[0].launch_range.line }}</td>
+            <td>{{ veneerInfoData[1].launch_range.client }}</td>
+            <td>{{ veneerInfoData[1].launch_range.line }}</td>
+            <td>{{ veneerInfoData[2].launch_range.client }}</td>
+            <td>{{ veneerInfoData[2].launch_range.line }}</td>
+            <td>{{ veneerInfoData[3].launch_range.client }}</td>
+            <td>{{ veneerInfoData[3].launch_range.line }}</td>
           </tr>
           <tr>
             <td>发射功率（dBm）</td>
@@ -206,77 +209,125 @@
           <tr>
             <td>激光器开关</td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[0].tx_disable.client">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[0].tx_disable.line">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[1].tx_disable.client">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[1].tx_disable.line">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[2].tx_disable.client">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[2].tx_disable.line">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[3].tx_disable.client">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
             <td>
-              <select>
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+              <select v-model="veneerInfoData[3].tx_disable.line">
+                <option :value="false">关</option>
+                <option :value="true">开</option>
               </select>
             </td>
           </tr>
           <tr>
             <td>误码检测</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="def-btn">开始</button>
+                <button class="def-btn" style="margin-left:5px;">停止</button>
+                <p>结果：无误码</p>
+              </div>
+            </td>
           </tr>
           <tr>
             <td>速率（Mbps）</td>
             <td class="no-right-border">
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
-                  <option value="eCPRI-25GE">eCPRI-25GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">eCPRI-25GE</option>
+                  <option :value="0">Other</option>
                 </select>
 
                 <select v-else v-model="veneerInfoData[0].speed">
-                  <option value="25GE-28GE">25GE-28GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">25GE-28GE</option>
+                  <option :value="0">Other</option>
                 </select>
               </div>
             </td>
@@ -284,12 +335,12 @@
             <td class="no-right-border">
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
-                  <option value="eCPRI-25GE">eCPRI-25GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">eCPRI-25GE</option>
+                  <option :value="0">Other</option>
                 </select>
                 <select v-else v-model="veneerInfoData[1].speed">
-                  <option value="25GE-28GE">25GE-28GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">25GE-28GE</option>
+                  <option :value="0">Other</option>
                 </select>
               </div>
             </td>
@@ -297,12 +348,12 @@
             <td class="no-right-border">
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
-                  <option value="eCPRI-25GE">eCPRI-25GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">eCPRI-25GE</option>
+                  <option :value="0">Other</option>
                 </select>
                 <select v-else v-model="veneerInfoData[2].speed">
-                  <option value="25GE-28GE">25GE-28GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">25GE-28GE</option>
+                  <option :value="0">Other</option>
                 </select>
               </div>
             </td>
@@ -310,12 +361,12 @@
             <td class="no-right-border">
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
-                  <option value="eCPRI-25GE">eCPRI-25GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">eCPRI-25GE</option>
+                  <option :value="0">Other</option>
                 </select>
                 <select v-else v-model="veneerInfoData[3].speed">
-                  <option value="25GE-28GE">25GE-28GE</option>
-                  <option value="Other">Other</option>
+                  <option :value="1">25GE-28GE</option>
+                  <option :value="0">Other</option>
                 </select>
               </div>
             </td>
@@ -325,9 +376,7 @@
             <td>输入EQ（dB）</td>
             <td v-for="item in 8" :key="item">
               <select>
-                <option v-for="item in ['自适应', 0, 0.6, 1.2, 1.8, 2.4, 3.0, 3.6, 4.2, 4.8, 5.4, 6.0, 6.6, 7.2, 7.8, 8.4, 9.0, 9.6, 10.2, 10.8, 11.4, 12.0]" :key="item" :value="item">{{
-                  item
-                }}</option>
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
               </select>
             </td>
           </tr>
@@ -361,82 +410,111 @@
           <tr>
             <td>接收光功率过低阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.line" />
+            </td>
+           <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
-            </td>
-            <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.line" />
             </td>
           </tr>
           <tr>
             <td>接收光功率过载阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.line" />
             </td>
+        
           </tr>
           <tr>
             <td>发送光功率过载阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input"   v-model="veneerInfoData[0].tx_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_H.line" />
+            </td>
+             <td>
+              <input type="text" class="def-input"   v-model="veneerInfoData[1].tx_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_H.line" />
+            </td>
+             <td>
+              <input type="text" class="def-input"   v-model="veneerInfoData[2].tx_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_H.line" />
+            </td>
+             <td>
+              <input type="text" class="def-input"   v-model="veneerInfoData[3].tx_thr_H.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_H.line" />
+            </td>
+      
+          </tr>
+          <tr>
+            <td>发送光功率过低阈值（dBm）</td>
+            <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.line" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.client" />
             </td>
             <td>
-              <input type="text" class="def-input" />
+              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.line" />
+            </td>
+            <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.client" />
+            </td>
+            <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.line" />
+            </td>
+            <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.client" />
+            </td>
+            <td>
+              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.line" />
             </td>
           </tr>
         </tbody>
@@ -473,9 +551,32 @@ export default {
         sn: "",
         status: null,
       },
-      veneerInfoData: [
-        {
-          channel: 1,
+      eqoptions:Object.freeze([
+        {value:1,lable: 0},
+        {value:2,lable: 0.6},
+        {value:3,lable: 1.2},
+        {value:4,lable: 1.8},
+        {value:5,lable: 2.4},
+        {value:6,lable: 3.0},
+        {value:7,lable: 3.6},
+        {value:8,lable: 4.2},
+        {value:9,lable: 4.8},
+        {value:10,lable: 5.4},
+        {value:11,lable: 6.0},
+        {value:12,lable: 6.6},
+        {value:13,lable: 7.2},
+        {value:14,lable: 7.8},
+        {value:15,lable: 8.4},
+        {value:16,lable: 9.0},
+        {value:17,lable: 9.6},
+        {value:18,lable: 10.2},
+        {value:19,lable: 10.8},
+        {value:20,lable: 11.4},
+        {value:21,lable: 12.0},
+        {value:255,lable:'自适应'},
+      ]),
+      veneerInfoData: new Array(4).fill({
+          channel: 0,
           link_status: {
             client: null,
             line: null,
@@ -517,140 +618,39 @@ export default {
             client: null,
             line: null,
           },
-        },
-        {
-          channel: 1,
-          link_status: {
+          launch_range: {
+            client: 10,
+            line: 10
+          },
+          rw_type: {
             client: null,
             line: null,
           },
-          los: {
+          tx_disable: {
+            client: false,
+            line: false,
+          },
+          rcv_thr_H: {
             client: null,
             line: null,
           },
-          speed: null,
-          freq: {
+          rcv_thr_L: {
             client: null,
             line: null,
           },
-          wave_len: {
+          tx_thr_H: {
             client: null,
             line: null,
           },
-          launch_power: {
+          tx_thr_L: {
             client: null,
             line: null,
           },
-          rcv_power: {
+          wave_channel: {
             client: null,
             line: null,
           },
-          rcv_thr: {
-            client: null,
-            line: null,
-          },
-          voltage: {
-            client: null,
-            line: null,
-          },
-          current: {
-            client: null,
-            line: null,
-          },
-          temp: {
-            client: null,
-            line: null,
-          },
-        },
-        {
-          channel: 1,
-          link_status: {
-            client: null,
-            line: null,
-          },
-          los: {
-            client: null,
-            line: null,
-          },
-          speed: null,
-          freq: {
-            client: null,
-            line: null,
-          },
-          wave_len: {
-            client: null,
-            line: null,
-          },
-          launch_power: {
-            client: null,
-            line: null,
-          },
-          rcv_power: {
-            client: null,
-            line: null,
-          },
-          rcv_thr: {
-            client: null,
-            line: null,
-          },
-          voltage: {
-            client: null,
-            line: null,
-          },
-          current: {
-            client: null,
-            line: null,
-          },
-          temp: {
-            client: null,
-            line: null,
-          },
-        },
-        {
-          channel: 1,
-          link_status: {
-            client: null,
-            line: null,
-          },
-          los: {
-            client: null,
-            line: null,
-          },
-          speed: null,
-          freq: {
-            client: null,
-            line: null,
-          },
-          wave_len: {
-            client: null,
-            line: null,
-          },
-          launch_power: {
-            client: null,
-            line: null,
-          },
-          rcv_power: {
-            client: null,
-            line: null,
-          },
-          rcv_thr: {
-            client: null,
-            line: null,
-          },
-          voltage: {
-            client: null,
-            line: null,
-          },
-          current: {
-            client: null,
-            line: null,
-          },
-          temp: {
-            client: null,
-            line: null,
-          },
-        },
-      ],
+        },) ,
     };
   },
   created() {},
@@ -768,7 +768,22 @@ export default {
           this.$message("失败");
         });
     },
-    restorInfo() {},
+    restorInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "reset", boardname, slot } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("reset", res);
+          this.$message("成功");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.veneerTitleData.desc = "";
+          this.$message("失败");
+        });
+    },
   },
 };
 </script>

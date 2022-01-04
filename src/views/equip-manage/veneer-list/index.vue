@@ -174,9 +174,9 @@ export default {
 $border-color: #aaa;
 
 .cps-wrapper {
-  background-color: #fff;
-  padding: 0 10px 10px 10px;
-  max-height: 100%;
+  // background-color: #fff;
+  // padding: 0 10px 10px 10px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -186,13 +186,12 @@ $border-color: #aaa;
 .veneer-header-wrapper {
   height: 77px;
   border: 1px solid red;
-  margin-bottom: 20px;
+  background-color: #fff;
 }
 
 .veneer-table {
   width: 100%;
   border-collapse: collapse !important;
-  padding: 0;
   display: flex;
   flex-direction: column;
   border: none;
@@ -272,12 +271,20 @@ $border-color: #aaa;
 
 .venner-change-btns {
   text-align: right;
-  padding: 20px 0;
+  padding: 20px 10px;
+  background-color: #fff;
 }
 
 .veneer-table-container {
   flex: 1;
   overflow: auto;
   position: relative;
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+.veneer-table-title {
+  background-color: #fff;
+  padding: 20px 10px 0 10px;
 }
 </style>

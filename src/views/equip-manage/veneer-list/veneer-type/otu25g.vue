@@ -531,12 +531,9 @@
 </template>
 
 <script>
-// import CustomSelect from "../../components/custom-select";
-
 export default {
   name: "otu25g",
   props: ["info", "visible"],
-  // components: { CustomSelect },
   data() {
     return {
       changeForm: {},

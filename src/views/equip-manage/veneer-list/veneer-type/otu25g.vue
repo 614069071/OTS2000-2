@@ -97,223 +97,256 @@
           </tr>
           <tr>
             <td>LINK状态</td>
-            <td>{{ veneerInfoData[0].los.client ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[0].los.line ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[1].los.client ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[1].los.line ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[2].los.client ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[2].los.line ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[3].los.client ? "UP" : "DOWN" }}</td>
-            <td>{{ veneerInfoData[3].los.line ? "UP" : "DOWN" }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? (veneerInfoData[0].los.client ? "UP" : "DOWN"):"NA" }}</td>
+            <td>{{ veneerInfoData[0].link_status.line ? (veneerInfoData[0].los.line ? "UP" : "DOWN") :"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.client ? (veneerInfoData[1].los.client ? "UP" : "DOWN"):"NA" }}</td>
+            <td>{{ veneerInfoData[1].link_status.line ? (veneerInfoData[1].los.line ? "UP" : "DOWN") :"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.client ? (veneerInfoData[2].los.client ? "UP" : "DOWN"):"NA" }}</td>
+            <td>{{ veneerInfoData[2].link_status.line ? (veneerInfoData[2].los.line ? "UP" : "DOWN") :"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.client ? (veneerInfoData[3].los.client ? "UP" : "DOWN"):"NA" }}</td>
+            <td>{{ veneerInfoData[3].link_status.line ? (veneerInfoData[3].los.line ? "UP" : "DOWN") :"NA" }}</td>
           </tr>
           <tr>
             <td>属性</td>
-            <td>{{ veneerInfoData[0].rw_type.client }}</td>
-            <td>{{ veneerInfoData[0].rw_type.line }}</td>
-            <td>{{ veneerInfoData[1].rw_type.client }}</td>
-            <td>{{ veneerInfoData[1].rw_type.line }}</td>
-            <td>{{ veneerInfoData[2].rw_type.client }}</td>
-            <td>{{ veneerInfoData[2].rw_type.line }}</td>
-            <td>{{ veneerInfoData[3].rw_type.client }}</td>
-            <td>{{ veneerInfoData[3].rw_type.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].rw_type.client :"NA" }}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].rw_type.line :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].rw_type.client :"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].rw_type.line :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].rw_type.client :"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].rw_type.line :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].rw_type.client :"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].rw_type.line :"NA"}}</td>
           </tr>
           <tr>
             <td>波道</td>
             <td>NA</td>
-            <td>{{veneerInfoData[0].wave_channel.line}}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].wave_channel.line :"NA"}}</td>
             <td>NA</td>
-            <td>{{veneerInfoData[1].wave_channel.line}}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].wave_channel.line:"NA"}}</td>
             <td>NA</td>
-            <td>{{veneerInfoData[2].wave_channel.line}}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].wave_channel.line:"NA"}}</td>
             <td>NA</td>
-            <td>{{veneerInfoData[3].wave_channel.line}}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].wave_channel.line:"NA"}}</td>
           </tr>
           <tr>
             <td>波长</td>
-            <td>{{ veneerInfoData[0].wave_len.client }}</td>
-            <td>{{ veneerInfoData[0].wave_len.line }}</td>
-            <td>{{ veneerInfoData[1].wave_len.client }}</td>
-            <td>{{ veneerInfoData[1].wave_len.line }}</td>
-            <td>{{ veneerInfoData[2].wave_len.client }}</td>
-            <td>{{ veneerInfoData[2].wave_len.line }}</td>
-            <td>{{ veneerInfoData[3].wave_len.client }}</td>
-            <td>{{ veneerInfoData[3].wave_len.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].wave_len.client :"NA"}}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].wave_len.line :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].wave_len.client :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].wave_len.line :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].wave_len.client :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].wave_len.line :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].wave_len.client :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].wave_len.line :"NA"}}</td>
           </tr>
           <tr>
             <td>距离（km）</td>
-            <td>{{ veneerInfoData[0].launch_range.client }}</td>
-            <td>{{ veneerInfoData[0].launch_range.line }}</td>
-            <td>{{ veneerInfoData[1].launch_range.client }}</td>
-            <td>{{ veneerInfoData[1].launch_range.line }}</td>
-            <td>{{ veneerInfoData[2].launch_range.client }}</td>
-            <td>{{ veneerInfoData[2].launch_range.line }}</td>
-            <td>{{ veneerInfoData[3].launch_range.client }}</td>
-            <td>{{ veneerInfoData[3].launch_range.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ?  veneerInfoData[0].launch_range.client :"NA"}}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].launch_range.line:"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.client ?  veneerInfoData[1].launch_range.client :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].launch_range.line:"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.client ?  veneerInfoData[2].launch_range.client :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].launch_range.line:"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.client ?  veneerInfoData[3].launch_range.client :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].launch_range.line:"NA" }}</td>
           </tr>
           <tr>
             <td>发射功率（dBm）</td>
-            <td>{{ veneerInfoData[0].launch_power.client }}</td>
-            <td>{{ veneerInfoData[0].launch_power.line }}</td>
-            <td>{{ veneerInfoData[1].launch_power.client }}</td>
-            <td>{{ veneerInfoData[1].launch_power.line }}</td>
-            <td>{{ veneerInfoData[2].launch_power.client }}</td>
-            <td>{{ veneerInfoData[2].launch_power.line }}</td>
-            <td>{{ veneerInfoData[3].launch_power.client }}</td>
-            <td>{{ veneerInfoData[3].launch_power.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].launch_power.client :"NA"}}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].launch_power.line :"NA"}}</td>
+          <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].launch_power.client :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].launch_power.line :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].launch_power.client :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].launch_power.line :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].launch_power.client :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].launch_power.line :"NA"}}</td>
           </tr>
           <tr>
             <td>接受功率（dBm）</td>
-            <td>{{ veneerInfoData[0].rcv_power.client }}</td>
-            <td>{{ veneerInfoData[0].rcv_power.line }}</td>
-            <td>{{ veneerInfoData[1].rcv_power.client }}</td>
-            <td>{{ veneerInfoData[1].rcv_power.line }}</td>
-            <td>{{ veneerInfoData[2].rcv_power.client }}</td>
-            <td>{{ veneerInfoData[2].rcv_power.line }}</td>
-            <td>{{ veneerInfoData[3].rcv_power.client }}</td>
-            <td>{{ veneerInfoData[3].rcv_power.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].rcv_power.client:"NA" }}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].rcv_power.line:"NA" }}</td>
+          <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].rcv_power.client:"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].rcv_power.line:"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].rcv_power.client:"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].rcv_power.line:"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].rcv_power.client:"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].rcv_power.line:"NA" }}</td>
           </tr>
           <tr>
             <td>电压（V）</td>
-            <td>{{ veneerInfoData[0].voltage.client }}</td>
-            <td>{{ veneerInfoData[0].voltage.line }}</td>
-            <td>{{ veneerInfoData[1].voltage.client }}</td>
-            <td>{{ veneerInfoData[1].voltage.line }}</td>
-            <td>{{ veneerInfoData[2].voltage.client }}</td>
-            <td>{{ veneerInfoData[2].voltage.line }}</td>
-            <td>{{ veneerInfoData[3].voltage.client }}</td>
-            <td>{{ veneerInfoData[3].voltage.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ?  veneerInfoData[0].voltage.client :"NA" }}</td>
+            <td>{{veneerInfoData[0].link_status.line ?  veneerInfoData[0].voltage.line  :"NA"}}</td>
+            <td>{{veneerInfoData[1].link_status.client ?  veneerInfoData[1].voltage.client :"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.line ?  veneerInfoData[1].voltage.line  :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.client ?  veneerInfoData[2].voltage.client :"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.line ?  veneerInfoData[2].voltage.line  :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.client ?  veneerInfoData[3].voltage.client :"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.line ?  veneerInfoData[3].voltage.line  :"NA"}}</td>
           </tr>
 
           <tr>
             <td>偏置电流（dBm）</td>
-            <td>{{ veneerInfoData[0].current.client }}</td>
-            <td>{{ veneerInfoData[0].current.line }}</td>
-            <td>{{ veneerInfoData[1].current.client }}</td>
-            <td>{{ veneerInfoData[1].current.line }}</td>
-            <td>{{ veneerInfoData[2].current.client }}</td>
-            <td>{{ veneerInfoData[2].current.line }}</td>
-            <td>{{ veneerInfoData[3].current.client }}</td>
-            <td>{{ veneerInfoData[3].current.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].current.client:"NA" }}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].current.line :"NA"}}</td>
+        <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].current.client:"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].current.line :"NA"}}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].current.client:"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].current.line :"NA"}}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].current.client:"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].current.line :"NA"}}</td>
           </tr>
           <tr>
             <td>温度（℃）</td>
-            <td>{{ veneerInfoData[0].temp.client }}</td>
-            <td>{{ veneerInfoData[0].temp.line }}</td>
-            <td>{{ veneerInfoData[1].temp.client }}</td>
-            <td>{{ veneerInfoData[1].temp.line }}</td>
-            <td>{{ veneerInfoData[2].temp.client }}</td>
-            <td>{{ veneerInfoData[2].temp.line }}</td>
-            <td>{{ veneerInfoData[3].temp.client }}</td>
-            <td>{{ veneerInfoData[3].temp.line }}</td>
+            <td>{{veneerInfoData[0].link_status.client ? veneerInfoData[0].temp.client :"NA" }}</td>
+            <td>{{veneerInfoData[0].link_status.line ? veneerInfoData[0].temp.line :"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.client ? veneerInfoData[1].temp.client :"NA" }}</td>
+            <td>{{veneerInfoData[1].link_status.line ? veneerInfoData[1].temp.line :"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.client ? veneerInfoData[2].temp.client :"NA" }}</td>
+            <td>{{veneerInfoData[2].link_status.line ? veneerInfoData[2].temp.line :"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.client ? veneerInfoData[3].temp.client :"NA" }}</td>
+            <td>{{veneerInfoData[3].link_status.line ? veneerInfoData[3].temp.line :"NA" }}</td>
           </tr>
           <tr>
             <td>激光器开关</td>
             <td>
-              <select v-model="veneerInfoData[0].tx_disable.client">
+              <select v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].tx_disable.client">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[0].tx_disable.line">
+              <select v-if="veneerInfoData[0].link_status.line" v-model="veneerInfoData[0].tx_disable.line">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[1].tx_disable.client">
+              <select v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].tx_disable.client">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[1].tx_disable.line">
+              <select v-if="veneerInfoData[1].link_status.line" v-model="veneerInfoData[1].tx_disable.line">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[2].tx_disable.client">
+              <select v-if="veneerInfoData[2].link_status.client" v-model="veneerInfoData[2].tx_disable.client">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[2].tx_disable.line">
+              <select v-if="veneerInfoData[2].link_status.line" v-model="veneerInfoData[2].tx_disable.line">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[3].tx_disable.client">
+              <select v-if="veneerInfoData[3].link_status.client" v-model="veneerInfoData[3].tx_disable.client">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <select v-model="veneerInfoData[3].tx_disable.line">
+              <select v-if="veneerInfoData[3].link_status.line" v-model="veneerInfoData[3].tx_disable.line">
                 <option :value="false">关</option>
                 <option :value="true">开</option>
               </select>
+
+              <template v-else>NA</template>
             </td>
+            
           </tr>
           <tr>
             <td>误码检测</td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[0].link_status.client">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[0].link_status.line">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[1].link_status.client">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[1].link_status.line">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[2].link_status.client">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[2].link_status.line">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[3].link_status.client">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
             <td>
-              <div>
+              <div v-if="veneerInfoData[3].link_status.line">
                 <button class="def-btn">开始</button>
                 <button class="def-btn" style="margin-left:5px;">停止</button>
                 <p>结果：无误码</p>
               </div>
+
+              <template v-else>NA</template>
             </td>
           </tr>
           <tr>
@@ -374,148 +407,243 @@
           </tr>
           <tr>
             <td>输入EQ（dB）</td>
-            <td v-for="item in 8" :key="item">
-              <select>
+            <td>
+              <select v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].input_eq.client">
                 <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
               </select>
+
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <select v-if="veneerInfoData[0].link_status.line" v-model="veneerInfoData[0].input_eq.line">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+
+            <td>
+              <select v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].input_eq.client">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <select v-if="veneerInfoData[1].link_status.line" v-model="veneerInfoData[1].input_eq.line">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+
+            <td>
+              <select v-if="veneerInfoData[2].link_status.client" v-model="veneerInfoData[2].input_eq.client">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <select v-if="veneerInfoData[2].link_status.line" v-model="veneerInfoData[2].input_eq.line">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+
+            <td>
+              <select v-if="veneerInfoData[3].link_status.client" v-model="veneerInfoData[3].input_eq.client">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <select v-if="veneerInfoData[3].link_status.line" v-model="veneerInfoData[3].input_eq.line">
+                <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{item.lable}}</option>
+              </select>
+
+              <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>输出幅度（dBm）</td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[0].link_status.line" v-model="veneerInfoData[0].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[1].link_status.line" v-model="veneerInfoData[1].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[2].link_status.client" v-model="veneerInfoData[2].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[2].link_status.line" v-model="veneerInfoData[2].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[3].link_status.client" v-model="veneerInfoData[3].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[3].link_status.line" v-model="veneerInfoData[3].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <template v-else>NA</template>
             </td>
+            
           </tr>
           <tr>
             <td>接收光功率过低阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.line" />
-            </td>
-           <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.client" />
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.line" />
+              <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>接收光功率过载阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.client" />
+              <template v-else>NA</template>
+            </td>
+           <td>
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.client" />
+              <template v-else>NA</template>
+            </td>
+           <td>
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.client" />
+              <template v-else>NA</template>
+            </td>
+           <td>
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.client" />
+              <template v-else>NA</template>
             </td>
-            <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.client" />
+           <td>
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.line" />
+              <template v-else>NA</template>
             </td>
-            <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.line" />
-            </td>
-            <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.client" />
-            </td>
-            <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.line" />
-            </td>
-        
           </tr>
           <tr>
             <td>发送光功率过载阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input"   v-model="veneerInfoData[0].tx_thr_H.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input"   v-model="veneerInfoData[0].tx_thr_H.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_H.line" />
-            </td>
-             <td>
-              <input type="text" class="def-input"   v-model="veneerInfoData[1].tx_thr_H.client" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input"   v-model="veneerInfoData[0].tx_thr_H.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_H.line" />
-            </td>
-             <td>
-              <input type="text" class="def-input"   v-model="veneerInfoData[2].tx_thr_H.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input"   v-model="veneerInfoData[1].tx_thr_H.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_H.line" />
-            </td>
-             <td>
-              <input type="text" class="def-input"   v-model="veneerInfoData[3].tx_thr_H.client" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input"   v-model="veneerInfoData[1].tx_thr_H.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_H.line" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input"   v-model="veneerInfoData[2].tx_thr_H.client" />
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input"   v-model="veneerInfoData[2].tx_thr_H.line" />
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input"   v-model="veneerInfoData[3].tx_thr_H.client" />
+              <template v-else>NA</template>
+            </td>
+            <td>
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input"   v-model="veneerInfoData[3].tx_thr_H.line" />
+              <template v-else>NA</template>
             </td>
       
           </tr>
           <tr>
             <td>发送光功率过低阈值（dBm）</td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.line" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.line" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.line" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.line" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.client" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.client" />
+              <template v-else>NA</template>
             </td>
             <td>
-              <input type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.line" />
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.line" />
+              <template v-else>NA</template>
             </td>
+           
           </tr>
         </tbody>
       </table>

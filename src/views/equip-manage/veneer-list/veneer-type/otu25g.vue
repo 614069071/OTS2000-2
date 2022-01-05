@@ -644,7 +644,6 @@
               <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
-           
           </tr>
         </tbody>
       </table>

@@ -52,19 +52,19 @@
         <thead>
           <th>
             <td></td>
-            <td class="no-right-border">
+            <td >
               <div class="coll-2">通道1</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td >
               <div class="coll-2">通道2</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td >
               <div class="coll-2">通道3</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td >
               <div class="coll-2">通道4</div>
             </td>
             <td></td>
@@ -274,115 +274,83 @@
           </tr>
           <tr>
             <td>速率（Mbps）</td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[0].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">GE/10GE</option>
-                  <option value="STM-16/STM-64">M-16/STM-64</option>
-                  <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
-                  <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f">OTU1f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
+                  <option :value="255">打开环回</option>
+                  <option :value="0">关闭环回</option>
+                  <option :value="1">FC(包含2G、4G、8G、10G)</option>
+                  <option :value="2">CPRIX(X值为3，5，6，7)</option>
+                  <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                  <option :value="4">OTU1/OTU1e</option>
+                  <option :value="5">OTU2/OTU2e</option>
+                  <option :value="6">OTU1f/OTU2f</option>
+                  <option :value="7">GE/10GE</option>
+                  <option :value="8">STM-16/64</option>
+                  <option :value="9">FE(旁路)</option>
                 </select>
 
-                <select v-else v-model="veneerInfoData[0].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">E/10GE</option>
-                  <option value="STM-16/STM-64">STM-16/STM-64</option>
-                  <option value="10G FC">10G FC</option>
-                  <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
-                </select>
+                <select v-else v-model="veneerInfoData[0].speed"> </select>
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
-                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[1].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">GE/10GE</option>
-                  <option value="STM-16/STM-64">M-16/STM-64</option>
-                  <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
-                  <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f">OTU1f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
+                <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[1].speed">
+                  <option :value="255">打开环回</option>
+                  <option :value="0">关闭环回</option>
+                  <option :value="1">FC(包含2G、4G、8G、10G)</option>
+                  <option :value="2">CPRIX(X值为3，5，6，7)</option>
+                  <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                  <option :value="4">OTU1/OTU1e</option>
+                  <option :value="5">OTU2/OTU2e</option>
+                  <option :value="6">OTU1f/OTU2f</option>
+                  <option :value="7">GE/10GE</option>
+                  <option :value="8">STM-16/64</option>
+                  <option :value="9">FE(旁路)</option>
                 </select>
 
-                <select v-else v-model="veneerInfoData[0].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">E/10GE</option>
-                  <option value="STM-16/STM-64">STM-16/STM-64</option>
-                  <option value="10G FC">10G FC</option>
-                  <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
-                </select>
+                <select v-else v-model="veneerInfoData[1].speed"> </select>
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
-                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[2].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">GE/10GE</option>
-                  <option value="STM-16/STM-64">M-16/STM-64</option>
-                  <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
-                  <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f">OTU1f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
+                <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[2].speed">
+                  <option :value="255">打开环回</option>
+                  <option :value="0">关闭环回</option>
+                  <option :value="1">FC(包含2G、4G、8G、10G)</option>
+                  <option :value="2">CPRIX(X值为3，5，6，7)</option>
+                  <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                  <option :value="4">OTU1/OTU1e</option>
+                  <option :value="5">OTU2/OTU2e</option>
+                  <option :value="6">OTU1f/OTU2f</option>
+                  <option :value="7">GE/10GE</option>
+                  <option :value="8">STM-16/64</option>
+                  <option :value="9">FE(旁路)</option>
                 </select>
 
-                <select v-else v-model="veneerInfoData[0].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">E/10GE</option>
-                  <option value="STM-16/STM-64">STM-16/STM-64</option>
-                  <option value="10G FC">10G FC</option>
-                  <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
-                </select>
+                <select v-else v-model="veneerInfoData[2].speed"> </select>
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
-                <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[3].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">GE/10GE</option>
-                  <option value="STM-16/STM-64">M-16/STM-64</option>
-                  <option value="2/4/6/8/10G FC">2/4/6/8/10G FC</option>
-                  <option value="CPRI2/3/5/7">CPRI2/3/5/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f">OTU1f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
+                <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[3].speed">
+                  <option :value="255">打开环回</option>
+                  <option :value="0">关闭环回</option>
+                  <option :value="1">FC(包含2G、4G、8G、10G)</option>
+                  <option :value="2">CPRIX(X值为3，5，6，7)</option>
+                  <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                  <option :value="4">OTU1/OTU1e</option>
+                  <option :value="5">OTU2/OTU2e</option>
+                  <option :value="6">OTU1f/OTU2f</option>
+                  <option :value="7">GE/10GE</option>
+                  <option :value="8">STM-16/64</option>
+                  <option :value="9">FE(旁路)</option>
                 </select>
 
-                <select v-else v-model="veneerInfoData[0].speed">
-                  <option value="FE/STM-1/STM-4">FE/STM-1/STM-4</option>
-                  <option value="GE/10GE">E/10GE</option>
-                  <option value="STM-16/STM-64">STM-16/STM-64</option>
-                  <option value="10G FC">10G FC</option>
-                  <option value="CPRI2/3/4/5/6/7">CPRI2/3/4/5/6/7</option>
-                  <option value="CPRI2/3/5/7/8">CPRI2/3/5/7/8</option>
-                  <option value="OTU1/OTU1e">OTU1/OTU1e</option>
-                  <option value="OTU1f/OTU2f">OTU1f/OTU2f</option>
-                  <option value="OTU2/OTU2e">OTU2/OTU2e</option>
-                </select>
+                <select v-else v-model="veneerInfoData[3].speed"> </select>
               </div>
             </td>
             <td></td>
@@ -390,85 +358,49 @@
           <tr>
             <td>环回控制</td>
             <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
+              <div class="coll-2">
+                <select v-model="veneerInfoData[0].loop_mode">
+                  <option :value="0">不环回</option>
+                  <option :value="1">客户侧环回</option>
+                  <option :value="2">线路侧环回</option>
+                  <option :value="3">都环回</option>
+                </select>
+              </div>
             </td>
+            <td></td>
             <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
+              <div class="coll-2">
+                <select v-model="veneerInfoData[1].loop_mode">
+                  <option :value="0">不环回</option>
+                  <option :value="1">客户侧环回</option>
+                  <option :value="2">线路侧环回</option>
+                  <option :value="3">都环回</option>
+                </select>
+              </div>
             </td>
+            <td></td>
             <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
+              <div class="coll-2">
+                <select v-model="veneerInfoData[2].loop_mode">
+                  <option :value="0">不环回</option>
+                  <option :value="1">客户侧环回</option>
+                  <option :value="2">线路侧环回</option>
+                  <option :value="3">都环回</option>
+                </select>
+              </div>
             </td>
+            <td></td>
             <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
+              <div class="coll-2">
+                <select v-model="veneerInfoData[3].loop_mode">
+                  <option :value="0">不环回</option>
+                  <option :value="1">客户侧环回</option>
+                  <option :value="2">线路侧环回</option>
+                  <option :value="3">都环回</option>
+                </select>
+              </div>
             </td>
-            <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
-            </td>
-            <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
-            </td>
-            <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
-            </td>
-            <td>
-              <select>
-                <option value="0">线路环回</option>
-                <option value="1">线路取消环回</option>
-                <option value="2">客户环回</option>
-                <option value="3">客户取消环回</option>
-                <option value="4">线路客户环回</option>
-                <option value="5">客户客户取消环回</option>
-              </select>
-            </td>
+            <td></td>
           </tr>
           <tr>
             <td>接收光功率过低阈值（dBm）</td>

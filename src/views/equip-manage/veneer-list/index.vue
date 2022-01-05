@@ -56,10 +56,6 @@
       </el-table>
     </div>
 
-    <!-- <el-dialog :visible.sync="dialogVisible" width="70%" :append-to-body="true">
-      <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
-    </el-dialog> -->
-
     <pupur :visible.sync="dialogVisible">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
     </pupur>

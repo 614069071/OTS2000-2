@@ -297,24 +297,32 @@ export default {
         .post(data)
         .then((res) => {
           console.log("setTilte", res);
+          this.$message("成功");
           this.setTilteDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.$message("失败");
+
           this.setTilteDisabled = false;
         });
     },
     refreshInfo() {
       this.refreshInfoDisabled = true;
+
       this.getVeneerInfo()
         .then((res) => {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
+          this.$message("成功");
+
           this.refreshInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
+          this.$message("失败");
+
           this.refreshInfoDisabled = false;
         });
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">
-      <div class="veneer-inner-wrapper"></div>
+      <div class="veneer-inner-wrapper otu25g-veneer"></div>
       </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
@@ -943,7 +943,7 @@ export default {
   margin-left: 0;
 }
 
-.veneer-inner-wrapper{
+.otu25g-veneer{
   background-image:url(../../../../assets/images/veneer/otu25g.png);
 }
 </style>

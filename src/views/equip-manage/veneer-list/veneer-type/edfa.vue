@@ -43,8 +43,8 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="setTilte">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <!-- 状态信息 -->
@@ -227,9 +227,9 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshInfo">刷新</button>
-      <button class="def-btn" @click="setInfo">应用</button>
-      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
@@ -269,6 +269,11 @@ export default {
         desc: "",
       },
       veneerInfoData: {},
+      refreshTitleDisabled: false,
+      setTilteDisabled: false,
+      refreshInfoDisabled: false,
+      setInfoDisabled: false,
+      restoreDefaultInfoDisabled: false,
     };
   },
   created() {},
@@ -284,26 +289,20 @@ export default {
     },
   },
   methods: {
-    getVeneerTitle(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_title",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerTitle() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_title", boardname, slot } };
+
+      return this.$http.post(data);
     },
-    getVeneerInfo(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_info",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_info", boardname, slot } };
+
+      return this.$http.post(data);
     },
-    getVeneerDetail(slot) {
-      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+    getVeneerDetail() {
+      Promise.all([this.getVeneerTitle(), this.getVeneerInfo()])
         .then((res) => {
           console.log("res", res);
           this.veneerTitleData = res[0].otn2000_ack;
@@ -327,15 +326,19 @@ export default {
         });
     },
     refreshTitle() {
-      this.getVeneerTitle(this.info.slot)
+      this.refreshTitleDisabled = true;
+
+      this.getVeneerTitle()
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
           this.$message("成功");
+          this.refreshTitleDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.refreshTitleDisabled = false;
         });
     },
     setTilte() {
@@ -343,6 +346,7 @@ export default {
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
+      this.setTilteDisabled = true;
 
       this.$http
         .post(data)
@@ -350,15 +354,19 @@ export default {
           console.log("setTilte", res);
 
           this.$message("成功");
+          this.setTilteDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.setTilteDisabled = false;
         });
     },
     refreshInfo() {
-      this.getVeneerInfo(this.info.slot)
+      this.refreshInfoDisabled = true;
+
+      this.getVeneerInfo()
         .then((res) => {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
@@ -376,43 +384,47 @@ export default {
           };
 
           this.$message("成功");
+          this.refreshInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.refreshInfoDisabled = false;
         });
     },
     setInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
+      this.setInfoDisabled = true;
 
       this.$http
         .post(data)
         .then((res) => {
           console.log("setInfo", res);
           this.$message("成功");
+          this.setInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.setInfoDisabled = false;
         });
     },
     restoreDefaultInfo() {
-      const data = {
-        otn2000: {
-          type: "default",
-          boardname: "edfa",
-          slot: this.info.slot,
-        },
-      };
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
+
+      this.restoreDefaultInfoDisabled = true;
       this.$http
         .post(data)
         .then((res) => {
           console.log("restoreDefaultInfo", res);
+          this.restoreDefaultInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.restoreDefaultInfoDisabled = false;
         });
     },
   },

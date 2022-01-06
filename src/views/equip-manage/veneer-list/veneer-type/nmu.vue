@@ -47,8 +47,8 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="setTilte">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <div class="veneer-table-container">
@@ -153,7 +153,7 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
     </div>
   </div>
 </template>
@@ -230,6 +230,9 @@ export default {
           ethspeed: 0,
         },
       },
+      refreshTitleDisabled: false,
+      setTilteDisabled: false,
+      refreshInfoDisabled: false,
     };
   },
   created() {},
@@ -268,15 +271,19 @@ export default {
         });
     },
     refreshTitle() {
+      this.refreshTitleDisabled = true;
+
       this.getVeneerTitle()
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
           this.$message("成功");
+          this.refreshTitleDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.refreshTitleDisabled = false;
         });
     },
     setTilte() {
@@ -284,25 +291,31 @@ export default {
       const { boardname, slot } = this.info;
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
+      this.setTilteDisabled = true;
 
       this.$http
         .post(data)
         .then((res) => {
           console.log("setTilte", res);
+          this.setTilteDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
+          this.setTilteDisabled = false;
         });
     },
     refreshInfo() {
-      this.getVeneerInfo(this.info.slot)
+      this.refreshInfoDisabled = true;
+      this.getVeneerInfo()
         .then((res) => {
           console.log(res);
           this.veneerInfoData = res.otn2000_ack;
+          this.refreshInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
+          this.refreshInfoDisabled = false;
         });
     },
   },

@@ -1,6 +1,8 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">otu4x25g</div>
+    <div class="veneer-header-wrapper">
+      <div class="veneer-inner-wrapper"></div>
+      </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
         <tr>
@@ -348,7 +350,7 @@
             </td>
           </tr>
           <tr>
-            <td>速率（Mbps）</td>
+            <td>速率</td>
             <td class="no-right-border">
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '25G-OTUL'" v-model="veneerInfoData[0].speed">
@@ -468,175 +470,175 @@
           <tr>
             <td>输出幅度（dBm）</td>
             <td>
-              <el-input-number v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[0].link_status.client" v-model.number="veneerInfoData[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[0].link_status.line" v-model="veneerInfoData[0].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[0].link_status.line" v-model.number="veneerInfoData[0].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[1].link_status.client" v-model.number="veneerInfoData[1].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[1].link_status.line" v-model="veneerInfoData[1].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[1].link_status.line" v-model.number="veneerInfoData[1].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[2].link_status.client" v-model="veneerInfoData[2].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[2].link_status.client" v-model.number="veneerInfoData[2].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[2].link_status.line" v-model="veneerInfoData[2].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[2].link_status.line" v-model.number="veneerInfoData[2].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[3].link_status.client" v-model="veneerInfoData[3].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[3].link_status.client" v-model.number="veneerInfoData[3].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="veneerInfoData[3].link_status.line" v-model="veneerInfoData[3].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <el-input-number v-if="veneerInfoData[3].link_status.line" v-model.number="veneerInfoData[3].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>接收光功率过低阈值（dBm）</td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[2].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[2].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.client" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[3].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_L.line" />
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[3].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>接收光功率过载阈值（dBm）</td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[2].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[2].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.client" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[3].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].rcv_thr_H.line" />
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[3].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>发送光功率过载阈值（dBm）</td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_H.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_H.line" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_H.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_H.line" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_H.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[2].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_H.line" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[2].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_H.client" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[3].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_H.line" />
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[3].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>发送光功率过低阈值（dBm）</td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.client" />
+              <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model="veneerInfoData[0].tx_thr_L.line" />
+              <input v-if="veneerInfoData[0].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.client" />
+              <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model="veneerInfoData[1].tx_thr_L.line" />
+              <input v-if="veneerInfoData[1].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.client" />
+              <input v-if="veneerInfoData[2].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[2].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model="veneerInfoData[2].tx_thr_L.line" />
+              <input v-if="veneerInfoData[2].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[2].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.client" />
+              <input v-if="veneerInfoData[3].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[3].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model="veneerInfoData[3].tx_thr_L.line" />
+              <input v-if="veneerInfoData[3].link_status.line" type="text" class="def-input" v-model.number="veneerInfoData[3].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
           </tr>
@@ -865,7 +867,7 @@ export default {
     },
     setInfo() {
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
+      const data = { otn2000: { type: "post_info", boardname, slot, channels:this.veneerInfoData } };
 
       this.$http
         .post(data)
@@ -939,5 +941,9 @@ export default {
 
 .prbs-tr .def-btn + .def-btn {
   margin-left: 0;
+}
+
+.veneer-inner-wrapper{
+  background-image:url(../../../../assets/images/veneer/otu25g.png);
 }
 </style>

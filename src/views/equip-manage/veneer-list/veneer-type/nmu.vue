@@ -1,6 +1,8 @@
 <template>
   <div class="num-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">Nmu</div>
+    <div class="veneer-header-wrapper">
+      <div class="veneer-inner-wrapper"></div>
+    </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
         <tr>
@@ -306,3 +308,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.veneer-inner-wrapper {
+  background-image: url(../../../../assets/images/veneer/nmu.png);
+}
+</style>

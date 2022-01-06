@@ -377,4 +377,8 @@ export default {
 };
 </script>
 
-<style scoped lang="css"></style>
+<style scoped>
+.veneer-inner-wrapper {
+  background-image: url(../../../../assets/images/veneer/ocp.png);
+}
+</style>

@@ -230,7 +230,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>速率（Mbps）</td>
+          <td>速率</td>
           <td class="no-right-border">
             <div class="coll-4"></div>
           </td>
@@ -366,4 +366,8 @@ export default {
 };
 </script>
 
-<style scoped lang="css"></style>
+<style scoped>
+.veneer-inner-wrapper {
+  background-image: url(../../../../assets/images/veneer/otu100g.png);
+}
+</style>

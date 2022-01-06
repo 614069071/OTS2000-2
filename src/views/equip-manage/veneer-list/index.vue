@@ -180,9 +180,18 @@ $border-color: #aaa;
 }
 // 单板详情表格
 .veneer-header-wrapper {
-  height: 77px;
-  border: 1px solid red;
+  // border: 1px solid red;
   background-color: #fff;
+}
+
+.veneer-inner-wrapper {
+  width: 1000px;
+  height: 84px;
+  border: 1px solid #eee;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 .veneer-table {

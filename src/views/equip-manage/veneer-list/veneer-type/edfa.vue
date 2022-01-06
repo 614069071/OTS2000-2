@@ -418,3 +418,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.veneer-inner-wrapper {
+  background-image: url(../../../../assets/images/veneer/edfa.png);
+}
+</style>

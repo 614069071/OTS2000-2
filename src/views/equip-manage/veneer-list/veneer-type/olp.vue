@@ -282,3 +282,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.veneer-inner-wrapper {
+  background-image: url(../../../../assets/images/veneer/olp.png);
+}
+</style>

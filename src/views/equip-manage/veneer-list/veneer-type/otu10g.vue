@@ -1,6 +1,8 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">otu4x10g</div>
+    <div class="veneer-header-wrapper">
+      <div class="veneer-inner-wrapper"></div>
+    </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
         <tr>
@@ -273,12 +275,10 @@
             </td>
           </tr>
           <tr>
-            <td>速率（Mbps）</td>
+            <td>速率</td>
             <td>
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[0].speed">
-                  <option :value="255">打开环回</option>
-                  <option :value="0">关闭环回</option>
                   <option :value="1">FC(包含2G、4G、8G、10G)</option>
                   <option :value="2">CPRIX(X值为3，5，6，7)</option>
                   <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -297,8 +297,6 @@
             <td>
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[1].speed">
-                  <option :value="255">打开环回</option>
-                  <option :value="0">关闭环回</option>
                   <option :value="1">FC(包含2G、4G、8G、10G)</option>
                   <option :value="2">CPRIX(X值为3，5，6，7)</option>
                   <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -317,8 +315,6 @@
             <td>
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[2].speed">
-                  <option :value="255">打开环回</option>
-                  <option :value="0">关闭环回</option>
                   <option :value="1">FC(包含2G、4G、8G、10G)</option>
                   <option :value="2">CPRIX(X值为3，5，6，7)</option>
                   <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -337,8 +333,6 @@
             <td>
               <div class="coll-2">
                 <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[3].speed">
-                  <option :value="255">打开环回</option>
-                  <option :value="0">关闭环回</option>
                   <option :value="1">FC(包含2G、4G、8G、10G)</option>
                   <option :value="2">CPRIX(X值为3，5，6，7)</option>
                   <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -812,5 +806,9 @@ export default {
 
 .prbs-tr .def-btn + .def-btn {
   margin-left: 0;
+}
+
+.veneer-inner-wrapper{
+  background-image:url(../../../../assets/images/veneer/otu10g.png);
 }
 </style>

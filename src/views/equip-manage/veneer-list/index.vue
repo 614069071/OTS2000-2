@@ -226,7 +226,6 @@ $border-color: #aaa;
   td {
     min-height: 34px;
     line-height: 34px;
-    color: #666;
     flex: 1;
     position: relative;
     padding: 0 3px;

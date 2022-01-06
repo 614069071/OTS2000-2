@@ -2,7 +2,7 @@
   <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">
       <div class="veneer-inner-wrapper otu25g-veneer"></div>
-      </div>
+    </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
         <tr>
@@ -45,8 +45,8 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshTitle">刷新</button>
-      <button class="def-btn" @click="setTilte">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <div class="veneer-table-container">
@@ -659,10 +659,10 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn" @click="refreshInfo">刷新</button>
-      <button class="def-btn" @click="setInfo">应用</button>
-      <button class="def-btn" @click="restorInfo">复位</button>
-      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
@@ -785,6 +785,12 @@ export default {
           line: null,
         },
       }),
+      refreshTitleDisabled: false,
+      setTilteDisabled: false,
+      refreshInfoDisabled: false,
+      setInfoDisabled: false,
+      restorInfoDisabled: false,
+      restoreDefaultInfoDisabled: false,
     };
   },
   created() {},
@@ -838,15 +844,19 @@ export default {
         });
     },
     refreshTitle() {
+      this.refreshTitleDisabled = true;
+
       this.getVeneerTitle(this.info.slot)
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
           this.$message("成功");
+          this.refreshTitleDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.refreshTitleDisabled = false;
         });
     },
     setTilte() {
@@ -855,73 +865,90 @@ export default {
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
+      this.setTilteDisabled = true;
+
       this.$http
         .post(data)
         .then(() => {
           this.$message("成功");
+          this.setTilteDisabled = false;
         })
         .catch(() => {
           this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.setTilteDisabled = false;
         });
     },
     refreshInfo() {
+      this.refreshInfoDisabled = true;
+
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
           this.veneerInfoData = res.otn2000_ack.channels;
 
           this.$message("成功");
+          this.refreshInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.refreshInfoDisabled = false;
         });
     },
     setInfo() {
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, channels:this.veneerInfoData } };
+      const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
+      this.setInfoDisabled = true;
 
       this.$http
         .post(data)
         .then((res) => {
-          console.log("setInfo", res);
+          console.log("setInfos", res);
           this.$message("成功");
+          this.setInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.$message("失败");
+          this.setInfoDisabled = false;
         });
     },
     restoreDefaultInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "default", boardname, slot } };
+      this.restoreDefaultInfoDisabled = true;
 
       this.$http
         .post(data)
         .then((res) => {
-          console.log("restoreDefaultInfo", res);
+          console.log("restoreDefaultInfos", res);
           this.$message("成功");
+          this.restoreDefaultInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.restoreDefaultInfoDisabled = false;
         });
     },
     restorInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "reset", boardname, slot } };
+      this.restorInfoDisabled = true;
 
       this.$http
         .post(data)
         .then((res) => {
           console.log("reset", res);
           this.$message("成功");
+          this.restorInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
           this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.restorInfoDisabled = false;
         });
     },
     detectionPrbs(i, status, state) {
@@ -955,7 +982,7 @@ export default {
   margin-left: 0;
 }
 
-.otu25g-veneer{
-  background-image:url(../../../../assets/images/veneer/otu25g.png);
+.otu25g-veneer {
+  background-image: url(../../../../assets/images/veneer/otu25g.png);
 }
 </style>

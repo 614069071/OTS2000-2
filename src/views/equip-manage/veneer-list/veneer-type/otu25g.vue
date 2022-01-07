@@ -223,64 +223,64 @@
             <td>激光器开关</td>
             <td>
               <select v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].tx_disable.client">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[0].link_status.line" v-model="veneerInfoData[0].tx_disable.line">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].tx_disable.client">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[1].link_status.line" v-model="veneerInfoData[1].tx_disable.line">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[2].link_status.client" v-model="veneerInfoData[2].tx_disable.client">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[2].link_status.line" v-model="veneerInfoData[2].tx_disable.line">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[3].link_status.client" v-model="veneerInfoData[3].tx_disable.client">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="veneerInfoData[3].link_status.line" v-model="veneerInfoData[3].tx_disable.line">
-                <option :value="true">禁用</option>
-                <option :value="false">启用</option>
+                <option :value="true">关</option>
+                <option :value="false">开</option>
               </select>
 
               <template v-else>NA</template>

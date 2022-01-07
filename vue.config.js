@@ -4,6 +4,7 @@ const resolve = (dir) => path.resolve(__dirname, dir);
 
 module.exports = {
   devServer: {
+    port: 3000,
     proxy: {
       '/api': {
         target: 'http://192.168.20.110:8080/',

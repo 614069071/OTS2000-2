@@ -109,14 +109,14 @@
           </tr>
           <tr>
             <td>属性</td>
-            <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].rw_type.client : "NA" }}</td>
-            <td>{{ veneerInfoData[0].link_status.line ? veneerInfoData[0].rw_type.line : "NA" }}</td>
-            <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].rw_type.client : "NA" }}</td>
-            <td>{{ veneerInfoData[1].link_status.line ? veneerInfoData[1].rw_type.line : "NA" }}</td>
-            <td>{{ veneerInfoData[2].link_status.client ? veneerInfoData[2].rw_type.client : "NA" }}</td>
-            <td>{{ veneerInfoData[2].link_status.line ? veneerInfoData[2].rw_type.line : "NA" }}</td>
-            <td>{{ veneerInfoData[3].link_status.client ? veneerInfoData[3].rw_type.client : "NA" }}</td>
-            <td>{{ veneerInfoData[3].link_status.line ? veneerInfoData[3].rw_type.line : "NA" }}</td>
+            <td>{{ veneerInfoData[0].link_status.client ? (veneerInfoData[0].rw_type.client ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[0].link_status.line ? (veneerInfoData[0].rw_type.line ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[1].link_status.client ? (veneerInfoData[1].rw_type.client ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[1].link_status.line ? (veneerInfoData[1].rw_type.line ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[2].link_status.client ? (veneerInfoData[2].rw_type.client ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[2].link_status.line ? (veneerInfoData[2].rw_type.line ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[3].link_status.client ? (veneerInfoData[3].rw_type.client ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ veneerInfoData[3].link_status.line ? (veneerInfoData[3].rw_type.line ? "读写" : "只读") : "NA" }}</td>
           </tr>
           <tr>
             <td>波道</td>
@@ -680,7 +680,7 @@ export default {
   methods: {
     getVeneerTitle() {
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "get_info", boardname, slot } };
+      const data = { otn2000: { type: "get_title", boardname, slot } };
 
       return this.$http.post(data);
     },

@@ -52,26 +52,26 @@
     <div class="veneer-table-container">
       <table class="veneer-table" border="1">
         <thead>
-          <th>
+          <tr>
             <td></td>
-            <td >
+            <td>
               <div class="coll-2">通道1</div>
             </td>
             <td></td>
-            <td >
+            <td>
               <div class="coll-2">通道2</div>
             </td>
             <td></td>
-            <td >
+            <td>
               <div class="coll-2">通道3</div>
             </td>
             <td></td>
-            <td >
+            <td>
               <div class="coll-2">通道4</div>
             </td>
             <td></td>
-          </th>
-          <th>
+          </tr>
+          <tr>
             <td>端口</td>
             <td>Client</td>
             <td>Line</td>
@@ -81,7 +81,7 @@
             <td>Line</td>
             <td>Client</td>
             <td>Line</td>
-          </th>
+          </tr>
         </thead>
 
         <tbody>

@@ -139,15 +139,15 @@
         </tr>
         <tr>
           <td>速率（Mbps）</td>
-          <td>{{ veneerInfoData.eth1.ethspeed }}</td>
-          <td>{{ veneerInfoData.eth2.ethspeed }}</td>
-          <td>{{ veneerInfoData.eth3.ethspeed }}</td>
+          <td>{{ veneerInfoData.eth1.eth_status ? veneerInfoData.eth1.ethspeed : "NA" }}</td>
+          <td>{{ veneerInfoData.eth2.eth_status ? veneerInfoData.eth2.ethspeed : "NA" }}</td>
+          <td>{{ veneerInfoData.eth3.eth_status ? veneerInfoData.eth3.ethspeed : "NA" }}</td>
         </tr>
         <tr>
           <td>双工</td>
-          <td>{{ veneerInfoData.eth1.full_status ? "全双工" : "半双工" }}</td>
-          <td>{{ veneerInfoData.eth2.full_status ? "全双工" : "半双工" }}</td>
-          <td>{{ veneerInfoData.eth3.full_status ? "全双工" : "半双工" }}</td>
+          <td>{{ veneerInfoData.eth1.eth_status ? (veneerInfoData.eth1.full_status ? "全双工" : "半双工") : "NA" }}</td>
+          <td>{{ veneerInfoData.eth2.eth_status ? (veneerInfoData.eth2.full_status ? "全双工" : "半双工") : "NA" }}</td>
+          <td>{{ veneerInfoData.eth3.eth_status ? (veneerInfoData.eth3.full_status ? "全双工" : "半双工") : "NA" }}</td>
         </tr>
       </table>
     </div>

@@ -3,11 +3,12 @@
     <div class="inner-header-wrapper">
       <!-- 设备框图 -->
       <div class="veneer-block-diagram-wrapper">
-        <!-- <div class="veneer-inner-wrapper">
-          <div class="veneer-item-wrapper" v-for="(item, index) in 8" :key="index">
-            <veneer-nmu :index="index"></veneer-nmu>
+        <div class="veneer-inner-wrapper">
+          <div class="veneer-item-wrapper" v-for="(item, index) in dataTable" :key="index">
+            <!-- <veneer-nmu :index="index"></veneer-nmu> -->
+            <img v-if="item.boardname" :src="require(`../../../assets/images/veneer/${item.boardname.toLowerCase()}.png`)" alt="" />
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
@@ -131,19 +132,19 @@ export default {
 // 单板构图 start
 .veneer-block-diagram-wrapper {
   width: 1000px;
-  height: 283px;
+  height: 236px;
   background-color: grey;
-  background: url("../../../assets/images/entirety.png") center/contain no-repeat;
+  background: url("../../../assets/images/entirety.jpg") center/contain no-repeat;
   margin: 0 auto;
   position: relative;
 }
 
 .veneer-inner-wrapper {
-  width: 1000px;
-  height: 240px;
-  border: 1px solid red;
+  width: 868px;
+  height: 200px;
+  // border: 1px solid red;
   position: absolute;
-  left: 30px;
+  left: 25px;
   bottom: 0px;
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +152,7 @@ export default {
 }
 
 .veneer-item-wrapper {
-  height: 20px;
+  height: 50px;
   width: 50% !important;
 }
 
@@ -187,7 +188,7 @@ $border-color: #aaa;
 .veneer-inner-wrapper {
   width: 1000px;
   height: 84px;
-  border: 1px solid #eee;
+  border: 1px solid #aaa;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

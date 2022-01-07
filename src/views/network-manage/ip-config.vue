@@ -41,7 +41,7 @@ export default {
   width: 80%;
   height: 200px;
   background-color: grey;
-  background: url("../../assets/images/machine1.png") center/contain no-repeat;
+  background: url("../../assets/images/entirety.jpg") center/contain no-repeat;
   margin: 0 auto 40px auto;
 }
 .ip-config-form-wrapper .config-form-item {

@@ -16,7 +16,7 @@
         </div>
         <div class="system-info-item-other">
           <span class="item-before"><el-radio v-model="dataForm.name1" label="2">自动从互联网获取NTP Server</el-radio></span>
-          <span class="item-after"><input class="def-input" v-model="dataForm.name3" /></span>
+          <span class="item-after"><input class="def-input" v-model="dataForm.name3"/></span>
         </div>
         <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div>
 
@@ -58,7 +58,7 @@ export default {
   width: 80%;
   height: 200px;
   background-color: grey;
-  background: url("../../assets/images/machine1.png") center/contain no-repeat;
+  background: url("../../assets/images/entirety.jpg") center/contain no-repeat;
   margin: 0 auto;
 }
 

@@ -25,6 +25,6 @@ export default {
 .structure-main-wrapper {
   width: 800px;
   height: 238px;
-  background: url("../../assets/images/machine1.png") center/contain no-repeat;
+  background: url("../../assets/images/entirety.jpg") center/contain no-repeat;
 }
 </style>

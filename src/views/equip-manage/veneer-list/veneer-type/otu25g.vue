@@ -671,17 +671,16 @@ export default {
   props: ["info", "visible"],
   data() {
     return {
-      changeForm: {},
       veneerTitleData: {
-        bdtype: "",
+        sn: "",
         desc: "",
-        device_type: "",
+        status: 0,
         h_rev: "",
-        mfgdate: "",
         p_rev: "",
         s_rev: "",
-        sn: "",
-        status: null,
+        bdtype: "",
+        mfgdate: "",
+        device_type: "",
       },
       eqoptions: Object.freeze([
         { value: 1, lable: 0 },
@@ -803,18 +802,21 @@ export default {
     },
   },
   methods: {
+    // 获取 title
     getVeneerTitle() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "get_title", boardname, slot } };
 
       return this.$http.post(data);
     },
+    // 获取 info
     getVeneerInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "get_info", boardname, slot } };
 
       return this.$http.post(data);
     },
+    // 获取 title info
     getVeneerDetail() {
       this.getVeneerTitle()
         .then((res) => {
@@ -829,6 +831,7 @@ export default {
           console.log(err);
         });
     },
+    // 刷新 title
     refreshTitle() {
       this.refreshTitleDisabled = true;
 
@@ -845,6 +848,7 @@ export default {
           this.refreshTitleDisabled = false;
         });
     },
+    // 设值 title
     setTilte() {
       const { mfgdate, sn, desc } = this.veneerTitleData;
       const { boardname, slot } = this.info;
@@ -872,6 +876,7 @@ export default {
           this.setTilteDisabled = false;
         });
     },
+    // 刷新 info
     refreshInfo() {
       this.refreshInfoDisabled = true;
 
@@ -888,6 +893,7 @@ export default {
           this.refreshInfoDisabled = false;
         });
     },
+    // 设值 info
     setInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
@@ -911,6 +917,7 @@ export default {
           this.setInfoDisabled = false;
         });
     },
+    // 恢复默认 info
     restoreDefaultInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "default", boardname, slot } };
@@ -938,6 +945,7 @@ export default {
           this.restoreDefaultInfoDisabled = false;
         });
     },
+    // 复位 info
     restorInfo() {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "reset", boardname, slot } };
@@ -965,6 +973,7 @@ export default {
           this.restoreDefaultInfoDisabled = false;
         });
     },
+    // 误码检测
     detectionPrbs(i, status) {
       const val = (this.veneerInfoData[i].prbs_en[status] + 1) % 2;
       this.veneerInfoData[i].prbs_en[status] = val;

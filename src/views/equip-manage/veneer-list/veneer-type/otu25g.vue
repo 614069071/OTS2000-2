@@ -852,16 +852,23 @@ export default {
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.setTilteDisabled = true;
+      this.refreshTitleDisabled = true;
 
       this.$http
         .post(data)
         .then(() => {
+          return this.getVeneerTitle();
+        })
+        .then((res) => {
           this.$message("成功");
           this.setTilteDisabled = false;
+          this.refreshTitleDisabled = false;
+          this.veneerTitleData = res.otn2000_ack;
         })
         .catch(() => {
           this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.refreshTitleDisabled = false;
           this.setTilteDisabled = false;
         });
     },
@@ -885,17 +892,22 @@ export default {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
       this.setInfoDisabled = true;
+      this.refreshInfoDisabled = true;
 
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("setInfos", res);
+        .then(() => {
+          return this.getVeneerInfo();
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
           this.$message("成功");
           this.setInfoDisabled = false;
+          this.refreshInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           this.$message("失败");
+          this.refreshInfoDisabled = false;
           this.setInfoDisabled = false;
         });
     },
@@ -906,15 +918,23 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("restoreDefaultInfos", res);
+        .then(() => {
+          return this.getVeneerInfo();
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
           this.$message("成功");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
         .catch((err) => {
           console.log(err);
-          this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
         });
     },
@@ -925,16 +945,24 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("reset", res);
+        .then(() => {
+          return this.getVeneerInfo();
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
           this.$message("成功");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
           this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
         .catch((err) => {
           console.log(err);
-          this.veneerTitleData.desc = "";
           this.$message("失败");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
           this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
         });
     },
     detectionPrbs(i, status) {

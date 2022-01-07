@@ -6,7 +6,7 @@
         <div class="veneer-inner-wrapper">
           <div class="veneer-item-wrapper" v-for="(item, index) in dataTable" :key="index">
             <!-- <veneer-nmu :index="index"></veneer-nmu> -->
-            <img v-if="item.boardname" :src="require(`../../../assets/images/veneer/${item.boardname.toLowerCase()}.png`)" alt="" />
+            <img v-if="item.status" :src="require(`../../../assets/images/veneer/${item.boardname.toLowerCase()}.png`)" alt="" />
           </div>
         </div>
       </div>

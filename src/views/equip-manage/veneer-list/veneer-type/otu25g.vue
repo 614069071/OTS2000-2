@@ -955,17 +955,17 @@ export default {
           if (!val) {
             // 停止检测并获取状态
             console.log("停止检测", val);
-            this.getVeneerTitle()
+            this.getVeneerInfo()
               .then((res) => {
-                console.log(res);
-                this.veneerTitleData = res.otn2000_ack;
+                this.veneerInfoData = res.otn2000_ack.channels;
+
                 this.$message("成功");
-                this.refreshTitleDisabled = false;
+                this.refreshInfoDisabled = false;
               })
               .catch((err) => {
                 console.log(err);
                 this.$message("失败");
-                this.refreshTitleDisabled = false;
+                this.refreshInfoDisabled = false;
               });
           }
         })

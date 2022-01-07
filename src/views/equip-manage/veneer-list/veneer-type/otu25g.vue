@@ -291,7 +291,7 @@
             <td>
               <div v-if="veneerInfoData[0].link_status.client">
                 <button class="def-btn" @click="detectionPrbs(0, 'client')">{{ veneerInfoData[0].prbs_en.client ? "停止" : "开始" }}</button>
-                结果：{{ veneerInfoData[0].prbs.client ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[0].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -299,7 +299,7 @@
             <td>
               <div v-if="veneerInfoData[0].link_status.line">
                 <button class="def-btn" @click="detectionPrbs(0, 'line')">{{ veneerInfoData[0].prbs_en.line ? "停止" : "开始" }}</button>
-                结果：{{ veneerInfoData[0].prbs.line ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[0].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -307,8 +307,7 @@
             <td>
               <div v-if="veneerInfoData[1].link_status.client">
                 <button class="def-btn" @click="detectionPrbs(1, 'client')">{{ veneerInfoData[1].prbs_en.client ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[1].prbs.client ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[1].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -316,8 +315,7 @@
             <td>
               <div v-if="veneerInfoData[1].link_status.line">
                 <button class="def-btn" @click="detectionPrbs(1, 'line')">{{ veneerInfoData[1].prbs_en.line ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[1].prbs.line ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[1].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -325,8 +323,7 @@
             <td>
               <div v-if="veneerInfoData[2].link_status.client">
                 <button class="def-btn" @click="detectionPrbs(2, 'client')">{{ veneerInfoData[2].prbs_en.client ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[2].prbs.client ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[2].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -334,8 +331,7 @@
             <td>
               <div v-if="veneerInfoData[2].link_status.line">
                 <button class="def-btn" @click="detectionPrbs(2, 'line')">{{ veneerInfoData[2].prbs_en.line ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[2].prbs.line ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[2].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -343,8 +339,7 @@
             <td>
               <div v-if="veneerInfoData[3].link_status.client">
                 <button class="def-btn" @click="detectionPrbs(3, 'client')">{{ veneerInfoData[3].prbs_en.client ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[3].prbs.client ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[3].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>
@@ -352,8 +347,7 @@
             <td>
               <div v-if="veneerInfoData[3].link_status.line">
                 <button class="def-btn" @click="detectionPrbs(3, 'line')">{{ veneerInfoData[3].prbs_en.line ? "停止" : "开始" }}</button>
-
-                结果：{{ veneerInfoData[3].prbs.line ? "有" : "无" }}误码
+                <span>结果：{{ veneerInfoData[3].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
               <template v-else>NA</template>

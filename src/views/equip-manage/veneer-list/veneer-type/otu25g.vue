@@ -98,14 +98,14 @@
           </tr>
           <tr>
             <td>LINK状态</td>
-            <td>{{ veneerInfoData[0].link_status.client ? (veneerInfoData[0].los.client ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[0].link_status.line ? (veneerInfoData[0].los.line ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[1].link_status.client ? (veneerInfoData[1].los.client ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[1].link_status.line ? (veneerInfoData[1].los.line ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[2].link_status.client ? (veneerInfoData[2].los.client ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[2].link_status.line ? (veneerInfoData[2].los.line ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[3].link_status.client ? (veneerInfoData[3].los.client ? "UP" : "DOWN") : "NA" }}</td>
-            <td>{{ veneerInfoData[3].link_status.line ? (veneerInfoData[3].los.line ? "UP" : "DOWN") : "NA" }}</td>
+            <td>{{ veneerInfoData[0].link_status.client ? (veneerInfoData[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[0].link_status.line ? (veneerInfoData[0].los.line ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[1].link_status.client ? (veneerInfoData[1].los.client ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[1].link_status.line ? (veneerInfoData[1].los.line ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[2].link_status.client ? (veneerInfoData[2].los.client ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[2].link_status.line ? (veneerInfoData[2].los.line ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[3].link_status.client ? (veneerInfoData[3].los.client ? "DOWN" : "UP") : "NA" }}</td>
+            <td>{{ veneerInfoData[3].link_status.line ? (veneerInfoData[3].los.line ? "DOWN" : "UP") : "NA" }}</td>
           </tr>
           <tr>
             <td>属性</td>

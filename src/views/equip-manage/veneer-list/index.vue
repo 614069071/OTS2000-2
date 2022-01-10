@@ -132,7 +132,7 @@ export default {
 }
 
 .veneer-list {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 </style>
 
@@ -150,8 +150,12 @@ $border-color: #aaa;
 }
 // 单板详情表格
 .veneer-header-wrapper {
-  // border: 1px solid red;
   background-color: #fff;
+  display: flex;
+  & > div {
+    margin: auto;
+    // transform: scale(1.5);
+  }
 }
 
 .veneer-inner-wrapper {

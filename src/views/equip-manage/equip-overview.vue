@@ -266,7 +266,7 @@ export default {
 }
 
 .veneer-block-diagram-wrapper {
-  margin: 0 auto 40px auto;
+  margin: 0 auto 20px auto;
 }
 
 .system-info-cahnge-btn {
@@ -305,7 +305,7 @@ export default {
   }
 
   .system-info-change-wrapper {
-    padding: 10px 0 40px 0;
+    padding: 10px 0 20px 0;
     button:first-child {
       margin-left: 246px;
     }

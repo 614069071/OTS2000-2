@@ -54,7 +54,7 @@ export default {
   border-radius: 33px;
   padding-left: 30px;
   height: 47px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   .upgrade-logo-wrapper {
     width: 63px;

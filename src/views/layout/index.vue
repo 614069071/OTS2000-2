@@ -87,9 +87,9 @@ export default {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // margin: 0 160px;
   margin: 0 auto;
-  width: 90%;
+  max-width: 90%;
+  min-width: 1280px;
 
   .layout-header {
     height: 93px;

@@ -2,8 +2,8 @@
   <div class="veneer-nmu-view-wrapper veneer-item-view-wrapper">
     <div class="veneer-item-name"><span class="f-10">NMU</span></div>
     <div class="veneer-link-wrapper">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
+      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
+      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
       <div class="veneer-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
       <div class="veneer-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
@@ -15,7 +15,7 @@
     <div class="veneer-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main suc"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-title"><span class="f-9">Tx2</span><span class="f-9">Rx2</span></div>
@@ -28,7 +28,7 @@
     </div>
     <div class="veneer-eth-wrapper">
       <div class="eth-item">
-        <div class="eth-item-main"></div>
+        <div class="eth-item-main suc"></div>
         <div class="eth-item-title f-9">Eth1</div>
       </div>
       <div class="eth-item">
@@ -50,7 +50,7 @@
 <script>
 export default {
   name: "veneer-nmu",
-  props: ["index"],
+  props: ["data"],
   data() {
     return {};
   },
@@ -67,10 +67,12 @@ export default {
 .veneer-nmu-view-wrapper {
   display: flex;
 }
+
 .veneer-item-view-wrapper {
   width: 521px;
   height: 60px;
   position: relative;
+  border: 1px solid #000;
 }
 
 .veneer-item-view-wrapper::after,
@@ -133,7 +135,15 @@ export default {
   span.k-item {
     width: 9px;
     height: 5px;
-    background-color: grey;
+    background-color: #dedede;
+  }
+
+  span.k-item.suc {
+    background-color: green;
+  }
+
+  span.k-item.war {
+    background-color: red;
   }
 
   .k-item + .k-item {
@@ -151,7 +161,7 @@ export default {
   position: absolute;
   left: 120px;
   bottom: 14px;
-  background: url(../../../../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
+  background: url(../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
   text-align: center;
   white-space: nowrap;
 }
@@ -187,7 +197,11 @@ export default {
     .trx-item-main {
       width: 33px;
       height: 24px;
-      background: url(../../../../assets/images/veneer/Tx.svg) center/contain no-repeat;
+      background: url(../assets/images/veneer/Tx.svg) center/contain no-repeat;
+    }
+
+    .trx-item-main.suc {
+      background-color: red;
     }
   }
 
@@ -206,7 +220,11 @@ export default {
     .eth-item-main {
       width: 33px;
       height: 25px;
-      background: url(../../../../assets/images/veneer/Eth.svg) center/contain no-repeat;
+      background: url(../assets/images/veneer/Eth.svg) center/contain no-repeat;
+    }
+
+    .eth-item-main.suc {
+      background-color: red;
     }
 
     .eth-item-title {
@@ -233,7 +251,7 @@ export default {
   .usb-main {
     width: 19px;
     height: 20px;
-    background: url(../../../../assets/images/veneer/usb.svg) center/contain no-repeat;
+    background: url(../assets/images/veneer/usb.svg) center/contain no-repeat;
   }
 }
 </style>

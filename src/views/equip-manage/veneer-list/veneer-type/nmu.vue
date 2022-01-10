@@ -1,7 +1,8 @@
 <template>
   <div class="num-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">
-      <div class="veneer-inner-wrapper"></div>
+      <!-- <div class="veneer-inner-wrapper"></div> -->
+      <NmuPic :data="veneerInfoData"></NmuPic>
     </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
@@ -159,9 +160,12 @@
 </template>
 
 <script>
+import NmuPic from "@/components/nmu.vue";
+
 export default {
   name: "nmu",
   props: ["info", "visible"],
+  components: { NmuPic },
   data() {
     return {
       veneerTitleData: {

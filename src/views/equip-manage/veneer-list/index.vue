@@ -3,12 +3,7 @@
     <div class="inner-header-wrapper">
       <!-- 设备框图 -->
       <div class="veneer-block-diagram-wrapper">
-        <div class="veneer-inner-wrapper">
-          <div class="veneer-item-wrapper" v-for="(item, index) in dataTable" :key="index">
-            <!-- <veneer-nmu :index="index"></veneer-nmu> -->
-            <img v-if="item.status" :src="require(`../../../assets/images/veneer/${item.boardname.toLowerCase()}.png`)" alt="" />
-          </div>
-        </div>
+        <Structure :list="dataTable"></Structure>
       </div>
     </div>
 
@@ -74,11 +69,11 @@ import Otucfpdco200g from "./veneer-type/otucfpdco200g";
 import Ocp2x10g from "./veneer-type/ocp2x10g";
 import Similar from "./veneer-type/similar";
 
-import VeneerNmu from "./components/nmu";
+import Structure from "../../../components/structure";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, VeneerNmu },
+  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, Structure },
   data() {
     return {
       dataForm: {},
@@ -110,7 +105,6 @@ export default {
           console.log(err);
         });
     },
-
     lookDetail(index, data) {
       const veneerName = data.boardname.toLowerCase();
       const similarVeneerArg = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
@@ -130,31 +124,6 @@ export default {
 
 <style lang="scss" scoped>
 // 单板构图 start
-.veneer-block-diagram-wrapper {
-  width: 1000px;
-  height: 236px;
-  background-color: grey;
-  background: url("../../../assets/images/entirety.jpg") center/contain no-repeat;
-  margin: 0 auto;
-  position: relative;
-}
-
-.veneer-inner-wrapper {
-  width: 868px;
-  height: 200px;
-  // border: 1px solid red;
-  position: absolute;
-  left: 25px;
-  bottom: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
-
-.veneer-item-wrapper {
-  height: 50px;
-  width: 50% !important;
-}
 
 // 单板构图 end
 

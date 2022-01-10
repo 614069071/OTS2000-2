@@ -8,7 +8,7 @@
       </div>
 
       <div class="veneer-block-diagram-wrapper">
-        <!-- 设备框图 -->
+        <Structure :list="dataTable"></Structure>
       </div>
       <div class="inner-container-title custom-title">系统信息</div>
       <div class="system-info-main">
@@ -129,8 +129,11 @@
 </template>
 
 <script>
+import Structure from "../../components/structure";
+
 export default {
   name: "equip-overview",
+  components: { Structure },
   data() {
     return {
       isTatic: true,
@@ -161,6 +164,7 @@ export default {
         contacts: "",
         dev_sign: "",
       },
+      dataTable: [],
       timer: null,
       timerCount: 60,
     };
@@ -168,6 +172,7 @@ export default {
   created() {},
   mounted() {
     this.getSystemInfo();
+    this.getVeneerList();
     this.startTimer();
   },
   beforeDestroy() {
@@ -191,12 +196,26 @@ export default {
           console.log(err);
         });
     },
+    getVeneerList() {
+      const data = { otn2000: { boardname: "board_view", type: "get_info" } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          if (!res) return;
+          this.dataTable = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     startTimer() {
       this.timer = setInterval(() => {
         this.timerCount -= 1;
         if (this.timerCount <= 0) {
           this.timerCount = 60;
           this.getSystemInfo();
+          this.getVeneerList();
         }
       }, 1000);
     },
@@ -204,6 +223,7 @@ export default {
       this.timer && clearInterval(this.timer);
       this.timerCount = 60;
       this.getSystemInfo();
+      this.getVeneerList();
       this.startTimer();
     },
     submitChangeFrom() {
@@ -246,10 +266,6 @@ export default {
 }
 
 .veneer-block-diagram-wrapper {
-  width: 80%;
-  height: 238px;
-  background-color: grey;
-  background: url("../../assets/images/entirety.jpg") center/contain no-repeat;
   margin: 0 auto 40px auto;
 }
 

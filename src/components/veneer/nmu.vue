@@ -161,7 +161,7 @@ export default {
   position: absolute;
   left: 120px;
   bottom: 14px;
-  background: url(../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
+  background: url(../../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
   text-align: center;
   white-space: nowrap;
 }
@@ -197,7 +197,7 @@ export default {
     .trx-item-main {
       width: 33px;
       height: 24px;
-      background: url(../assets/images/veneer/Tx.svg) center/contain no-repeat;
+      background: url(../../assets/images/veneer/Tx.svg) center/contain no-repeat;
     }
 
     .trx-item-main.suc {
@@ -220,7 +220,7 @@ export default {
     .eth-item-main {
       width: 33px;
       height: 25px;
-      background: url(../assets/images/veneer/Eth.svg) center/contain no-repeat;
+      background: url(../../assets/images/veneer/Eth.svg) center/contain no-repeat;
     }
 
     .eth-item-main.suc {
@@ -251,7 +251,7 @@ export default {
   .usb-main {
     width: 19px;
     height: 20px;
-    background: url(../assets/images/veneer/usb.svg) center/contain no-repeat;
+    background: url(../../assets/images/veneer/usb.svg) center/contain no-repeat;
   }
 }
 </style>

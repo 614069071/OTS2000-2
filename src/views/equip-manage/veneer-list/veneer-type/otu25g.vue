@@ -302,7 +302,7 @@
             <td>误码检测</td>
             <td>
               <div v-if="veneerInfoData[0].link_status.client">
-                <button class="def-btn" @click="detectionPrbs(0, 'client')">{{ veneerInfoData[0].prbs_en.client ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[0]['client']" @click="detectionPrbs(0, 'client')">{{ veneerInfoData[0].prbs_en.client ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[0].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
@@ -310,7 +310,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[0].link_status.line">
-                <button class="def-btn" @click="detectionPrbs(0, 'line')">{{ veneerInfoData[0].prbs_en.line ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[0]['line']" @click="detectionPrbs(0, 'line')">{{ veneerInfoData[0].prbs_en.line ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[0].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
@@ -318,7 +318,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[1].link_status.client">
-                <button class="def-btn" @click="detectionPrbs(1, 'client')">{{ veneerInfoData[1].prbs_en.client ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[1]['client']" @click="detectionPrbs(1, 'client')">{{ veneerInfoData[1].prbs_en.client ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[1].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
@@ -326,7 +326,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[1].link_status.line">
-                <button class="def-btn" @click="detectionPrbs(1, 'line')">{{ veneerInfoData[1].prbs_en.line ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[1]['line']" @click="detectionPrbs(1, 'line')">{{ veneerInfoData[1].prbs_en.line ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[1].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
@@ -334,7 +334,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[2].link_status.client">
-                <button class="def-btn" @click="detectionPrbs(2, 'client')">{{ veneerInfoData[2].prbs_en.client ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[2]['client']" @click="detectionPrbs(2, 'client')">{{ veneerInfoData[2].prbs_en.client ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[2].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
@@ -342,7 +342,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[2].link_status.line">
-                <button class="def-btn" @click="detectionPrbs(2, 'line')">{{ veneerInfoData[2].prbs_en.line ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[2]['line']" @click="detectionPrbs(2, 'line')">{{ veneerInfoData[2].prbs_en.line ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[2].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
@@ -350,7 +350,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[3].link_status.client">
-                <button class="def-btn" @click="detectionPrbs(3, 'client')">{{ veneerInfoData[3].prbs_en.client ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[3]['client']" @click="detectionPrbs(3, 'client')">{{ veneerInfoData[3].prbs_en.client ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[3].prbs.client ? "有" : "无" }}误码</span>
               </div>
 
@@ -358,7 +358,7 @@
             </td>
             <td>
               <div v-if="veneerInfoData[3].link_status.line">
-                <button class="def-btn" @click="detectionPrbs(3, 'line')">{{ veneerInfoData[3].prbs_en.line ? "停止" : "开始" }}</button>
+                <button class="def-btn" :disabled="detectionDisabled[3]['line']" @click="detectionPrbs(3, 'line')">{{ veneerInfoData[3].prbs_en.line ? "停止" : "开始" }}</button>
                 <span>结果：{{ veneerInfoData[3].prbs.line ? "有" : "无" }}误码</span>
               </div>
 
@@ -794,6 +794,12 @@ export default {
       setInfoDisabled: false,
       restorInfoDisabled: false,
       restoreDefaultInfoDisabled: false,
+      detectionDisabled: [
+        { client: false, line: false },
+        { client: false, line: false },
+        { client: false, line: false },
+        { client: false, line: false },
+      ],
     };
   },
   created() {},
@@ -987,6 +993,7 @@ export default {
       const { boardname, slot } = this.info;
       const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
       this.setInfoDisabled = true;
+      this.detectionDisabled[i][status] = true;
 
       this.$http
         .post(data)
@@ -994,6 +1001,7 @@ export default {
           console.log("setInfos", res);
           this.$message("成功");
           this.setInfoDisabled = false;
+          this.detectionDisabled[i][status] = false;
 
           if (!val) {
             // 停止检测并获取状态
@@ -1016,6 +1024,7 @@ export default {
           console.log(err);
           this.$message("失败");
           this.setInfoDisabled = false;
+          this.detectionDisabled[i][status] = false;
         });
     },
   },

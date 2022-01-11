@@ -45,6 +45,7 @@ export default {
 
   .pupur-container-wrapper {
     width: 80%;
+    min-width: 1100px;
     height: 90%;
     margin: auto;
     display: flex;

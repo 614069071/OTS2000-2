@@ -160,7 +160,7 @@
 </template>
 
 <script>
-import NmuPic from "@/components/nmu.vue";
+import NmuPic from "@/components/veneer/nmu.vue";
 
 export default {
   name: "nmu",

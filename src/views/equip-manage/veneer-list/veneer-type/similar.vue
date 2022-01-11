@@ -1,6 +1,10 @@
 <template>
   <div class="similar-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">similar {{ info.boardname }}</div>
+    <div class="veneer-header-wrapper">
+      <div class="similar-veneer-wrapper">
+        <img v-if="info.status" :src="require(`../../../../assets/images/veneer/${info.boardname.toLowerCase()}.png`)" alt="" />
+      </div>
+    </div>
 
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
@@ -53,6 +57,7 @@
 </template>
 
 <script>
+// ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"]
 export default {
   name: "similar",
   props: ["info", "visible"],
@@ -129,3 +134,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.similar-veneer-wrapper {
+  width: 434px;
+  height: 50px;
+  border: 1px solid #000;
+}
+</style>

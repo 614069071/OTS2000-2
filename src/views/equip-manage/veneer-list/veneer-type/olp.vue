@@ -228,8 +228,8 @@ export default {
 
           return this.getVeneerInfo(slot);
         })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
-          this.veneerInfoData = res.otn2000_ack.channels || [];
+        .then((res = { otn2000_ack: {} }) => {
+          this.veneerInfoData = res.otn2000_ack || {};
         })
         .catch((err) => {
           console.log(err);
@@ -282,7 +282,7 @@ export default {
       this.refreshInfoDisabled = true;
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
-          this.veneerInfoData = res.otn2000_ack.channels;
+          this.veneerInfoData = res.otn2000_ack;
 
           this.$message("成功");
           this.refreshInfoDisabled = false;
@@ -295,7 +295,7 @@ export default {
     },
     setInfo() {
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
+      const data = { otn2000: { type: "post_info", boardname, slot, ...this.veneerInfoData } };
       this.setInfoDisabled = true;
       this.refreshInfoDisabled = true;
 
@@ -304,11 +304,11 @@ export default {
         .then(() => {
           return this.getVeneerInfo();
         })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
+        .then((res = { otn2000_ack: {} }) => {
           this.$message("成功");
           this.setInfoDisabled = false;
           this.refreshInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
+          this.veneerInfoData = res.otn2000_ack || {};
         })
         .catch(() => {
           this.$message("失败");
@@ -326,13 +326,13 @@ export default {
         .then(() => {
           return this.getVeneerInfo();
         })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
+        .then((res = { otn2000_ack: {} }) => {
           this.$message("成功");
           this.refreshInfoDisabled = false;
           this.setInfoDisabled = false;
           this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
+          this.veneerInfoData = res.otn2000_ack || {};
         })
         .catch((err) => {
           console.log(err);
@@ -353,13 +353,13 @@ export default {
         .then(() => {
           return this.getVeneerInfo();
         })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
+        .then((res = { otn2000_ack: {} }) => {
           this.$message("成功");
           this.refreshInfoDisabled = false;
           this.setInfoDisabled = false;
           this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
+          this.veneerInfoData = res.otn2000_ack || {};
         })
         .catch((err) => {
           console.log(err);

@@ -245,7 +245,7 @@ $border-color: #aaa;
     width: 90%;
   }
 
-  .def-input {
+  td > .def-input {
     width: 100%;
   }
 

@@ -84,12 +84,24 @@
         <tr>
           <td>工作模式</td>
           <td>
-            <div class="coll-3">{{ veneerInfoData[0].link_status.client ? (veneerInfoData[0].word_mode ? "主" : "备") : "NA" }}</div>
+            <div class="coll-3">
+              <select v-model="veneerInfoData[0].word_mode">
+                <option :value="0">主</option>
+                <option :value="1">备</option>
+                <option :value="2">不可用</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td></td>
           <td>
-            <div class="coll-3">{{ veneerInfoData[1].link_status.client ? (veneerInfoData[1].word_mode ? "主" : "备") : "NA" }}</div>
+            <div class="coll-3">
+              <select v-model="veneerInfoData[1].word_mode">
+                <option :value="0">主</option>
+                <option :value="1">备</option>
+                <option :value="2">不可用</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td></td>
@@ -240,7 +252,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-if="veneerTitleData.bdtype === '10G-OTUL'" v-model="veneerInfoData[1].speed">
+              <select v-if="veneerTitleData.bdtype === '10G-OCPL'" v-model="veneerInfoData[1].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
                 <option :value="2">CPRIX(X值为3，5，6，7)</option>
                 <option :value="3">CPRIX(X值为3，5，7，8)</option>

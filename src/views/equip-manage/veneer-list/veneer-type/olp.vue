@@ -30,13 +30,13 @@
             </template>
           </td>
           <td>OLP型号</td>
-          <td>{{ veneerTitleData.olp_type }}</td>
+          <td>{{ veneerTitleData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>
           <td>{{ veneerTitleData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
+          <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
           <td>
             <input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" />
@@ -100,14 +100,6 @@
           <td>{{ veneerTitleData.status }}</td>
           <td>告警门限</td>
           <td>{{ veneerTitleData.desc }}</td>
-        </tr>
-        <tr>
-          <td>时间设置</td>
-          <td>{{ veneerTitleData.device_type }}</td>
-          <td>IP地址设置</td>
-          <td>{{ veneerTitleData.status }}</td>
-          <td></td>
-          <td></td>
         </tr>
       </table>
     </div>

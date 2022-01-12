@@ -73,7 +73,6 @@
                 { label: 'APC', value: 'APC' },
                 { label: 'AGC', value: 'AGC' },
                 { label: 'ACC', value: 'ACC' },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>

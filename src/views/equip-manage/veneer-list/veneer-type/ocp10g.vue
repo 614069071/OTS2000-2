@@ -220,7 +220,6 @@
         <tr>
           <td>速率（Mbps）</td>
           <td>
-            <!-- 待确认选项 -->
             <div class="coll-3">
               <select v-if="veneerTitleData.bdtype === '10G-OCPL'" v-model="veneerInfoData[0].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
@@ -286,7 +285,6 @@
                   { label: '3', value: 3 },
                   { label: '4', value: 4 },
                   { label: '5', value: 5 },
-                  { label: '自定义', value: 'custom' },
                 ]"
               />
             </div>
@@ -301,7 +299,6 @@
                   { label: '3', value: 3 },
                   { label: '4', value: 4 },
                   { label: '5', value: 5 },
-                  { label: '自定义', value: 'custom' },
                 ]"
               />
             </div>
@@ -388,7 +385,6 @@
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
                   { label: '15', value: 15 },
-                  { label: '自定义', value: 'custom' },
                 ]"
               />
             </div>
@@ -403,7 +399,6 @@
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
                   { label: '15', value: 15 },
-                  { label: '自定义', value: 'custom' },
                 ]"
               />
             </div>

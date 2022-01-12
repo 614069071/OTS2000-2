@@ -106,7 +106,6 @@
                 { label: 'ACC', value: 0 },
                 { label: 'APC', value: 2 },
                 { label: 'AGC', value: 3 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
@@ -122,7 +121,6 @@
                 { label: '-26', value: -26 },
                 { label: '-28', value: -28 },
                 { label: '-31', value: -31 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
@@ -134,7 +132,6 @@
                 { label: '-5', value: -5 },
                 { label: '-3', value: -3 },
                 { label: '-2', value: -2 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
@@ -148,7 +145,6 @@
               :options="[
                 { label: '600', value: 600 },
                 { label: '800', value: 800 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
@@ -158,19 +154,13 @@
             v-model="changeForm.pump_sw_cur"
             :options="[
               { label: '50', value: 50 },
-              { label: '自定义', value: 'custom' },
+              
             ]"
           />
         </td> -->
           <td>PUMP温度高门限（℃）</td>
           <td>
-            <CustomSelect
-              v-model="changeForm.pump_temp_high"
-              :options="[
-                { label: '30', value: 30 },
-                { label: '自定义', value: 'custom' },
-              ]"
-            />
+            <CustomSelect v-model="changeForm.pump_temp_high" :options="[{ label: '30', value: 30 }]" />
           </td>
         </tr>
         <tr>
@@ -183,19 +173,12 @@
                 { label: '-45', value: -45 },
                 { label: '-50', value: -50 },
                 { label: '-55', value: -55 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
           <td>PUMP温度低门限（℃）</td>
           <td>
-            <CustomSelect
-              v-model="changeForm.pump_temp_low"
-              :options="[
-                { label: '20', value: 20 },
-                { label: '自定义', value: 'custom' },
-              ]"
-            />
+            <CustomSelect v-model="changeForm.pump_temp_low" :options="[{ label: '20', value: 20 }]" />
           </td>
         </tr>
         <tr>
@@ -208,7 +191,6 @@
                 { label: '60', value: 60 },
                 { label: '65', value: 65 },
                 { label: '70', value: 70 },
-                { label: '自定义', value: 'custom' },
               ]"
             />
           </td>
@@ -218,7 +200,6 @@
             v-model="changeForm.pump_temp_high"
             :options="[
               { label: '30', value: 30 },
-              { label: '自定义', value: 'custom' },
             ]"
           /> -->
           </td>

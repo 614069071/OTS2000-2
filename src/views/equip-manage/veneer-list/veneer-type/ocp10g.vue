@@ -24,7 +24,7 @@
           <td>设备类型</td>
           <td>{{ veneerTitleData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status }}</td>
+          <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
           <td>{{ veneerTitleData.desc }}</td>
         </tr>

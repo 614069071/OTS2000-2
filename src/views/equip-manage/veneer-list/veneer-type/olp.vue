@@ -54,52 +54,95 @@
       <table class="veneer-table veneer-title-table" border="1">
         <tr>
           <td>工作状态</td>
-          <td></td>
-          <td>当前工作模式</td>
+          <td>{{ veneerInfoData.work_state }}</td>
+          <td>保护模式</td>
           <td>
-            <CustomSelect
-              v-model="veneerTitleData.mode"
-              :options="[
-                { label: '自动', value: 0 },
-                { label: '手动', value: 1 },
-              ]"
-            />
+            <select v-model="veneerInfoData.protmode">
+              <option :value="0">自动</option>
+              <option :value="1">手动</option>
+            </select>
           </td>
           <td>强制倒换</td>
           <td>
-            <CustomSelect
-              v-model="veneerTitleData.mode"
-              :options="[
-                { label: 'APC', value: 'APC' },
-                { label: 'AGC', value: 'AGC' },
-                { label: 'ACC', value: 'ACC' },
-              ]"
-            />
+            <select v-model="veneerInfoData.forced_switching">
+              <option :value="0">自动</option>
+              <option :value="1">手动</option>
+            </select>
           </td>
         </tr>
         <tr>
           <td>主线路收光信号</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>{{ veneerInfoData.main_rx_signal_state }}</td>
           <td>备线路收光信号</td>
-          <td>{{ veneerTitleData.sn }}</td>
+          <td>{{ veneerInfoData.slave_rx_signal_state }}</td>
           <td>本地线路收光信号</td>
-          <td>{{ veneerTitleData.run_time }}</td>
+          <td>{{ veneerInfoData.local_rx_signal_state }}</td>
         </tr>
         <tr>
           <td>是否自动回切</td>
-          <td>{{ veneerTitleData.status }}</td>
+          <td>
+            <select v-model="veneerInfoData.auto_switchback">
+              <option :value="0">是</option>
+              <option :value="1">否</option>
+            </select>
+          </td>
           <td>回切WTR时间</td>
-          <td>{{ veneerTitleData.desc }}</td>
+          <td>
+            <CustomSelect
+              v-model="veneerInfoData.wtr_time"
+              :options="[
+                { label: '5', value: 5 },
+                { label: '10', value: 10 },
+                { label: '15', value: 15 },
+              ]"
+            />
+          </td>
           <td>主线路告警门限（dBm）</td>
-          <td></td>
+          <td>
+            <CustomSelect
+              v-model="veneerInfoData.main_line_alarm_thre"
+              :options="[
+                { label: '-15', value: -15 },
+                { label: '-18', value: -18 },
+              ]"
+            />
+          </td>
         </tr>
         <tr>
           <td>主备初始差异（dB）</td>
-          <td>{{ veneerTitleData.device_type }}</td>
+          <td>
+            <CustomSelect
+              v-model="veneerInfoData.main_slave_initdiff"
+              :options="[
+                { label: '1', value: 1 },
+                { label: '2', value: 2 },
+                { label: '3', value: 3 },
+                { label: '-1', value: -1 },
+                { label: '-2', value: -2 },
+                { label: '-3', value: -3 },
+              ]"
+            />
+          </td>
+          <td>备线路告警门限</td>
+          <td>
+            <CustomSelect
+              v-model="veneerInfoData.slave_line_alarm_thre"
+              :options="[
+                { label: '-15', value: -15 },
+                { label: '-18', value: -18 },
+              ]"
+            />
+          </td>
           <td>倒换条件差异值（dB）</td>
-          <td>{{ veneerTitleData.status }}</td>
-          <td>告警门限</td>
-          <td>{{ veneerTitleData.desc }}</td>
+          <td>
+            <CustomSelect
+              v-model="veneerInfoData.switch_condition_diff"
+              :options="[
+                { label: '4', value: 4 },
+                { label: '5', value: 5 },
+              ]"
+            />
+          </td>
         </tr>
       </table>
     </div>
@@ -111,94 +154,98 @@
     </div>
   </div>
 </template>
-
 <script>
-import CustomSelect from "../../components/custom-select";
-
 export default {
-  name: "olp",
+  name: "otu10g",
   props: ["info", "visible"],
-  components: { CustomSelect },
   data() {
     return {
-      changeForm: {
-        mode: "",
-        pump_sw: 0,
-        lum_input_thr: 0,
-        lum_output_thr: 0,
-        pump_cur_thr: 0,
-        pump_sw_cur: 0,
-        mod_temp_low: 0,
-        pump_temp_low: 0,
-        mod_temp_high: 0,
-        pump_temp_high: 0,
+      veneerTitleData: {
+        bdtype: "",
+        desc: "",
+        device_type: "",
+        h_rev: "",
+        mfgdate: "",
+        p_rev: "",
+        s_rev: "",
+        sn: "",
+        status: null,
       },
-      veneerTitleData: {},
-      veneerInfoData: {},
+      veneerInfoData: {
+        boardname: "olp",
+        type: "get_info",
+        protmode: 0,
+        forced_switching: 0,
+        auto_switchback: 0,
+        wtr_time: 1,
+        main_line_alarm_thre: 0,
+        slave_line_alarm_thre: 0,
+        main_slave_initdiff: 0,
+        switch_condition_diff: 5,
+        work_state: 0,
+        main_rx_signal_state: 4,
+        slave_rx_signal_state: 4,
+        local_rx_signal_state: 3,
+      },
+      refreshTitleDisabled: false,
+      setTilteDisabled: false,
+      refreshInfoDisabled: false,
+      setInfoDisabled: false,
+      restorInfoDisabled: false,
+      restoreDefaultInfoDisabled: false,
     };
   },
   created() {},
   mounted() {
-    this.getVeneerDetail(this.info.slot);
+    this.getVeneerDetail();
   },
   watch: {
     visible(n) {
       if (!n) return;
-      console.log("this.info", this.info);
-      this.getVeneerDetail(this.info.slot);
+      this.getVeneerDetail();
     },
   },
   methods: {
-    getVeneerTitle(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_title",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerTitle() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_title", boardname, slot } };
+
+      return this.$http.post(data);
     },
-    getVeneerInfo(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_info",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
+    getVeneerInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "get_info", boardname, slot } };
+
+      return this.$http.post(data);
     },
     getVeneerDetail(slot) {
-      Promise.all([this.getVeneerTitle(slot), this.getVeneerInfo(slot)])
+      this.getVeneerTitle(slot)
         .then((res) => {
-          console.log("res", res);
-          this.veneerTitleData = res[0].otn2000_ack;
-          this.veneerInfoData = res[1].otn2000_ack || {};
+          this.veneerTitleData = res.otn2000_ack;
 
-          this.changeForm = {
-            mode: res[1].otn2000_ack.mode,
-            pump_sw: res[1].otn2000_ack.pump_sw,
-            lum_input_thr: res[1].otn2000_ack.lum_input_thr,
-            lum_output_thr: res[1].otn2000_ack.lum_output_thr,
-            pump_cur_thr: res[1].otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res[1].otn2000_ack.pump_sw_cur,
-            mod_temp_low: res[1].otn2000_ack.mod_temp_low,
-            pump_temp_low: res[1].otn2000_ack.pump_temp_low,
-            mod_temp_high: res[1].otn2000_ack.mod_temp_high,
-            pump_temp_high: res[1].otn2000_ack.pump_temp_high,
-          };
+          return this.getVeneerInfo(slot);
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
+          this.veneerInfoData = res.otn2000_ack.channels || [];
         })
         .catch((err) => {
           console.log(err);
         });
     },
     refreshTitle() {
-      this.getVeneerTitle(this.info.slot)
+      this.refreshTitleDisabled = true;
+
+      this.getVeneerTitle()
         .then((res) => {
           console.log(res);
           this.veneerTitleData = res.otn2000_ack;
+          this.$message("成功");
+          this.refreshTitleDisabled = false;
         })
         .catch((err) => {
           console.log(err);
+          this.$message("失败");
+          this.refreshTitleDisabled = false;
         });
     },
     setTilte() {
@@ -207,75 +254,119 @@ export default {
       const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
+      this.setTilteDisabled = true;
+      this.refreshTitleDisabled = true;
+
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("setTilte", res);
+        .then(() => {
+          return this.getVeneerTitle();
         })
-        .catch((err) => {
-          console.log(err);
+        .then((res) => {
+          this.$message("成功");
+          this.setTilteDisabled = false;
+          this.refreshTitleDisabled = false;
+          this.veneerTitleData = res.otn2000_ack;
+        })
+        .catch(() => {
           this.veneerTitleData.desc = "";
+          this.$message("失败");
+          this.refreshTitleDisabled = false;
+          this.setTilteDisabled = false;
         });
     },
     refreshInfo() {
+      this.refreshInfoDisabled = true;
       this.getVeneerInfo(this.info.slot)
         .then((res) => {
-          console.log(res);
-          this.veneerInfoData = res.otn2000_ack;
-          this.changeForm = {
-            mode: res.otn2000_ack.mode,
-            pump_sw: res.otn2000_ack.pump_sw,
-            lum_input_thr: res.otn2000_ack.lum_input_thr,
-            lum_output_thr: res.otn2000_ack.lum_output_thr,
-            pump_cur_thr: res.otn2000_ack.pump_cur_thr,
-            pump_sw_cur: res.otn2000_ack.pump_sw_cur,
-            mod_temp_low: res.otn2000_ack.mod_temp_low,
-            pump_temp_low: res.otn2000_ack.pump_temp_low,
-            mod_temp_high: res.otn2000_ack.mod_temp_high,
-            pump_temp_high: res.otn2000_ack.pump_temp_high,
-          };
+          this.veneerInfoData = res.otn2000_ack.channels;
+
+          this.$message("成功");
+          this.refreshInfoDisabled = false;
         })
         .catch((err) => {
           console.log(err);
+          this.$message("失败");
+          this.refreshInfoDisabled = false;
         });
     },
     setInfo() {
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, ...this.changeForm } };
+      const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
+      this.setInfoDisabled = true;
+      this.refreshInfoDisabled = true;
 
       this.$http
         .post(data)
-        .then((res) => {
-          console.log("setInfo", res);
+        .then(() => {
+          return this.getVeneerInfo();
         })
-        .catch((err) => {
-          console.log(err);
+        .then((res = { otn2000_ack: { channels: [] } }) => {
+          this.$message("成功");
+          this.setInfoDisabled = false;
+          this.refreshInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
+        })
+        .catch(() => {
+          this.$message("失败");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
         });
     },
     restoreDefaultInfo() {
-      // const data = {
-      //   otn2000: {
-      //     type: "default",
-      //     boardname: this.info.boardname,
-      //     slot: this.info.slot,
-      //   },
-      // };
-      // this.$http
-      //   .post(data)
-      //   .then((res) => {
-      //     console.log("restoreDefaultInfo", res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //     this.veneerTitleData.desc = "";
-      //   });
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "default", boardname, slot } };
+      this.restoreDefaultInfoDisabled = true;
+
+      this.$http
+        .post(data)
+        .then(() => {
+          return this.getVeneerInfo();
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
+          this.$message("成功");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$message("失败");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+        });
+    },
+    restorInfo() {
+      const { boardname, slot } = this.info;
+      const data = { otn2000: { type: "reset", boardname, slot } };
+      this.restorInfoDisabled = true;
+
+      this.$http
+        .post(data)
+        .then(() => {
+          return this.getVeneerInfo();
+        })
+        .then((res = { otn2000_ack: { channels: [] } }) => {
+          this.$message("成功");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+          this.veneerInfoData = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$message("失败");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+        });
     },
   },
 };
 </script>
-
-<style scoped>
-.veneer-inner-wrapper {
-  background-image: url(../../../../assets/images/veneer/olp.png);
-}
-</style>

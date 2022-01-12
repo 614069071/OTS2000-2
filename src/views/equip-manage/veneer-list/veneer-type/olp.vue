@@ -54,7 +54,7 @@
       <table class="veneer-table veneer-title-table" border="1">
         <tr>
           <td>工作状态</td>
-          <td>{{ veneerInfoData.work_state }}</td>
+          <td>{{ veneerInfoData.work_state ? "备" : "主" }}</td>
           <td>保护模式</td>
           <td>
             <select v-model="veneerInfoData.protmode">
@@ -65,18 +65,18 @@
           <td>强制倒换</td>
           <td>
             <select v-model="veneerInfoData.forced_switching">
-              <option :value="0">自动</option>
-              <option :value="1">手动</option>
+              <option :value="0">主</option>
+              <option :value="1">备</option>
             </select>
           </td>
         </tr>
         <tr>
           <td>主线路收光信号</td>
-          <td>{{ veneerInfoData.main_rx_signal_state }}</td>
+          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][veneerInfoData.main_rx_signal_state || 0] }}</td>
           <td>备线路收光信号</td>
-          <td>{{ veneerInfoData.slave_rx_signal_state }}</td>
+          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][veneerInfoData.slave_rx_signal_state || 0] }}</td>
           <td>本地线路收光信号</td>
-          <td>{{ veneerInfoData.local_rx_signal_state }}</td>
+          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][veneerInfoData.local_rx_signal_state || 0] }}</td>
         </tr>
         <tr>
           <td>是否自动回切</td>

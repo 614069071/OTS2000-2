@@ -1,11 +1,11 @@
 <template>
-  <span class="custom-select-wrapper">
+  <div class="custom-select-wrapper">
     <select v-model="selectVal" @change="selectChange">
       <option v-for="(item, index) in options" :value="item.value" :key="`${index}${item.value}`">{{ item.label }}</option>
       <option value="custom">自定义</option>
     </select>
     <input v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
-  </span>
+  </div>
 </template>
 
 <script>
@@ -46,13 +46,10 @@ export default {
   methods: {
     selectChange(e) {
       const value = e.target.value;
-      console.log("value", value);
 
       if (value === "custom") {
         this.$emit("input", this.selectCustomVal);
       } else {
-        // this.selectCustomVal = "";
-
         const isNan = isNaN(parseFloat(value));
         const val = isNan ? value : parseFloat(value);
 
@@ -64,10 +61,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-.custom-select-wrapper {
-  display: flex;
-  align-items: center;
-}
 .custom-select-input {
   width: 80px;
   height: 28px;

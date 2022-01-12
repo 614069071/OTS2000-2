@@ -7,7 +7,7 @@
       </template>
 
       <template v-for="(item, i) in model.children">
-        <middle-menu :model="item" :index="i" />
+        <middle-menu :model="item" :index="`${model.menuLink}-${index}-${i}`" :key="i" />
       </template>
     </el-submenu>
 

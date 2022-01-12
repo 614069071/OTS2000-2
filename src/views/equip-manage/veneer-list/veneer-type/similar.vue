@@ -27,7 +27,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
 
             <template v-else>
               {{ veneerTitleData.sn }}
@@ -43,7 +43,7 @@
           <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
           <td>信息描述</td>
           <td>
-            <input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" />
+            <input class="def-input" type="text" v-model="veneerTitleData.desc" />
           </td>
         </tr>
       </table>

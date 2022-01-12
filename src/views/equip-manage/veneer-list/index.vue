@@ -240,13 +240,9 @@ $border-color: #aaa;
     width: 400%;
   }
 
-  .veneer-input {
-    height: 28px;
-    width: 90%;
-  }
-
   td > .def-input {
     width: 100%;
+    height: 28px;
   }
 
   .el-date-editor.el-input {

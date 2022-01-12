@@ -24,7 +24,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
 
             <template v-else>
               {{ veneerTitleData.sn }}
@@ -39,7 +39,7 @@
           <td>状态</td>
           <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
-          <td><input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" /></td>
+          <td><input class="def-input" type="text" v-model="veneerTitleData.desc" /></td>
         </tr>
       </table>
     </div>
@@ -123,7 +123,7 @@
             <td>NA</td>
             <td>
               <template v-if="veneerInfoData[0].link_status.line">
-                <input v-if="veneerInfoData[0].rw_type.line" class="def-input veneer-input" type="text" v-model.number="veneerInfoData[0].wave_channel.line" />
+                <input v-if="veneerInfoData[0].rw_type.line" class="def-input" type="text" v-model.number="veneerInfoData[0].wave_channel.line" />
                 <template v-else>{{ veneerInfoData[0].wave_channel.line }}</template>
               </template>
               <template v-else>NA</template>
@@ -131,7 +131,7 @@
             <td>NA</td>
             <td>
               <template v-if="veneerInfoData[1].link_status.line">
-                <input v-if="veneerInfoData[1].rw_type.line" class="def-input veneer-input" type="text" v-model.number="veneerInfoData[1].wave_channel.line" />
+                <input v-if="veneerInfoData[1].rw_type.line" class="def-input" type="text" v-model.number="veneerInfoData[1].wave_channel.line" />
                 <template v-else>{{ veneerInfoData[1].wave_channel.line }}</template>
               </template>
               <template v-else>NA</template>
@@ -139,7 +139,7 @@
             <td>NA</td>
             <td>
               <template v-if="veneerInfoData[2].link_status.line">
-                <input v-if="veneerInfoData[2].rw_type.line" class="def-input veneer-input" type="text" v-model.number="veneerInfoData[2].wave_channel.line" />
+                <input v-if="veneerInfoData[2].rw_type.line" class="def-input" type="text" v-model.number="veneerInfoData[2].wave_channel.line" />
                 <template v-else>{{ veneerInfoData[2].wave_channel.line }}</template>
               </template>
               <template v-else>NA</template>
@@ -147,7 +147,7 @@
             <td>NA</td>
             <td>
               <template v-if="veneerInfoData[3].link_status.line">
-                <input v-if="veneerInfoData[3].rw_type.line" class="def-input veneer-input" type="text" v-model.number="veneerInfoData[3].wave_channel.line" />
+                <input v-if="veneerInfoData[3].rw_type.line" class="def-input" type="text" v-model.number="veneerInfoData[3].wave_channel.line" />
                 <template v-else>{{ veneerInfoData[3].wave_channel.line }}</template>
               </template>
               <template v-else>NA</template>

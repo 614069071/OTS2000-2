@@ -185,6 +185,7 @@ $border-color: #aaa;
     z-index: 100;
 
     .coll-2,
+    .coll-3,
     .coll-4 {
       text-align: center;
     }
@@ -214,6 +215,7 @@ $border-color: #aaa;
   }
 
   .coll-2,
+  .coll-3,
   .coll-4 {
     height: 100%;
     background-color: #fff;
@@ -229,6 +231,11 @@ $border-color: #aaa;
   .coll-2 {
     width: 200%;
   }
+
+  .coll-3 {
+    width: 300%;
+  }
+
   .coll-4 {
     width: 400%;
   }

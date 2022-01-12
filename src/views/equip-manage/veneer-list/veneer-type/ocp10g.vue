@@ -362,7 +362,7 @@
 
 <script>
 export default {
-  name: "ocp2x10g",
+  name: "ocp10g",
   data() {
     return {
       veneerTitleData: {},

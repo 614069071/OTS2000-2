@@ -66,14 +66,14 @@ import Otu10g from "./veneer-type/otu10g";
 import Otu25g from "./veneer-type/otu25g";
 import Otu40g100g from "./veneer-type/otu40g100g";
 import Otucfpdco200g from "./veneer-type/otucfpdco200g";
-import Ocp2x10g from "./veneer-type/ocp2x10g";
+import Ocp10g from "./veneer-type/ocp10g";
 import Similar from "./veneer-type/similar";
 
 import Structure from "../../../components/structure";
 
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp2x10g, Similar, Structure },
+  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu40g100g, Otucfpdco200g, Ocp10g, Similar, Structure },
   data() {
     return {
       dataForm: {},

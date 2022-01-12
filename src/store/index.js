@@ -9,7 +9,7 @@ export default new Store({
     __accessToken__: storages.get('__accessToken__') || '',
     routerDefaultActive: '/' || storages.get('DEFAULT_ACTIVE') || '',
     defaultOpenedsArray: [],
-    iSuper: false,
+    iSuper: true,
   },
   mutations: {
     // 登录成功设置
@@ -21,10 +21,6 @@ export default new Store({
     UPDATE_DEFAULT_ACTIVE(state, data = {}) {
       state.routerDefaultActive = data;
       storages.set('DEFAULT_ACTIVE', data);
-    },
-    // 设置菜单收起
-    UPDATE_DEFAULT_OPEN(state) {
-      state.defaultOpenedsArray = [];
     }
   },
 });

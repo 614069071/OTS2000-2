@@ -6,18 +6,30 @@
       <table class="veneer-table" border="1">
         <tr>
           <td>硬件版本</td>
-          <td>{{ veneerTitleData.h_rev }}</td>
+          <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
           <td>软件版本</td>
-          <td>{{ veneerTitleData.s_rev }}</td>
+          <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
           <td>协议版本</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
         </tr>
         <tr>
           <td>生产日期</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>
+            <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+
+            <template v-else>
+              {{ veneerTitleData.mfgdate }}
+            </template>
+          </td>
           <td>序列号</td>
-          <td>{{ veneerTitleData.sn }}</td>
-          <td>板型号</td>
+          <td>
+            <input class="def-input veneer-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+
+            <template v-else>
+              {{ veneerTitleData.sn }}
+            </template>
+          </td>
+          <td>版型号</td>
           <td>{{ veneerTitleData.bdtype }}</td>
         </tr>
         <tr>
@@ -26,7 +38,7 @@
           <td>状态</td>
           <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
-          <td>{{ veneerTitleData.desc }}</td>
+          <td><input class="def-input veneer-input" type="text" v-model="veneerTitleData.desc" /></td>
         </tr>
       </table>
     </div>
@@ -68,7 +80,7 @@
           <td>{{ veneerInfoData[0].link_status.client ? "在位" : "脱位" }}</td>
           <td>{{ veneerInfoData[0].link_status.Pri_Line ? "在位" : "脱位" }}</td>
           <td>{{ veneerInfoData[0].link_status.Sec_Line ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[1].link_status.line ? "在位" : "脱位" }}</td>
+          <td>{{ veneerInfoData[1].link_status.client ? "在位" : "脱位" }}</td>
           <td>{{ veneerInfoData[1].link_status.Pri_Line ? "在位" : "脱位" }}</td>
           <td>{{ veneerInfoData[1].link_status.Sec_Line ? "在位" : "脱位" }}</td>
         </tr>
@@ -85,10 +97,9 @@
           <td>工作模式</td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[0].word_mode">
+              <select v-model="veneerInfoData[0].work_mode">
                 <option :value="0">主</option>
                 <option :value="1">备</option>
-                <option :value="2">不可用</option>
               </select>
             </div>
           </td>
@@ -96,10 +107,9 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[1].word_mode">
+              <select v-model="veneerInfoData[1].work_mode">
                 <option :value="0">主</option>
                 <option :value="1">备</option>
-                <option :value="2">不可用</option>
               </select>
             </div>
           </td>

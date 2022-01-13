@@ -9,9 +9,11 @@ serve.interceptors.request.use(config => {
 }, err => Promise.reject(err));
 
 serve.interceptors.response.use(response => {
-  const data = typeof (response.data || {}) === 'object' ? response.data : {};
+  if (typeof response.data === 'string') {
+    return Promise.reject(response.data);
+  }
 
-  return data;
+  return response.data;
 }, err => {
   return Promise.reject(err);
 });

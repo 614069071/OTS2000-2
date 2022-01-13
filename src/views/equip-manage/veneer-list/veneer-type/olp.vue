@@ -86,7 +86,7 @@
               <option :value="1">否</option>
             </select>
           </td>
-          <td>回切WTR时间</td>
+          <td>回切WTR时间（min）</td>
           <td>
             <CustomSelect
               v-model="veneerInfoData.wtr_time"
@@ -294,8 +294,8 @@ export default {
         });
     },
     setInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, ...this.veneerInfoData } };
+      const { slot } = this.info;
+      const data = { otn2000: { ...this.veneerInfoData, slot, type: "post_info" } };
       this.setInfoDisabled = true;
       this.refreshInfoDisabled = true;
 

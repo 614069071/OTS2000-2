@@ -1,4 +1,5 @@
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
+const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 const path = require('path');
 const resolve = (dir) => path.resolve(__dirname, dir);
 
@@ -7,7 +8,7 @@ module.exports = {
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://192.168.20.109:8080/',
+        target: 'http://192.168.20.110:8080/',
         changeOrigin: true,
         pathRewrite: { '^/api': '' },
         secure: false
@@ -16,7 +17,13 @@ module.exports = {
   },
   lintOnSave: false,
   chainWebpack: config => {
-    config.resolve.alias
+    config
+      .plugin("loadshReplace")
+      .use(new LodashModuleReplacementPlugin());
+
+    config
+      .resolve
+      .alias
       .set('@', resolve('src'))
       .set('@lib', resolve('src/lib'))
       .set('@utils', resolve('src/utils'))

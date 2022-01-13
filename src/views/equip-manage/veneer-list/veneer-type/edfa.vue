@@ -216,7 +216,7 @@
 </template>
 
 <script>
-import CustomSelect from "../../components/custom-select";
+import CustomSelect from "@/components/custom-select";
 
 export default {
   name: "edfa",

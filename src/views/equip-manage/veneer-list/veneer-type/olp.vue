@@ -155,7 +155,10 @@
   </div>
 </template>
 <script>
-import CustomSelect from "../../components/custom-select";
+import { cloneDeep } from "lodash";
+console.log("deep", cloneDeep);
+import { difference } from "@/utils";
+import CustomSelect from "@/components/custom-select";
 
 export default {
   name: "otu10g",
@@ -174,6 +177,7 @@ export default {
         sn: "",
         status: null,
       },
+      initVeneerData: {},
       veneerInfoData: {
         boardname: "olp",
         type: "get_info",
@@ -230,6 +234,7 @@ export default {
         })
         .then((res = { otn2000_ack: {} }) => {
           this.veneerInfoData = res.otn2000_ack || {};
+          this.initVeneerData = Object.freeze(res.otn2000_ack) || {};
         })
         .catch((err) => {
           console.log(err);
@@ -299,7 +304,9 @@ export default {
       this.setInfoDisabled = true;
       this.refreshInfoDisabled = true;
 
-      this.$http
+      console.log("difference", difference(this.veneerInfoData, this.initVeneerData));
+
+      /* this.$http
         .post(data)
         .then(() => {
           return this.getVeneerInfo();
@@ -314,7 +321,7 @@ export default {
           this.$message("失败");
           this.refreshInfoDisabled = false;
           this.setInfoDisabled = false;
-        });
+        }); */
     },
     restoreDefaultInfo() {
       const { boardname, slot } = this.info;

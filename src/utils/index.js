@@ -1,3 +1,17 @@
+import { transform, isEqual, isObject } from 'lodash';
+
+// 比较两个对象差异
+export function difference(object, base) {
+  function changes(object, base) {
+    return transform(object, function (result, value, key) {
+      if (!isEqual(value, base[key])) {
+        result[key] = (isObject(value) && isObject(base[key])) ? changes(value, base[key]) : value;
+      }
+    });
+  }
+  return changes(object, base);
+}
+
 export const storage = {
   set(key, value) {
     if (typeof value === 'object' && value !== null) {

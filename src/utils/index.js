@@ -1,5 +1,3 @@
-import JsCookie from 'js-cookie';
-
 export const storage = {
   set(key, value) {
     if (typeof value === 'object' && value !== null) {
@@ -54,60 +52,6 @@ export const storages = {
   }
 }
 
-// 防抖
-export function debounce(fn, wait = 1000) {
-  let cacheTime = 0;
-  return function () {
-    let currentTime = + new Date();
-    if (currentTime - cacheTime > wait || !cacheTime) {
-      fn.apply(this, arguments);
-      cacheTime = currentTime;
-    }
-  };
-}
-
-// 节流
-export function throttle(fn, wait = 200) {
-  let timer = null;
-  return function () {
-    timer && clearTimeout(timer);
-    let context = this;
-    timer = setTimeout(function () {
-      fn.apply(context, arguments);
-    }, wait)
-  }
-}
-
-// 获取随机数组
-export function getRandomArray(arr, num) {
-  var temp_array = [];
-  for (var index in arr) {
-    temp_array.push(arr[index]);
-  }
-  var return_array = [];
-  for (var i = 0; i < num; i++) {
-    if (temp_array.length > 0) {
-      var arrIndex = Math.floor(Math.random() * temp_array.length);
-      return_array[i] = temp_array[arrIndex];
-      temp_array.splice(arrIndex, 1);
-    } else {
-      break;
-    }
-  }
-  return return_array;
-}
-
-export const preview = function (file) {
-  let src = null;
-  if (URL.createObjectURL) {
-    src = URL.createObjectURL(file);
-  } else {
-    const fileReader = new FileReader();
-    src = fileReader.readAsDataURL(file);
-  }
-  return src;
-}
-
 export const formatNumber = n => {
   n = n.toString();
   return n[1] ? n : '0' + n;
@@ -138,46 +82,6 @@ export function formatSeconds(value) {
   return result
 }
 
-// 批量设置cookie
-export function setCookie(data = {}, expires = 7) {
-  for (let key in data) {
-    JsCookie.set(key, data[key], { expires });
-  }
-}
-
-// 批量获取cookie
-export function getCookie(data) {
-  if (typeof data === 'string') {
-    return JsCookie.get(data);
-  }
-
-  const result = {};
-  for (let i = 0; i < data.length; i++) {
-    const item = data[i];
-    result[item] = JsCookie.get(item) || '';
-  }
-  return result;
-}
-
-// 批量删除cookie
-export function delCookie(data) {
-  if (typeof data === 'string') {
-    JsCookie.remove(data);
-    return;
-  }
-
-  for (let i = 0; i < data.length; i++) {
-    JsCookie.remove(data[i]);
-  }
-}
-
-export function isArray(data) {
-  return Object.prototype.toString.call(data) === "[object Array]";
-}
-
-export function isObject(data) {
-  return Object.prototype.toString.call(data) === "[object Object]";
-}
 
 // 滚动指定dom位置
 export function scrollToView(dom = '') {
@@ -198,46 +102,6 @@ export function distinct(arr, key) {
   return newArr;
 }
 
-//获取随机数
-export function getRandom() {
-  const timeStamp = new Date().getTime();
-  let returnStr = "";
-  // let range = (max ? Math.round(Math.random() * (max - min)) + min : min);
-  const arr = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  const len = arr.length;
-
-  for (var i = 0; i < 10; i++) {
-    var index = Math.round(Math.random() * (len - 1));
-    returnStr += arr[index];
-  }
-  return timeStamp + returnStr;
-}
-
-// 获去百度地址
-export function loadBMap(ak) {
-  /* eslint-disable */
-  return new Promise(function (resolve, reject) {
-    if (typeof BMap !== 'undefined') {
-      resolve(BMap);
-      return true;
-    }
-
-    let script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src =
-      'http://api.map.baidu.com/api?v=2.0&ak=' +
-      ak +
-      '&callback=onBMapCallback';
-    script.onerror = reject;
-    document.head.appendChild(script);
-
-    window.onBMapCallback = function () {
-      resolve(BMap);
-      document.head.removeChild(script);
-    };
-  });
-  /* eslint-enable*/
-}
 
 // 自动挂载组件
 export function autoload(Vue) {

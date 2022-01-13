@@ -240,8 +240,12 @@ $border-color: #aaa;
     width: 400%;
   }
 
+  .coll-2 > .def-input,
+  .coll-3 > .def-input,
+  .coll-4 > .def-input,
   td > .def-input {
     width: 100%;
+    max-width: 240px;
     height: 28px;
   }
 

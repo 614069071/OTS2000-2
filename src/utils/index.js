@@ -1,15 +1,15 @@
-import { transform, isEqual, isObject, cloneDeep } from 'lodash';
+import { transform, isEqual, isObject, cloneDeep } from "lodash";
 
 // 比较两个对象差异
 export function difference(object, base) {
   function changes(object, base) {
-    return transform(object, function (result, value, key) {
-      if (key === 'channel') {
+    return transform(object, function(result, value, key) {
+      if (key === "channel") {
         return (result[key] = value);
       }
 
       if (!isEqual(value, base[key])) {
-        result[key] = (isObject(value) && isObject(base[key])) ? changes(value, base[key]) : value;
+        result[key] = isObject(value) && isObject(base[key]) ? changes(value, base[key]) : value;
       }
     });
   }
@@ -20,14 +20,14 @@ export const clone = cloneDeep;
 
 export const storage = {
   set(key, value) {
-    if (typeof value === 'object' && value !== null) {
+    if (typeof value === "object" && value !== null) {
       localStorage.setItem(key, JSON.stringify(value));
       return;
     }
     localStorage.setItem(key, value);
   },
   get(key) {
-    const value = localStorage.getItem(key) || '';
+    const value = localStorage.getItem(key) || "";
     let val = null;
     try {
       val = JSON.parse(value);
@@ -35,26 +35,26 @@ export const storage = {
       return value;
     }
 
-    if (typeof val === 'number') {
+    if (typeof val === "number") {
       return value;
     }
     return val;
   },
   del(key) {
     localStorage.removeItem(key);
-  }
-}
+  },
+};
 
 export const storages = {
   set(key, value) {
-    if (typeof value === 'object' && value !== null) {
+    if (typeof value === "object" && value !== null) {
       sessionStorage.setItem(key, JSON.stringify(value));
       return;
     }
     sessionStorage.setItem(key, value);
   },
   get(key) {
-    const value = sessionStorage.getItem(key) || '';
+    const value = sessionStorage.getItem(key) || "";
     let val = null;
     try {
       val = JSON.parse(value);
@@ -62,20 +62,20 @@ export const storages = {
       return value;
     }
 
-    if (typeof val === 'number') {
+    if (typeof val === "number") {
       return value;
     }
     return val;
   },
   del(key) {
     sessionStorage.removeItem(key);
-  }
-}
+  },
+};
 
-export const formatNumber = n => {
+export const formatNumber = (n) => {
   n = n.toString();
-  return n[1] ? n : '0' + n;
-}
+  return n[1] ? n : "0" + n;
+};
 
 export const formatTime = (time, type = false) => {
   const date = new Date(time);
@@ -86,48 +86,34 @@ export const formatTime = (time, type = false) => {
   const minute = date.getMinutes();
   const second = date.getSeconds();
 
-  const ymd = [year, month, day].map(formatNumber).join('-');
-  const hms = [hour, minute, second].map(formatNumber).join(':');
-  return type ? ymd + ' ' + hms : ymd;
-}
+  const ymd = [year, month, day].map(formatNumber).join("-");
+  const hms = [hour, minute, second].map(formatNumber).join(":");
+  return type ? ymd + " " + hms : ymd;
+};
 
 export function formatSeconds(value) {
   let result = parseInt(value);
   let h = Math.floor(result / 3600);
-  let m = Math.floor((result / 60 % 60));
-  let s = Math.floor((result % 60));
+  let m = Math.floor((result / 60) % 60);
+  let s = Math.floor(result % 60);
 
-  result = `${h ? h + '时' : ''}${m ? m + '分' : ''}${s}秒`;
+  result = `${h ? h + "时" : ""}${m ? m + "分" : ""}${s}秒`;
 
-  return result
+  return result;
 }
 
-
 // 滚动指定dom位置
-export function scrollToView(dom = '') {
+export function scrollToView(dom = "") {
   const el = document.querySelector(dom);
   const scroll = el.offsetTop;
   scroll ? window.scroll(0, scroll) : el.scrollIntoView();
 }
 
-// 数组对象去重
-export function distinct(arr, key) {
-  var newobj = {}, newArr = [];
-  for (var i = 0; i < arr.length; i++) {
-    var item = arr[i];
-    if (!newobj[item[key]]) {
-      newobj[item[key]] = newArr.push(item);
-    }
-  }
-  return newArr;
-}
-
-
 // 自动挂载组件
 export function autoload(Vue) {
-  const files = require.context('@components', false, /\.vue$/);
+  const files = require.context("@components", false, /\.vue$/);
 
-  files.keys().forEach(path => {
+  files.keys().forEach((path) => {
     const instance = files(path).default;
     const name = path.split(".")[1].slice(1);
     Vue.component(name, instance);
@@ -147,7 +133,7 @@ export function overlapRouter(arr1 = [], arr2 = []) {
     let item = {};
 
     // 方法1 两次循环
-    arr2.forEach(ele => {
+    arr2.forEach((ele) => {
       if (url === ele.path) {
         item.path = ele.path;
         item.component = ele.component;
@@ -157,7 +143,7 @@ export function overlapRouter(arr1 = [], arr2 = []) {
       if (children && children.length && ele.children && ele.children.length) {
         item.children = overlapRouter(children, ele.children);
       }
-    })
+    });
 
     // 方法2 循环 + find方法
     // const item2 = arr2.find(ele => ele.path === url);
@@ -173,11 +159,10 @@ export function overlapRouter(arr1 = [], arr2 = []) {
     // }
 
     arr.push(item);
-  })
+  });
 
   return arr;
 }
-
 
 // 校验相关
 // 邮箱验证
@@ -194,7 +179,7 @@ export function checkPhone(str) {
 
 // 删除字符串空格
 export function removeSpace(str) {
-  return str.replace(/\s+/g, '');
+  return str.replace(/\s+/g, "");
 }
 
 // 密码校验
@@ -210,9 +195,6 @@ export function checkUsername(str) {
 }
 
 // 手机号隐藏中间数字
-export function dealPhone(str = '') {
-  return str.slice(0, 3) + '****' + str.slice(7);
+export function dealPhone(str = "") {
+  return str.slice(0, 3) + "****" + str.slice(7);
 }
-
-
-

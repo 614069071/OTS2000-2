@@ -114,9 +114,9 @@ export default {
       });
     },
     setInfo() {
-      const { slot } = this.info;
+      const { slot, boardname } = this.info;
       const diffData = this.$difference(this.infoData, this.clonData);
-      const data = { otn2000: { ...diffData, slot, type: "post_info" } };
+      const data = { otn2000: { ...diffData, slot, boardname, type: "post_info" } };
 
       this.setInfoDisabled = true;
       this.refreshInfoDisabled = true;

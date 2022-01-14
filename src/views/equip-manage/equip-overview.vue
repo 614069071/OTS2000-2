@@ -26,7 +26,7 @@
           </div>
           <div class="system-info-item">
             <span>硬件版本</span>
-            <span>V{{ systemInfo.h_ver }} </span>
+            <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
           </div>
           <div class="system-info-item">
             <span>设备标识</span>
@@ -80,7 +80,7 @@
             </span>
           </div>
           <div class="system-info-item">
-            <span>固件版本</span><span>V{{ systemInfo.p_ver }}</span>
+            <span>固件版本</span><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
           </div>
           <div class="system-info-item">
             <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
@@ -89,7 +89,7 @@
             <span>运行时间</span><span>{{ systemInfo.run_time | formatSeconds }}</span>
           </div>
           <div class="system-info-item">
-            <span>网关版本</span><span>V{{ systemInfo.web_ver }}</span>
+            <span>网关版本</span><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
           </div>
         </div>
       </div>

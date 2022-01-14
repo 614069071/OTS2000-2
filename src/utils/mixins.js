@@ -155,7 +155,11 @@ export default {
     getDetail() {
       this.getTitle()
         .then(() => {
-          return this.getInfo();
+          const similar = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
+          const { boardname } = this.info;
+          const isHave = similar.includes(boardname);
+
+          return !isHave && this.getInfo();
         })
         .then(() => {})
         .catch(() => {});

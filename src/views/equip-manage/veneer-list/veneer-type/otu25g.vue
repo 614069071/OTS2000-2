@@ -792,11 +792,13 @@ export default {
   methods: {
     // 误码检测
     detectionPrbs(i, status) {
-      const val = (this.infoData[i].prbs_en[status] + 1) % 2;
-      this.infoData[i].prbs_en[status] = val;
+      const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
+      this.infoData.channels[i].prbs_en[status] = val;
 
       const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, channels: this.infoData } };
+      const diffData = this.$difference(this.infoData, this.clonData);
+      const data = { otn2000: { ...diffData, type: "post_info", boardname, slot } };
+
       this.setInfoDisabled = true;
       this.detection[i][`${status}End`] = false;
       this.detection[i][status] = true;
@@ -812,19 +814,14 @@ export default {
           if (!val) {
             // 停止检测并获取状态
             console.log("停止检测", val);
-            this.getVeneerInfo()
-              .then((res) => {
-                this.infoData = res.otn2000_ack.channels;
-
-                this.$message("成功");
-                this.refreshInfoDisabled = false;
+            this.getInfo()
+              .then(() => {
                 this.detection[i][`${status}End`] = true;
+                this.$message("检测成功");
               })
-              .catch((err) => {
-                console.log(err);
-                this.$message("失败");
-                this.refreshInfoDisabled = false;
+              .catch(() => {
                 this.detection[i][`${status}End`] = true;
+                this.$message("检测失败");
               });
           } else {
             this.detection[i][`${status}End`] = false;

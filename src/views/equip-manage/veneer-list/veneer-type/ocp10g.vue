@@ -6,39 +6,39 @@
       <table class="veneer-table" border="1">
         <tr>
           <td>硬件版本</td>
-          <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
+          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
           <td>软件版本</td>
-          <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
+          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
           <td>协议版本</td>
-          <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
+          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
         </tr>
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
-              {{ veneerTitleData.mfgdate }}
+              {{ titeData.mfgdate }}
             </template>
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
 
             <template v-else>
-              {{ veneerTitleData.sn }}
+              {{ titeData.sn }}
             </template>
           </td>
           <td>版型号</td>
-          <td>{{ veneerTitleData.bdtype }}</td>
+          <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>
-          <td>{{ veneerTitleData.device_type }}</td>
+          <td>{{ titeData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status ? "告警" : "正常" }}</td>
+          <td>{{ titeData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
-          <td><input class="def-input" type="text" v-model="veneerTitleData.desc" /></td>
+          <td><input class="def-input" type="text" v-model="titeData.desc" /></td>
         </tr>
       </table>
     </div>
@@ -77,27 +77,27 @@
 
         <tr>
           <td>在位状态</td>
-          <td>{{ veneerInfoData[0].link_status.client ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? "在位" : "脱位" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? "在位" : "脱位" }}</td>
         </tr>
         <tr>
           <td>LINK状态</td>
-          <td>{{ veneerInfoData[0].link_status.client ? (veneerInfoData[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? (veneerInfoData[0].los.Pri_Line ? "DOWN" : "UP") : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? (veneerInfoData[0].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? (veneerInfoData[1].los.client ? "DOWN" : "UP") : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? (veneerInfoData[1].los.Pri_Line ? "DOWN" : "UP") : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? (veneerInfoData[1].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? (infoData.channels[0].los.Pri_Line ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? (infoData.channels[0].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].los.client ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? (infoData.channels[1].los.Pri_Line ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? (infoData.channels[1].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
           <td>工作模式</td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[0].work_mode">
+              <select v-model="infoData.channels[0].work_mode">
                 <option :value="0">主</option>
                 <option :value="1">备</option>
               </select>
@@ -107,7 +107,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[1].work_mode">
+              <select v-model="infoData.channels[1].work_mode">
                 <option :value="0">主</option>
                 <option :value="1">备</option>
               </select>
@@ -118,66 +118,66 @@
         </tr>
         <tr>
           <td>波长（nm）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].wave_len.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].wave_len.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].wave_len.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].wave_len.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].wave_len.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].wave_len.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].wave_len.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].wave_len.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].wave_len.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].wave_len.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].wave_len.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].wave_len.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>距离（km）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].launch_range.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].launch_range.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].launch_range.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].launch_range.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].launch_range.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].launch_range.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_range.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].launch_range.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].launch_range.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].launch_range.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].launch_range.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].launch_range.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>发射光功率（dBm）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].launch_power.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].launch_power.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].launch_power.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].launch_power.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].launch_power.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].launch_power.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_power.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].launch_power.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].launch_power.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].launch_power.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].launch_power.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].launch_power.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>接受光功率（dBm）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].rcv_power.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].rcv_power.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].rcv_power.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].rcv_power.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].rcv_power.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].rcv_power.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].rcv_power.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].rcv_power.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].rcv_power.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].rcv_power.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].rcv_power.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].rcv_power.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>电压（V）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].voltage.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].voltage.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].voltage.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].voltage.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].voltage.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].voltage.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].voltage.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].voltage.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].voltage.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].voltage.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].voltage.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].voltage.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>偏置电流（dBm）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].current.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].current.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].current.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].current.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].current.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].current.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].current.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].current.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].current.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].current.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].current.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].current.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>温度（℃）</td>
-          <td>{{ veneerInfoData[0].link_status.client ? veneerInfoData[0].temp.client : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Pri_Line ? veneerInfoData[0].temp.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[0].link_status.Sec_Line ? veneerInfoData[0].temp.Sec_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.client ? veneerInfoData[1].temp.client : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Pri_Line ? veneerInfoData[1].temp.Pri_Line : "NA" }}</td>
-          <td>{{ veneerInfoData[1].link_status.Sec_Line ? veneerInfoData[1].temp.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].temp.client : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].temp.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].temp.Sec_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].temp.client : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? infoData.channels[1].temp.Pri_Line : "NA" }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].temp.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
           <td>预留1</td>
@@ -191,7 +191,7 @@
         <tr>
           <td>激光器开关</td>
           <td>
-            <select v-if="veneerInfoData[0].link_status.client" v-model="veneerInfoData[0].tx_disable.client">
+            <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -199,7 +199,7 @@
             <template v-else>NA</template>
           </td>
           <td>
-            <select v-if="veneerInfoData[0].link_status.Pri_Line" v-model="veneerInfoData[0].tx_disable.client">
+            <select v-if="infoData.channels[0].link_status.Pri_Line" v-model="infoData.channels[0].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -207,7 +207,7 @@
             <template v-else>NA</template>
           </td>
           <td>
-            <select v-if="veneerInfoData[0].link_status.Sec_Line" v-model="veneerInfoData[0].tx_disable.client">
+            <select v-if="infoData.channels[0].link_status.Sec_Line" v-model="infoData.channels[0].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -215,7 +215,7 @@
             <template v-else>NA</template>
           </td>
           <td>
-            <select v-if="veneerInfoData[1].link_status.client" v-model="veneerInfoData[1].tx_disable.client">
+            <select v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -223,7 +223,7 @@
             <template v-else>NA</template>
           </td>
           <td>
-            <select v-if="veneerInfoData[1].link_status.Pri_Line" v-model="veneerInfoData[1].tx_disable.client">
+            <select v-if="infoData.channels[1].link_status.Pri_Line" v-model="infoData.channels[1].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -231,7 +231,7 @@
             <template v-else>NA</template>
           </td>
           <td>
-            <select v-if="veneerInfoData[1].link_status.Sec_Line" v-model="veneerInfoData[1].tx_disable.client">
+            <select v-if="infoData.channels[1].link_status.Sec_Line" v-model="infoData.channels[1].tx_disable.client">
               <option :value="0">关</option>
               <option :value="1">开</option>
             </select>
@@ -243,7 +243,7 @@
           <td>速率（Mbps）</td>
           <td>
             <div class="coll-3">
-              <select v-if="veneerTitleData.bdtype === '10G-OCPL'" v-model="veneerInfoData[0].speed">
+              <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[0].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
                 <option :value="2">CPRIX(X值为3，5，6，7)</option>
                 <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -255,14 +255,14 @@
                 <option :value="9">FE(旁路)</option>
               </select>
 
-              <select v-else v-model="veneerInfoData[0].speed"> </select>
+              <select v-else v-model="infoData.channels[0].speed"> </select>
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-if="veneerTitleData.bdtype === '10G-OCPL'" v-model="veneerInfoData[1].speed">
+              <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[1].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
                 <option :value="2">CPRIX(X值为3，5，6，7)</option>
                 <option :value="3">CPRIX(X值为3，5，7，8)</option>
@@ -274,7 +274,7 @@
                 <option :value="9">FE(旁路)</option>
               </select>
 
-              <select v-else v-model="veneerInfoData[1].speed"> </select>
+              <select v-else v-model="infoData.channels[1].speed"> </select>
             </div>
           </td>
           <td></td>
@@ -284,14 +284,14 @@
           <td>主备线路初始功率差（dB）</td>
           <td>
             <div class="coll-3">
-              <input type="text" class="def-input" v-model="veneerInfoData[0].init_power" />
+              <input type="text" class="def-input" v-model="infoData.channels[0].init_power" />
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              <input type="text" class="def-input" v-model="veneerInfoData[1].init_power" />
+              <input type="text" class="def-input" v-model="infoData.channels[1].init_power" />
             </div>
           </td>
           <td></td>
@@ -302,7 +302,7 @@
           <td>
             <div class="coll-3">
               <CustomSelect
-                v-model="veneerInfoData[0].Switch_channel"
+                v-model="infoData.channels[0].Switch_channel"
                 :options="[
                   { label: '3', value: 3 },
                   { label: '4', value: 4 },
@@ -316,7 +316,7 @@
           <td>
             <div class="coll-3">
               <CustomSelect
-                v-model="veneerInfoData[1].Switch_channel"
+                v-model="infoData.channels[1].Switch_channel"
                 :options="[
                   { label: '3', value: 3 },
                   { label: '4', value: 4 },
@@ -332,7 +332,7 @@
           <td>保护模式</td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[0].work_road">
+              <select v-model="infoData.channels[0].work_road">
                 <option :value="0">自动</option>
                 <option :value="1">手动</option>
               </select>
@@ -342,7 +342,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[1].work_road">
+              <select v-model="infoData.channels[1].work_road">
                 <option :value="0">自动</option>
                 <option :value="1">手动</option>
               </select>
@@ -355,7 +355,7 @@
           <td>强制倒换</td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[0].Switch">
+              <select v-model="infoData.channels[0].Switch">
                 <option :value="0">强制11连接13</option>
                 <option :value="1">强制12连接13</option>
               </select>
@@ -365,7 +365,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[1].Switch">
+              <select v-model="infoData.channels[1].Switch">
                 <option :value="0">强制11连接13</option>
                 <option :value="1">强制12连接13</option>
               </select>
@@ -378,7 +378,7 @@
           <td>是否自动回切</td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[0].enback_back">
+              <select v-model="infoData.channels[0].enback_back">
                 <option :value="0">是</option>
                 <option :value="1">否</option>
               </select>
@@ -388,7 +388,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="veneerInfoData[1].enback_back">
+              <select v-model="infoData.channels[1].enback_back">
                 <option :value="0">是</option>
                 <option :value="1">否</option>
               </select>
@@ -402,7 +402,7 @@
           <td>
             <div class="coll-3">
               <CustomSelect
-                v-model="veneerInfoData[0].enback_back_delay"
+                v-model="infoData.channels[0].enback_back_delay"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
@@ -416,7 +416,7 @@
           <td>
             <div class="coll-3">
               <CustomSelect
-                v-model="veneerInfoData[1].enback_back_delay"
+                v-model="infoData.channels[1].enback_back_delay"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
@@ -431,108 +431,108 @@
         <tr>
           <td>接收光功率过低阈值（dBm）</td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_L.client" />
+            <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_L.Pri_Line" />
+            <input v-if="infoData.channels[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_L.Sec_Line" />
+            <input v-if="infoData.channels[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.Sec_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_L.client" />
+            <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_L.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_L.Pri_Line" />
+            <input v-if="infoData.channels[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_L.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_L.Sec_Line" />
+            <input v-if="infoData.channels[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_L.Sec_Line" />
             <template v-else>NA</template>
           </td>
         </tr>
         <tr>
           <td>接收光功率过载阈值（dBm）</td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_H.client" />
+            <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_H.Pri_Line" />
+            <input v-if="infoData.channels[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].rcv_thr_H.Sec_Line" />
+            <input v-if="infoData.channels[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.Sec_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_H.client" />
+            <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_H.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_H.Pri_Line" />
+            <input v-if="infoData.channels[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_H.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].rcv_thr_H.Sec_Line" />
+            <input v-if="infoData.channels[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_H.Sec_Line" />
             <template v-else>NA</template>
           </td>
         </tr>
         <tr>
           <td>发送光功率过低阈值（dBm）</td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_L.client" />
+            <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_L.Pri_Line" />
+            <input v-if="infoData.channels[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_L.Sec_Line" />
+            <input v-if="infoData.channels[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.Sec_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_L.client" />
+            <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_L.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_L.Pri_Line" />
+            <input v-if="infoData.channels[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_L.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_L.Sec_Line" />
+            <input v-if="infoData.channels[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_L.Sec_Line" />
             <template v-else>NA</template>
           </td>
         </tr>
         <tr>
           <td>发送光功率过载阈值（dBm）</td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_H.client" />
+            <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_H.Pri_Line" />
+            <input v-if="infoData.channels[0].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[0].tx_thr_H.Sec_Line" />
+            <input v-if="infoData.channels[0].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.Sec_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.client" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_H.client" />
+            <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.client" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_H.Pri_Line" />
+            <input v-if="infoData.channels[1].link_status.Pri_Line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.Pri_Line" />
             <template v-else>NA</template>
           </td>
           <td>
-            <input v-if="veneerInfoData[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="veneerInfoData[1].tx_thr_H.Sec_Line" />
+            <input v-if="infoData.channels[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.Sec_Line" />
             <template v-else>NA</template>
           </td>
         </tr>
@@ -567,15 +567,16 @@
 </template>
 
 <script>
+import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
 
 export default {
   name: "ocp10g",
-  props: ["info", "visible"],
+  mixins: [mixins],
   components: { CustomSelect },
   data() {
     return {
-      veneerTitleData: {
+      titeData: {
         bdtype: "",
         desc: "",
         device_type: "",
@@ -586,273 +587,96 @@ export default {
         sn: "",
         status: null,
       },
-      veneerInfoData: new Array(2).fill({
-        channel: 0,
-        link_status: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        los: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        speed: 0,
-        init_power: 0,
-        Switch_channel: 0,
-        Switch: 0,
-        work_mode: 0,
-        enable_back: 0,
-        work_road: 0,
-        enable_back_delay: 0,
-        atu_to_hand_delay: 0,
-        tx_disable: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        launch_range: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        rcv_thr_H: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        rcv_thr_L: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        tx_thr_H: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        tx_thr_L: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        wave_channel: {
-          client: 0,
-          Pri_Line: 0,
-          Sec_Line: 0,
-        },
-        wave_len: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-        launch_power: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-        rcv_power: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-        voltage: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-        current: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-        temp: {
-          client: "",
-          Pri_Line: "",
-          Sec_Line: "",
-        },
-      }),
-      refreshTitleDisabled: false,
-      setTilteDisabled: false,
-      refreshInfoDisabled: false,
-      setInfoDisabled: false,
-      restorInfoDisabled: false,
-      restoreDefaultInfoDisabled: false,
+      infoData: {
+        channels: new Array(2).fill({
+          channel: 0,
+          link_status: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          los: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          speed: 0,
+          init_power: 0,
+          Switch_channel: 0,
+          Switch: 0,
+          work_mode: 0,
+          enable_back: 0,
+          work_road: 0,
+          enable_back_delay: 0,
+          atu_to_hand_delay: 0,
+          tx_disable: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          launch_range: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          rcv_thr_H: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          rcv_thr_L: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          tx_thr_H: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          tx_thr_L: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          wave_channel: {
+            client: 0,
+            Pri_Line: 0,
+            Sec_Line: 0,
+          },
+          wave_len: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+          launch_power: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+          rcv_power: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+          voltage: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+          current: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+          temp: {
+            client: "",
+            Pri_Line: "",
+            Sec_Line: "",
+          },
+        }),
+      },
     };
-  },
-  created() {},
-  mounted() {
-    this.getVeneerDetail();
-  },
-  watch: {
-    visible(n) {
-      if (!n) return;
-      this.getVeneerDetail();
-    },
-  },
-  methods: {
-    getVeneerTitle() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "get_title", boardname, slot } };
-
-      return this.$http.post(data);
-    },
-    getVeneerInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "get_info", boardname, slot } };
-
-      return this.$http.post(data);
-    },
-    getVeneerDetail(slot) {
-      this.getVeneerTitle(slot)
-        .then((res) => {
-          this.veneerTitleData = res.otn2000_ack;
-
-          return this.getVeneerInfo(slot);
-        })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
-          this.veneerInfoData = res.otn2000_ack.channels || [];
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    refreshTitle() {
-      this.refreshTitleDisabled = true;
-
-      this.getVeneerTitle()
-        .then((res) => {
-          console.log(res);
-          this.veneerTitleData = res.otn2000_ack;
-          this.$message("成功");
-          this.refreshTitleDisabled = false;
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-          this.refreshTitleDisabled = false;
-        });
-    },
-    setTilte() {
-      const { mfgdate, sn, desc } = this.veneerTitleData;
-      const { boardname, slot } = this.info;
-      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
-      const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
-
-      this.setTilteDisabled = true;
-      this.refreshTitleDisabled = true;
-
-      this.$http
-        .post(data)
-        .then(() => {
-          return this.getVeneerTitle();
-        })
-        .then((res) => {
-          this.$message("成功");
-          this.setTilteDisabled = false;
-          this.refreshTitleDisabled = false;
-          this.veneerTitleData = res.otn2000_ack;
-        })
-        .catch(() => {
-          this.veneerTitleData.desc = "";
-          this.$message("失败");
-          this.refreshTitleDisabled = false;
-          this.setTilteDisabled = false;
-        });
-    },
-    refreshInfo() {
-      this.refreshInfoDisabled = true;
-      this.getVeneerInfo(this.info.slot)
-        .then((res) => {
-          this.veneerInfoData = res.otn2000_ack.channels;
-
-          this.$message("成功");
-          this.refreshInfoDisabled = false;
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-          this.refreshInfoDisabled = false;
-        });
-    },
-    setInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "post_info", boardname, slot, channels: this.veneerInfoData } };
-      this.setInfoDisabled = true;
-      this.refreshInfoDisabled = true;
-
-      this.$http
-        .post(data)
-        .then(() => {
-          return this.getVeneerInfo();
-        })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
-          this.$message("成功");
-          this.setInfoDisabled = false;
-          this.refreshInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
-        })
-        .catch(() => {
-          this.$message("失败");
-          this.refreshInfoDisabled = false;
-          this.setInfoDisabled = false;
-        });
-    },
-    restoreDefaultInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "default", boardname, slot } };
-      this.restoreDefaultInfoDisabled = true;
-
-      this.$http
-        .post(data)
-        .then(() => {
-          return this.getVeneerInfo();
-        })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
-          this.$message("成功");
-          this.refreshInfoDisabled = false;
-          this.setInfoDisabled = false;
-          this.restorInfoDisabled = false;
-          this.restoreDefaultInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-          this.refreshInfoDisabled = false;
-          this.setInfoDisabled = false;
-          this.restorInfoDisabled = false;
-          this.restoreDefaultInfoDisabled = false;
-        });
-    },
-    restorInfo() {
-      const { boardname, slot } = this.info;
-      const data = { otn2000: { type: "reset", boardname, slot } };
-      this.restorInfoDisabled = true;
-
-      this.$http
-        .post(data)
-        .then(() => {
-          return this.getVeneerInfo();
-        })
-        .then((res = { otn2000_ack: { channels: [] } }) => {
-          this.$message("成功");
-          this.refreshInfoDisabled = false;
-          this.setInfoDisabled = false;
-          this.restorInfoDisabled = false;
-          this.restoreDefaultInfoDisabled = false;
-          this.veneerInfoData = res.otn2000_ack.channels || [];
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-          this.refreshInfoDisabled = false;
-          this.setInfoDisabled = false;
-          this.restorInfoDisabled = false;
-          this.restoreDefaultInfoDisabled = false;
-        });
-    },
   },
 };
 </script>

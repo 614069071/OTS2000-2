@@ -154,7 +154,7 @@
             </td>
           </tr>
           <tr>
-            <td>波长</td>
+            <td>波长（nm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].wave_len.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].wave_len.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].wave_len.client : "NA" }}</td>
@@ -484,7 +484,7 @@
             </td>
           </tr>
           <tr>
-            <td>输出幅度（dBm）</td>
+            <td>输出幅度（mVpp）</td>
             <td>
               <el-input-number v-if="infoData.channels[0].link_status.client" v-model.number="infoData.channels[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
               <template v-else>NA</template>

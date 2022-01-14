@@ -4,7 +4,7 @@ import router from '@/router';
 import store from '@/store';
 import i18n from '@/locale';
 import fetch from '@/fetch';
-import { formatSeconds } from '@/utils';
+import { formatSeconds, clone, difference } from '@/utils';
 import Structure from '@/components/structure'
 import Pupur from '@/components/pupur'
 
@@ -12,6 +12,8 @@ import '@/element';
 import '@/styles';
 
 Vue.prototype.$http = fetch;
+Vue.prototype.$clone = clone;
+Vue.prototype.$difference = difference;
 
 Vue.config.productionTip = false;
 

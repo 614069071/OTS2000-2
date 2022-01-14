@@ -1,4 +1,4 @@
-import { transform, isEqual, isObject } from 'lodash';
+import { transform, isEqual, isObject, cloneDeep } from 'lodash';
 
 // 比较两个对象差异
 export function difference(object, base) {
@@ -11,6 +11,8 @@ export function difference(object, base) {
   }
   return changes(object, base);
 }
+
+export const clone = cloneDeep;
 
 export const storage = {
   set(key, value) {

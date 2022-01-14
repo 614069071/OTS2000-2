@@ -1,6 +1,8 @@
 <template>
   <div class="olp-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">olp</div>
+    <div class="veneer-header-wrapper">
+      <div class="veneer-inner-wrapper olp-veneer"></div>
+    </div>
 
     <div class="veneer-table-title">
       <table class="veneer-table veneer-title-table" border="1">
@@ -195,3 +197,8 @@ export default {
   },
 };
 </script>
+<style>
+.olp-veneer {
+  background-image: url(../../../../assets/images/veneer/olp.png);
+}
+</style>

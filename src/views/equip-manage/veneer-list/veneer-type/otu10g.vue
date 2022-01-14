@@ -154,7 +154,7 @@
             </td>
           </tr>
           <tr>
-            <td>波长</td>
+            <td>波长（nm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].wave_len.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].wave_len.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].wave_len.client : "NA" }}</td>
@@ -210,7 +210,7 @@
           </tr>
 
           <tr>
-            <td>偏置电流（dBm）</td>
+            <td>偏置电流（mA）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].current.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].current.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].current.client : "NA" }}</td>

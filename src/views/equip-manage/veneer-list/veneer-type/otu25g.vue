@@ -679,17 +679,6 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      titeData: {
-        sn: "",
-        desc: "",
-        status: 0,
-        h_rev: "",
-        p_rev: "",
-        s_rev: "",
-        bdtype: "",
-        mfgdate: "",
-        device_type: "",
-      },
       eqoptions: Object.freeze([
         { value: 1, lable: 0 },
         { value: 2, lable: 0.6 },

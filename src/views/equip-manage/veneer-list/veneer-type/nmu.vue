@@ -169,19 +169,6 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      titeData: {
-        boardname: "",
-        type: "",
-        h_rev: "",
-        s_rev: "",
-        p_rev: "",
-        mfgdate: "",
-        sn: "",
-        runtime: 0,
-        device_type: "",
-        status: 0,
-        desc: "",
-      },
       infoData: {
         sfp1: {
           online_status: 0,

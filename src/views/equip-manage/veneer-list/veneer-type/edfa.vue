@@ -227,19 +227,6 @@ export default {
   components: { CustomSelect },
   data() {
     return {
-      titeData: {
-        boardname: "",
-        type: "",
-        h_rev: "",
-        s_rev: "",
-        p_rev: "",
-        mfgdate: "",
-        sn: "",
-        bdtype: "",
-        device_type: "",
-        status: null,
-        desc: "",
-      },
       infoData: {
         boardname: "",
         input_power_alarm: 0,

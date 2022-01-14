@@ -576,17 +576,6 @@ export default {
   components: { CustomSelect },
   data() {
     return {
-      titeData: {
-        bdtype: "",
-        desc: "",
-        device_type: "",
-        h_rev: "",
-        mfgdate: "",
-        p_rev: "",
-        s_rev: "",
-        sn: "",
-        status: null,
-      },
       infoData: {
         channels: new Array(2).fill({
           channel: 0,

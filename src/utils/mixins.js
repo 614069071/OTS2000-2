@@ -2,17 +2,27 @@ export default {
   props: {
     info: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     visible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
+      titeData: {
+        sn: "",
+        desc: "",
+        h_rev: "",
+        p_rev: "",
+        s_rev: "",
+        bdtype: "",
+        status: "",
+        mfgdate: "",
+        device_type: "",
+      },
       clonData: {},
-      titeData: {},
       infoData: {},
       refreshTitleDisabled: false,
       setTilteDisabled: false,
@@ -20,12 +30,12 @@ export default {
       setInfoDisabled: false,
       restorInfoDisabled: false,
       restoreDefaultInfoDisabled: false,
-    }
+    };
   },
   watch: {
     visible(n) {
       if (!n) return;
-      console.log('minxis');
+      console.log("minxis");
       this.getDetail();
     },
   },
@@ -41,8 +51,7 @@ export default {
       this.refreshTitleDisabled = true;
 
       return new Promise((resolve, reject) => {
-        this
-          .$http
+        this.$http
           .post(data)
           .then((res) => {
             this.titeData = res.otn2000_ack;
@@ -50,12 +59,12 @@ export default {
             this.refreshTitleDisabled = false;
             resolve(res.otn2000_ack);
           })
-          .catch(err => {
+          .catch((err) => {
             this.setTilteDisabled = false;
             this.refreshTitleDisabled = false;
             reject(err);
-          })
-      })
+          });
+      });
     },
     setTilte() {
       const { mfgdate, sn, desc } = this.titeData;
@@ -92,8 +101,7 @@ export default {
       this.restoreDefaultInfoDisabled = true;
 
       return new Promise((resolve, reject) => {
-        this
-          .$http
+        this.$http
           .post(data)
           .then((res) => {
             this.infoData = res.otn2000_ack || {};
@@ -104,13 +112,13 @@ export default {
             this.restoreDefaultInfoDisabled = false;
             resolve(res.otn2000_ack);
           })
-          .catch(err => {
+          .catch((err) => {
             this.refreshInfoDisabled = false;
             this.setInfoDisabled = false;
             this.restorInfoDisabled = false;
             this.restoreDefaultInfoDisabled = false;
             reject(err);
-          })
+          });
       });
     },
     setInfo() {
@@ -123,8 +131,7 @@ export default {
       this.restorInfoDisabled = true;
       this.restoreDefaultInfoDisabled = true;
 
-      this
-        .$http
+      this.$http
         .post(data)
         .then(() => {
           this.setInfoDisabled = false;
@@ -150,8 +157,8 @@ export default {
         .then(() => {
           return this.getInfo();
         })
-        .then(() => { })
-        .catch(() => { });
+        .then(() => {})
+        .catch(() => {});
     },
     refreshTitle() {
       this.getTitle()
@@ -163,8 +170,7 @@ export default {
         });
     },
     refreshInfo() {
-      this
-        .getInfo()
+      this.getInfo()
         .then(() => {
           this.$message("成功");
         })
@@ -207,5 +213,5 @@ export default {
           this.$message("失败");
         });
     },
-  }
+  },
 };

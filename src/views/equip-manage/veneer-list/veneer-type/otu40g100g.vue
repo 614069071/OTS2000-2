@@ -18,7 +18,7 @@
           <td>序列号</td>
           <td>{{ veneerTitleData.sn }}</td>
           <td>板型号</td>
-          <td>{{ veneerTitleData.run_time }}</td>
+          <td>{{ veneerTitleData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>

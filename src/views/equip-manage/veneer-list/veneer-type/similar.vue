@@ -10,27 +10,27 @@
       <table class="veneer-table" border="1">
         <tr>
           <td>硬件版本</td>
-          <td>{{ `${veneerTitleData.h_rev ? "V" + veneerTitleData.h_rev : ""}` }}</td>
+          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
           <td>软件版本</td>
-          <td>{{ `${veneerTitleData.s_rev ? "V" + veneerTitleData.s_rev : ""}` }}</td>
+          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
           <td>协议版本</td>
-          <td>{{ `${veneerTitleData.p_rev ? "V" + veneerTitleData.p_rev : ""}` }}</td>
+          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
         </tr>
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="$store.state.iSuper" v-model="veneerTitleData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
-              {{ veneerTitleData.mfgdate }}
+              {{ titeData.mfgdate }}
             </template>
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="veneerTitleData.sn" />
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
 
             <template v-else>
-              {{ veneerTitleData.sn }}
+              {{ titeData.sn }}
             </template>
           </td>
           <td></td>
@@ -38,12 +38,12 @@
         </tr>
         <tr>
           <td>设备类型</td>
-          <td>{{ veneerTitleData.device_type }}</td>
+          <td>{{ titeData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status ? "在位" : "脱位" }}</td>
+          <td>{{ titeData.status ? "在位" : "脱位" }}</td>
           <td>信息描述</td>
           <td>
-            <input class="def-input" type="text" v-model="veneerTitleData.desc" />
+            <input class="def-input" type="text" v-model="titeData.desc" />
           </td>
         </tr>
       </table>
@@ -58,79 +58,25 @@
 
 <script>
 // ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"]
+import mixins from "@/utils/mixins";
+
 export default {
   name: "similar",
-  props: ["info", "visible"],
+  mixins: [mixins],
   data() {
     return {
-      veneerTitleData: {},
+      titeData: {
+        bdtype: "",
+        desc: "",
+        device_type: "",
+        h_rev: "",
+        mfgdate: "",
+        p_rev: "",
+        s_rev: "",
+        sn: "",
+        status: null,
+      },
     };
-  },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
-    this.getVeneerTitle(this.info.slot)
-      .then((res) => {
-        this.veneerTitleData = res.otn2000_ack;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },
-  watch: {
-    visible(n) {
-      if (!n) return;
-      console.log("this.info", this.info);
-      this.getVeneerTitle(this.info.slot)
-        .then((res) => {
-          this.veneerTitleData = res.otn2000_ack;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-  },
-  methods: {
-    getVeneerTitle(slot) {
-      return this.$http.post({
-        otn2000: {
-          type: "get_title",
-          boardname: this.info.boardname,
-          slot,
-        },
-      });
-    },
-    refreshTitle() {
-      this.getVeneerTitle(this.info.slot)
-        .then((res) => {
-          this.veneerTitleData = res.otn2000_ack;
-          this.$message("成功");
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-        });
-    },
-    setTilte() {
-      const { mfgdate, sn, desc } = this.veneerTitleData;
-      const { boardname, slot } = this.info;
-      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
-      const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
-
-      this.$http
-        .post(data)
-        .then((res) => {
-          console.log("setTilte", res);
-          this.$message("成功");
-        })
-        .catch((err) => {
-          console.log(err);
-          this.veneerTitleData.desc = "";
-          this.$message("失败");
-        });
-    },
   },
 };
 </script>

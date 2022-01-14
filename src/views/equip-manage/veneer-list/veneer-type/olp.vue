@@ -160,224 +160,38 @@ import mixins from "@/utils/mixins";
 
 export default {
   name: "otu10g",
-  // props: ["info", "visible"],
   components: { CustomSelect },
   mixins: [mixins],
-  // data() {
-  //   return {
-  //     titeData: {
-  //       bdtype: "",
-  //       desc: "",
-  //       device_type: "",
-  //       h_rev: "",
-  //       mfgdate: "",
-  //       p_rev: "",
-  //       s_rev: "",
-  //       sn: "",
-  //       status: null,
-  //     },
-  //     cloneData: {},
-  //     infoData: {
-  //       boardname: "olp",
-  //       type: "get_info",
-  //       protmode: 0,
-  //       forced_switching: 0,
-  //       auto_switchback: 0,
-  //       wtr_time: 1,
-  //       main_line_alarm_thre: 0,
-  //       slave_line_alarm_thre: 0,
-  //       main_slave_initdiff: 0,
-  //       switch_condition_diff: 5,
-  //       work_state: 0,
-  //       main_rx_signal_state: 4,
-  //       slave_rx_signal_state: 4,
-  //       local_rx_signal_state: 3,
-  //     },
-  //     refreshTitleDisabled: false,
-  //     setTilteDisabled: false,
-  //     refreshInfoDisabled: false,
-  //     setInfoDisabled: false,
-  //     restorInfoDisabled: false,
-  //     restoreDefaultInfoDisabled: false,
-  //   };
-  // },
-  // created() {},
-  // mounted() {
-  //   this.getVeneerDetail();
-  // },
-  // watch: {
-  //   visible(n) {
-  //     if (!n) return;
-  //     this.getVeneerDetail();
-  //   },
-  // },
-  // methods: {
-  //   getVeneerTitle() {
-  //     const { boardname, slot } = this.info;
-  //     const data = { otn2000: { type: "get_title", boardname, slot } };
-
-  //     return this.$http.post(data);
-  //   },
-  //   getVeneerInfo() {
-  //     const { boardname, slot } = this.info;
-  //     const data = { otn2000: { type: "get_info", boardname, slot } };
-
-  //     return this.$http.post(data);
-  //   },
-  //   getInfo() {},
-  //   getVeneerDetail() {
-  //     this.getVeneerTitle()
-  //       .then((res) => {
-  //         this.titeData = res.otn2000_ack;
-
-  //         return this.getVeneerInfo();
-  //       })
-  //       .then((res = { otn2000_ack: {} }) => {
-  //         this.infoData = res.otn2000_ack || {};
-  //         this.cloneData = this.$clone(res.otn2000_ack || {});
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   },
-  //   refreshTitle() {
-  //     this.refreshTitleDisabled = true;
-
-  //     this.getVeneerTitle()
-  //       .then((res) => {
-  //         console.log(res);
-  //         this.titeData = res.otn2000_ack;
-  //         this.$message("成功");
-  //         this.refreshTitleDisabled = false;
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         this.$message("失败");
-  //         this.refreshTitleDisabled = false;
-  //       });
-  //   },
-  //   setTilte() {
-  //     const { mfgdate, sn, desc } = this.titeData;
-  //     const { boardname, slot } = this.info;
-  //     const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
-  //     const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
-
-  //     this.setTilteDisabled = true;
-  //     this.refreshTitleDisabled = true;
-
-  //     this.$http
-  //       .post(data)
-  //       .then(() => {
-  //         return this.getVeneerTitle();
-  //       })
-  //       .then((res) => {
-  //         this.$message("成功");
-  //         this.setTilteDisabled = false;
-  //         this.refreshTitleDisabled = false;
-  //         this.titeData = res.otn2000_ack;
-  //       })
-  //       .catch(() => {
-  //         this.titeData.desc = "";
-  //         this.$message("失败");
-  //         this.refreshTitleDisabled = false;
-  //         this.setTilteDisabled = false;
-  //       });
-  //   },
-  //   refreshInfo() {
-  //     this.refreshInfoDisabled = true;
-  //     this.getVeneerInfo(this.info.slot)
-  //       .then((res) => {
-  //         this.infoData = res.otn2000_ack;
-
-  //         this.$message("成功");
-  //         this.refreshInfoDisabled = false;
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         this.$message("失败");
-  //         this.refreshInfoDisabled = false;
-  //       });
-  //   },
-  //   setInfo() {
-  //     const { slot } = this.info;
-  //     const diffData = this.$difference(this.infoData, this.cloneData);
-  //     const data = { otn2000: { ...diffData, slot, type: "post_info" } };
-  //     this.setInfoDisabled = true;
-  //     this.refreshInfoDisabled = true;
-
-  //     console.log("difference", data);
-
-  //     this.$http
-  //       .post(data)
-  //       .then(() => {
-  //         return this.getVeneerInfo();
-  //       })
-  //       .then((res = { otn2000_ack: {} }) => {
-  //         this.$message("成功");
-  //         this.setInfoDisabled = false;
-  //         this.refreshInfoDisabled = false;
-  //         this.infoData = res.otn2000_ack || {};
-  //       })
-  //       .catch(() => {
-  //         this.$message("失败");
-  //         this.refreshInfoDisabled = false;
-  //         this.setInfoDisabled = false;
-  //       });
-  //   },
-  //   restoreDefaultInfo() {
-  //     const { boardname, slot } = this.info;
-  //     const data = { otn2000: { type: "default", boardname, slot } };
-  //     this.restoreDefaultInfoDisabled = true;
-
-  //     this.$http
-  //       .post(data)
-  //       .then(() => {
-  //         return this.getVeneerInfo();
-  //       })
-  //       .then((res = { otn2000_ack: {} }) => {
-  //         this.$message("成功");
-  //         this.refreshInfoDisabled = false;
-  //         this.setInfoDisabled = false;
-  //         this.restorInfoDisabled = false;
-  //         this.restoreDefaultInfoDisabled = false;
-  //         this.infoData = res.otn2000_ack || {};
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         this.$message("失败");
-  //         this.refreshInfoDisabled = false;
-  //         this.setInfoDisabled = false;
-  //         this.restorInfoDisabled = false;
-  //         this.restoreDefaultInfoDisabled = false;
-  //       });
-  //   },
-  //   restorInfo() {
-  //     const { boardname, slot } = this.info;
-  //     const data = { otn2000: { type: "reset", boardname, slot } };
-  //     this.restorInfoDisabled = true;
-
-  //     this.$http
-  //       .post(data)
-  //       .then(() => {
-  //         return this.getVeneerInfo();
-  //       })
-  //       .then((res = { otn2000_ack: {} }) => {
-  //         this.$message("成功");
-  //         this.refreshInfoDisabled = false;
-  //         this.setInfoDisabled = false;
-  //         this.restorInfoDisabled = false;
-  //         this.restoreDefaultInfoDisabled = false;
-  //         this.infoData = res.otn2000_ack || {};
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         this.$message("失败");
-  //         this.refreshInfoDisabled = false;
-  //         this.setInfoDisabled = false;
-  //         this.restorInfoDisabled = false;
-  //         this.restoreDefaultInfoDisabled = false;
-  //       });
-  //   },
-  // },
+  data() {
+    return {
+      titeData: {
+        bdtype: "",
+        desc: "",
+        device_type: "",
+        h_rev: "",
+        mfgdate: "",
+        p_rev: "",
+        s_rev: "",
+        sn: "",
+        status: null,
+      },
+      infoData: {
+        boardname: "olp",
+        type: "get_info",
+        protmode: 0,
+        forced_switching: 0,
+        auto_switchback: 0,
+        wtr_time: 1,
+        main_line_alarm_thre: 0,
+        slave_line_alarm_thre: 0,
+        main_slave_initdiff: 0,
+        switch_condition_diff: 5,
+        work_state: 0,
+        main_rx_signal_state: 4,
+        slave_rx_signal_state: 4,
+        local_rx_signal_state: 3,
+      },
+    };
+  },
 };
 </script>

@@ -162,7 +162,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].voltage.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>偏置电流（dBm）</td>
+          <td>偏置电流（mA）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].current.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].current.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].current.Sec_Line : "NA" }}</td>
@@ -398,7 +398,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>回切WTR时间（s）</td>
+          <td>回切WTR时间（min）</td>
           <td>
             <div class="coll-3">
               <CustomSelect

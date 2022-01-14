@@ -184,7 +184,7 @@
           </td>
         </tr>
         <tr>
-          <td>模块温度高门限</td>
+          <td>模块温度高门限（℃）</td>
           <td>
             <CustomSelect
               v-model="infoData.mod_temp_high"

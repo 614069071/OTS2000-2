@@ -97,20 +97,14 @@
           <td>工作模式</td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[0].work_mode">
-                <option :value="0">主</option>
-                <option :value="1">备</option>
-              </select>
+              {{ infoData.channels[0].work_mode ? "备" : "主" }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[1].work_mode">
-                <option :value="0">主</option>
-                <option :value="1">备</option>
-              </select>
+              {{ infoData.channels[1].work_mode ? "备" : "主" }}
             </div>
           </td>
           <td></td>

@@ -74,11 +74,11 @@
         </tr>
         <tr>
           <td>主线路收光信号</td>
-          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][infoData.main_rx_signal_state || 0] }}</td>
+          <td>{{ ["", "收光正常", "收光强", "收光弱", "收无光"][infoData.main_rx_signal_state || 0] }}</td>
           <td>备线路收光信号</td>
-          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][infoData.slave_rx_signal_state || 0] }}</td>
+          <td>{{ ["", "收光正常", "收光强", "收光弱", "收无光"][infoData.slave_rx_signal_state || 0] }}</td>
           <td>本地线路收光信号</td>
-          <td>{{ ["收光正常", "收光强", "收光弱", "收无光"][infoData.local_rx_signal_state || 0] }}</td>
+          <td>{{ ["", "收光正常", "收光强", "收光弱", "收无光"][infoData.local_rx_signal_state || 0] }}</td>
         </tr>
         <tr>
           <td>是否自动回切</td>

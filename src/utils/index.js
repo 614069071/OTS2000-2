@@ -16,6 +16,19 @@ export function difference(object, base) {
   return changes(object, base);
 }
 
+function makeMap(arr) {
+  const obj = {};
+  arr.forEach((e) => (obj[e] = true));
+
+  return function(k) {
+    return !!obj[k];
+  };
+}
+
+const similar = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
+
+export const isSimilar = makeMap(similar);
+
 export const clone = cloneDeep;
 
 export const storage = {

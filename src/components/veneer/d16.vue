@@ -1,6 +1,6 @@
 <template>
-  <div class="veneer-m16-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-9">M16</span></div>
+  <div class="veneer-d16-view-wrapper veneer-item-view-wrapper">
+    <div class="veneer-item-name"><span class="f-9">D16</span></div>
     <div class="veneer-link-wrapper">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>
@@ -109,7 +109,7 @@
 
 <script>
 export default {
-  name: "veneer-m16",
+  name: "veneer-d16",
   props: ["data"],
   data() {
     return {};
@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-m16-view-wrapper {
+.veneer-d16-view-wrapper {
   .veneer-link-wrapper {
     left: 32px;
     top: 15px;

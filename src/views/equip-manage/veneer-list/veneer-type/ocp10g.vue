@@ -69,8 +69,8 @@
             <td>Clinet</td>
             <td>Pri-Line</td>
             <td>Sec-Line</td>
-            <td>Pri-Line</td>
             <td>Clinet</td>
+            <td>Pri-Line</td>
             <td>Sec-Line</td>
           </tr>
         </thead>

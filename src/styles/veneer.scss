@@ -156,6 +156,12 @@
       justify-content: space-between;
       margin: 0 0 2px -4px;
     }
+
+    .trx-item-guide {
+      text-align: center;
+      height: 15px;
+    }
+
     .trx-item-main {
       width: 33px;
       height: 24px;
@@ -164,6 +170,11 @@
 
     .trx-item-main.suc {
       background-color: red;
+    }
+
+    .trx-item-footer {
+      display: flex;
+      margin-left: -4px;
     }
   }
 

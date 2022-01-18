@@ -123,122 +123,16 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.veneer-nmu-view-wrapper {
-  display: flex;
-}
-
-.veneer-item-view-wrapper {
-  width: 521px;
-  height: 60px;
-  position: relative;
-  border: 1px solid #000;
-  box-sizing: border-box;
-}
-
-.veneer-item-view-wrapper::after,
-.veneer-item-view-wrapper::before {
-  content: "+";
-  display: block;
-  width: 14px;
-  height: 14px;
-  background-color: #3b3835;
-  border: 2px solid #848382;
-  border-radius: 50%;
-  position: absolute;
-  top: 22px;
-  color: #848382;
-  line-height: 14px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.veneer-item-view-wrapper::before {
-  left: 1px;
-}
-.veneer-item-view-wrapper::after {
-  right: 1px;
-}
-
-.veneer-item-name {
-  background-color: #db3d21;
-  width: 45px;
-  height: 14px;
-  line-height: 14px;
-  text-align: center;
-  color: #fff;
-  span {
-    display: block;
-  }
-}
+<style lang="scss">
+@import "./common.scss";
 
 .veneer-link-wrapper {
-  position: absolute;
   left: 32px;
   top: 15px;
 }
 
-.veneer-light {
-  display: flex;
-  span.k-name {
-    width: 45px;
-    height: 5px;
-    line-height: 7px;
-    font-size: 12px;
-    transform: scale(0.6) translateX(25%);
-    text-align: right;
-  }
-
-  .k-name ~ .k-name {
-    text-align: left;
-    transform: scale(0.6) translateX(-25%);
-  }
-  span.k-item {
-    width: 9px;
-    height: 5px;
-    background-color: #dedede;
-  }
-
-  span.k-item.suc {
-    background-color: green;
-  }
-
-  span.k-item.war {
-    background-color: red;
-  }
-
-  .k-item + .k-item {
-    margin-left: 5px;
-  }
-}
-
-.veneer-light + .veneer-light {
-  margin-top: 2px;
-}
-
 .tx-rx-wrapper {
-  position: absolute;
   left: 100px;
   top: 3px;
-  display: flex;
-
-  .tx-rx-inner-item {
-    display: flex;
-
-    .tx-rx-item {
-      width: 18px;
-      height: 48px;
-    }
-
-    .tx-rx-item-main {
-      width: 18px;
-      height: 30px;
-      background-color: #ccc;
-    }
-  }
-
-  .tx-rx-inner-item + .tx-rx-inner-item {
-    margin-left: 5px;
-  }
 }
 </style>

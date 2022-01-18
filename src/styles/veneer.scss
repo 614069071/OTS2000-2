@@ -34,7 +34,7 @@
 // 单板名称
 .veneer-item-name {
   background-color: #db3d21;
-  width: 45px;
+  min-width: 45px;
   height: 14px;
   line-height: 14px;
   text-align: center;
@@ -66,8 +66,8 @@
       transform: scale(0.6) translateX(-25%);
     }
     span.k-item {
-      width: 9px;
-      height: 5px;
+      width: 7px;
+      height: 4px;
       background-color: #dedede;
     }
 
@@ -86,6 +86,35 @@
 
   .veneer-light + .veneer-light {
     margin-top: 2px;
+  }
+}
+
+// 网灯2
+.veneer-link-type2-wrapper {
+  position: absolute;
+  display: flex;
+
+  .link-light {
+    width: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .link-square {
+      width: 9px;
+      height: 5px;
+      background-color: #dedede;
+    }
+
+    .link-square + .link-square {
+      margin-top: 1px;
+    }
+
+    .link-name {
+      i {
+        height: 7px;
+      }
+    }
   }
 }
 
@@ -149,7 +178,8 @@
   position: absolute;
   display: flex;
   .trx-item {
-    width: 34px;
+    width: 30px;
+
     .trx-item-title {
       height: 10px;
       display: flex;
@@ -163,8 +193,8 @@
     }
 
     .trx-item-main {
-      width: 33px;
-      height: 24px;
+      width: 30px;
+      height: 21px;
       background: url(../assets/images/veneer/Tx.svg) center/contain no-repeat;
     }
 

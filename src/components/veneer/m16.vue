@@ -1,5 +1,5 @@
 <template>
-  <div class="veneer-nmu-view-wrapper veneer-item-view-wrapper">
+  <div class="veneer-m16-view-wrapper veneer-item-view-wrapper">
     <div class="veneer-item-name"><span class="f-9">M16</span></div>
     <div class="veneer-link-wrapper">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
@@ -124,13 +124,15 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-link-wrapper {
-  left: 32px;
-  top: 15px;
-}
+.veneer-m16-view-wrapper {
+  .veneer-link-wrapper {
+    left: 32px;
+    top: 15px;
+  }
 
-.tx-rx-wrapper {
-  left: 100px;
-  top: 3px;
+  .tx-rx-wrapper {
+    left: 100px;
+    top: 3px;
+  }
 }
 </style>

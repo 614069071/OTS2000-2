@@ -272,4 +272,8 @@ $border-color: #aaa;
   background-color: #fff;
   padding: 20px 10px 0 10px;
 }
+
+.veneer-block-diagram-wrapper {
+  overflow: auto;
+}
 </style>

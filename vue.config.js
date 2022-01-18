@@ -1,40 +1,37 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
-const path = require('path');
+const path = require("path");
 const resolve = (dir) => path.resolve(__dirname, dir);
 
 module.exports = {
   devServer: {
     port: 3000,
     proxy: {
-      '/api': {
-        target: 'http://192.168.20.110:8080/',
+      "/api": {
+        target: "http://192.168.20.109:8080/",
         changeOrigin: true,
-        pathRewrite: { '^/api': '' },
-        secure: false
-      }
-    }
+        pathRewrite: { "^/api": "" },
+        secure: false,
+      },
+    },
   },
   lintOnSave: false,
-  chainWebpack: config => {
-    config
-      .plugin("loadshReplace")
-      .use(new LodashModuleReplacementPlugin());
+  chainWebpack: (config) => {
+    config.plugin("loadshReplace").use(new LodashModuleReplacementPlugin());
 
-    config
-      .resolve
-      .alias
-      .set('@', resolve('src'))
-      .set('@lib', resolve('src/lib'))
-      .set('@utils', resolve('src/utils'))
-      .set('@store', resolve('src/store'))
-      .set('@views', resolve('src/views'))
-      .set('@assets', resolve('src/assets'))
-      .set('@router', resolve('src/router'))
-      .set('@components', resolve('src/components'))
+    config.resolve.alias
+      .set("@", resolve("src"))
+      .set("@lib", resolve("src/lib"))
+      .set("@utils", resolve("src/utils"))
+      .set("@store", resolve("src/store"))
+      .set("@views", resolve("src/views"))
+      .set("@assets", resolve("src/assets"))
+      .set("@router", resolve("src/router"))
+      .set("@components", resolve("src/components"));
   },
-  configureWebpack: config => { // eslint-disable-line
-    if (process.env.NODE_ENV === 'production') {
+  configureWebpack: () => {
+    // eslint-disable-line
+    if (process.env.NODE_ENV === "production") {
       return {
         optimization: {
           minimizer: [
@@ -42,20 +39,20 @@ module.exports = {
               sourceMap: false,
               terserOptions: {
                 compress: {
-                  drop_console: true
-                }
-              }
-            })
-          ]
-        }
-      }
+                  drop_console: true,
+                },
+              },
+            }),
+          ],
+        },
+      };
     }
   },
   css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "@/styles/_var.scss";`
+        additionalData: `@import "@/styles/_var.scss";`,
       },
-    }
-  }
-}
+    },
+  },
+};

@@ -67,8 +67,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./common.scss";
-
 .veneer-nmu-view-wrapper {
   .nmu-link-wrapper {
     left: 32px;

@@ -1,0 +1,213 @@
+.veneer-item-view-wrapper {
+  display: flex;
+  width: 521px;
+  height: 60px;
+  position: relative;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.veneer-item-view-wrapper::after,
+.veneer-item-view-wrapper::before {
+  content: "+";
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: #3b3835;
+  border: 2px solid #848382;
+  border-radius: 50%;
+  position: absolute;
+  top: 22px;
+  color: #848382;
+  line-height: 14px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.veneer-item-view-wrapper::before {
+  left: 1px;
+}
+.veneer-item-view-wrapper::after {
+  right: 1px;
+}
+
+// 单板名称
+.veneer-item-name {
+  background-color: #db3d21;
+  width: 45px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #fff;
+
+  span {
+    display: block;
+  }
+}
+
+// 网灯
+.veneer-link-wrapper {
+  position: absolute;
+
+  .veneer-light {
+    display: flex;
+
+    span.k-name {
+      width: 45px;
+      height: 5px;
+      line-height: 7px;
+      font-size: 12px;
+      transform: scale(0.6) translateX(25%);
+      text-align: right;
+    }
+
+    .k-name ~ .k-name {
+      text-align: left;
+      transform: scale(0.6) translateX(-25%);
+    }
+    span.k-item {
+      width: 9px;
+      height: 5px;
+      background-color: #dedede;
+    }
+
+    span.k-item.suc {
+      background-color: green;
+    }
+
+    span.k-item.war {
+      background-color: red;
+    }
+
+    .k-item + .k-item {
+      margin-left: 5px;
+    }
+  }
+
+  .veneer-light + .veneer-light {
+    margin-top: 2px;
+  }
+}
+
+// 光纤
+.tx-rx-wrapper {
+  position: absolute;
+  left: 100px;
+  top: 3px;
+  display: flex;
+
+  .tx-rx-inner-item {
+    display: flex;
+
+    .tx-rx-item {
+      width: 18px;
+      height: 48px;
+    }
+
+    .tx-rx-item-main {
+      width: 18px;
+      height: 34px;
+      background: url(../assets/images/veneer/fiber.png) center/contain no-repeat;
+    }
+  }
+
+  .tx-rx-inner-item + .tx-rx-inner-item {
+    margin-left: 5px;
+  }
+}
+
+// rst
+.veneer-rst-wrapper {
+  position: absolute;
+  text-align: center;
+
+  .rst-circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #828180;
+    margin: -4px 0 0 7px;
+  }
+}
+
+// console
+.veneer-console-wrapper {
+  position: absolute;
+  width: 40px;
+  height: 22px;
+  background: url(../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
+  text-align: center;
+  white-space: nowrap;
+}
+
+// tx rx
+.veneer-trx-wrapper {
+  position: absolute;
+  display: flex;
+  .trx-item {
+    width: 34px;
+    .trx-item-title {
+      height: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 2px -4px;
+    }
+    .trx-item-main {
+      width: 33px;
+      height: 24px;
+      background: url(../assets/images/veneer/Tx.svg) center/contain no-repeat;
+    }
+
+    .trx-item-main.suc {
+      background-color: red;
+    }
+  }
+
+  .trx-item + .trx-item {
+    margin-left: 11px;
+  }
+}
+
+// ETH
+.veneer-eth-wrapper {
+  position: absolute;
+  display: flex;
+
+  .eth-item {
+    .eth-item-main {
+      width: 33px;
+      height: 25px;
+      background: url(../assets/images/veneer/Eth.svg) center/contain no-repeat;
+    }
+
+    .eth-item-main.suc {
+      background-color: red;
+    }
+
+    .eth-item-title {
+      width: 30px;
+      height: 8px;
+      font-size: 12px;
+      line-height: 10px;
+      padding-left: 3px;
+    }
+  }
+}
+
+// usb
+.veneer-usb-wrapper {
+  width: 30px;
+  position: absolute;
+
+  .usb-title {
+    height: 4px;
+    font-size: 12px;
+    transform: scale(0.6) translateX(-25%);
+  }
+
+  .usb-main {
+    width: 19px;
+    height: 20px;
+    background: url(../assets/images/veneer/usb.svg) center/contain no-repeat;
+  }
+}

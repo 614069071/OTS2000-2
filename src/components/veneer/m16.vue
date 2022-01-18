@@ -124,8 +124,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./common.scss";
-
 .veneer-link-wrapper {
   left: 32px;
   top: 15px;

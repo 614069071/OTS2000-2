@@ -350,8 +350,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[0].Switch">
-                <option :value="0">强制11连接13</option>
-                <option :value="1">强制12连接13</option>
+                <option :value="0">强制1连接3</option>
+                <option :value="1">强制1连接2</option>
               </select>
             </div>
           </td>
@@ -360,8 +360,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[1].Switch">
-                <option :value="0">强制11连接13</option>
-                <option :value="1">强制12连接13</option>
+                <option :value="0">强制4连接6</option>
+                <option :value="1">强制4连接5</option>
               </select>
             </div>
           </td>

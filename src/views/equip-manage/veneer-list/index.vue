@@ -199,8 +199,8 @@ $border-color: #aaa;
   }
 
   td {
-    min-height: 34px;
-    line-height: 34px;
+    min-height: 24px;
+    line-height: 24px;
     flex: 1;
     position: relative;
     padding: 0 3px;
@@ -256,7 +256,7 @@ $border-color: #aaa;
 
 .venner-change-btns {
   text-align: right;
-  padding: 20px 10px;
+  padding: 10px 10px;
   background-color: #fff;
 }
 
@@ -270,7 +270,7 @@ $border-color: #aaa;
 
 .veneer-table-title {
   background-color: #fff;
-  padding: 20px 10px 0 10px;
+  padding: 10px 10px 0 10px;
 }
 
 .veneer-block-diagram-wrapper {

@@ -283,7 +283,7 @@ export default {
   .system-info-item {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 5px;
     white-space: nowrap;
 
     span {

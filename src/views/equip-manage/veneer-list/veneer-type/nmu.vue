@@ -125,7 +125,7 @@
         </tr>
       </table>
 
-      <table class="veneer-table" style="margin-top: 20px" border="1">
+      <table class="veneer-table" style="margin-top: 10px" border="1">
         <tr>
           <td>ETH端口</td>
           <td>ETH1</td>

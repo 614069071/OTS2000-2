@@ -53,17 +53,17 @@
         <thead>
           <tr>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-4">SFP28光模块</div>
             </td>
-            <td class="no-right-border"></td>
-            <td class="no-right-border"></td>
             <td></td>
-            <td class="no-right-border">
+            <td></td>
+            <td></td>
+            <td>
               <div class="coll-4">QSFP28光模块</div>
             </td>
-            <td class="no-right-border"></td>
-            <td class="no-right-border"></td>
+            <td></td>
+            <td></td>
             <td></td>
           </tr>
           <tr>
@@ -85,11 +85,11 @@
           <td></td>
           <td></td>
           <td></td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4"></div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -186,11 +186,11 @@
           <td></td>
           <td></td>
           <td></td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4"></div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -199,24 +199,11 @@
           <td></td>
           <td></td>
           <td></td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4"></div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>预留1</td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
-          </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
         </tr>
         <tr>
@@ -243,31 +230,30 @@
         </tr>
         <tr>
           <td>速率</td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4"></div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
+          <td></td>
+          <td></td>
+          <td>
             <div class="coll-4"></div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
-
         <tr>
           <td>输入EQ（dB）</td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4">NA</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -276,11 +262,11 @@
           <td></td>
           <td></td>
           <td></td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4">NA</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -327,28 +313,6 @@
           <td></td>
           <td></td>
         </tr>
-        <tr>
-          <td>预留2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>预留3</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
       </table>
     </div>
 
@@ -365,18 +329,66 @@
 import mixins from "@/utils/mixins";
 
 export default {
-  name: "otu4x10g",
+  name: "otu100g",
   mixins: [mixins],
   data() {
     return {
-      veneerTitleData: {},
+      infoData: {
+        channels: new Array(4).fill({}),
+      },
+      detection: [
+        { client: false, line: false, clientEnd: false, lineEnd: false },
+        { client: false, line: false, clientEnd: false, lineEnd: false },
+        { client: false, line: false, clientEnd: false, lineEnd: false },
+        { client: false, line: false, clientEnd: false, lineEnd: false },
+      ],
     };
   },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
+  methods: {
+    // 误码检测
+    detectionPrbs(i, status) {
+      const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
+      this.infoData.channels[i].prbs_en[status] = val;
+
+      const { boardname, slot } = this.info;
+      const diffData = this.$difference(this.infoData, this.clonData);
+      const data = { otn2000: { ...diffData, type: "post_info", boardname, slot } };
+
+      this.setInfoDisabled = true;
+      this.detection[i][`${status}End`] = false;
+      this.detection[i][status] = true;
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          console.log("setInfos", res);
+          this.$message("成功");
+          this.setInfoDisabled = false;
+          this.detection[i][status] = false;
+
+          if (!val) {
+            // 停止检测并获取状态
+            console.log("停止检测", val);
+            this.getInfo()
+              .then(() => {
+                this.detection[i][`${status}End`] = true;
+                this.$message("检测成功");
+              })
+              .catch(() => {
+                this.detection[i][`${status}End`] = true;
+                this.$message("检测失败");
+              });
+          } else {
+            this.detection[i][`${status}End`] = false;
+            this.detection[i][status] = false;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$message("失败");
+          this.setInfoDisabled = false;
+        });
+    },
   },
 };
 </script>

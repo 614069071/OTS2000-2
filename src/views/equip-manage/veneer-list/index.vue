@@ -246,7 +246,6 @@ $border-color: #aaa;
   td > .def-input {
     width: 100%;
     max-width: 240px;
-    height: 28px;
   }
 
   .el-date-editor.el-input {

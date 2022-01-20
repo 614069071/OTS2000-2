@@ -61,7 +61,7 @@ export default {
 
     .close-button {
       width: 30px;
-      height: 30px;
+      height: 20px;
       text-align: center;
       line-height: 30px;
       // margin: -10px -10px 0 0;

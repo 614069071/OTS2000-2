@@ -219,14 +219,71 @@
         </tr>
         <tr>
           <td>误码检测</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>误码检测</td>
+          <td>
+            <div v-if="infoData.channels[0].link_status.client">
+              <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.channels[0].prbs_en.client ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[0].clientEnd ? (infoData.channels[0].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[0].link_status.line">
+              <button class="def-btn" :disabled="detection[0]['line']" @click="detectionPrbs(0, 'line')">{{ infoData.channels[0].prbs_en.line ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[0].lineEnd ? (infoData.channels[0].prbs.line ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[1].link_status.client">
+              <button class="def-btn" :disabled="detection[1]['client']" @click="detectionPrbs(1, 'client')">{{ infoData.channels[1].prbs_en.client ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[1].clientEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[1].link_status.line">
+              <button class="def-btn" :disabled="detection[1]['line']" @click="detectionPrbs(1, 'line')">{{ infoData.channels[1].prbs_en.line ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[1].lineEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[2].link_status.client">
+              <button class="def-btn" :disabled="detection[2]['client']" @click="detectionPrbs(2, 'client')">{{ infoData.channels[2].prbs_en.client ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[2].clientEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[2].link_status.line">
+              <button class="def-btn" :disabled="detection[2]['line']" @click="detectionPrbs(2, 'line')">{{ infoData.channels[2].prbs_en.line ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[2].lineEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[3].link_status.client">
+              <button class="def-btn" :disabled="detection[3]['client']" @click="detectionPrbs(3, 'client')">{{ infoData.channels[3].prbs_en.client ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[3].clientEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div v-if="infoData.channels[3].link_status.line">
+              <button class="def-btn" :disabled="detection[3]['line']" @click="detectionPrbs(3, 'line')">{{ infoData.channels[3].prbs_en.line ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[3].lineEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            </div>
+
+            <template v-else>NA</template>
+          </td>
         </tr>
         <tr>
           <td>速率</td>

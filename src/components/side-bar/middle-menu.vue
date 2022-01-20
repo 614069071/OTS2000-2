@@ -30,9 +30,9 @@ export default {
 
 <style>
 .middle-menu .m-icon {
-  margin-right: 18px;
+  margin-right: 10px;
   display: inline-block;
-  width: 24px;
+  width: 20px;
   text-align: center;
   font-size: 16px;
 }

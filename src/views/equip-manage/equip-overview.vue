@@ -252,8 +252,8 @@ export default {
 
 <style scoped lang="scss">
 .refresh-header-wrapper {
-  height: 57px;
-  padding: 30px 0 0 0;
+  height: 36px;
+  padding: 10px 0 0 0;
   display: flex;
   justify-content: right;
 
@@ -266,7 +266,7 @@ export default {
 }
 
 .veneer-block-diagram-wrapper {
-  margin: 0 auto 20px auto;
+  margin: 0 auto 10px auto;
 }
 
 .system-info-cahnge-btn {
@@ -283,12 +283,12 @@ export default {
   .system-info-item {
     display: flex;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 10px;
     white-space: nowrap;
 
     span {
-      height: 32px;
-      line-height: 32px;
+      height: 28px;
+      line-height: 28px;
       font-size: 16px;
     }
 
@@ -305,7 +305,7 @@ export default {
   }
 
   .system-info-change-wrapper {
-    padding: 10px 0 20px 0;
+    padding: 10px 0 10px 0;
     button:first-child {
       margin-left: 246px;
     }
@@ -323,8 +323,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80px;
-    line-height: 80px;
+    height: 44px;
     font-size: 18px;
 
     .c-icon {

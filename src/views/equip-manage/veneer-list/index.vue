@@ -9,7 +9,7 @@
 
     <div class="inner-container-wrapper veneer-list">
       <div class="inner-container-title">单板列表</div>
-      <el-table border :data="dataTable" tooltip-effect="dark" style="width: 100%">
+      <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
         <el-table-column prop="slot" label="槽位号"></el-table-column>
         <el-table-column prop="status" label="槽位状态">
           <template slot-scope="scoped">
@@ -132,7 +132,7 @@ export default {
 }
 
 .veneer-list {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 </style>
 

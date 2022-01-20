@@ -147,7 +147,7 @@ export default {
 }
 
 .aside-footer-wrapper {
-  height: 100px;
+  height: 60px;
 }
 
 .user-info-wrapper span + span {

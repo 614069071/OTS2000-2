@@ -94,17 +94,17 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? (infoData.channels[1].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
-          <td>工作模式</td>
+          <td>工作状态</td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[0].work_mode ? "备" : "主" }}
+              {{ infoData.channels[0].work_status ? "备" : "主" }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[1].work_mode ? "备" : "主" }}
+              {{ infoData.channels[1].work_status ? "备" : "主" }}
             </div>
           </td>
           <td></td>
@@ -326,7 +326,7 @@
           <td>保护模式</td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[0].work_road">
+              <select v-model="infoData.channels[0].work_mode">
                 <option :value="0">自动</option>
                 <option :value="1">手动</option>
               </select>
@@ -336,7 +336,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[1].work_road">
+              <select v-model="infoData.channels[1].work_mode">
                 <option :value="0">自动</option>
                 <option :value="1">手动</option>
               </select>
@@ -349,7 +349,7 @@
           <td>强制倒换</td>
           <td>
             <div class="coll-3">
-              <select :disabled="!infoData.channels[0].work_road" v-model="infoData.channels[0].Switch">
+              <select :disabled="!infoData.channels[0].work_mode" v-model="infoData.channels[0].Switch">
                 <option :value="0">备</option>
                 <option :value="1">主</option>
               </select>
@@ -359,7 +359,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select :disabled="!infoData.channels[1].work_road" v-model="infoData.channels[1].Switch">
+              <select :disabled="!infoData.channels[1].work_mode" v-model="infoData.channels[1].Switch">
                 <option :value="0">备</option>
                 <option :value="1">主</option>
               </select>
@@ -373,8 +373,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[0].enback_back">
-                <option :value="0">是</option>
-                <option :value="1">否</option>
+                <option :value="0">回切</option>
+                <option :value="1">不回切</option>
               </select>
             </div>
           </td>
@@ -383,8 +383,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[1].enback_back">
-                <option :value="0">是</option>
-                <option :value="1">否</option>
+                <option :value="0">回切</option>
+                <option :value="1">不回切</option>
               </select>
             </div>
           </td>

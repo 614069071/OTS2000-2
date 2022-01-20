@@ -96,8 +96,8 @@
           <td>PUMP关断</td>
           <td style="text-align: left">
             <select style="width: 66px" v-model="infoData.pump_sw">
-              <option :value="1">打开</option>
-              <option :value="0">关闭</option>
+              <option :value="0">打开</option>
+              <option :value="1">关闭</option>
             </select>
           </td>
           <td>工作模式</td>

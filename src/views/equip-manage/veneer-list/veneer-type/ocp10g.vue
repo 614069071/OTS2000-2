@@ -349,9 +349,9 @@
           <td>强制倒换</td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[0].Switch">
-                <option :value="0">强制1连接3</option>
-                <option :value="1">强制1连接2</option>
+              <select :disabled="!infoData.channels[0].work_road" v-model="infoData.channels[0].Switch">
+                <option :value="0">备</option>
+                <option :value="1">主</option>
               </select>
             </div>
           </td>
@@ -359,9 +359,9 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[1].Switch">
-                <option :value="0">强制4连接6</option>
-                <option :value="1">强制4连接5</option>
+              <select :disabled="!infoData.channels[1].work_road" v-model="infoData.channels[1].Switch">
+                <option :value="0">备</option>
+                <option :value="1">主</option>
               </select>
             </div>
           </td>

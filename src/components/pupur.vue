@@ -44,7 +44,7 @@ export default {
   z-index: 100;
 
   .pupur-container-wrapper {
-    width: 80%;
+    width: 90%;
     min-width: 1100px;
     height: 90%;
     margin: auto;

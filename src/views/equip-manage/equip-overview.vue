@@ -289,7 +289,7 @@ export default {
     span {
       height: 28px;
       line-height: 28px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     span:first-child {

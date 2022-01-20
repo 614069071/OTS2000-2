@@ -92,20 +92,20 @@ export default {
   min-width: 1280px;
 
   .layout-header {
-    height: 93px;
+    height: 50px;
     display: flex;
-    padding: 0 18px;
+    padding: 0 5px;
     align-items: center;
     justify-content: space-between;
     background-color: var(--dft-color);
     color: #fff;
+
     .logo-wrapper {
-      width: 120px;
-      height: 54px;
+      width: 70px;
+      height: 33px;
       overflow: hidden;
       cursor: pointer;
       text-align: center;
-      line-height: 56px;
     }
   }
 

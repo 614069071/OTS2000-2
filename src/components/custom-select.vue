@@ -63,7 +63,6 @@ export default {
 <style scoped lang="css">
 .custom-select-input {
   width: 80px;
-  height: 28px;
   margin-left: 10px;
 }
 </style>

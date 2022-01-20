@@ -199,8 +199,8 @@ $border-color: #aaa;
   }
 
   td {
-    min-height: 24px;
-    line-height: 24px;
+    min-height: 26px;
+    line-height: 26px;
     flex: 1;
     position: relative;
     padding: 0 3px;

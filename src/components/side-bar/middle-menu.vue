@@ -36,7 +36,4 @@ export default {
   text-align: center;
   font-size: 16px;
 }
-.el-menu-item.is-active {
-  background-color: var(--default-color) !important;
-}
 </style>

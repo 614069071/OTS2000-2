@@ -6,34 +6,46 @@
       <table class="veneer-table" border="1">
         <tr>
           <td>硬件版本</td>
-          <td>{{ veneerTitleData.h_rev }}</td>
+          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
           <td>软件版本</td>
-          <td>{{ veneerTitleData.s_rev }}</td>
+          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
           <td>协议版本</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
         </tr>
         <tr>
           <td>生产日期</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>
+            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+
+            <template v-else>
+              {{ titeData.mfgdate }}
+            </template>
+          </td>
           <td>序列号</td>
-          <td>{{ veneerTitleData.sn }}</td>
-          <td>板型号</td>
-          <td>{{ veneerTitleData.bdtype }}</td>
+          <td>
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
+
+            <template v-else>
+              {{ titeData.sn }}
+            </template>
+          </td>
+          <td>版型号</td>
+          <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>
-          <td>{{ veneerTitleData.device_type }}</td>
+          <td>{{ titeData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status }}</td>
+          <td>{{ titeData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
-          <td>{{ veneerTitleData.desc }}</td>
+          <td><input class="def-input" type="text" v-model="titeData.desc" /></td>
         </tr>
       </table>
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <div class="veneer-table-container">
@@ -341,17 +353,20 @@
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
-      <button class="def-btn">复位</button>
-      <button class="def-btn">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
     </div>
   </div>
 </template>
 
 <script>
+import mixins from "@/utils/mixins";
+
 export default {
   name: "otu4x10g",
+  mixins: [mixins],
   data() {
     return {
       veneerTitleData: {},

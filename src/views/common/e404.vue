@@ -56,7 +56,6 @@
 }
 
 .error-404-mes-wrapper {
-  color: var(--font-color-1);
   height: 20px;
   line-height: 20px;
   margin: 30px 0 24px 0;

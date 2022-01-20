@@ -97,7 +97,7 @@ export default {
     padding: 0 18px;
     align-items: center;
     justify-content: space-between;
-    background-color: #003466;
+    background-color: var(--dft-color);
     color: #fff;
     .logo-wrapper {
       width: 120px;

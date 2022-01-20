@@ -194,6 +194,6 @@ export default {
 
 .el-menu-item.is-active {
   // background-color: var(--default-color) !important;
-  background-color: #003466 !important;
+  background-color: var(--dft-color) !important;
 }
 </style>

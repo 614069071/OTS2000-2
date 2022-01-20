@@ -361,7 +361,7 @@ export default {
   .temperature-inner-wrapper {
     width: 7px;
     height: 43px;
-    background-color: #003466;
+    background-color: var(--dft-color);
     position: absolute;
     left: 60px;
     bottom: 44px;

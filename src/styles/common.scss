@@ -1,12 +1,15 @@
 @import url("//at.alicdn.com/t/font_2388906_wz7ob740st.css");
 
 :root {
-  --default-color: #409eff;
-  --second-color: #ecf5ff;
-  --font-color: #606266;
-  --font-color-1: #909399;
-  --font-color-3: #333;
-  --font-color-a6: #a6a6a6;
+  --dft-color: #003466;
+  --dft-ht: 20px;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--dft-color) !important;
+  font-family: "SourceHanSansSC", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .f-8 {
@@ -144,7 +147,7 @@
   font-size: 18px;
   color: #fff;
   padding: 0 20px;
-  background-color: #003466;
+  background-color: var(--dft-color);
   // font-weight: 700;
 }
 
@@ -175,7 +178,7 @@ button {
   padding: 0 10px;
   height: 28px;
   line-height: 28px;
-  background-color: #003466;
+  background-color: var(--dft-color);
   color: #fff;
   border-radius: 4px;
   white-space: nowrap;

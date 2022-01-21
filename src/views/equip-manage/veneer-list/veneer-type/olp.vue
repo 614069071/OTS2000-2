@@ -186,7 +186,7 @@ export default {
   },
   filters: {
     signal(val) {
-      if (!val) return "NA";
+      if (val !== 0 && !val) return "NA";
 
       if (val < -30) {
         return "收光弱";

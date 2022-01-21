@@ -150,16 +150,6 @@
               ]"
             />
           </td>
-          <!-- <td>PUMP关断电流（mA）</td>
-        <td>
-          <CustomSelect
-            v-model="infoData.pump_sw_cur"
-            :options="[
-              { label: '50', value: 50 },
-              
-            ]"
-          />
-        </td> -->
           <td>PUMP温度高门限（℃）</td>
           <td>
             <CustomSelect v-model="infoData.pump_temp_high" :options="[{ label: '30', value: 30 }]" />
@@ -196,14 +186,9 @@
               ]"
             />
           </td>
-          <td><!--PUMP温度高门限（℃）--></td>
+          <td>PUMP关断功率（dBm）</td>
           <td>
-            <!-- <CustomSelect
-            v-model="infoData.pump_temp_high"
-            :options="[
-              { label: '30', value: 30 },
-            ]"
-          /> -->
+            <input class="def-input" type="text" v-model="infoData.sw_power" />
           </td>
         </tr>
       </table>

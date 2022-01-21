@@ -1,39 +1,51 @@
 <template>
   <div class="otucfpdco200g-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">otucfpdco200g</div>
+    <div class="veneer-header-wrapper">dco200g</div>
 
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
         <tr>
           <td>硬件版本</td>
-          <td>{{ veneerTitleData.h_rev }}</td>
+          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
           <td>软件版本</td>
-          <td>{{ veneerTitleData.s_rev }}</td>
+          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
           <td>协议版本</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
         </tr>
         <tr>
           <td>生产日期</td>
-          <td>{{ veneerTitleData.mfgdate }}</td>
+          <td>
+            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+
+            <template v-else>
+              {{ titeData.mfgdate }}
+            </template>
+          </td>
           <td>序列号</td>
-          <td>{{ veneerTitleData.sn }}</td>
+          <td>
+            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
+
+            <template v-else>
+              {{ titeData.sn }}
+            </template>
+          </td>
           <td>版型号</td>
-          <td></td>
+          <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>
-          <td>{{ veneerTitleData.device_type }}</td>
+          <td>{{ titeData.device_type }}</td>
           <td>状态</td>
-          <td>{{ veneerTitleData.status }}</td>
+          <td>{{ titeData.status ? "告警" : "正常" }}</td>
           <td>信息描述</td>
-          <td>{{ veneerTitleData.desc }}</td>
+          <td><input class="def-input" type="text" v-model="titeData.desc" /></td>
         </tr>
       </table>
     </div>
 
     <div class="venner-change-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <div class="veneer-table-container">
@@ -70,13 +82,13 @@
         <tr>
           <td>在位状态</td>
           <td class="no-right-border">
-            <div class="coll-4"></div>
+            <div class="coll-4">{{ infoData.QSFP1.link_status }}</div>
           </td>
           <td class="no-right-border"></td>
           <td class="no-right-border"></td>
           <td></td>
           <td class="no-right-border">
-            <div class="coll-4"></div>
+            <div class="coll-4">{{ infoData.QSFP2.link_status }}</div>
           </td>
           <td class="no-right-border"></td>
           <td class="no-right-border"></td>
@@ -360,18 +372,85 @@
 </template>
 
 <script>
+import mixins from "@/utils/mixins";
+
 export default {
-  name: "otucfpdco200g",
+  name: "otu10g",
+  mixins: [mixins],
   data() {
     return {
-      veneerTitleData: {},
+      infoData: {
+        channels: new Array(4).fill({
+          channel: null,
+          link_status: {
+            client: null,
+            line: null,
+          },
+          los: {
+            client: null,
+            line: null,
+          },
+          tx_disable: {
+            client: null,
+            line: null,
+          },
+          speed: null,
+          loop_mode: null,
+          launch_range: {
+            client: null,
+            line: null,
+          },
+          wave_channel: {
+            client: null,
+            line: null,
+          },
+          rw_type: {
+            client: null,
+            line: null,
+          },
+          rcv_thr_H: {
+            client: null,
+            line: null,
+          },
+          rcv_thr_L: {
+            client: null,
+            line: null,
+          },
+          tx_thr_H: {
+            client: null,
+            line: null,
+          },
+          tx_thr_L: {
+            client: null,
+            line: null,
+          },
+          wave_len: {
+            client: null,
+            line: null,
+          },
+          launch_power: {
+            client: null,
+            line: null,
+          },
+          rcv_power: {
+            client: null,
+            line: null,
+          },
+          voltage: {
+            client: null,
+            line: null,
+          },
+          current: {
+            client: null,
+            line: null,
+          },
+          temp: {
+            client: null,
+            line: null,
+          },
+        }),
+      },
     };
-  },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
   },
 };
 </script>

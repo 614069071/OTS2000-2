@@ -138,7 +138,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].launch_power.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>接受光功率（dBm）</td>
+          <td>接收光功率（dBm）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].rcv_power.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].rcv_power.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].rcv_power.Sec_Line : "NA" }}</td>

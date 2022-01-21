@@ -1,17 +1,17 @@
 <template>
   <div class="custom-select-wrapper">
-    <select v-model="selectVal" @change="selectChange">
+    <select :disabled="disabled" v-model="selectVal" @change="selectChange">
       <option v-for="(item, index) in options" :value="item.value" :key="`${index}${item.value}`">{{ item.label }}</option>
       <option value="custom">自定义</option>
     </select>
-    <input v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
+    <input :disabled="disabled" v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
   </div>
 </template>
 
 <script>
 export default {
   name: "custom-select",
-  props: ["options", "value"],
+  props: ["options", "value", "disabled"],
   data() {
     return {
       selectVal: "",

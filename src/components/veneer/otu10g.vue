@@ -1,6 +1,6 @@
 <template>
   <div class="veneer-otu10g-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-10">4*10G OTU</span></div>
+    <div class="veneer-item-name"><span>4*10G OTU</span></div>
     <div class="veneer-link-wrapper otu10g-link-wrapper1">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
       <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>

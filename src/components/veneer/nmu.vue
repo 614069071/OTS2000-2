@@ -1,6 +1,6 @@
 <template>
   <div class="veneer-nmu-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-10">NMU</span></div>
+    <div class="veneer-item-name"><span>NMU</span></div>
 
     <div class="veneer-link-wrapper nmu-link-wrapper">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>

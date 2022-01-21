@@ -1,6 +1,6 @@
 <template>
   <div class="veneer-m16-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-9">M16</span></div>
+    <div class="veneer-item-name"><span>M16</span></div>
     <div class="veneer-link-wrapper">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>

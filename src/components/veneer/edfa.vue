@@ -1,6 +1,6 @@
 <template>
   <div class="veneer-edfa-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-10">EDFA</span></div>
+    <div class="veneer-item-name"><span>EDFA</span></div>
     <div class="veneer-link-wrapper">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
       <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>

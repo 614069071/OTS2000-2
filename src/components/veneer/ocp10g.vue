@@ -1,6 +1,6 @@
 <template>
   <div class="veneer-ocp-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span class="f-10">2*10G OCP</span></div>
+    <div class="veneer-item-name"><span>2*10G OCP</span></div>
     <div class="veneer-link-wrapper ocp-link-wrapper1">
       <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="veneer-light"><span class="k-name">RLN</span><span class="k-item war"></span></div>

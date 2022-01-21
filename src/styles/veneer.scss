@@ -7,22 +7,22 @@
   box-sizing: border-box;
 }
 
-.veneer-item-view-wrapper::after,
-.veneer-item-view-wrapper::before {
-  content: "+";
-  display: block;
-  width: 14px;
-  height: 14px;
-  background-color: #3b3835;
-  border: 2px solid #848382;
-  border-radius: 50%;
-  position: absolute;
-  top: 22px;
-  color: #848382;
-  line-height: 14px;
-  text-align: center;
-  font-size: 14px;
-}
+// .veneer-item-view-wrapper::after,
+// .veneer-item-view-wrapper::before {
+//   content: "+";
+//   display: block;
+//   width: 14px;
+//   height: 14px;
+//   background-color: #3b3835;
+//   border: 2px solid #848382;
+//   border-radius: 50%;
+//   position: absolute;
+//   top: 22px;
+//   color: #848382;
+//   line-height: 14px;
+//   text-align: center;
+//   font-size: 14px;
+// }
 
 .veneer-item-view-wrapper::before {
   left: 1px;
@@ -34,14 +34,17 @@
 // 单板名称
 .veneer-item-name {
   background-color: #db3d21;
-  min-width: 45px;
+  width: 62px;
   height: 14px;
   line-height: 14px;
   text-align: center;
-  color: #fff;
 
   span {
     display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    transform: scale(0.8);
+    color: #fff;
   }
 }
 

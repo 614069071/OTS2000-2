@@ -82,13 +82,13 @@
         <tr>
           <td>在位状态</td>
           <td class="no-right-border">
-            <div class="coll-4">{{ infoData.QSFP1.link_status }}</div>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? "在位" : "脱位" }}</div>
           </td>
           <td class="no-right-border"></td>
           <td class="no-right-border"></td>
           <td></td>
           <td class="no-right-border">
-            <div class="coll-4">{{ infoData.QSFP2.link_status }}</div>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? "在位" : "脱位" }}</div>
           </td>
           <td class="no-right-border"></td>
           <td class="no-right-border"></td>
@@ -96,14 +96,14 @@
         </tr>
         <tr>
           <td>LINK状态</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.los : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.los : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.los : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel4.los : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel1.los : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel2.los : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel3.los : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.los : "NA" }}</td>
         </tr>
         <tr>
           <td>距离（km）</td>
@@ -380,75 +380,103 @@ export default {
   data() {
     return {
       infoData: {
-        channels: new Array(4).fill({
-          channel: null,
-          link_status: {
-            client: null,
-            line: null,
+        boardname: "",
+        type: "",
+        QSFP1: {
+          link_status: 0,
+          launch_range: 0,
+          wave_len: 0,
+          voltage: 0,
+          temp: 0,
+          Business_type: 0,
+          FEC_mode: 0,
+          rcv_thr_H: 0,
+          rcv_thr_L: 0,
+          tx_thr_H: 0,
+          tx_thr_L: 0,
+          channel1: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          los: {
-            client: null,
-            line: null,
+          channel2: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          tx_disable: {
-            client: null,
-            line: null,
+          channel3: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          speed: null,
-          loop_mode: null,
-          launch_range: {
-            client: null,
-            line: null,
+          channel4: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          wave_channel: {
-            client: null,
-            line: null,
+        },
+        QSFP2: {
+          link_status: 0,
+          launch_range: 0,
+          wave_len: 0,
+          voltage: 0,
+          temp: 0,
+          Business_type: 0,
+          FEC_mode: 0,
+          rcv_thr_H: 0,
+          rcv_thr_L: 0,
+          tx_thr_H: 0,
+          tx_thr_L: 0,
+          channel1: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          rw_type: {
-            client: null,
-            line: null,
+          channel2: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          rcv_thr_H: {
-            client: null,
-            line: null,
+          channel3: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          rcv_thr_L: {
-            client: null,
-            line: null,
+          channel4: {
+            los: 0,
+            tx_disable: 0,
+            launch_power: "",
+            rcv_power: "",
+            current: "",
           },
-          tx_thr_H: {
-            client: null,
-            line: null,
-          },
-          tx_thr_L: {
-            client: null,
-            line: null,
-          },
-          wave_len: {
-            client: null,
-            line: null,
-          },
-          launch_power: {
-            client: null,
-            line: null,
-          },
-          rcv_power: {
-            client: null,
-            line: null,
-          },
-          voltage: {
-            client: null,
-            line: null,
-          },
-          current: {
-            client: null,
-            line: null,
-          },
-          temp: {
-            client: null,
-            line: null,
-          },
-        }),
+        },
+        CFP2: {
+          link_status: 0,
+          temp: "",
+          voltage: "",
+          current: "",
+          launch_power: "",
+          rcv_power: "",
+          tx_disable: 0,
+          light_channel: 0,
+          Modulation_mode: 0,
+          FEC_mode: 0,
+          loop: 0,
+        },
       },
     };
   },

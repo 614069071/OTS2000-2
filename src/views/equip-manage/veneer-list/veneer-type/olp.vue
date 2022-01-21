@@ -74,11 +74,11 @@
         </tr>
         <tr>
           <td>主线路收光信号</td>
-          <td>{{ infoData.main_rx_signal_state | signal }}</td>
+          <td>{{ infoData.main_rx_signal_power | signal }}</td>
           <td>备线路收光信号</td>
-          <td>{{ infoData.slave_rx_signal_state | signal }}</td>
+          <td>{{ infoData.slave_rx_signal_power | signal }}</td>
           <td>本地线路收光信号</td>
-          <td>{{ infoData.local_rx_signal_state | signal }}</td>
+          <td>{{ infoData.local_rx_signal_power | signal }}</td>
         </tr>
         <tr>
           <td>是否自动回切</td>
@@ -176,11 +176,11 @@ export default {
         main_line_alarm_thre: 0,
         slave_line_alarm_thre: 0,
         main_slave_initdiff: 0,
-        switch_condition_diff: 5,
+        switch_condition_diff: 0,
         work_state: 0,
-        main_rx_signal_state: 4,
-        slave_rx_signal_state: 4,
-        local_rx_signal_state: 3,
+        main_rx_signal_power: 0,
+        slave_rx_signal_power: 0,
+        local_rx_signal_power: 0,
       },
     };
   },

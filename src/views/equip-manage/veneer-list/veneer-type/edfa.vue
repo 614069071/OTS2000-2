@@ -112,14 +112,14 @@
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>
-                <el-input-number v-model="infoData.gain" size="mini" :min="-1" :max="20"></el-input-number>
+                <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number>
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>功率值</td>
               <td>
-                <el-input-number v-model="infoData.lum_input" size="mini" :min="29" :max="35"></el-input-number>
+                <el-input-number v-model="infoData.lum_input" size="mini" :min="-4" :max="20"></el-input-number>
               </td>
             </template>
 
@@ -133,14 +133,14 @@
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>
-                <el-input-number v-model="infoData.gain" size="mini" :min="-1" :max="20"></el-input-number>
+                <el-input-number v-model="infoData.gain" size="mini" :min="29" :max="35"></el-input-number>
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>功率值</td>
               <td>
-                <el-input-number v-model="infoData.lum_input" size="mini" :min="29" :max="35"></el-input-number>
+                <el-input-number v-model="infoData.lum_input" size="mini" :min="-1" :max="20"></el-input-number>
               </td>
             </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="edfa-cps-wrapper cps-wrapper">
     <div class="veneer-header-wrapper">
-      <div class="veneer-inner-wrapper edfa-veneer"></div>
+      <Edfa></Edfa>
     </div>
     <div class="veneer-table-title">
       <table class="veneer-table" border="1">
@@ -247,12 +247,13 @@
 
 <script>
 import mixins from "@/utils/mixins";
+import Edfa from "@/components/veneer/edfa";
 import CustomSelect from "@/components/custom-select";
 
 export default {
   name: "edfa",
   mixins: [mixins],
-  components: { CustomSelect },
+  components: { CustomSelect, Edfa },
   data() {
     return {
       infoData: {

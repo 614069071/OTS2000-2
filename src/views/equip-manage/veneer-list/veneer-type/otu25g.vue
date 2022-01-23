@@ -54,19 +54,19 @@
         <thead>
           <tr>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">通道1</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">通道2</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">通道3</div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">通道4</div>
             </td>
             <td></td>
@@ -367,7 +367,7 @@
           </tr>
           <tr>
             <td>速率</td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
                 <select v-if="titeData.bdtype === '25G-OTUL'" v-model="infoData.channels[0].speed">
                   <option :value="1">eCPRI-25GE</option>
@@ -381,7 +381,7 @@
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
                 <select v-if="titeData.bdtype === '25G-OTUL'" v-model="infoData.channels[1].speed">
                   <option :value="1">eCPRI-25GE</option>
@@ -394,7 +394,7 @@
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
                 <select v-if="titeData.bdtype === '25G-OTUL'" v-model="infoData.channels[2].speed">
                   <option :value="1">eCPRI-25GE</option>
@@ -407,7 +407,7 @@
               </div>
             </td>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-2">
                 <select v-if="titeData.bdtype === '25G-OTUL'" v-model="infoData.channels[3].speed">
                   <option :value="1">eCPRI-25GE</option>

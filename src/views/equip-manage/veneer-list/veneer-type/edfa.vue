@@ -54,9 +54,9 @@
       <table class="veneer-table" border="1">
         <tr>
           <td>输入光功率（dBm）</td>
-          <td>{{ infoData.lum_input }}</td>
+          <td>{{ infoData.lum_input === 327.67 ? "无输入" : infoData.lum_input }}</td>
           <td>输出光功率（dBm）</td>
-          <td>{{ infoData.lum_output }}</td>
+          <td>{{ infoData.lum_output === 327.67 ? "无输出" : infoData.lum_output }}</td>
           <td>TEC制冷电流（mA）</td>
           <td>{{ infoData.tec_cold_cur }}</td>
         </tr>
@@ -87,11 +87,7 @@
           <td></td>
           <td></td>
         </tr>
-      </table>
 
-      <!-- 修改信息 -->
-
-      <table class="veneer-table" style="margin-top: 20px" border="1">
         <tr>
           <td>PUMP关断</td>
           <td style="text-align: left">
@@ -111,7 +107,54 @@
               ]"
             />
           </td>
+
+          <template v-if="titeData.bdtype === 'OBA20G22'">
+            <template v-if="infoData.mode === 3">
+              <td>增益值</td>
+              <td>
+                <el-input-number v-model="infoData.gain" size="mini" :min="-1" :max="20"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 2">
+              <td>功率值</td>
+              <td>
+                <el-input-number v-model="infoData.lum_input" size="mini" :min="29" :max="35"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 0">
+              <td></td>
+              <td></td>
+            </template>
+          </template>
+
+          <template v-else>
+            <template v-if="infoData.mode === 3">
+              <td>增益值</td>
+              <td>
+                <el-input-number v-model="infoData.gain" size="mini" :min="-1" :max="20"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 2">
+              <td>功率值</td>
+              <td>
+                <el-input-number v-model="infoData.lum_input" size="mini" :min="29" :max="35"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 0">
+              <td></td>
+              <td></td>
+            </template>
+          </template>
         </tr>
+      </table>
+
+      <!-- 修改信息 -->
+
+      <table class="veneer-table" style="margin-top: 20px" border="1">
         <tr>
           <td>输入光功率告警门限（dBm）</td>
           <td>

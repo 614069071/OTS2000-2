@@ -225,6 +225,16 @@ button + button {
   height: 26px !important;
 }
 
+.el-input-number--mini {
+  width: 100px;
+  overflow: hidden;
+  .el-input-number__decrease,
+  .el-input-number__increase {
+    width: 18px;
+    height: 24px;
+  }
+}
+
 // icons
 .c-icon {
   display: inline-block;

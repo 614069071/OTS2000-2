@@ -53,17 +53,17 @@
         <thead>
           <tr>
             <td></td>
-            <td class="no-right-border">
+            <td>
               <div class="coll-4">QSFP28模块1</div>
             </td>
-            <td class="no-right-border"></td>
-            <td class="no-right-border"></td>
             <td></td>
-            <td class="no-right-border">
+            <td></td>
+            <td></td>
+            <td>
               <div class="coll-4">QSFP28模块2</div>
             </td>
-            <td class="no-right-border"></td>
-            <td class="no-right-border"></td>
+            <td></td>
+            <td></td>
             <td></td>
           </tr>
           <tr>
@@ -81,17 +81,17 @@
 
         <tr>
           <td>在位状态</td>
-          <td class="no-right-border">
+          <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? "在位" : "脱位" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
+          <td></td>
+          <td></td>
+          <td>
             <div class="coll-4">{{ infoData.QSFP2.link_status ? "在位" : "脱位" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -107,62 +107,66 @@
         </tr>
         <tr>
           <td>距离（km）</td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.launch_range : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? infoData.QSFP1.launch_range : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>波长（nm）</td>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.wave_len : "NA" }}</div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? infoData.QSFP1.wave_len : "NA" }}</div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>发射光功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel4.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel1.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel2.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel3.launch_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel4.launch_power : "NA" }}</td>
         </tr>
         <tr>
           <td>接收光功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel4.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel1.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel2.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel3.rcv_power : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel4.rcv_power : "NA" }}</td>
         </tr>
         <tr>
           <td>偏置电流（mA）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.current : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.current : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.current : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel4.current : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel1.current : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel2.current : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel3.current : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP1.channel4.current : "NA" }}</td>
         </tr>
         <tr>
           <td>预留1</td>
@@ -177,115 +181,201 @@
         </tr>
         <tr>
           <td>电压（V）</td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.voltage : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? infoData.QSFP1.voltage : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>温度（℃）</td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.temp : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? infoData.QSFP1.temp : "NA" }}</div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>业务类型</td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.Business_type">
+                <option :value="0">100GE</option>
+                <option :value="1">OTU4.4</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.Business_type">
+                <option :value="0">100GE</option>
+                <option :value="1">OTU4.4</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>FEC模式</td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.EFC_mode">
+                <option :value="0">无</option>
+                <option :value="1">GFEC</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
           <td></td>
-          <td class="no-right-border">
-            <div class="coll-4"></div>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.EFC_mode">
+                <option :value="0">无</option>
+                <option :value="1">GFEC</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
           </td>
-          <td class="no-right-border"></td>
-          <td class="no-right-border"></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>激光器开关</td>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.tx_disable">
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.tx_disable">
+                <option :value="0">关</option>
+                <option :value="1">开</option>
+              </select>
+
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>接受光功率过低阈值（dBm）</td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>接受光功率过载阈值（dBm）</td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>发送光功率过低阈值（dBm）</td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>发送光功率过载阈值（dBm）</td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
@@ -297,19 +387,19 @@
       <table class="veneer-table veneer-title-table veneer-cfp2-table" border="1">
         <tr>
           <td>在位状态</td>
-          <td></td>
+          <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
           <td>发送光功率(dBm)</td>
-          <td></td>
+          <td>{{ infoData.CFP2.tx_thr_L }}</td>
           <td>接收光功率(dBm)</td>
-          <td></td>
+          <td>{{ infoData.CFP2.rcv_power }}</td>
         </tr>
         <tr>
           <td>温度(℃)</td>
-          <td></td>
+          <td>{{ infoData.CFP2.temp }}</td>
           <td>电压(V)</td>
-          <td></td>
+          <td>{{ infoData.CFP2.voltage }}</td>
           <td>电流(mA)</td>
-          <td></td>
+          <td>{{ infoData.CFP2.current }}</td>
         </tr>
         <tr>
           <td>预留1</td>
@@ -321,31 +411,90 @@
         </tr>
         <tr>
           <td>接收光功率过低阈值(dBm)</td>
-          <td></td>
+          <td>
+            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" />
+            <template v-else>NA</template>
+          </td>
           <td>接收光功率过载阈值(dBm)</td>
-          <td></td>
+          <td>
+            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" />
+            <template v-else>NA</template>
+          </td>
           <td>发送光功率过低阈值(dBm)</td>
-          <td></td>
+          <td>
+            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" />
+            <template v-else>NA</template>
+          </td>
         </tr>
         <tr>
           <td>发送光功率过载阈值(dBm)</td>
-          <td></td>
+          <td>
+            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" />
+            <template v-else>NA</template>
+          </td>
           <td>激光器开关</td>
-          <td></td>
+          <td>
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.tx_disable">
+              <option :value="0">关</option>
+              <option :value="1">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
           <td>光通道</td>
-          <td></td>
+          <td>
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.light_channel">
+              <option :value="0">C21-C60</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
         </tr>
         <tr>
           <td>业务类型</td>
           <td></td>
           <td>调制模式</td>
-          <td></td>
+          <td>
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.EFC_mode">
+              <option :value="0">无</option>
+              <option :value="1">DP-QPSK</option>
+              <option :value="2">16QAM</option>
+              <option :value="3">DP-8QAM</option>
+              <option :value="4">DP-16QAM</option>
+              <option :value="5">C-FEC</option>
+              <option :value="6">DP-64QAM</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
           <td>FEC模式</td>
-          <td></td>
+          <td>
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.EFC_mode">
+              <option :value="0">无</option>
+              <option :value="1">host环回</option>
+              <option :value="2">SD-FEC</option>
+              <option :value="3">HD-FEC</option>
+              <option :value="4">O-FEC</option>
+              <option :value="4">C-FEC</option>
+              <option :value="4">SC-FEC</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
         </tr>
         <tr>
           <td>环回控制</td>
-          <td></td>
+          <td>
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.light_channel">
+              <option :value="0">无</option>
+              <option :value="1">host环回</option>
+              <option :value="2">host环回</option>
+              <option :value="3">Line环回</option>
+              <option :value="4">host和Line同时环回</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
           <td>预留1</td>
           <td></td>
           <td>预留2</td>

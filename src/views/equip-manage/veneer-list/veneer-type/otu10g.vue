@@ -659,14 +659,6 @@ export default {
 
 <style lang="scss">
 .otu25g-cps-wrapper {
-  .el-input-number--mini {
-    width: 100px;
-  }
-
-  .el-input-number__decrease,
-  .el-input-number__increase {
-    width: 18px;
-  }
 }
 
 .prbs-tr .def-btn + .def-btn {

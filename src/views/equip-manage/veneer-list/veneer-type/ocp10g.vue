@@ -66,10 +66,10 @@
           </tr>
           <tr>
             <td>端口</td>
-            <td>Clinet</td>
+            <td>Client</td>
             <td>Pri-Line</td>
             <td>Sec-Line</td>
-            <td>Clinet</td>
+            <td>Client</td>
             <td>Pri-Line</td>
             <td>Sec-Line</td>
           </tr>

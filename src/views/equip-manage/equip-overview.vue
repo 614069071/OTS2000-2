@@ -65,7 +65,7 @@
               {{
                 systemInfo.source_1.output > 0
                   ? `${systemInfo.source_1.type ? "直流" : "交流"}${systemInfo.source_1.on_off ? "开" : "关"} 输出 ${systemInfo.source_1.output.toFixed(2)}（V）`
-                  : "无电源"
+                  : "无输出"
               }}
             </span>
           </div>
@@ -75,7 +75,7 @@
               {{
                 systemInfo.source_2.output > 0
                   ? `${systemInfo.source_2.type ? "直流" : "交流"}${systemInfo.source_2.on_off ? "开" : "关"} 输出 ${systemInfo.source_2.output.toFixed(2)}（V）`
-                  : "无电源"
+                  : "无输出"
               }}
             </span>
           </div>

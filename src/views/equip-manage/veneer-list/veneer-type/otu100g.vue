@@ -81,12 +81,12 @@
 
         <tr>
           <td>在位状态</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? "在位" : "脱位" }}</td>
           <td>
-            <div class="coll-4"></div>
+            <div class="coll-4">{{ infoData.qsfp28_info.status ? "在位" : "脱位" }}</div>
           </td>
           <td></td>
           <td></td>
@@ -94,32 +94,56 @@
         </tr>
         <tr>
           <td>LINK状态</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
           <td>属性</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? (infoData.sfp28_info.channels[0].rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? (infoData.sfp28_info.channels[1].rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? (infoData.sfp28_info.channels[2].rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? (infoData.sfp28_info.channels[3].rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.rw_type ? "读写" : "只读") : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.rw_type ? "读写" : "只读") : "NA" }}</td>
         </tr>
         <tr>
           <td>波道</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <template v-if="infoData.sfp28_info.channels[0].status">
+              <input v-if="infoData.sfp28_info.channels[0].rw_type" class="def-input" type="text" v-model.number="infoData.sfp28_info.channels[0].wave_channel" />
+              <template v-else>{{ infoData.sfp28_info.channels[0].wave_channel }}</template>
+            </template>
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <template v-if="infoData.sfp28_info.channels[1].status">
+              <input v-if="infoData.sfp28_info.channels[1].rw_type" class="def-input" type="text" v-model.number="infoData.sfp28_info.channels[1].wave_channel" />
+              <template v-else>{{ infoData.sfp28_info.channels[1].wave_channel }}</template>
+            </template>
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <template v-if="infoData.sfp28_info.channels[2].status">
+              <input v-if="infoData.sfp28_info.channels[2].rw_type" class="def-input" type="text" v-model.number="infoData.sfp28_info.channels[2].wave_channel" />
+              <template v-else>{{ infoData.sfp28_info.channels[2].wave_channel }}</template>
+            </template>
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <template v-if="infoData.sfp28_info.channels[3].status">
+              <input v-if="infoData.sfp28_info.channels[3].rw_type" class="def-input" type="text" v-model.number="infoData.sfp28_info.channels[3].wave_channel" />
+              <template v-else>{{ infoData.sfp28_info.channels[3].wave_channel }}</template>
+            </template>
+            <template v-else>NA</template>
+          </td>
           <td>NA</td>
           <td>NA</td>
           <td>NA</td>
@@ -127,67 +151,67 @@
         </tr>
         <tr>
           <td>波长（nm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].wave_len : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].wave_len : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].wave_len : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[3].wave_len : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[0].wave_len : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[1].wave_len : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[2].wave_len : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].wave_len : "NA" }}</td>
         </tr>
         <tr>
           <td>距离（km）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].launch_range : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].launch_range : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].launch_range : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[3].launch_range : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[0].launch_range : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[1].launch_range : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[2].launch_range : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].launch_range : "NA" }}</td>
         </tr>
         <tr>
           <td>发射功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].launch_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].launch_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].launch_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[3].launch_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[0].launch_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[1].launch_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[2].launch_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].launch_power : "NA" }}</td>
         </tr>
         <tr>
           <td>接受功率（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].rcv_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].rcv_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].rcv_power : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[3].rcv_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[0].rcv_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[1].rcv_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[2].rcv_power : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].rcv_power : "NA" }}</td>
         </tr>
         <tr>
           <td>偏置电流（mA）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].current : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].current : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].current : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[3].current : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[0].current : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[1].current : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[2].current : "NA" }}</td>
+          <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].current : "NA" }}</td>
         </tr>
         <tr>
           <td>电压（V）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
           <td>
-            <div class="coll-4"></div>
+            <div class="coll-4">{{ infoData.qsfp28_info.status ? infoData.sfp28_info.voltage : "NA" }}</div>
           </td>
           <td></td>
           <td></td>
@@ -195,12 +219,12 @@
         </tr>
         <tr>
           <td>温度（℃）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
+          <td>{{ infoData.sfp28_info.channels[3].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
           <td>
-            <div class="coll-4"></div>
+            <div class="coll-4">{{ infoData.qsfp28_info.status ? infoData.sfp28_info.temp : "NA" }}</div>
           </td>
           <td></td>
           <td></td>
@@ -208,21 +232,77 @@
         </tr>
         <tr>
           <td>激光器</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <select v-if="infoData.sfp28_info.channels[0].status" v-model="infoData.sfp28_info.channels[0].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.sfp28_info.channels[1].status" v-model="infoData.sfp28_info.channels[1].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.sfp28_info.channels[2].status" v-model="infoData.sfp28_info.channels[2].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.sfp28_info.channels[3].status" v-model="infoData.sfp28_info.channels[3].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.qsfp28_info.channels[0].status" v-model="infoData.qsfp28_info.channels[0].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.qsfp28_info.channels[1].status" v-model="infoData.qsfp28_info.channels[1].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.qsfp28_info.channels[2].status" v-model="infoData.qsfp28_info.channels[2].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <select v-if="infoData.qsfp28_info.channels[3].status" v-model="infoData.qsfp28_info.channels[3].tx_disable">
+              <option :value="1">关</option>
+              <option :value="0">开</option>
+            </select>
+
+            <template v-else>NA</template>
+          </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>误码检测</td>
           <td>
-            <div v-if="infoData.channels[0].link_status.client">
-              <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.channels[0].prbs_en.client ? "停止" : "开始" }}</button>
-              <span>结果：{{ detection[0].clientEnd ? (infoData.channels[0].prbs.client ? "有误码" : "无误码") : "" }}</span>
+            <div v-if="infoData.sfp28_info.channels[0].status">
+              <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.sfp28_info.channels[0].prbs_en ? "停止" : "开始" }}</button>
+              <span>结果：{{ detection[0].clientEnd ? (infoData.sfp28_info.channels[0].prbs ? "有误码" : "无误码") : "" }}</span>
             </div>
 
             <template v-else>NA</template>
@@ -283,43 +363,27 @@
 
             <template v-else>NA</template>
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>速率</td>
           <td>
-            <div class="coll-4"></div>
+            <div class="coll-4">
+              <select v-model="infoData.sfp28_info.speed">
+                <option :value="0">100GE</option>
+                <option :value="1">OTU4.4</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td></td>
           <td></td>
           <td>
-            <div class="coll-4"></div>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>输入EQ（dB）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="coll-4">NA</div>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>输出幅度（mVpp）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="coll-4">NA</div>
+            <div class="coll-4">
+              <select v-model="infoData.qsfp28_info.speed">
+                <option :value="0">25G</option>
+                <option :value="1">28G</option>
+              </select>
+            </div>
           </td>
           <td></td>
           <td></td>
@@ -327,44 +391,112 @@
         </tr>
         <tr>
           <td>接受光功率过低阈值（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].rcv_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[1].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[1].rcv_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[2].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[2].rcv_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[3].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[3].rcv_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.qsfp28_info.status" type="text" class="def-input" v-model.number="infoData.qsfp28_info.rcv_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>接受光功率过载阈值（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].rcv_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[1].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[1].rcv_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[2].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[2].rcv_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[3].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[3].rcv_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.qsfp28_info.status" type="text" class="def-input" v-model.number="infoData.qsfp28_info.rcv_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>发送光功率过低阈值（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].tx_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[1].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[1].tx_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[2].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[2].tx_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[3].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[3].tx_thr_L" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.qsfp28_info.status" type="text" class="def-input" v-model.number="infoData.qsfp28_info.tx_thr_L" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>接受光功率过载阈值（dBm）</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>发送光功率过载阈值（dBm）</td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].tx_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[1].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[1].tx_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[2].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[2].tx_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <input v-if="infoData.sfp28_info.channels[3].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[3].tx_thr_H" />
+            <template v-else>NA</template>
+          </td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.qsfp28_info.status" type="text" class="def-input" v-model.number="infoData.qsfp28_info.tx_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
           <td></td>
           <td></td>
           <td></td>
@@ -529,49 +661,45 @@ export default {
   },
   methods: {
     // 误码检测
-    detectionPrbs(i, status) {
-      const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
-      this.infoData.channels[i].prbs_en[status] = val;
-
-      const { boardname, slot } = this.info;
-      const diffData = this.$difference(this.infoData, this.clonData);
-      const data = { otn2000: { ...diffData, type: "post_info", boardname, slot } };
-
-      this.setInfoDisabled = true;
-      this.detection[i][`${status}End`] = false;
-      this.detection[i][status] = true;
-
-      this.$http
-        .post(data)
-        .then((res) => {
-          console.log("setInfos", res);
-          this.$message("成功");
-          this.setInfoDisabled = false;
-          this.detection[i][status] = false;
-
-          if (!val) {
-            // 停止检测并获取状态
-            console.log("停止检测", val);
-            this.getInfo()
-              .then(() => {
-                this.detection[i][`${status}End`] = true;
-                this.$message("检测成功");
-              })
-              .catch(() => {
-                this.detection[i][`${status}End`] = true;
-                this.$message("检测失败");
-              });
-          } else {
-            this.detection[i][`${status}End`] = false;
-            this.detection[i][status] = false;
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$message("失败");
-          this.setInfoDisabled = false;
-        });
-    },
+    // detectionPrbs(i, status) {
+    //   const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
+    //   this.infoData.channels[i].prbs_en[status] = val;
+    //   const { boardname, slot } = this.info;
+    //   const diffData = this.$difference(this.infoData, this.clonData);
+    //   const data = { otn2000: { ...diffData, type: "post_info", boardname, slot } };
+    //   this.setInfoDisabled = true;
+    //   this.detection[i][`${status}End`] = false;
+    //   this.detection[i][status] = true;
+    //   this.$http
+    //     .post(data)
+    //     .then((res) => {
+    //       console.log("setInfos", res);
+    //       this.$message("成功");
+    //       this.setInfoDisabled = false;
+    //       this.detection[i][status] = false;
+    //       if (!val) {
+    //         // 停止检测并获取状态
+    //         console.log("停止检测", val);
+    //         this.getInfo()
+    //           .then(() => {
+    //             this.detection[i][`${status}End`] = true;
+    //             this.$message("检测成功");
+    //           })
+    //           .catch(() => {
+    //             this.detection[i][`${status}End`] = true;
+    //             this.$message("检测失败");
+    //           });
+    //       } else {
+    //         this.detection[i][`${status}End`] = false;
+    //         this.detection[i][status] = false;
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       this.$message("失败");
+    //       this.setInfoDisabled = false;
+    //     });
+    // },
   },
 };
 </script>

@@ -3,9 +3,6 @@
     <div class="structure-inner-wrapper">
       <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index">
         <component v-if="item.boardname && item.status" :is="`veneer-${item.boardname.toLowerCase()}`"></component>
-        <!-- <component v-if="item.status && item.boardname" :is="`veneer-${item.boardname.toLowerCase()}`"></component> -->
-        <!-- <img v-if="item.status && item.boardname" :src="require(`../../assets/images/veneer/${item.boardname.toLowerCase()}.png`)" alt="" /> -->
-        <!-- <VeneerM16 v-else></VeneerM16> -->
       </div>
     </div>
   </div>
@@ -22,6 +19,7 @@ import VeneerD16 from "@/components/veneer/d16";
 import VeneerM16 from "@/components/veneer/m16";
 import VeneerMd8 from "@/components/veneer/md8";
 import VeneerEdfa from "@/components/veneer/edfa";
+import VeneerDco200g from "@/components/veneer/dco200g";
 
 export default {
   name: "structure",
@@ -36,6 +34,7 @@ export default {
     VeneerM16,
     VeneerEdfa,
     VeneerMd8,
+    VeneerDco200g,
   },
   props: {
     list: {

@@ -16,6 +16,7 @@ import VeneerNmu from "@/components/veneer/nmu";
 import VeneerOlp from "@/components/veneer/olp";
 import VeneerOcp10g from "@/components/veneer/ocp10g";
 import VeneerOtu10g from "@/components/veneer/otu10g";
+import VeneerOtu100g from "@/components/veneer/otu100g";
 import VeneerOtu25g from "@/components/veneer/otu25g";
 import VeneerD16 from "@/components/veneer/d16";
 import VeneerM16 from "@/components/veneer/m16";
@@ -29,6 +30,7 @@ export default {
     VeneerOlp,
     VeneerOcp10g,
     VeneerOtu10g,
+    VeneerOtu100g,
     VeneerOtu25g,
     VeneerD16,
     VeneerM16,
@@ -79,7 +81,12 @@ export default {
 .structure-item-wrapper {
   height: 60px;
   width: 50% !important;
+  box-sizing: border-box;
   // border: 1px solid #000;
   // box-sizing: border-box;
 }
+
+// .structure-item-wrapper:nth-child(odd) {
+//   border-left: 1px solid #000;
+// }
 </style>

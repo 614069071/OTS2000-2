@@ -158,8 +158,8 @@
         <tr>
           <td>输入光功率告警门限（dBm）</td>
           <td>
-            <CustomSelect
-              v-model="infoData.lum_input_thr"
+            <!-- <CustomSelect
+              
               :options="[
                 { label: '-20', value: -20 },
                 { label: '-24', value: -24 },
@@ -167,41 +167,46 @@
                 { label: '-28', value: -28 },
                 { label: '-31', value: -31 },
               ]"
-            />
+            /> -->
+            <input type="text" class="def-input" v-model.number="infoData.lum_input_thr" />
           </td>
           <td>输出光功率告警门限（dBm）</td>
           <td>
-            <CustomSelect
+            <!-- <CustomSelect
               v-model="infoData.lum_output_thr"
               :options="[
                 { label: '-5', value: -5 },
                 { label: '-3', value: -3 },
                 { label: '-2', value: -2 },
               ]"
-            />
+            /> -->
+            <input type="text" class="def-input" v-model.number="infoData.lum_output_thr" />
           </td>
         </tr>
 
         <tr>
           <td>PUMP电流门限（mA）</td>
           <td>
-            <CustomSelect
+            <!-- <CustomSelect
               v-model="infoData.pump_cur_thr"
               :options="[
                 { label: '600', value: 600 },
                 { label: '800', value: 800 },
               ]"
-            />
+            /> -->
+
+            <input type="text" class="def-input" v-model.number="infoData.pump_cur_thr" />
           </td>
           <td>PUMP温度高门限（℃）</td>
           <td>
-            <CustomSelect v-model="infoData.pump_temp_high" :options="[{ label: '30', value: 30 }]" />
+            <!-- <CustomSelect v-model="infoData.pump_temp_high" :options="[{ label: '30', value: 30 }]" /> -->
+            <input type="text" class="def-input" v-model.number="infoData.pump_temp_high" />
           </td>
         </tr>
         <tr>
           <td>模块温度低门限（℃）</td>
           <td>
-            <CustomSelect
+            <!-- <CustomSelect
               v-model="infoData.mod_temp_low"
               :options="[
                 { label: '-40', value: -40 },
@@ -209,17 +214,19 @@
                 { label: '-50', value: -50 },
                 { label: '-55', value: -55 },
               ]"
-            />
+            /> -->
+            <input type="text" class="def-input" v-model.number="infoData.mod_temp_low" />
           </td>
           <td>PUMP温度低门限（℃）</td>
           <td>
-            <CustomSelect v-model="infoData.pump_temp_low" :options="[{ label: '20', value: 20 }]" />
+            <!-- <CustomSelect v-model="infoData.pump_temp_low" :options="[{ label: '20', value: 20 }]" /> -->
+            <input type="text" class="def-input" v-model.number="infoData.pump_temp_low" />
           </td>
         </tr>
         <tr>
           <td>模块温度高门限（℃）</td>
           <td>
-            <CustomSelect
+            <!-- <CustomSelect
               v-model="infoData.mod_temp_high"
               :options="[
                 { label: '55', value: 55 },
@@ -227,7 +234,9 @@
                 { label: '65', value: 65 },
                 { label: '70', value: 70 },
               ]"
-            />
+            /> -->
+
+            <input type="text" class="def-input" v-model.number="infoData.mod_temp_high" />
           </td>
           <td>PUMP关断功率（dBm）</td>
           <td>

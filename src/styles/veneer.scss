@@ -34,7 +34,7 @@
 // 单板名称
 .veneer-item-name {
   background-color: #db3d21;
-  width: 62px;
+  width: 70px;
   height: 14px;
   line-height: 14px;
   text-align: center;
@@ -257,5 +257,24 @@
     width: 19px;
     height: 20px;
     background: url(../assets/images/veneer/usb.svg) center/contain no-repeat;
+  }
+}
+
+.veneer-qsfp-wrapper {
+  position: absolute;
+
+  .veneer-qsfp-k {
+    width: 70px;
+    height: 30px;
+    background-color: #dde2cd;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #000;
+  }
+
+  .veneer-qsfp-n {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
   }
 }

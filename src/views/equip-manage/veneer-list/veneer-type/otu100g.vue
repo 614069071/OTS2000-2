@@ -49,7 +49,7 @@
     </div>
 
     <div class="veneer-table-container">
-      <table class="veneer-table" border="1">
+      <table class="veneer-table" border="1" v-if="false">
         <thead>
           <tr>
             <td></td>
@@ -218,7 +218,6 @@
           <td></td>
         </tr>
         <tr>
-          <td>误码检测</td>
           <td>误码检测</td>
           <td>
             <div v-if="infoData.channels[0].link_status.client">

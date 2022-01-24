@@ -372,7 +372,7 @@
           <td>是否自动回切</td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[0].enback_back">
+              <select :disabled="!!infoData.channels[0].Switch" v-model="infoData.channels[0].enback_back">
                 <option :value="0">回切</option>
                 <option :value="1">不回切</option>
               </select>
@@ -382,7 +382,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-model="infoData.channels[1].enback_back">
+              <select :disabled="!!infoData.channels[1].Switch" v-model="infoData.channels[1].enback_back">
                 <option :value="0">回切</option>
                 <option :value="1">不回切</option>
               </select>
@@ -397,7 +397,7 @@
             <div class="coll-3">
               <CustomSelect
                 v-model="infoData.channels[0].enback_back_delay"
-                :disabled="!!infoData.channels[0].enback_back"
+                :disabled="!!infoData.channels[0].Switch"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
@@ -412,7 +412,7 @@
             <div class="coll-3">
               <CustomSelect
                 v-model="infoData.channels[1].enback_back_delay"
-                :disabled="!!infoData.channels[1].enback_back"
+                :disabled="!!infoData.channels[1].Switch"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },

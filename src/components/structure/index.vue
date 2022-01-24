@@ -24,7 +24,17 @@ import VeneerEdfa from "@/components/veneer/edfa";
 
 export default {
   name: "structure",
-  components: { VeneerNmu, VeneerOlp, VeneerOcp10g, VeneerOtu10g, VeneerOtu25g, VeneerD16, VeneerM16, VeneerEdfa, VeneerMd8 },
+  components: {
+    VeneerNmu,
+    VeneerOlp,
+    VeneerOcp10g,
+    VeneerOtu10g,
+    VeneerOtu25g,
+    VeneerD16,
+    VeneerM16,
+    VeneerEdfa,
+    VeneerMd8,
+  },
   props: {
     list: {
       type: Array,

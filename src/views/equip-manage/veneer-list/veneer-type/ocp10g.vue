@@ -97,14 +97,14 @@
           <td>工作状态</td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[0].work_status ? "备" : "主" }}
+              {{ infoData.channels[0].work_status ? "主" : "备" }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[1].work_status ? "备" : "主" }}
+              {{ infoData.channels[1].work_status ? "主" : "备" }}
             </div>
           </td>
           <td></td>

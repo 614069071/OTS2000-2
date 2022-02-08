@@ -1,5 +1,5 @@
 <template>
-  <div class="upgrade-view-wrapper view-wrapper">
+  <div>
     <div class="inner-header-wrapper">
       <div class="upgrade-switch-wrapper">
         <div class="upgrade-logo-wrapper"></div>
@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="inner-container-wrapper banner-list">
+    <div>
       <component :is="current"></component>
     </div>
   </div>

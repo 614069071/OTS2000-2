@@ -1,5 +1,5 @@
 <template>
-  <div class="login-view-wrapper">
+  <div class="login-page">
     <!-- <img src="../../assets/images/banner.png" alt="" /> -->
     <div class="login-header-wrapper">
       <div class="logo-wrapper">
@@ -151,7 +151,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.login-view-wrapper {
+.login-page {
   width: 100%;
   height: 100vh;
   min-height: 600px;

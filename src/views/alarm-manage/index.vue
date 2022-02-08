@@ -1,3 +1,3 @@
 <template>
-  <router-view class="alarm-view-wrapper"></router-view>
+  <router-view></router-view>
 </template>

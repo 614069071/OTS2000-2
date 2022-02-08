@@ -1,126 +1,112 @@
 <template>
-  <div class="equip-overview-view-wrapper view-wrapper">
-    <!-- <div class="inner-header-wrapper"></div> -->
+  <div>
+    <div class="inner-container-title custom-title">系统信息</div>
 
-    <div class="inner-container-wrapper banner-list">
-      <div class="refresh-header-wrapper">
-        <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
-      </div>
-
-      <div class="veneer-block-diagram-wrapper">
-        <Structure :list="dataTable"></Structure>
-      </div>
-      <div class="inner-container-title custom-title">系统信息</div>
-      <div class="system-info-main">
-        <div class="system-info-wrapper">
-          <div class="system-info-item">
-            <span>设备型号</span>
-            <span>{{ systemInfo.device_type }} </span>
-          </div>
-          <div class="system-info-item">
-            <span>序列号</span>
-            <span>
-              <template v-if="isTatic || !$store.state.iSuper">{{ systemInfo.sn }}</template>
-              <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
-            </span>
-          </div>
-          <div class="system-info-item">
-            <span>硬件版本</span>
-            <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
-          </div>
-          <div class="system-info-item">
-            <span>设备标识</span>
-            <span>
-              <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
-              <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" />
-            </span>
-          </div>
-          <div class="system-info-item">
-            <span>设备位置</span>
-            <span>
-              <template v-if="isTatic">{{ systemInfo.location }}</template>
-              <input v-else class="def-input" type="text" v-model="systemInfo.location" />
-            </span>
-          </div>
-          <div class="system-info-item">
-            <span>联系人</span>
-            <span>
-              <template v-if="isTatic">{{ systemInfo.contacts }}</template>
-              <input v-else class="def-input" type="text" v-model="systemInfo.contacts" />
-            </span>
-          </div>
-          <div class="system-info-change-wrapper">
-            <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
-            <template v-else>
-              <button class="def-btn" @click="submitChangeFrom">提交</button>
-              <button class="def-btn" @click="cancelChangeForm">取消</button>
-            </template>
-          </div>
+    <div class="system-info-main">
+      <div class="system-info-wrapper">
+        <div class="system-info-item">
+          <span>设备型号</span>
+          <span>{{ systemInfo.device_type }} </span>
         </div>
-
-        <div class="system-info-wrapper">
-          <div class="system-info-item">
-            <span>电源1属性</span>
-            <span>
-              {{
-                systemInfo.source_1.output > 0
-                  ? `${systemInfo.source_1.type ? "直流" : "交流"}${systemInfo.source_1.on_off ? "开" : "关"} 输出 ${systemInfo.source_1.output.toFixed(2)}（V）`
-                  : "无输出"
-              }}
-            </span>
-          </div>
-          <div class="system-info-item">
-            <span>电源2属性</span>
-            <span>
-              {{
-                systemInfo.source_2.output > 0
-                  ? `${systemInfo.source_2.type ? "直流" : "交流"}${systemInfo.source_2.on_off ? "开" : "关"} 输出 ${systemInfo.source_2.output.toFixed(2)}（V）`
-                  : "无输出"
-              }}
-            </span>
-          </div>
-          <div class="system-info-item">
-            <span>固件版本</span><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
-          </div>
-          <div class="system-info-item">
-            <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
-          </div>
-          <div class="system-info-item">
-            <span>运行时间</span><span>{{ systemInfo.run_time | formatSeconds }}</span>
-          </div>
-          <div class="system-info-item">
-            <span>网关版本</span><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
-          </div>
+        <div class="system-info-item">
+          <span>序列号</span>
+          <span>
+            <template v-if="isTatic || !$store.state.iSuper">{{ systemInfo.sn }}</template>
+            <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
+          </span>
+        </div>
+        <div class="system-info-item">
+          <span>硬件版本</span>
+          <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
+        </div>
+        <div class="system-info-item">
+          <span>设备标识</span>
+          <span>
+            <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
+            <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" />
+          </span>
+        </div>
+        <div class="system-info-item">
+          <span>设备位置</span>
+          <span>
+            <template v-if="isTatic">{{ systemInfo.location }}</template>
+            <input v-else class="def-input" type="text" v-model="systemInfo.location" />
+          </span>
+        </div>
+        <div class="system-info-item">
+          <span>联系人</span>
+          <span>
+            <template v-if="isTatic">{{ systemInfo.contacts }}</template>
+            <input v-else class="def-input" type="text" v-model="systemInfo.contacts" />
+          </span>
+        </div>
+        <div class="system-info-change-wrapper">
+          <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
+          <template v-else>
+            <button class="def-btn" @click="submitChangeFrom">提交</button>
+            <button class="def-btn" @click="cancelChangeForm">取消</button>
+          </template>
         </div>
       </div>
 
-      <div class="inner-container-title">系统性能</div>
-      <div class="system-performance-wrapper">
-        <div class="fan-state-wrapper">
-          <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
-          <div class="state-inner-wrapper">
-            <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'"></div>
-          </div>
+      <div class="system-info-wrapper">
+        <div class="system-info-item">
+          <span>电源1属性</span>
+          <span>
+            {{
+              systemInfo.source_1.output > 0 ? `${systemInfo.source_1.type ? "直流" : "交流"}${systemInfo.source_1.on_off ? "开" : "关"} 输出 ${systemInfo.source_1.output.toFixed(2)}（V）` : "无输出"
+            }}
+          </span>
         </div>
-        <div class="cpu-state-wrapper">
-          <div class="state-title"><i class="c-icon icon-cpu"></i>CPU使用率</div>
-          <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.cpu_rate)" color="#003466"></el-progress>
-          </div>
+        <div class="system-info-item">
+          <span>电源2属性</span>
+          <span>
+            {{
+              systemInfo.source_2.output > 0 ? `${systemInfo.source_2.type ? "直流" : "交流"}${systemInfo.source_2.on_off ? "开" : "关"} 输出 ${systemInfo.source_2.output.toFixed(2)}（V）` : "无输出"
+            }}
+          </span>
         </div>
-        <div class="memory-state-wrapper">
-          <div class="state-title"><i class="c-icon icon-memory"></i>内存使用率</div>
-          <div class="state-inner-wrapper">
-            <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.mem_rate)" color="#003466"></el-progress>
-          </div>
+        <div class="system-info-item">
+          <span>固件版本</span><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
         </div>
-        <div class="temperature-state-wrapper">
-          <div class="state-title"><i class="c-icon icon-temper"></i>设备温度</div>
-          <div class="state-inner-wrapper">
-            <div class="temperature-wrapper">
-              <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
-              <div class="temperature-value">{{ systemInfo.temp }}℃</div>
-            </div>
+        <div class="system-info-item">
+          <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
+        </div>
+        <div class="system-info-item">
+          <span>运行时间</span><span>{{ systemInfo.run_time | formatSeconds }}</span>
+        </div>
+        <div class="system-info-item">
+          <span>网关版本</span><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner-container-title">系统性能</div>
+    <div class="system-performance-wrapper">
+      <div class="fan-state-wrapper">
+        <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
+        <div class="state-inner-wrapper">
+          <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'"></div>
+        </div>
+      </div>
+      <div class="cpu-state-wrapper">
+        <div class="state-title"><i class="c-icon icon-cpu"></i>CPU使用率</div>
+        <div class="state-inner-wrapper">
+          <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.cpu_rate)" color="#003466"></el-progress>
+        </div>
+      </div>
+      <div class="memory-state-wrapper">
+        <div class="state-title"><i class="c-icon icon-memory"></i>内存使用率</div>
+        <div class="state-inner-wrapper">
+          <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.mem_rate)" color="#003466"></el-progress>
+        </div>
+      </div>
+      <div class="temperature-state-wrapper">
+        <div class="state-title"><i class="c-icon icon-temper"></i>设备温度</div>
+        <div class="state-inner-wrapper">
+          <div class="temperature-wrapper">
+            <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
+            <div class="temperature-value">{{ systemInfo.temp }}℃</div>
           </div>
         </div>
       </div>
@@ -129,15 +115,11 @@
 </template>
 
 <script>
-import Structure from "../../components/structure";
-
 export default {
   name: "equip-overview",
-  components: { Structure },
   data() {
     return {
       isTatic: true,
-      inquireLoading: false,
       systemInfo: {
         boardname: "",
         device_type: "",
@@ -164,21 +146,11 @@ export default {
         contacts: "",
         dev_sign: "",
       },
-      dataTable: [],
-      timer: null,
-      timerCount: 60,
     };
   },
   created() {},
   mounted() {
     this.getSystemInfo();
-    this.getVeneerList();
-    this.startTimer();
-  },
-  beforeDestroy() {
-    clearInterval(this.timer);
-    this.timer = null;
-    this.timerCount = 60;
   },
   methods: {
     // 首页概览
@@ -188,43 +160,14 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          if (!res) return;
+          console.log("sss", res);
+          if (!res.otn2000_ack) return;
 
           this.systemInfo = res.otn2000_ack;
         })
         .catch((err) => {
           console.log(err);
         });
-    },
-    getVeneerList() {
-      const data = { otn2000: { boardname: "board_view", type: "get_info" } };
-
-      this.$http
-        .post(data)
-        .then((res) => {
-          if (!res) return;
-          this.dataTable = res.otn2000_ack.channels || [];
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    startTimer() {
-      this.timer = setInterval(() => {
-        this.timerCount -= 1;
-        if (this.timerCount <= 0) {
-          this.timerCount = 60;
-          this.getSystemInfo();
-          this.getVeneerList();
-        }
-      }, 1000);
-    },
-    refreshSystem() {
-      this.timer && clearInterval(this.timer);
-      this.timerCount = 60;
-      this.getSystemInfo();
-      this.getVeneerList();
-      this.startTimer();
     },
     submitChangeFrom() {
       const { dev_sign, contacts, location, sn } = this.systemInfo;
@@ -263,10 +206,6 @@ export default {
       margin-left: 10px;
     }
   }
-}
-
-.veneer-block-diagram-wrapper {
-  margin: 0 auto 10px auto;
 }
 
 .system-info-cahnge-btn {

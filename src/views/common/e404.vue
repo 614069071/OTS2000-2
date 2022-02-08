@@ -1,5 +1,5 @@
 <template>
-  <div class="error-404-view-wrapper view-wrapper">
+  <div class="error-page">
     <div class="error-404-inner-wrapper">
       <div class="error-404-main-wrapper">
         <div class="error-404-img-wrapper"></div>
@@ -13,7 +13,7 @@
 </template>
 
 <style scoped>
-.error-404-view-wrapper {
+.error-page {
   height: 100%;
 }
 

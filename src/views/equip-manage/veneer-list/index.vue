@@ -1,60 +1,52 @@
 <template>
-  <div class="veneer-list-view-wrapper view-wrapper">
-    <div class="inner-header-wrapper">
-      <!-- 设备框图 -->
-      <div class="veneer-block-diagram-wrapper">
-        <Structure :list="dataTable"></Structure>
-      </div>
-    </div>
+  <div>
+    <div class="inner-container-title">单板列表</div>
 
-    <div class="inner-container-wrapper veneer-list">
-      <div class="inner-container-title">单板列表</div>
-      <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-        <el-table-column prop="slot" label="槽位号" width="100">
-          <template slot-scope="scoped">
-            {{ `slot ${scoped.row.slot}` }}
+    <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+      <el-table-column prop="slot" label="槽位号" width="100">
+        <template slot-scope="scoped">
+          {{ `slot ${scoped.row.slot}` }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="槽位状态">
+        <template slot-scope="scoped">
+          {{ scoped.row.status ? "在位" : "脱位" }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="boardname" label="单板型号">
+        <template slot-scope="scope">
+          <template v-if="scope.row.status">
+            {{ scope.row.boardname }}
           </template>
-        </el-table-column>
-        <el-table-column prop="status" label="槽位状态">
-          <template slot-scope="scoped">
-            {{ scoped.row.status ? "在位" : "脱位" }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="h_ver" label="硬件版本">
+        <template slot-scope="scope">
+          <template v-if="scope.row.status">
+            {{ scope.row.h_ver }}
           </template>
-        </el-table-column>
-        <el-table-column prop="boardname" label="单板型号">
-          <template slot-scope="scope">
-            <template v-if="scope.row.status">
-              {{ scope.row.boardname }}
-            </template>
+        </template>
+      </el-table-column>
+      <el-table-column prop="s_ver" label="软件版本">
+        <template slot-scope="scope">
+          <template v-if="scope.row.status">
+            {{ scope.row.s_ver }}
           </template>
-        </el-table-column>
-        <el-table-column prop="h_ver" label="硬件版本">
-          <template slot-scope="scope">
-            <template v-if="scope.row.status">
-              {{ scope.row.h_ver }}
-            </template>
+        </template>
+      </el-table-column>
+      <el-table-column prop="mfgdate" label="生产日期">
+        <template slot-scope="scope">
+          <template v-if="scope.row.status">
+            {{ scope.row.mfgdate }}
           </template>
-        </el-table-column>
-        <el-table-column prop="s_ver" label="软件版本">
-          <template slot-scope="scope">
-            <template v-if="scope.row.status">
-              {{ scope.row.s_ver }}
-            </template>
-          </template>
-        </el-table-column>
-        <el-table-column prop="mfgdate" label="生产日期">
-          <template slot-scope="scope">
-            <template v-if="scope.row.status">
-              {{ scope.row.mfgdate }}
-            </template>
-          </template>
-        </el-table-column>
-        <el-table-column label="详情信息" width="100">
-          <template slot-scope="scope">
-            <button v-if="scope.row.status" class="veneer-look-btn" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
+        </template>
+      </el-table-column>
+      <el-table-column label="详情信息" width="100">
+        <template slot-scope="scope">
+          <button v-if="scope.row.status" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
+        </template>
+      </el-table-column>
+    </el-table>
 
     <pupur :visible.sync="dialogVisible">
       <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
@@ -73,11 +65,9 @@ import Dco200g from "./veneer-type/dco200g";
 import Ocp10g from "./veneer-type/ocp10g";
 import Similar from "./veneer-type/similar";
 
-import Structure from "../../../components/structure";
-
 export default {
   name: "veneer-list",
-  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu100g, Dco200g, Ocp10g, Similar, Structure },
+  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu100g, Dco200g, Ocp10g, Similar },
   data() {
     return {
       dataForm: {},
@@ -125,20 +115,6 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// 单板构图 start
-
-// 单板构图 end
-
-.veneer-look-btn {
-  color: #696969;
-}
-
-.veneer-list {
-  margin-top: 10px;
-}
-</style>
 
 <style lang="scss">
 $border-color: #aaa;
@@ -274,9 +250,5 @@ $border-color: #aaa;
 .veneer-table-title {
   background-color: #fff;
   padding: 10px 10px 0 10px;
-}
-
-.veneer-block-diagram-wrapper {
-  overflow: auto;
 }
 </style>

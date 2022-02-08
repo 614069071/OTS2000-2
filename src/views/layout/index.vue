@@ -37,7 +37,17 @@
       </div>
 
       <main class="layout-content scrollbar">
-        <router-view></router-view>
+        <div class="veneer-overall-wrapper">
+          <div class="refresh-header-wrapper">
+            <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
+          </div>
+
+          <Structure :list="dataTable"></Structure>
+        </div>
+
+        <div class="page-wrapper">
+          <router-view></router-view>
+        </div>
       </main>
     </div>
   </div>
@@ -45,6 +55,7 @@
 
 <script>
 import store from "@store";
+import Structure from "@/components/structure";
 import { mapMutations } from "vuex";
 import SideBar from "@components/side-bar";
 import NProgress from "nprogress";
@@ -52,7 +63,7 @@ import { storages } from "@utils";
 
 export default {
   name: "layout",
-  components: { SideBar },
+  components: { SideBar, Structure },
   data() {
     return {
       barCollapse: false,
@@ -60,6 +71,8 @@ export default {
         name: "webadmin",
         roleName: "管理员",
       },
+      dataTable: [],
+      timerCount: 0,
     };
   },
   beforeRouteEnter(to, form, next) {
@@ -71,13 +84,39 @@ export default {
       next({ path: "/login", replace: true });
     }
   },
-  created() {},
+  created() {
+    this.getVeneerList();
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+    this.timer = null;
+    this.timerCount = 60;
+  },
   methods: {
     initUserinfo() {
       const userInfo = storages.get("userInfo") || {};
       this.userInfo = Object.freeze(userInfo);
     },
     ...mapMutations(["UPDATE_DEFAULT_ACTIVE"]),
+    getVeneerList() {
+      const data = { otn2000: { boardname: "board_view", type: "get_info" } };
+
+      this.$http
+        .post(data)
+        .then((res) => {
+          if (!res) return;
+          this.dataTable = res.otn2000_ack.channels || [];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshSystem() {
+      this.timer && clearInterval(this.timer);
+      this.timerCount = 60;
+      this.getVeneerList();
+      this.startTimer();
+    },
   },
 };
 </script>
@@ -135,37 +174,52 @@ export default {
   }
 }
 
-.aside-header-wrapper {
-  display: flex;
-  flex: 1;
-  min-height: 200px;
-  flex-direction: column;
+.layout-header {
+  .user-info-wrapper span + span {
+    margin-left: 26px;
+  }
+}
 
-  .aside-content-wrapper {
+.layout-content {
+  .page-wrapper {
+    box-sizing: border-box;
+    padding: 0 10px 50px 10px;
+  }
+
+  .veneer-overall-wrapper {
+    padding: 10px 0;
+  }
+}
+
+.ayout-aside {
+  .aside-header-wrapper {
+    display: flex;
     flex: 1;
+    min-height: 200px;
+    flex-direction: column;
+
+    .aside-content-wrapper {
+      flex: 1;
+    }
   }
 }
 
 .aside-footer-wrapper {
   height: 60px;
-}
 
-.user-info-wrapper span + span {
-  margin-left: 26px;
-}
+  .setting-btns-wrapper {
+    display: flex;
+    justify-content: center;
 
-.setting-btns-wrapper {
-  display: flex;
-  justify-content: center;
+    .setting-btn-wrapper {
+      cursor: pointer;
+    }
 
-  .setting-btn-wrapper {
-    cursor: pointer;
-  }
-
-  .vertical-line {
-    height: 50px;
-    border-left: 1px solid #848484;
-    margin: 0 30px;
+    .vertical-line {
+      height: 50px;
+      border-left: 1px solid #848484;
+      margin: 0 30px;
+    }
   }
 }
 </style>

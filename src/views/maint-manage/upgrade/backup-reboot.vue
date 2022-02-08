@@ -1,5 +1,5 @@
 <template>
-  <div class="backup-reboot-view-wrapper">
+  <div>
     <div class="inner-container-title">备份与恢复出厂设置</div>
     <div class="backup-reboot-checks">
       <el-checkbox>板卡#2</el-checkbox><br />

@@ -1,30 +1,28 @@
 <template>
-  <div class="veneer-upgrede-view-wrapper">
-    <div class="inner-container-wrapper banner-list">
-      <div class="inner-container-title">需要升级的单板</div>
-      <div class="veneer-check-wrapper">
-        <el-checkbox>单板#2</el-checkbox><br />
-        <el-checkbox>单板#4</el-checkbox><br />
-        <el-checkbox>单板#6</el-checkbox><br />
-        <el-checkbox>单板#8</el-checkbox>
-      </div>
+  <div>
+    <div class="inner-container-title">需要升级的单板</div>
+    <div class="veneer-check-wrapper">
+      <el-checkbox>单板#2</el-checkbox><br />
+      <el-checkbox>单板#4</el-checkbox><br />
+      <el-checkbox>单板#6</el-checkbox><br />
+      <el-checkbox>单板#8</el-checkbox>
+    </div>
 
-      <div class="veneer-upgrede-btns">
-        <button class="def-btn">全选</button>
-        <button class="def-btn">全不选</button>
-        <button class="def-btn">反选</button>
-        <button class="def-btn">恢复出厂设置</button>
-      </div>
+    <div class="veneer-upgrede-btns">
+      <button class="def-btn">全选</button>
+      <button class="def-btn">全不选</button>
+      <button class="def-btn">反选</button>
+      <button class="def-btn">恢复出厂设置</button>
+    </div>
 
-      <div class="inner-container-title">升级单板固件</div>
+    <div class="inner-container-title">升级单板固件</div>
 
-      <div class="chose-wrapper">
-        <span>选择升级文件</span>
-        <input type="file" accept=".bin" name="" id="" />
-      </div>
-      <div class="veneer-upgrade-submit-wrapper">
-        <button class="def-btn" type="primary">升级</button>
-      </div>
+    <div class="chose-wrapper">
+      <span>选择升级文件</span>
+      <input type="file" accept=".bin" name="" id="" />
+    </div>
+    <div class="veneer-upgrade-submit-wrapper">
+      <button class="def-btn" type="primary">升级</button>
     </div>
   </div>
 </template>

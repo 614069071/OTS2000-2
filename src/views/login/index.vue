@@ -1,6 +1,5 @@
 <template>
   <div class="login-page">
-    <!-- <img src="../../assets/images/banner.png" alt="" /> -->
     <div class="login-header-wrapper">
       <div class="logo-wrapper">
         <img src="../../assets/images/logo-white.png" alt="" />
@@ -81,7 +80,6 @@ export default {
     store.commit("UPDATE_TOKEN", "");
     storages.set("userInfo", {});
     storages.set("MenuTreeColle", []);
-    // store.commit('CLEAR_CACHE_ROUTER');
     next();
   },
   created() {

@@ -57,14 +57,15 @@ export default {
           .post(data)
           .then((res) => {
             this.titeData = res.otn2000_ack;
-            this.setTilteDisabled = false;
-            this.refreshTitleDisabled = false;
+
             resolve(res.otn2000_ack);
           })
           .catch((err) => {
+            reject(err);
+          })
+          .finally(() => {
             this.setTilteDisabled = false;
             this.refreshTitleDisabled = false;
-            reject(err);
           });
       });
     },
@@ -108,18 +109,16 @@ export default {
           .then((res) => {
             this.infoData = res.otn2000_ack || {};
             this.clonData = this.$clone(res.otn2000_ack);
-            this.refreshInfoDisabled = false;
-            this.setInfoDisabled = false;
-            this.restorInfoDisabled = false;
-            this.restoreDefaultInfoDisabled = false;
             resolve(res.otn2000_ack);
           })
           .catch((err) => {
+            reject(err);
+          })
+          .finally(() => {
             this.refreshInfoDisabled = false;
             this.setInfoDisabled = false;
             this.restorInfoDisabled = false;
             this.restoreDefaultInfoDisabled = false;
-            reject(err);
           });
       });
     },
@@ -141,17 +140,16 @@ export default {
           return this.getInfo();
         })
         .then(() => {
-          this.refreshInfoDisabled = false;
-          this.restorInfoDisabled = false;
-          this.restoreDefaultInfoDisabled = false;
           this.$message("成功");
         })
         .catch(() => {
+          this.$message("失败");
+        })
+        .finally(() => {
           this.setInfoDisabled = false;
           this.refreshInfoDisabled = false;
           this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
-          this.$message("失败");
         });
     },
     getDetail() {

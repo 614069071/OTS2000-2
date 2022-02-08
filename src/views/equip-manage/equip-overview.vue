@@ -194,20 +194,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.refresh-header-wrapper {
-  height: 36px;
-  padding: 10px 0 0 0;
-  display: flex;
-  justify-content: right;
-
-  .refresh-wrapper {
-    font-size: 16px;
-    .button {
-      margin-left: 10px;
-    }
-  }
-}
-
 .system-info-cahnge-btn {
   font-size: 16px;
 }

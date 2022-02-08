@@ -38,9 +38,9 @@
 
       <main class="layout-content scrollbar">
         <div class="veneer-overall-wrapper">
-          <div class="refresh-header-wrapper">
+          <!-- <div class="refresh-header-wrapper">
             <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
-          </div>
+          </div> -->
 
           <Structure :list="dataTable"></Structure>
         </div>
@@ -58,7 +58,6 @@ import store from "@store";
 import Structure from "@/components/structure";
 import { mapMutations } from "vuex";
 import SideBar from "@components/side-bar";
-import NProgress from "nprogress";
 import { storages } from "@utils";
 
 export default {
@@ -76,22 +75,22 @@ export default {
     };
   },
   beforeRouteEnter(to, form, next) {
-    // console.log(to, form, '111');// 判断是否存在token，没有则跳至登录
     if (store.state.__accessToken__) {
       next();
     } else {
-      NProgress.done();
       next({ path: "/login", replace: true });
     }
   },
-  created() {
-    this.getVeneerList();
+  watch: {
+    $route: {
+      handler() {
+        this.getVeneerList();
+      },
+      immediate: true,
+    },
   },
-  beforeDestroy() {
-    clearInterval(this.timer);
-    this.timer = null;
-    this.timerCount = 60;
-  },
+  created() {},
+  beforeDestroy() {},
   methods: {
     initUserinfo() {
       const userInfo = storages.get("userInfo") || {};
@@ -115,7 +114,20 @@ export default {
       this.timer && clearInterval(this.timer);
       this.timerCount = 60;
       this.getVeneerList();
-      this.startTimer();
+    },
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.timerCount -= 1;
+        if (this.timerCount <= 0) {
+          this.timerCount = 60;
+          this.getVeneerList();
+        }
+      }, 1000);
+    },
+    clearTimer() {
+      clearInterval(this.timer);
+      this.timer = null;
+      this.timerCount = 60;
     },
   },
 };
@@ -188,6 +200,20 @@ export default {
 
   .veneer-overall-wrapper {
     padding: 10px 0;
+  }
+
+  .refresh-header-wrapper {
+    height: 36px;
+    padding: 10px 0 0 0;
+    display: flex;
+    justify-content: right;
+
+    .refresh-wrapper {
+      font-size: 16px;
+      .button {
+        margin-left: 10px;
+      }
+    }
   }
 }
 

@@ -1,5 +1,3 @@
-@import url("//at.alicdn.com/t/font_2388906_wz7ob740st.css");
-
 :root {
   --dft-color: #003466;
   --dft-ht: 20px;
@@ -10,6 +8,17 @@ body {
   line-height: 1.5;
   background-color: var(--dft-color) !important;
   font-family: "SourceHanSansSC", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+select {
+  outline: none;
+  height: 26px;
+  background-color: #fff;
+  border-width: 1px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .f-8 {
@@ -116,21 +125,6 @@ body {
   cursor: pointer;
 }
 
-// 主体内容布局样式
-.inner-item {
-  background-color: #fff;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  padding: 0 24px 24px;
-}
-
-select {
-  outline: none;
-  height: 26px;
-  background-color: #fff;
-  border-width: 1px;
-}
-
 .inner-header-wrapper {
   min-height: 62px;
   padding-bottom: 10px;
@@ -145,7 +139,6 @@ select {
   color: #fff;
   padding: 0 20px;
   background-color: var(--dft-color);
-  // font-weight: 700;
 }
 
 .inner-pagination-wrapper {
@@ -165,10 +158,6 @@ select {
   .pagination-switch-btns {
     display: flex;
   }
-}
-
-button {
-  cursor: pointer;
 }
 
 .def-btn {
@@ -266,4 +255,13 @@ button + button {
 }
 .icon-warning {
   background-image: url(../assets/images/icons/warning.png);
+}
+
+//mixins 多行省略
+@mixin multipleEllipsis($line: 2) {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

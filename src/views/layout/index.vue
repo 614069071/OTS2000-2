@@ -180,9 +180,12 @@ export default {
 
   .layout-content {
     flex: 1;
-    overflow-x: hidden;
-    overflow-y: scroll;
     background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // overflow-x: hidden;
+    // overflow-y: scroll;
   }
 }
 
@@ -193,15 +196,16 @@ export default {
 }
 
 .layout-content {
-  .page-wrapper {
-    box-sizing: border-box;
-    padding: 0 10px 50px 10px;
-  }
-
   .veneer-overall-wrapper {
     padding: 10px 0;
   }
 
+  .page-wrapper {
+    box-sizing: border-box;
+    padding: 0 10px 50px 10px;
+    flex: 1;
+    overflow: auto;
+  }
   .refresh-header-wrapper {
     height: 36px;
     padding: 10px 0 0 0;

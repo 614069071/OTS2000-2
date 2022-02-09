@@ -25,6 +25,10 @@ button + button {
   margin-left: 10px;
 }
 
+button:active {
+  opacity: 0.8;
+}
+
 .f-8 {
   display: block;
   font-size: 12px;

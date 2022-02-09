@@ -50,8 +50,13 @@ export default {
           children: [
             {
               icon: "",
-              menuName: "当前告警",
+              menuName: "告警管理",
               menuLink: "/alarm-manage",
+            },
+            {
+              icon: "",
+              menuName: "当前告警",
+              menuLink: "/alarm-manage/current-alarm",
             },
             {
               icon: "",

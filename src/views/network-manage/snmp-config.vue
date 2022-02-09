@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: "snmp-set",
+  name: "snmp-config",
   data() {
     return {
       dataForm: {},

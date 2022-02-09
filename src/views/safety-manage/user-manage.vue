@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "ip-set",
+  name: "user-manage",
   data() {
     return {
       dataForm: {},

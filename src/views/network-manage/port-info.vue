@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "veneer-list",
+  name: "port-info",
   data() {
     return {};
   },

@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: "order-inquire",
+  name: "history-alarm",
   data() {
     return {
       dataForm: {},

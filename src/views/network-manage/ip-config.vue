@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "ip-set",
+  name: "ip-config",
   data() {
     return {
       dataForm: {},

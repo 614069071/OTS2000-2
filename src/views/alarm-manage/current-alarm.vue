@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: "order-inquire",
+  name: "current-alarm",
   data() {
     return {
       dataForm: {},

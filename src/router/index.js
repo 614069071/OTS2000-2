@@ -51,6 +51,12 @@ export const dynamicRouter = [
     children: [
       {
         path: "/alarm-manage",
+        name: "manage-alarm",
+        component: () => import(/* webpackChunkName: "view" */ "@/views/alarm-manage/manage-alarm"),
+        meta: { name: "告警管理" },
+      },
+      {
+        path: "/alarm-manage/current-alarm",
         name: "current-alarm",
         component: () => import(/* webpackChunkName: "view" */ "@/views/alarm-manage/current-alarm"),
         meta: { name: "当前告警" },

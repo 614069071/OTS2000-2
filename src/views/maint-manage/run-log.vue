@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "veneer-list",
+  name: "run-log",
   data() {
     return {
       dataForm: {},

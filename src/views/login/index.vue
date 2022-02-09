@@ -43,6 +43,7 @@ import { storages } from "@utils";
 import { mapMutations, mapState } from "vuex";
 
 export default {
+  name: "login",
   data() {
     return {
       langType: "1",

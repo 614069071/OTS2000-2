@@ -1,7 +1,7 @@
 <template>
   <div class="olp-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
-      <div class="board-inner-wrapper olp-board"></div>
+      <BoardOlp></BoardOlp>
     </div>
 
     <div class="board-table-title">
@@ -157,12 +157,13 @@
   </div>
 </template>
 <script>
-import CustomSelect from "@/components/custom-select";
 import mixins from "@/utils/mixins";
+import CustomSelect from "@/components/custom-select";
+import BoardOlp from "@/components/board/olp";
 
 export default {
   name: "otu10g",
-  components: { CustomSelect },
+  components: { CustomSelect, BoardOlp },
   mixins: [mixins],
   data() {
     return {
@@ -199,8 +200,4 @@ export default {
   },
 };
 </script>
-<style>
-.olp-board {
-  background-image: url(../../../../assets/images/board/olp.png);
-}
-</style>
+<style></style>

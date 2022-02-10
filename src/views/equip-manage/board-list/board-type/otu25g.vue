@@ -1,7 +1,7 @@
 <template>
   <div class="otu25g-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
-      <div class="board-inner-wrapper otu25g-board"></div>
+      <BoardOtu25g></BoardOtu25g>
     </div>
     <div class="board-table-title">
       <table class="board-table" border="1">
@@ -673,10 +673,12 @@
 
 <script>
 import mixins from "@/utils/mixins";
+import BoardOtu25g from "@/components/board/otu25g";
 
 export default {
   name: "otu25g",
   mixins: [mixins],
+  components: { BoardOtu25g },
   data() {
     return {
       eqoptions: Object.freeze([
@@ -852,9 +854,5 @@ export default {
 
 .prbs-tr .def-btn + .def-btn {
   margin-left: 0;
-}
-
-.otu25g-board {
-  background-image: url(../../../../assets/images/board/otu25g.png);
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="otu40g100g-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper">otu40g100g</div>
+    <div class="board-header-wrapper">
+      <BoardOtu100g></BoardOtu100g>
+    </div>
 
     <div class="board-table-title">
       <table class="board-table" border="1">
@@ -515,10 +517,12 @@
 
 <script>
 import mixins from "@/utils/mixins";
+import BoardOtu100g from "@/components/board/otu100g";
 
 export default {
   name: "otu100g",
   mixins: [mixins],
+  components: { BoardOtu100g },
   data() {
     return {
       infoData: {

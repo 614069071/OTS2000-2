@@ -1,7 +1,6 @@
 <template>
   <div class="num-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
-      <!-- <div class="board-inner-wrapper"></div> -->
       <BoardNmu :data="infoData"></BoardNmu>
     </div>
     <div class="board-table-title">

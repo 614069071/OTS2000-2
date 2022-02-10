@@ -1,6 +1,8 @@
 <template>
   <div class="otu4x10g-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper">ocp2x10g</div>
+    <div class="board-header-wrapper">
+      <BoardOcp10g></BoardOcp10g>
+    </div>
 
     <div class="board-table-title">
       <table class="board-table" border="1">
@@ -565,11 +567,12 @@
 <script>
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
+import BoardOcp10g from "@/components/board/ocp10g";
 
 export default {
   name: "ocp10g",
   mixins: [mixins],
-  components: { CustomSelect },
+  components: { CustomSelect, BoardOcp10g },
   data() {
     return {
       infoData: {

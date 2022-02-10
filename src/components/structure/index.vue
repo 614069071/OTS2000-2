@@ -47,12 +47,8 @@ export default {
       // list: ["nmu", "m16", "olp", "edfa", "d16", "ocp10g", "otu10g"],
     };
   },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
-  },
+  created() {},
+  mounted() {},
 };
 </script>
 

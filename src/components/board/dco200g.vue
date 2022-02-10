@@ -51,12 +51,8 @@ export default {
   data() {
     return {};
   },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
-  },
+  created() {},
+  mounted() {},
 };
 </script>
 

@@ -141,9 +141,13 @@
     }
 
     .tx-rx-item-main {
-      width: 18px;
+      width: 19px;
       height: 34px;
       background: url(../assets/images/board/fiber.png) center/contain no-repeat;
+    }
+
+    .tx-rx-item-main.suc {
+      background-image: url(../assets/images/board/fiber-active.png);
     }
   }
 
@@ -198,11 +202,11 @@
     .trx-item-main {
       width: 30px;
       height: 21px;
-      background: url(../assets/images/board/Tx.svg) center/contain no-repeat;
+      background: url(../assets/images/board/tx.png) center/contain no-repeat;
     }
 
     .trx-item-main.suc {
-      background-color: red;
+      background-image: url(../assets/images/board/tx-active.png);
     }
 
     .trx-item-footer {
@@ -223,13 +227,13 @@
 
   .eth-item {
     .eth-item-main {
-      width: 33px;
+      width: 32px;
       height: 25px;
-      background: url(../assets/images/board/Eth.svg) center/contain no-repeat;
+      background: url(../assets/images/board/eth.png) center/contain no-repeat;
     }
 
     .eth-item-main.suc {
-      background-color: red;
+      background-image: url(../assets/images/board/eth-active.png);
     }
 
     .eth-item-title {

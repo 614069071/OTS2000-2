@@ -16,17 +16,17 @@
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L2in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L1in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L1in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
     </div>
@@ -54,22 +54,22 @@
     <div class="board-trx-wrapper otu10g-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">Cin</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L2in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L1in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">L1in</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
     </div>

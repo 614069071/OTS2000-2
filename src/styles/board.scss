@@ -211,7 +211,11 @@
 
     .trx-item-footer {
       display: flex;
-      margin-left: -4px;
+      margin-left: -3px;
+    }
+
+    .trx-item-footer span + span {
+      margin-left: -5px;
     }
   }
 

@@ -1,14 +1,31 @@
-import Vue from 'vue';
+import Vue from "vue";
 import {
-  Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Select, Input, DatePicker, Option, Col, Row,
-  Dialog, Upload, MessageBox, Message, Notification, Loading, Checkbox, Progress, Radio, InputNumber
-} from 'element-ui';
+  Menu,
+  MenuItem,
+  Submenu,
+  Table,
+  TableColumn,
+  Form,
+  FormItem,
+  Select,
+  Input,
+  DatePicker,
+  Option,
+  MessageBox,
+  Message,
+  Notification,
+  Loading,
+  Checkbox,
+  Progress,
+  Radio,
+  InputNumber,
+} from "element-ui";
 
-import './element-variables.scss';
+import "./element-variables.scss";
 
 export let load = null;
 
-Vue.prototype.$load = () => load = Loading.service();
+Vue.prototype.$load = () => (load = Loading.service());
 Vue.prototype.$loaded = load && load.close();
 
 (() => {
@@ -21,8 +38,7 @@ Vue.prototype.$loaded = load && load.close();
   Vue.prototype.$message = Message;
 })();
 
-Vue
-  .use(Menu)
+Vue.use(Menu)
   .use(MenuItem)
   .use(Submenu)
   .use(Table)
@@ -31,14 +47,9 @@ Vue
   .use(FormItem)
   .use(Select)
   .use(Option)
-  .use(Col)
-  .use(Row)
   .use(Input)
   .use(DatePicker)
-  .use(Dialog)
-  .use(Upload)
   .use(Checkbox)
   .use(Progress)
   .use(Radio)
-  .use(InputNumber)
-
+  .use(InputNumber);

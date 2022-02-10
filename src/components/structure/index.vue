@@ -9,32 +9,32 @@
 </template>
 
 <script>
-import boardNmu from "@/components/board/nmu";
-import boardOlp from "@/components/board/olp";
-import boardOcp10g from "@/components/board/ocp10g";
-import boardOtu10g from "@/components/board/otu10g";
-import boardOtu100g from "@/components/board/otu100g";
-import boardOtu25g from "@/components/board/otu25g";
-import boardD16 from "@/components/board/d16";
-import boardM16 from "@/components/board/m16";
-import boardMd8 from "@/components/board/md8";
-import boardEdfa from "@/components/board/edfa";
-import boardDco200g from "@/components/board/dco200g";
+import BoardNmu from "@/components/board/nmu";
+import BoardOlp from "@/components/board/olp";
+import BoardOcp10g from "@/components/board/ocp10g";
+import BoardOtu10g from "@/components/board/otu10g";
+import BoardOtu100g from "@/components/board/otu100g";
+import BoardOtu25g from "@/components/board/otu25g";
+import BoardD16 from "@/components/board/d16";
+import BoardM16 from "@/components/board/m16";
+import BoardMd8 from "@/components/board/md8";
+import BoardEdfa from "@/components/board/edfa";
+import BoardDco200g from "@/components/board/dco200g";
 
 export default {
   name: "structure",
   components: {
-    boardNmu,
-    boardOlp,
-    boardOcp10g,
-    boardOtu10g,
-    boardOtu100g,
-    boardOtu25g,
-    boardD16,
-    boardM16,
-    boardEdfa,
-    boardMd8,
-    boardDco200g,
+    BoardNmu,
+    BoardOlp,
+    BoardOcp10g,
+    BoardOtu10g,
+    BoardOtu100g,
+    BoardOtu25g,
+    BoardD16,
+    BoardM16,
+    BoardEdfa,
+    BoardMd8,
+    BoardDco200g,
   },
   props: {
     list: {

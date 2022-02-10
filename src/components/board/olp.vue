@@ -1,16 +1,16 @@
 <template>
-  <div class="veneer-olp-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>OLP</span></div>
-    <div class="veneer-link-wrapper olp-link-wrapper">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
-      <div class="veneer-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
-      <div class="veneer-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
+  <div class="board-olp-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>OLP</span></div>
+    <div class="board-link-wrapper olp-link-wrapper">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
+      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
+      <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
     </div>
 
-    <div class="veneer-console-wrapper olp-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper olp-console-wrapper"><span class="f-9">Console</span></div>
 
-    <div class="veneer-rst-wrapper olp-rst-wrapper">
+    <div class="board-rst-wrapper olp-rst-wrapper">
       <div class="rst-name f-9">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: "veneer-olp",
+  name: "board-olp",
   props: ["data"],
   data() {
     return {};
@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-olp-view-wrapper {
+.board-olp-view-wrapper {
   .olp-link-wrapper {
     left: 32px;
     top: 15px;

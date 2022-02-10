@@ -1,16 +1,16 @@
 <template>
-  <div class="veneer-edfa-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>EDFA</span></div>
-    <div class="veneer-link-wrapper">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
-      <div class="veneer-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
-      <div class="veneer-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
+  <div class="board-edfa-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>EDFA</span></div>
+    <div class="board-link-wrapper">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
+      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
+      <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
     </div>
 
-    <div class="veneer-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper"><span class="f-9">Console</span></div>
 
-    <div class="veneer-rst-wrapper edfa-rst-wrapper">
+    <div class="board-rst-wrapper edfa-rst-wrapper">
       <div class="rst-name f-9">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: "veneer-edfa",
+  name: "board-edfa",
   props: ["data"],
   data() {
     return {};
@@ -58,13 +58,13 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-edfa-view-wrapper {
-  .veneer-link-wrapper {
+.board-edfa-view-wrapper {
+  .board-link-wrapper {
     left: 32px;
     top: 15px;
   }
 
-  .veneer-console-wrapper {
+  .board-console-wrapper {
     left: 120px;
     bottom: 14px;
   }

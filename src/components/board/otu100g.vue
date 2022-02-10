@@ -1,16 +1,16 @@
 <template>
-  <div class="veneer-otu100g-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>4*100G OTU</span></div>
-    <div class="veneer-link-wrapper otu100g-link-wrapper1">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>
-      <div class="veneer-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="veneer-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+  <div class="board-otu100g-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>4*100G OTU</span></div>
+    <div class="board-link-wrapper otu100g-link-wrapper1">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="veneer-console-wrapper otu100g-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper otu100g-console-wrapper"><span class="f-9">Console</span></div>
 
-    <div class="veneer-trx-wrapper otu100g-trx-wrapper">
+    <div class="board-trx-wrapper otu100g-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
         <div class="trx-item-main suc"></div>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="veneer-link-type2-wrapper otu100g-link-wrapper2">
+    <div class="board-link-type2-wrapper otu100g-link-wrapper2">
       <div class="link-light">
         <div class="link-square"></div>
         <div class="link-square"></div>
@@ -53,12 +53,12 @@
       </div>
     </div>
 
-    <div class="veneer-qsfp-wrapper otu100g-qsfp-wrapper">
-      <div class="veneer-qsfp-k">QSFP28</div>
-      <div class="veneer-qsfp-n"><span class="f-10">Tx</span><span class="f-10">Rx</span></div>
+    <div class="board-qsfp-wrapper otu100g-qsfp-wrapper">
+      <div class="board-qsfp-k">QSFP28</div>
+      <div class="board-qsfp-n"><span class="f-10">Tx</span><span class="f-10">Rx</span></div>
     </div>
 
-    <div class="veneer-rst-wrapper otu100g-rst-wrapper">
+    <div class="board-rst-wrapper otu100g-rst-wrapper">
       <div class="rst-name f-9">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -67,7 +67,7 @@
 
 <script>
 export default {
-  name: "veneer-otu100g",
+  name: "board-otu100g",
   props: ["data"],
   data() {
     return {};
@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.veneer-otu100g-view-wrapper {
+.board-otu100g-view-wrapper {
   .otu100g-link-wrapper1 {
     left: 30px;
     top: 20px;

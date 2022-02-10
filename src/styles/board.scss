@@ -1,4 +1,4 @@
-.veneer-item-view-wrapper {
+.board-item-view-wrapper {
   display: flex;
   width: 521px;
   height: 60px;
@@ -7,8 +7,8 @@
   box-sizing: border-box;
 }
 
-// .veneer-item-view-wrapper::after,
-// .veneer-item-view-wrapper::before {
+// .board-item-view-wrapper::after,
+// .board-item-view-wrapper::before {
 //   content: "+";
 //   display: block;
 //   width: 14px;
@@ -24,15 +24,15 @@
 //   font-size: 14px;
 // }
 
-.veneer-item-view-wrapper::before {
+.board-item-view-wrapper::before {
   left: 1px;
 }
-.veneer-item-view-wrapper::after {
+.board-item-view-wrapper::after {
   right: 1px;
 }
 
 // 单板名称
-.veneer-item-name {
+.board-item-name {
   background-color: #db3d21;
   width: 70px;
   height: 14px;
@@ -49,10 +49,10 @@
 }
 
 // 网灯
-.veneer-link-wrapper {
+.board-link-wrapper {
   position: absolute;
 
-  .veneer-light {
+  .board-light {
     display: flex;
 
     span.k-name {
@@ -87,13 +87,13 @@
     }
   }
 
-  .veneer-light + .veneer-light {
+  .board-light + .board-light {
     margin-top: 2px;
   }
 }
 
 // 网灯2
-.veneer-link-type2-wrapper {
+.board-link-type2-wrapper {
   position: absolute;
   display: flex;
 
@@ -143,7 +143,7 @@
     .tx-rx-item-main {
       width: 18px;
       height: 34px;
-      background: url(../assets/images/veneer/fiber.png) center/contain no-repeat;
+      background: url(../assets/images/board/fiber.png) center/contain no-repeat;
     }
   }
 
@@ -153,7 +153,7 @@
 }
 
 // rst
-.veneer-rst-wrapper {
+.board-rst-wrapper {
   position: absolute;
   text-align: center;
 
@@ -167,17 +167,17 @@
 }
 
 // console
-.veneer-console-wrapper {
+.board-console-wrapper {
   position: absolute;
   width: 40px;
   height: 22px;
-  background: url(../assets/images/veneer/console.svg) bottom center/20px auto no-repeat;
+  background: url(../assets/images/board/console.svg) bottom center/20px auto no-repeat;
   text-align: center;
   white-space: nowrap;
 }
 
 // tx rx
-.veneer-trx-wrapper {
+.board-trx-wrapper {
   position: absolute;
   display: flex;
   .trx-item {
@@ -198,7 +198,7 @@
     .trx-item-main {
       width: 30px;
       height: 21px;
-      background: url(../assets/images/veneer/Tx.svg) center/contain no-repeat;
+      background: url(../assets/images/board/Tx.svg) center/contain no-repeat;
     }
 
     .trx-item-main.suc {
@@ -217,7 +217,7 @@
 }
 
 // ETH
-.veneer-eth-wrapper {
+.board-eth-wrapper {
   position: absolute;
   display: flex;
 
@@ -225,7 +225,7 @@
     .eth-item-main {
       width: 33px;
       height: 25px;
-      background: url(../assets/images/veneer/Eth.svg) center/contain no-repeat;
+      background: url(../assets/images/board/Eth.svg) center/contain no-repeat;
     }
 
     .eth-item-main.suc {
@@ -243,7 +243,7 @@
 }
 
 // usb
-.veneer-usb-wrapper {
+.board-usb-wrapper {
   width: 30px;
   position: absolute;
 
@@ -256,14 +256,14 @@
   .usb-main {
     width: 19px;
     height: 20px;
-    background: url(../assets/images/veneer/usb.svg) center/contain no-repeat;
+    background: url(../assets/images/board/usb.svg) center/contain no-repeat;
   }
 }
 
-.veneer-qsfp-wrapper {
+.board-qsfp-wrapper {
   position: absolute;
 
-  .veneer-qsfp-k {
+  .board-qsfp-k {
     width: 70px;
     height: 30px;
     background-color: #dde2cd;
@@ -272,14 +272,14 @@
     border: 1px solid #000;
   }
 
-  .veneer-qsfp-n {
+  .board-qsfp-n {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
   }
 }
 
-.veneer-cfp2-wrapper {
+.board-cfp2-wrapper {
   position: absolute;
 
   .cfp2-k {

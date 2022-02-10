@@ -1,11 +1,11 @@
 <template>
   <div class="num-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">
-      <!-- <div class="veneer-inner-wrapper"></div> -->
-      <NmuPic :data="infoData"></NmuPic>
+    <div class="board-header-wrapper">
+      <!-- <div class="board-inner-wrapper"></div> -->
+      <BoardNmu :data="infoData"></BoardNmu>
     </div>
-    <div class="veneer-table-title">
-      <table class="veneer-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -47,13 +47,13 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
-    <div class="veneer-table-container">
-      <table class="veneer-table" border="1">
+    <div class="board-table-container">
+      <table class="board-table" border="1">
         <thead>
           <tr>
             <td>SFP端口</td>
@@ -125,7 +125,7 @@
         </tr>
       </table>
 
-      <table class="veneer-table" style="margin-top: 10px" border="1">
+      <table class="board-table" style="margin-top: 10px" border="1">
         <tr>
           <td>ETH端口</td>
           <td>ETH1</td>
@@ -153,7 +153,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
     </div>
   </div>
@@ -161,11 +161,11 @@
 
 <script>
 import mixins from "@/utils/mixins";
-import NmuPic from "@/components/veneer/nmu.vue";
+import BoardNmu from "@/components/board/nmu.vue";
 
 export default {
   name: "nmu",
-  components: { NmuPic },
+  components: { BoardNmu },
   mixins: [mixins],
   data() {
     return {
@@ -228,7 +228,7 @@ export default {
 </script>
 
 <style scoped>
-.veneer-inner-wrapper {
-  background-image: url(../../../../assets/images/veneer/nmu.png);
+.board-inner-wrapper {
+  background-image: url(../../../../assets/images/board/nmu.png);
 }
 </style>

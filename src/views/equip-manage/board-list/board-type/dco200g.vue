@@ -1,9 +1,9 @@
 <template>
   <div class="otucfpdco200g-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">dco200g</div>
+    <div class="board-header-wrapper">dco200g</div>
 
-    <div class="veneer-table-title">
-      <table class="veneer-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -43,13 +43,13 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
-    <div class="veneer-table-container">
-      <table class="veneer-table" border="1">
+    <div class="board-table-container">
+      <table class="board-table" border="1">
         <thead>
           <tr>
             <td></td>
@@ -384,7 +384,7 @@
 
       <div class="cfp2-title">CFP2</div>
 
-      <table class="veneer-table veneer-title-table veneer-cfp2-table" border="1">
+      <table class="board-table board-title-table board-cfp2-table" border="1">
         <tr>
           <td>在位状态</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
@@ -511,7 +511,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn">刷新</button>
       <button class="def-btn">应用</button>
       <button class="def-btn">复位</button>
@@ -641,7 +641,7 @@ export default {
   text-align: center;
 }
 
-.veneer-cfp2-table {
+.board-cfp2-table {
   margin-top: 0;
 }
 </style>

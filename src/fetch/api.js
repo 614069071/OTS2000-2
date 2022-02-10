@@ -1,3 +1,3 @@
 export default {
-  getVeneer: '/action/jsoncdt'
+  getboard: "/action/jsoncdt",
 };

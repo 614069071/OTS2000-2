@@ -37,7 +37,7 @@
       </div>
 
       <main class="layout-content scrollbar">
-        <div class="veneer-overall-wrapper">
+        <div class="board-overall-wrapper">
           <!-- <div class="refresh-header-wrapper">
             <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
           </div> -->
@@ -84,7 +84,7 @@ export default {
   watch: {
     $route: {
       handler() {
-        this.getVeneerList();
+        this.getboardList();
       },
       immediate: true,
     },
@@ -97,7 +97,7 @@ export default {
       this.userInfo = Object.freeze(userInfo);
     },
     ...mapMutations(["UPDATE_DEFAULT_ACTIVE"]),
-    getVeneerList() {
+    getboardList() {
       const data = { otn2000: { boardname: "board_view", type: "get_info" } };
 
       this.$http
@@ -113,14 +113,14 @@ export default {
     refreshSystem() {
       this.timer && clearInterval(this.timer);
       this.timerCount = 60;
-      this.getVeneerList();
+      this.getboardList();
     },
     startTimer() {
       this.timer = setInterval(() => {
         this.timerCount -= 1;
         if (this.timerCount <= 0) {
           this.timerCount = 60;
-          this.getVeneerList();
+          this.getboardList();
         }
       }, 1000);
     },
@@ -194,7 +194,7 @@ export default {
 }
 
 .layout-content {
-  .veneer-overall-wrapper {
+  .board-overall-wrapper {
     padding: 10px 0;
   }
 

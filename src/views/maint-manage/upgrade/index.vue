@@ -5,7 +5,7 @@
         <div class="upgrade-logo-wrapper"></div>
         <div class="upgrade-item f18" :class="current === 'backup-reboot' ? 'active' : ''" @click="current = 'backup-reboot'">备份与恢复设置</div>
         <div class="upgrade-item f18" :class="current === 'system-upgrade' ? 'active' : ''" @click="current = 'system-upgrade'">系统升级</div>
-        <div class="upgrade-item f18" :class="current === 'veneer-upgrede' ? 'active' : ''" @click="current = 'veneer-upgrede'">单板升级</div>
+        <div class="upgrade-item f18" :class="current === 'board-upgrede' ? 'active' : ''" @click="current = 'board-upgrede'">单板升级</div>
       </div>
     </div>
 
@@ -18,11 +18,11 @@
 <script>
 import BackupReboot from "./backup-reboot";
 import SystemUpgrade from "./system-upgrade";
-import VeneerUpgrede from "./veneer-upgrede";
+import boardUpgrede from "./board-upgrede";
 
 export default {
   name: "upgrade",
-  components: { BackupReboot, SystemUpgrade, VeneerUpgrede },
+  components: { BackupReboot, SystemUpgrade, boardUpgrede },
   data() {
     return {
       current: "backup-reboot",

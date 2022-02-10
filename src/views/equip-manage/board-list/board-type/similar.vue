@@ -1,13 +1,13 @@
 <template>
   <div class="similar-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">
-      <div class="similar-veneer-wrapper">
-        <img v-if="info.status" :src="require(`../../../../assets/images/veneer/${info.boardname.toLowerCase()}.png`)" alt="" />
+    <div class="board-header-wrapper">
+      <div class="similar-board-wrapper">
+        <img v-if="info.status" :src="require(`../../../../assets/images/board/${info.boardname.toLowerCase()}.png`)" alt="" />
       </div>
     </div>
 
-    <div class="veneer-table-title">
-      <table class="veneer-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -49,7 +49,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss">
-.similar-veneer-wrapper {
+.similar-board-wrapper {
   width: 434px;
   height: 50px;
   border: 1px solid #000;

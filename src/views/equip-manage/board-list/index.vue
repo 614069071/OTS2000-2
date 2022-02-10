@@ -49,24 +49,24 @@
     </el-table>
 
     <pupur :visible.sync="dialogVisible">
-      <component :is="veneerType" :info="veneerData" :visible="dialogVisible"></component>
+      <component :is="boardType" :info="boardData" :visible="dialogVisible"></component>
     </pupur>
   </div>
 </template>
 
 <script>
-import Nmu from "./veneer-type/nmu";
-import Edfa from "./veneer-type/edfa";
-import Olp from "./veneer-type/olp";
-import Otu10g from "./veneer-type/otu10g";
-import Otu25g from "./veneer-type/otu25g";
-import Otu100g from "./veneer-type/otu100g";
-import Dco200g from "./veneer-type/dco200g";
-import Ocp10g from "./veneer-type/ocp10g";
-import Similar from "./veneer-type/similar";
+import Nmu from "./board-type/nmu";
+import Edfa from "./board-type/edfa";
+import Olp from "./board-type/olp";
+import Otu10g from "./board-type/otu10g";
+import Otu25g from "./board-type/otu25g";
+import Otu100g from "./board-type/otu100g";
+import Dco200g from "./board-type/dco200g";
+import Ocp10g from "./board-type/ocp10g";
+import Similar from "./board-type/similar";
 
 export default {
-  name: "veneer-list",
+  name: "board-list",
   components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu100g, Dco200g, Ocp10g, Similar },
   data() {
     return {
@@ -74,16 +74,16 @@ export default {
       inquireLoading: false,
       dataTable: [], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
       dialogVisible: false,
-      veneerType: "",
-      veneerTilte: "",
-      veneerData: {},
+      boardType: "",
+      boardTilte: "",
+      boardData: {},
     };
   },
   created() {
-    this.getVeneerList();
+    this.getboardList();
   },
   methods: {
-    getVeneerList() {
+    getboardList() {
       this.$http
         .post({
           otn2000: {
@@ -100,16 +100,16 @@ export default {
         });
     },
     lookDetail(index, data) {
-      const veneerName = data.boardname.toLowerCase();
-      const similarVeneerArg = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
-      if (similarVeneerArg.includes(veneerName)) {
-        this.veneerType = "similar";
+      const boardName = data.boardname.toLowerCase();
+      const similarboardArg = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
+      if (similarboardArg.includes(boardName)) {
+        this.boardType = "similar";
       } else {
-        this.veneerType = veneerName;
+        this.boardType = boardName;
       }
 
-      this.veneerTilte = veneerName;
-      this.veneerData = data;
+      this.boardTilte = boardName;
+      this.boardData = data;
       this.dialogVisible = true;
     },
   },
@@ -129,7 +129,7 @@ $border-color: #aaa;
   box-sizing: border-box;
 }
 // 单板详情表格
-.veneer-header-wrapper {
+.board-header-wrapper {
   background-color: #fff;
   display: flex;
   & > div {
@@ -138,7 +138,7 @@ $border-color: #aaa;
   }
 }
 
-.veneer-inner-wrapper {
+.board-inner-wrapper {
   width: 1000px;
   height: 84px;
   border: 1px solid #aaa;
@@ -148,7 +148,7 @@ $border-color: #aaa;
   margin: 0 auto;
 }
 
-.veneer-table {
+.board-table {
   width: 100%;
   border-collapse: collapse !important;
   display: flex;
@@ -233,13 +233,13 @@ $border-color: #aaa;
   }
 }
 
-.venner-change-btns {
+.board-change-btns {
   text-align: right;
   padding: 10px 10px;
   background-color: #fff;
 }
 
-.veneer-table-container {
+.board-table-container {
   flex: 1;
   overflow: auto;
   position: relative;
@@ -247,7 +247,7 @@ $border-color: #aaa;
   background-color: #fff;
 }
 
-.veneer-table-title {
+.board-table-title {
   background-color: #fff;
   padding: 10px 10px 0 10px;
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="otu4x10g-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">ocp2x10g</div>
+    <div class="board-header-wrapper">ocp2x10g</div>
 
-    <div class="veneer-table-title">
-      <table class="veneer-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -43,13 +43,13 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
-    <div class="veneer-table-container">
-      <table class="veneer-table" border="1">
+    <div class="board-table-container">
+      <table class="board-table" border="1">
         <thead>
           <tr>
             <td></td>
@@ -553,7 +553,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
       <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
       <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>

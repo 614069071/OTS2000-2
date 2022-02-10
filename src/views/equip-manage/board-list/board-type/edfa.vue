@@ -1,10 +1,10 @@
 <template>
   <div class="edfa-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">
+    <div class="board-header-wrapper">
       <Edfa></Edfa>
     </div>
-    <div class="veneer-table-title">
-      <table class="veneer-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -44,14 +44,14 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
     <!-- 状态信息 -->
-    <div class="veneer-table-container">
-      <table class="veneer-table" border="1">
+    <div class="board-table-container">
+      <table class="board-table" border="1">
         <tr>
           <td>输入光功率（dBm）</td>
           <td>{{ infoData.lum_input === 327.67 ? "无输入" : infoData.lum_input }}</td>
@@ -154,7 +154,7 @@
 
       <!-- 修改信息 -->
 
-      <table class="veneer-table" style="margin-top: 20px" border="1">
+      <table class="board-table" style="margin-top: 20px" border="1">
         <tr>
           <td>输入光功率告警门限（dBm）</td>
           <td>
@@ -246,7 +246,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
       <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
       <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
@@ -256,7 +256,7 @@
 
 <script>
 import mixins from "@/utils/mixins";
-import Edfa from "@/components/veneer/edfa";
+import Edfa from "@/components/board/edfa";
 import CustomSelect from "@/components/custom-select";
 
 export default {
@@ -296,7 +296,7 @@ export default {
 </script>
 
 <style scoped>
-.edfa-veneer {
-  background-image: url(../../../../assets/images/veneer/edfa.png);
+.edfa-board {
+  background-image: url(../../../../assets/images/board/edfa.png);
 }
 </style>

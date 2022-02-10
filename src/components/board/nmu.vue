@@ -1,21 +1,21 @@
 <template>
-  <div class="veneer-nmu-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>NMU</span></div>
+  <div class="board-nmu-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>NMU</span></div>
 
-    <div class="veneer-link-wrapper nmu-link-wrapper">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
-      <div class="veneer-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
-      <div class="veneer-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
+    <div class="board-link-wrapper nmu-link-wrapper">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
+      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
 
-    <div class="veneer-console-wrapper nmu-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper nmu-console-wrapper"><span class="f-9">Console</span></div>
 
-    <div class="veneer-rst-wrapper nmu-rst-wrapper">
+    <div class="board-rst-wrapper nmu-rst-wrapper">
       <div class="rst-name f-9">RST</div>
       <div class="rst-circle"></div>
     </div>
-    <div class="veneer-trx-wrapper nmu-trx-wrapper">
+    <div class="board-trx-wrapper nmu-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
         <div class="trx-item-main suc"></div>
@@ -29,7 +29,7 @@
         <div class="trx-item-main"></div>
       </div>
     </div>
-    <div class="veneer-eth-wrapper nmu-eth-wrapper">
+    <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
         <div class="eth-item-main suc"></div>
         <div class="eth-item-title f-9">Eth1</div>
@@ -43,7 +43,7 @@
         <div class="eth-item-title f-9">Eth3</div>
       </div>
     </div>
-    <div class="veneer-usb-wrapper nmu-usb-wrapper">
+    <div class="board-usb-wrapper nmu-usb-wrapper">
       <div class="usb-title">USB</div>
       <div class="usb-main"></div>
     </div>
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "veneer-nmu",
+  name: "board-nmu",
   props: ["data"],
   data() {
     return {};
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-nmu-view-wrapper {
+.board-nmu-view-wrapper {
   .nmu-link-wrapper {
     left: 32px;
     top: 15px;

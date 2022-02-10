@@ -1,14 +1,14 @@
 <template>
-  <div class="veneer-ocp-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>2*10G OCP</span></div>
-    <div class="veneer-link-wrapper ocp-link-wrapper1">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
-      <div class="veneer-light"><span class="k-name">RLN</span><span class="k-item war"></span></div>
-      <div class="veneer-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="veneer-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+  <div class="board-ocp-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>2*10G OCP</span></div>
+    <div class="board-link-wrapper ocp-link-wrapper1">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">RLN</span><span class="k-item war"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="veneer-trx-wrapper ocp-trx-wrapper1">
+    <div class="board-trx-wrapper ocp-trx-wrapper1">
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">Cin</span></div>
         <div class="trx-item-main suc"></div>
@@ -26,13 +26,13 @@
       </div>
     </div>
 
-    <div class="veneer-link-wrapper ocp-link-wrapper2">
-      <div class="veneer-light"><span class="k-name">1L1LOS</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">2L1LOS</span></div>
-      <div class="veneer-light"><span class="k-name">1L2LOS</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">2L1LOS</span></div>
-      <div class="veneer-light"><span class="k-name">1CLOS</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">2CLOS</span></div>
+    <div class="board-link-wrapper ocp-link-wrapper2">
+      <div class="board-light"><span class="k-name">1L1LOS</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">2L1LOS</span></div>
+      <div class="board-light"><span class="k-name">1L2LOS</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">2L1LOS</span></div>
+      <div class="board-light"><span class="k-name">1CLOS</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">2CLOS</span></div>
     </div>
 
-    <div class="veneer-trx-wrapper ocp-trx-wrapper2">
+    <div class="board-trx-wrapper ocp-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-guide"><span class="f-9">Cin</span></div>
         <div class="trx-item-main suc"></div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="veneer-rst-wrapper ocp-rst-wrapper">
+    <div class="board-rst-wrapper ocp-rst-wrapper">
       <div class="rst-name f-9">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: "veneer-ocp10g",
+  name: "board-ocp10g",
   props: ["data"],
   data() {
     return {};
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.veneer-ocp-view-wrapper {
+.board-ocp-view-wrapper {
   .ocp-link-wrapper1 {
     left: 35px;
     top: 15px;

@@ -1,11 +1,11 @@
 <template>
-  <div class="veneer-m16-view-wrapper veneer-item-view-wrapper">
-    <div class="veneer-item-name"><span>M16</span></div>
-    <div class="veneer-link-wrapper">
-      <div class="veneer-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
-      <div class="veneer-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>
-      <div class="veneer-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="veneer-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+  <div class="board-d16-view-wrapper board-item-view-wrapper">
+    <div class="board-item-name"><span>D16</span></div>
+    <div class="board-link-wrapper">
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item war"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
     <div class="tx-rx-wrapper">
@@ -109,7 +109,7 @@
 
 <script>
 export default {
-  name: "veneer-m16",
+  name: "board-d16",
   props: ["data"],
   data() {
     return {};
@@ -124,8 +124,8 @@ export default {
 </script>
 
 <style lang="scss">
-.veneer-m16-view-wrapper {
-  .veneer-link-wrapper {
+.board-d16-view-wrapper {
+  .board-link-wrapper {
     left: 32px;
     top: 15px;
   }

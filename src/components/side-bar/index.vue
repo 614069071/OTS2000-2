@@ -40,7 +40,7 @@ export default {
             {
               icon: "",
               menuName: "单板列表",
-              menuLink: "/veneer-list",
+              menuLink: "/board-list",
             },
           ],
         },

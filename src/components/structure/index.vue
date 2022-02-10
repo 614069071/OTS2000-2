@@ -2,39 +2,39 @@
   <div class="structure-wrapper">
     <div class="structure-inner-wrapper">
       <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index">
-        <component v-if="item.boardname && item.status" :is="`veneer-${item.boardname.toLowerCase()}`"></component>
+        <component v-if="item.boardname && item.status" :is="`board-${item.boardname.toLowerCase()}`"></component>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VeneerNmu from "@/components/veneer/nmu";
-import VeneerOlp from "@/components/veneer/olp";
-import VeneerOcp10g from "@/components/veneer/ocp10g";
-import VeneerOtu10g from "@/components/veneer/otu10g";
-import VeneerOtu100g from "@/components/veneer/otu100g";
-import VeneerOtu25g from "@/components/veneer/otu25g";
-import VeneerD16 from "@/components/veneer/d16";
-import VeneerM16 from "@/components/veneer/m16";
-import VeneerMd8 from "@/components/veneer/md8";
-import VeneerEdfa from "@/components/veneer/edfa";
-import VeneerDco200g from "@/components/veneer/dco200g";
+import boardNmu from "@/components/board/nmu";
+import boardOlp from "@/components/board/olp";
+import boardOcp10g from "@/components/board/ocp10g";
+import boardOtu10g from "@/components/board/otu10g";
+import boardOtu100g from "@/components/board/otu100g";
+import boardOtu25g from "@/components/board/otu25g";
+import boardD16 from "@/components/board/d16";
+import boardM16 from "@/components/board/m16";
+import boardMd8 from "@/components/board/md8";
+import boardEdfa from "@/components/board/edfa";
+import boardDco200g from "@/components/board/dco200g";
 
 export default {
   name: "structure",
   components: {
-    VeneerNmu,
-    VeneerOlp,
-    VeneerOcp10g,
-    VeneerOtu10g,
-    VeneerOtu100g,
-    VeneerOtu25g,
-    VeneerD16,
-    VeneerM16,
-    VeneerEdfa,
-    VeneerMd8,
-    VeneerDco200g,
+    boardNmu,
+    boardOlp,
+    boardOcp10g,
+    boardOtu10g,
+    boardOtu100g,
+    boardOtu25g,
+    boardD16,
+    boardM16,
+    boardEdfa,
+    boardMd8,
+    boardDco200g,
   },
   props: {
     list: {

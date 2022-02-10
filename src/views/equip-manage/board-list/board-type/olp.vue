@@ -1,11 +1,11 @@
 <template>
   <div class="olp-cps-wrapper cps-wrapper">
-    <div class="veneer-header-wrapper">
-      <div class="veneer-inner-wrapper olp-veneer"></div>
+    <div class="board-header-wrapper">
+      <div class="board-inner-wrapper olp-board"></div>
     </div>
 
-    <div class="veneer-table-title">
-      <table class="veneer-table veneer-title-table" border="1">
+    <div class="board-table-title">
+      <table class="board-table board-title-table" border="1">
         <tr>
           <td>硬件版本</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
@@ -47,13 +47,13 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" @click="refreshTitle">刷新</button>
       <button class="def-btn" @click="setTilte">应用</button>
     </div>
 
-    <div class="veneer-table-container">
-      <table class="veneer-table veneer-title-table" border="1">
+    <div class="board-table-container">
+      <table class="board-table board-title-table" border="1">
         <tr>
           <td>工作状态</td>
           <td>{{ infoData.work_state ? "备" : "主" }}</td>
@@ -149,7 +149,7 @@
       </table>
     </div>
 
-    <div class="venner-change-btns">
+    <div class="board-change-btns">
       <button class="def-btn" @click="refreshInfo">刷新</button>
       <button class="def-btn" @click="setInfo">应用</button>
       <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
@@ -200,7 +200,7 @@ export default {
 };
 </script>
 <style>
-.olp-veneer {
-  background-image: url(../../../../assets/images/veneer/olp.png);
+.olp-board {
+  background-image: url(../../../../assets/images/board/olp.png);
 }
 </style>

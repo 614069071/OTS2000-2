@@ -169,7 +169,6 @@ export default {
   }
 
   .layout-aside {
-    min-width: 0;
     background-color: #fff;
     display: flex;
     height: 100%;
@@ -180,12 +179,11 @@ export default {
 
   .layout-content {
     flex: 1;
-    background-color: #fff;
     height: 100%;
     display: flex;
     flex-direction: column;
-    // overflow-x: hidden;
-    // overflow-y: scroll;
+    background-color: #fff;
+    overflow: hidden;
   }
 }
 
@@ -204,7 +202,8 @@ export default {
     box-sizing: border-box;
     padding: 0 10px 50px 10px;
     flex: 1;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   .refresh-header-wrapper {
     height: 36px;

@@ -35,8 +35,8 @@
       <el-table-column prop="name8" label="告警状态"></el-table-column>
       <el-table-column label="操作" width="160">
         <template slot-scope="scope">
-          <button class="def-btn">编辑</button>
-          <button class="def-btn">删除</button>
+          <button class="def-btn" @click="editorAlarm(scope)">编辑</button>
+          <button class="def-btn" @click="deleteAlarm(scope)">删除</button>
         </template>
       </el-table-column>
     </el-table>
@@ -78,7 +78,10 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    editorAlarm() {},
+    deleteAlarm() {},
+  },
 };
 </script>
 

@@ -708,8 +708,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.board-inner-wrapper {
-  background-image: url(../../../../assets/images/board/otu100g.png);
-}
-</style>
+<style scoped></style>

@@ -295,8 +295,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.edfa-board {
-  background-image: url(../../../../assets/images/board/edfa.png);
-}
-</style>
+<style scoped></style>

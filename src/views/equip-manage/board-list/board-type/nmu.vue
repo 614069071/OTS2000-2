@@ -226,8 +226,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.board-inner-wrapper {
-  background-image: url(../../../../assets/images/board/nmu.png);
-}
-</style>
+<style scoped></style>

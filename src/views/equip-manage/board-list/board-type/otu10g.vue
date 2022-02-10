@@ -660,14 +660,7 @@ export default {
 </script>
 
 <style lang="scss">
-.otu25g-cps-wrapper {
-}
-
 .prbs-tr .def-btn + .def-btn {
   margin-left: 0;
-}
-
-.otu10g-board {
-  background-image: url(../../../../assets/images/board/otu10g.png);
 }
 </style>

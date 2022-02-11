@@ -5,11 +5,18 @@
 
       <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm">
         <el-form-item label="起止日期">
-          <el-date-picker size="mini" v-model="dataForm.name7" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"> </el-date-picker>
+          <el-date-picker size="mini" v-model="dataForm.name1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"> </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="选择槽号">
-          <el-select size="mini" v-model="dataForm.name3" placeholder="请选择订单状态">
+        <el-form-item label="槽位号">
+          <el-select size="mini" v-model="dataForm.name2" placeholder="请选择槽位号">
+            <el-option label="全部" value="1"></el-option>
+            <el-option label="槽位1" value="2"></el-option>
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="告警等级">
+          <el-select size="mini" v-model="dataForm.name3" placeholder="请选择告警等级">
             <el-option label="全部" value="1"></el-option>
             <el-option label="槽位1" value="2"></el-option>
           </el-select>
@@ -36,7 +43,7 @@
       <el-table-column prop="name7" label="确认时间"></el-table-column>
       <el-table-column label="操作" width="160">
         <template slot-scope="scope">
-          <button class="def-btn" @click="editorAlarm(scope)">确认</button>
+          <button class="def-btn" @click="confimAlarm(scope)">确认</button>
           <button class="def-btn" @click="deleteAlarm(scope)">删除</button>
         </template>
       </el-table-column>
@@ -80,7 +87,7 @@ export default {
     };
   },
   methods: {
-    editorAlarm() {},
+    confimAlarm() {},
     deleteAlarm() {},
   },
 };

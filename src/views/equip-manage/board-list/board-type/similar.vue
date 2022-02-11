@@ -2,7 +2,7 @@
   <div class="similar-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
       <div class="similar-board-wrapper">
-        <!-- <img v-if="info.status" :src="require(`../../../../assets/images/board/${info.boardname.toLowerCase()}.png`)" alt="" /> -->
+        <component :data="info" :is="info.boardname"></component>
       </div>
     </div>
 
@@ -33,8 +33,8 @@
               {{ titeData.sn }}
             </template>
           </td>
-          <td></td>
-          <td></td>
+          <td>{{ titeData.bdtype ? "板型号" : "" }}</td>
+          <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
           <td>设备类型</td>
@@ -59,20 +59,33 @@
 <script>
 // ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"]
 import mixins from "@/utils/mixins";
+import M16 from "@/components/board/m16";
+import D16 from "@/components/board/d16";
+import Md8 from "@/components/board/md8";
+import M40 from "@/components/board/m40";
+import D40 from "@/components/board/d40";
+import Dcm from "@/components/board/dcm";
+import Md16sfa from "@/components/board/md16sfa";
+import Md16sfb from "@/components/board/md16sfb";
 
 export default {
   name: "similar",
+  props: ["info"],
   mixins: [mixins],
+  components: { M16, D16, Md8, M40, D40, Md16sfa, Md16sfb, Dcm },
   data() {
     return {};
+  },
+  mounted() {
+    console.log("similar", this.info);
   },
 };
 </script>
 
 <style lang="scss">
 .similar-board-wrapper {
-  width: 434px;
-  height: 50px;
-  border: 1px solid #000;
+  // width: 434px;
+  // height: 50px;
+  // border: 1px solid #000;
 }
 </style>

@@ -20,6 +20,7 @@ import BoardM16 from "@/components/board/m16";
 import BoardMd8 from "@/components/board/md8";
 import BoardEdfa from "@/components/board/edfa";
 import BoardDco200g from "@/components/board/dco200g";
+import BoardDcm from "@/components/board/dcm";
 
 export default {
   name: "structure",
@@ -35,6 +36,7 @@ export default {
     BoardEdfa,
     BoardMd8,
     BoardDco200g,
+    BoardDcm,
   },
   props: {
     list: {

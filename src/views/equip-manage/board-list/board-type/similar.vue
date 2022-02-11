@@ -2,7 +2,7 @@
   <div class="similar-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
       <div class="similar-board-wrapper">
-        <img v-if="info.status" :src="require(`../../../../assets/images/board/${info.boardname.toLowerCase()}.png`)" alt="" />
+        <!-- <img v-if="info.status" :src="require(`../../../../assets/images/board/${info.boardname.toLowerCase()}.png`)" alt="" /> -->
       </div>
     </div>
 

@@ -24,18 +24,19 @@
 
     <div class="inner-container-title">当前警告信息</div>
 
-    <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column prop="name1" label="位置"></el-table-column>
-      <el-table-column prop="name2" label="告警级别"></el-table-column>
-      <el-table-column prop="name3" label="告警信息"></el-table-column>
-      <el-table-column prop="name4" label="告警原因"></el-table-column>
-      <el-table-column prop="name5" label="发生时间"></el-table-column>
-      <el-table-column prop="name6" label="清除时间"></el-table-column>
+    <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+      <el-table-column type="index" label="序号" width="50"> </el-table-column>
+      <el-table-column prop="name1" label="发生时间"></el-table-column>
+      <el-table-column prop="name1" label="发生时间"></el-table-column>
+      <el-table-column prop="name2" label="槽位号"></el-table-column>
+      <el-table-column prop="name3" label="板类型"></el-table-column>
+      <el-table-column prop="name4" label="告警名称"></el-table-column>
+      <el-table-column prop="name5" label="告警等级"></el-table-column>
+      <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="name7" label="确认时间"></el-table-column>
-      <el-table-column prop="name8" label="告警状态"></el-table-column>
       <el-table-column label="操作" width="160">
         <template slot-scope="scope">
-          <button class="def-btn" @click="editorAlarm(scope)">编辑</button>
+          <button class="def-btn" @click="editorAlarm(scope)">确认</button>
           <button class="def-btn" @click="deleteAlarm(scope)">删除</button>
         </template>
       </el-table-column>

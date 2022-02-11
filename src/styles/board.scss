@@ -194,6 +194,10 @@
       margin: 0 0 2px -4px;
     }
 
+    .trx-item-title span + span {
+      margin-left: -5px;
+    }
+
     .trx-item-guide {
       text-align: center;
       height: 15px;

@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { isSimilar } from "@/utils";
 import Nmu from "./board-type/nmu";
 import Edfa from "./board-type/edfa";
 import Olp from "./board-type/olp";
@@ -101,8 +102,7 @@ export default {
     },
     lookDetail(index, data) {
       const boardName = data.boardname.toLowerCase();
-      const similarboardArg = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
-      if (similarboardArg.includes(boardName)) {
+      if (isSimilar(boardName)) {
         this.boardType = "similar";
       } else {
         this.boardType = boardName;

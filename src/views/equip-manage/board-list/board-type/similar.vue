@@ -2,7 +2,7 @@
   <div class="similar-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
       <div class="similar-board-wrapper">
-        <component :data="info" :is="info.boardname"></component>
+        <component :is="info.boardname" :data="info" :visible="visible"></component>
       </div>
     </div>
 
@@ -70,7 +70,7 @@ import Md16sfb from "@/components/board/md16sfb";
 
 export default {
   name: "similar",
-  props: ["info"],
+  props: ["info", "visible"],
   mixins: [mixins],
   components: { M16, D16, Md8, M40, D40, Md16sfa, Md16sfb, Dcm },
 };

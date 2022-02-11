@@ -190,6 +190,19 @@ button:disabled {
   border: 1px solid #c9c9c9;
 }
 
+.run-los {
+  width: 100px;
+  height: 100px;
+  background-color: #dedede;
+  animation: run 1.4s steps(1) infinite;
+}
+
+@keyframes run {
+  50% {
+    background-color: #1ef087;
+  }
+}
+
 // element
 .el-table__header-wrapper thead tr th {
   background-color: #f5f7fa !important;

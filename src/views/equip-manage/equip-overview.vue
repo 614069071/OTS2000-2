@@ -160,7 +160,6 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          console.log("sss", res);
           if (!res.otn2000_ack) return;
 
           this.systemInfo = res.otn2000_ack;

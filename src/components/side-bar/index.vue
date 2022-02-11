@@ -18,9 +18,7 @@ export default {
     // list: { type: Array, default: () => [] },
   },
   components: { MiddleMenu },
-  data() {
-    return {};
-  },
+
   computed: {
     ...mapState({
       onRoutes: "routerDefaultActive",

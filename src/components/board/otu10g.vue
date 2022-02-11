@@ -85,11 +85,6 @@
 export default {
   name: "board-otu10g",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

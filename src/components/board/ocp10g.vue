@@ -61,11 +61,6 @@
 export default {
   name: "board-ocp10g",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

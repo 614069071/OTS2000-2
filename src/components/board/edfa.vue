@@ -45,11 +45,6 @@
 export default {
   name: "board-edfa",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

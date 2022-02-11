@@ -36,8 +36,6 @@ export default {
       fileList: [],
     };
   },
-  created() {},
-  mounted() {},
 };
 </script>
 

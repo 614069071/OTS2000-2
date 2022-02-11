@@ -15,9 +15,7 @@
 <script>
 export default {
   name: "port-info",
-  data() {
-    return {};
-  },
+
   methods: {},
 };
 </script>

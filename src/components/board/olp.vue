@@ -56,11 +56,6 @@
 export default {
   name: "board-olp",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

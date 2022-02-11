@@ -28,8 +28,6 @@ export default {
       formData: {},
     };
   },
-  created() {},
-  mounted() {},
 };
 </script>
 

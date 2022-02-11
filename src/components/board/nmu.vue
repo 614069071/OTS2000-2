@@ -54,11 +54,6 @@
 export default {
   name: "board-nmu",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

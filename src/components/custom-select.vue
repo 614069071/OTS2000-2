@@ -18,8 +18,7 @@ export default {
       selectCustomVal: "",
     };
   },
-  created() {},
-  mounted() {},
+
   watch: {
     value: {
       handler(n) {

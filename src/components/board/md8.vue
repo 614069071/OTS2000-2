@@ -111,11 +111,6 @@
 export default {
   name: "board-m16",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

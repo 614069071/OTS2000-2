@@ -19,12 +19,6 @@ export default {
       type: Boolean,
     },
   },
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
-  methods: {},
 };
 </script>
 

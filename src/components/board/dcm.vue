@@ -35,11 +35,6 @@
 export default {
   name: "board-dcm",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

@@ -48,11 +48,6 @@
 export default {
   name: "board-dco200g",
   props: ["data"],
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
 };
 </script>
 

@@ -104,10 +104,11 @@ export default {
         .post(data)
         .then((res) => {
           if (!res) return;
+
           this.dataTable = res.otn2000_ack.channels || [];
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          this.dataTable = [];
         });
     },
     refreshSystem() {

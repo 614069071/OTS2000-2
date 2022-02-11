@@ -73,19 +73,5 @@ export default {
   props: ["info"],
   mixins: [mixins],
   components: { M16, D16, Md8, M40, D40, Md16sfa, Md16sfb, Dcm },
-  data() {
-    return {};
-  },
-  mounted() {
-    console.log("similar", this.info);
-  },
 };
 </script>
-
-<style lang="scss">
-.similar-board-wrapper {
-  // width: 434px;
-  // height: 50px;
-  // border: 1px solid #000;
-}
-</style>

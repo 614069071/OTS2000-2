@@ -136,7 +136,7 @@ export default {
       })
         .then(() => {
           const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "confirm_histalarm", id, confirm_time: Date.now() } };
+          const data = { otn2000: { boardname: board_type, type: "confirm_curralarm", id, confirm_time: Date.now() } };
 
           this.$http
             .post(data)
@@ -159,7 +159,7 @@ export default {
       })
         .then(() => {
           const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "del_histalarm", id } };
+          const data = { otn2000: { boardname: board_type, type: "del_curralarm", id } };
 
           this.$http
             .post(data)
@@ -182,7 +182,7 @@ export default {
       })
         .then(() => {
           const { slot, start_time, end_time, board_type, level } = this.dataForm;
-          const data = { otn2000: { boardname: board_type, slot, start_time, end_time, level, type: "delpart_histalarm" } };
+          const data = { otn2000: { boardname: board_type, slot, start_time, end_time, level, type: "delpart_curralarm" } };
 
           this.$http
             .post(data)
@@ -204,7 +204,7 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const data = { otn2000: { boardname: "NMU", type: "delall_histalarm" } };
+          const data = { otn2000: { boardname: "NMU", type: "delall_curralarm" } };
 
           this.$http
             .post(data)

@@ -46,7 +46,11 @@
 
     <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="occur_time" label="发生时间"></el-table-column>
+      <el-table-column prop="occur_time" label="发生时间">
+        <template slot-scope="scope">
+          {{ (scope.row.occur_time * 1000) | formatTime }}
+        </template>
+      </el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
       <el-table-column prop="board_type" label="板类型"></el-table-column>
       <el-table-column prop="name4" label="告警名称"></el-table-column>
@@ -72,7 +76,7 @@
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn">刷新</button>
+        <button class="def-btn" @click="getAlarm">刷新</button>
         <button class="def-btn">上一页</button>
         <button class="def-btn">下一页</button>
       </div>
@@ -94,15 +98,15 @@ export default {
       },
       inquireLoading: false,
       dataTable: [
-        {
-          id: 1,
-          slot: 5,
-          board_type: 1,
-          alarmtype: 1,
-          portno: 0,
-          occur_time: "2022-02-10 19:38:00",
-          confirm_time: "2022-02-10 21:09:00",
-        },
+        // {
+        //   id: 1,
+        //   slot: 5,
+        //   board_type: 1,
+        //   alarmtype: 1,
+        //   portno: 0,
+        //   occur_time: 0,
+        //   confirm_time: 0,
+        // },
       ],
     };
   },
@@ -114,7 +118,8 @@ export default {
       this.dataForm = { slot: 255, level: "", boardname: "NMU", start_time: "", end_time: "" };
     },
     getAlarm() {
-      const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
+      // const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
+      const data = { otn2000: { type: "get_curralarm", boardname: "NMU", slot: 5 } };
 
       return new Promise((resolve, reject) => {
         this.$http
@@ -137,7 +142,7 @@ export default {
       })
         .then(() => {
           const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "confirm_curralarm", id, confirm_time: Date.now() } };
+          const data = { otn2000: { boardname: board_type, type: "confirm_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)

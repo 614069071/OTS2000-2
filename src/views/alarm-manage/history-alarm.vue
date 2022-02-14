@@ -95,15 +95,15 @@ export default {
       },
       inquireLoading: false,
       dataTable: [
-        {
-          id: 1,
-          slot: 5,
-          board_type: 1,
-          alarmtype: 1,
-          portno: 0,
-          occur_time: "2022-02-10 19:38:00",
-          confirm_time: "2022-02-10 21:09:00",
-        },
+        // {
+        //   id: 1,
+        //   slot: 5,
+        //   board_type: 1,
+        //   alarmtype: 1,
+        //   portno: 0,
+        //   occur_time: 0,
+        //   confirm_time: 0,
+        // },
       ],
     };
   },
@@ -138,7 +138,7 @@ export default {
       })
         .then(() => {
           const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "confirm_histalarm", id, confirm_time: Date.now() } };
+          const data = { otn2000: { boardname: board_type, type: "confirm_histalarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)

@@ -90,7 +90,7 @@ export const formatNumber = (n) => {
   return n[1] ? n : "0" + n;
 };
 
-export const formatTime = (time, type = false) => {
+export const formatTime = (time) => {
   const date = new Date(time);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -98,10 +98,10 @@ export const formatTime = (time, type = false) => {
   const hour = date.getHours();
   const minute = date.getMinutes();
   const second = date.getSeconds();
-
   const ymd = [year, month, day].map(formatNumber).join("-");
   const hms = [hour, minute, second].map(formatNumber).join(":");
-  return type ? ymd + " " + hms : ymd;
+
+  return ymd + " " + hms;
 };
 
 export function formatSeconds(value) {

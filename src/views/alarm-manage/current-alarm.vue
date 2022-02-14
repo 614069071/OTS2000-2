@@ -72,6 +72,7 @@
       </div>
 
       <div class="pagination-switch-btns">
+        <button class="def-btn">刷新</button>
         <button class="def-btn">上一页</button>
         <button class="def-btn">下一页</button>
       </div>

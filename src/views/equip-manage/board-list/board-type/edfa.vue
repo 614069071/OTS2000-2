@@ -240,7 +240,7 @@
           </td>
           <td>PUMP关断功率（dBm）</td>
           <td>
-            <input class="def-input" type="text" v-model="infoData.sw_power" />
+            <input class="def-input" type="text" v-model.number="infoData.sw_power" />
           </td>
         </tr>
       </table>
@@ -267,28 +267,31 @@ export default {
     return {
       infoData: {
         boardname: "",
-        input_power_alarm: 0,
-        lum_input: "",
-        lum_input_thr: 0,
-        lum_output: "",
-        lum_output_thr: 0,
-        mod_temp: "",
-        mod_temp_alarm: 0,
-        mod_temp_high: 0,
-        mod_temp_low: 0,
-        mode: 0,
-        output_power_alarm: 0,
-        pump_cur: "",
-        pump_cur_alarm: 0,
-        pump_cur_thr: 0,
-        pump_sw: 0,
-        pump_sw_cur: 0,
-        pump_temp: "",
-        pump_temp_alarm: 0,
-        pump_temp_high: 0,
-        pump_temp_low: 0,
-        tec_cold_cur: "",
         type: "",
+        post_reply: 0,
+        pump_sw: 0,
+        mode: 0,
+        lum_input_thr: 0,
+        lum_output_thr: 0,
+        APC_output_power: 0,
+        pump_cur_thr: 0,
+        sw_power: 0,
+        mod_temp_low: 0,
+        mod_temp_high: 0,
+        pump_temp_low: 0,
+        pump_temp_high: 0,
+        gain: 0,
+        lum_input: 0,
+        lum_output: 0,
+        tec_cold_cur: "",
+        mod_temp: "",
+        pump_temp: "",
+        pump_cur: "",
+        input_power_alarm: 0,
+        output_power_alarm: 0,
+        pump_cur_alarm: 0,
+        mod_temp_alarm: 0,
+        pump_temp_alarm: 0,
       },
     };
   },

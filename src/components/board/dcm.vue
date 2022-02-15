@@ -19,7 +19,7 @@
     <div class="tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-9">OCT</i>
+          <i class="f-9">OUT</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">

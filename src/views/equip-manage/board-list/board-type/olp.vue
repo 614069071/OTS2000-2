@@ -44,6 +44,20 @@
             <input class="def-input" type="text" v-model="titeData.desc" />
           </td>
         </tr>
+        <tr>
+          <td>MAC地址</td>
+          <td>
+            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.mac_address" />
+
+            <template v-else>
+              {{ titeData.mac_address }}
+            </template>
+          </td>
+          <td>槽位号</td>
+          <td>{{ info.slot }}</td>
+          <td></td>
+          <td></td>
+        </tr>
       </table>
     </div>
 

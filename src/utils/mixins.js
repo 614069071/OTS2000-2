@@ -23,6 +23,7 @@ export default {
         status: "",
         mfgdate: "",
         device_type: "",
+        mac_address: "",
       },
       clonData: {},
       infoData: {},

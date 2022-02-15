@@ -172,7 +172,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
 import BoardOlp from "@/components/board/olp";
@@ -183,7 +182,6 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         boardname: "olp",
         type: "get_info",

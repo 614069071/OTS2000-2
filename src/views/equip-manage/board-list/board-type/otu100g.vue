@@ -530,7 +530,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import BoardOtu100g from "@/components/board/otu100g";
 
@@ -540,7 +539,6 @@ export default {
   components: { BoardOtu100g },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         boardname: "otu100g",
         type: "get_info",

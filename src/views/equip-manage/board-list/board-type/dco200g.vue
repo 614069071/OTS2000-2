@@ -533,7 +533,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import BoardDco200g from "@/components/board/dco200g";
 
@@ -543,7 +542,6 @@ export default {
   components: { BoardDco200g },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         boardname: "",
         type: "",

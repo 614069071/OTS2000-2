@@ -579,7 +579,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
 import BoardOcp10g from "@/components/board/ocp10g";
@@ -590,7 +589,6 @@ export default {
   components: { CustomSelect, BoardOcp10g },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         channels: new Array(2).fill({
           channel: 0,

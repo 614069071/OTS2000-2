@@ -173,7 +173,7 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
+import { storages } from "@/utils";
 import mixins from "@/utils/mixins";
 import BoardNmu from "@/components/board/nmu.vue";
 
@@ -183,7 +183,7 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
+      iSuper: storages.get("__iSuper__") || false,
       infoData: {
         sfp1: {
           online_status: 0,

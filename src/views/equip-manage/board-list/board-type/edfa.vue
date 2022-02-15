@@ -269,7 +269,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import Edfa from "@/components/board/edfa";
 import CustomSelect from "@/components/custom-select";
@@ -280,7 +279,6 @@ export default {
   components: { CustomSelect, Edfa },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         boardname: "",
         type: "",

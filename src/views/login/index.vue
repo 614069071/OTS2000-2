@@ -78,7 +78,6 @@ export default {
   beforeRouteEnter(to, from, next) {
     storages.set("__accessToken__", "");
     storages.set("userInfo", {});
-    storages.set("MenuTreeColle", []);
     next();
   },
   created() {
@@ -102,6 +101,7 @@ export default {
     simulateLogin() {
       setTimeout(() => {
         storages.set("__accessToken__", 123);
+        storages.set("__iSuper__", true);
         this.$router.push("/");
       }, 1000);
     },
@@ -114,8 +114,6 @@ export default {
 
             storages.set("userInfo", userInfo);
             storages.set("__accessToken__", toKen);
-
-            this.getMenuTreeColle();
           } else {
             this.$message({ message: resp_msg });
           }
@@ -123,14 +121,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    },
-    getMenuTreeColle() {
-      this.$load();
-      this.$http.getPower().then(({ datas }) => {
-        const { children } = datas[0];
-        storages.set("MenuTreeColle", children);
-        this.$router.push("/");
-      });
     },
     langChange(e) {
       const value = e.target.value;

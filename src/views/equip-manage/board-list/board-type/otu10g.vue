@@ -588,7 +588,6 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import BoardOtu10g from "@/components/board/otu10g";
 
@@ -598,7 +597,6 @@ export default {
   components: { BoardOtu10g },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         channels: new Array(4).fill({
           channel: null,

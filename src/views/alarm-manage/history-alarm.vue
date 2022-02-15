@@ -81,7 +81,7 @@
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn">刷新</button>
+        <button class="def-btn" @click="getAlarm">刷新</button>
         <button class="def-btn">上一页</button>
         <button class="def-btn">下一页</button>
       </div>
@@ -125,19 +125,15 @@ export default {
     getAlarm() {
       const data = { otn2000: { type: "get_histalarm", ...this.dataForm } };
 
-      return new Promise((resolve, reject) => {
-        this.$http
-          .post(data)
-          .then((res) => {
-            this.dataTable = res.otn2000_ack.records || [];
-            resolve(this.dataTable);
-          })
-          .catch((err) => {
-            this.dataTable = [];
-            reject(err);
-          })
-          .finally(() => {});
-      });
+      this.$http
+        .post(data)
+        .then((res) => {
+          this.dataTable = res.otn2000_ack.records || [];
+        })
+        .catch(() => {
+          this.dataTable = [];
+        })
+        .finally(() => {});
     },
     confimAlarm(row) {
       this.$confirm("确认当前警告吗?", "提示", {

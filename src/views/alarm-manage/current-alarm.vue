@@ -119,19 +119,15 @@ export default {
       // const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
       const data = { otn2000: { type: "get_curralarm", boardname: "NMU", slot: 5 } };
 
-      return new Promise((resolve, reject) => {
-        this.$http
-          .post(data)
-          .then((res) => {
-            this.dataTable = res.otn2000_ack.records || [];
-            resolve(this.dataTable);
-          })
-          .catch((err) => {
-            this.dataTable = [];
-            reject(err);
-          })
-          .finally(() => {});
-      });
+      this.$http
+        .post(data)
+        .then((res) => {
+          this.dataTable = res.otn2000_ack.records || [];
+        })
+        .catch(() => {
+          this.dataTable = [];
+        })
+        .finally(() => {});
     },
     confimAlarm(row) {
       this.$confirm("确认当前警告吗?", "提示", {

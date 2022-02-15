@@ -17,7 +17,7 @@
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
               {{ titeData.mfgdate }}
@@ -25,7 +25,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
+            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
 
             <template v-else>
               {{ titeData.sn }}
@@ -156,7 +156,9 @@
     </div>
   </div>
 </template>
+
 <script>
+import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
 import BoardOlp from "@/components/board/olp";
@@ -167,6 +169,7 @@ export default {
   mixins: [mixins],
   data() {
     return {
+      iSuper: storage.get("__iSuper__") || false,
       infoData: {
         boardname: "olp",
         type: "get_info",

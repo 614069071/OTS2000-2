@@ -16,7 +16,7 @@
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
               {{ titeData.mfgdate }}
@@ -24,7 +24,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
+            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
 
             <template v-else>
               {{ titeData.sn }}
@@ -672,6 +672,7 @@
 </template>
 
 <script>
+import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import BoardOtu25g from "@/components/board/otu25g";
 
@@ -681,6 +682,7 @@ export default {
   components: { BoardOtu25g },
   data() {
     return {
+      iSuper: storage.get("__iSuper__") || false,
       eqoptions: Object.freeze([
         { value: 1, lable: 0 },
         { value: 2, lable: 0.6 },

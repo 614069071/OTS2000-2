@@ -11,8 +11,8 @@
         <div class="system-info-item">
           <span>序列号</span>
           <span>
-            <template v-if="isTatic || !$store.state.iSuper">{{ systemInfo.sn }}</template>
-            <input v-if="!isTatic && $store.state.iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
+            <template v-if="isTatic || !iSuper">{{ systemInfo.sn }}</template>
+            <input v-if="!isTatic && iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
           </span>
         </div>
         <div class="system-info-item">
@@ -115,11 +115,14 @@
 </template>
 
 <script>
+import { storage } from "@/utils";
+
 export default {
   name: "equip-overview",
   data() {
     return {
       isTatic: true,
+      iSuper: storage.get("__iSuper__") || false,
       systemInfo: {
         boardname: "",
         device_type: "",
@@ -170,7 +173,7 @@ export default {
     },
     submitChangeFrom() {
       const { dev_sign, contacts, location, sn } = this.systemInfo;
-      const asin = this.$state.iSuper ? { sn } : {};
+      const asin = this.iSuper ? { sn } : {};
       const data = { otn2000: { boardname: "sys_view", type: "post_info", dev_sign, contacts, location, ...asin } };
 
       this.$http

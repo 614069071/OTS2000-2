@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/login";
-import store from "@/store";
+import { storage } from "@/utils";
 
 Vue.use(VueRouter);
 
@@ -161,7 +161,7 @@ router.afterEach(({ matched = [] }) => {
   const exclude = ["/login", "/error"];
   const isExclude = exclude.includes(route.path);
 
-  !isExclude && store.commit("UPDATE_DEFAULT_ACTIVE", route.path);
+  !isExclude && storage.set("__router_active__", route.path);
 });
 
 export default router;

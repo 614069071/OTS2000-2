@@ -38,9 +38,7 @@
 </template>
 
 <script>
-import store from "@store";
 import { storages } from "@utils";
-import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "login",
@@ -78,7 +76,7 @@ export default {
     };
   },
   beforeRouteEnter(to, from, next) {
-    store.commit("UPDATE_TOKEN", "");
+    storages.set("__accessToken__", "");
     storages.set("userInfo", {});
     storages.set("MenuTreeColle", []);
     next();
@@ -88,11 +86,7 @@ export default {
     this.$i18n.locale = lang;
     this.langType = lang === "zh" ? "1" : "2";
   },
-  computed: {
-    ...mapState(["routerDefaultActive"]),
-  },
   methods: {
-    ...mapMutations(["UPDATE_TOKEN"]),
     login() {
       // 模拟登录
       const login_form = this.$refs.login_form;
@@ -107,7 +101,7 @@ export default {
     },
     simulateLogin() {
       setTimeout(() => {
-        this.UPDATE_TOKEN(123);
+        storages.set("__accessToken__", 123);
         this.$router.push("/");
       }, 1000);
     },
@@ -119,8 +113,8 @@ export default {
             const { toKen, ...userInfo } = datas;
 
             storages.set("userInfo", userInfo);
+            storages.set("__accessToken__", toKen);
 
-            this.UPDATE_TOKEN(toKen);
             this.getMenuTreeColle();
           } else {
             this.$message({ message: resp_msg });

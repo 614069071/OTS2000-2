@@ -13,9 +13,9 @@
 
     <div class="layout-main">
       <div class="layout-aside">
-        <div class="aside-header-wrapper" :class="{ collapse: barCollapse }">
+        <div class="aside-header-wrapper">
           <div class="aside-content-wrapper clear-scroll-bar">
-            <SideBar :collapse="barCollapse"></SideBar>
+            <SideBar />
           </div>
         </div>
 
@@ -54,9 +54,7 @@
 </template>
 
 <script>
-import store from "@store";
 import Structure from "@/components/structure";
-import { mapMutations } from "vuex";
 import SideBar from "@components/side-bar";
 import { storages } from "@utils";
 
@@ -65,7 +63,6 @@ export default {
   components: { SideBar, Structure },
   data() {
     return {
-      barCollapse: false,
       userInfo: {
         name: "webadmin",
         roleName: "管理员",
@@ -75,7 +72,9 @@ export default {
     };
   },
   beforeRouteEnter(to, form, next) {
-    if (store.state.__accessToken__) {
+    const __accessToken__ = storages.get("__accessToken__");
+
+    if (__accessToken__) {
       next();
     } else {
       next({ path: "/login", replace: true });
@@ -96,7 +95,6 @@ export default {
       const userInfo = storages.get("userInfo") || {};
       this.userInfo = Object.freeze(userInfo);
     },
-    ...mapMutations(["UPDATE_DEFAULT_ACTIVE"]),
     getboardList() {
       const data = { otn2000: { boardname: "board_view", type: "get_info" } };
 

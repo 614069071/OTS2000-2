@@ -1,4 +1,4 @@
-import { isSimilar } from "./";
+import { isSimilar, storage } from "./";
 
 export default {
   props: {
@@ -70,9 +70,10 @@ export default {
       });
     },
     setTilte() {
+      const iSuper = storage.get("__iSuper__") || false;
       const { mfgdate, sn, desc } = this.titeData;
       const { boardname, slot } = this.info;
-      const iSuperData = this.$store.state.iSuper ? { mfgdate, sn } : {};
+      const iSuperData = iSuper ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.setTilteDisabled = true;

@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <!-- background-color="#f0f7ff"  text-color="rgba(255, 255, 255, 0.65)" -->
-    <el-menu class="sidebar-el-menu" :default-active="onRoutes" :default-openeds="defaultOpenedsArray" text-color="#003466" active-text-color="#fff" unique-opened :collapse="collapse">
+    <el-menu class="sidebar-el-menu" :default-active="onRoutes" text-color="#003466" active-text-color="#fff" unique-opened>
       <middle-menu v-for="(item, i) in menuTreeColle" :model="item" :key="item.path" :index="i" />
     </el-menu>
   </div>
@@ -9,21 +9,17 @@
 
 <script>
 import MiddleMenu from "./middle-menu";
-import { mapState } from "vuex";
+import { storage } from "@/utils";
 
 export default {
   name: "side-bar",
-  props: {
-    collapse: { type: Boolean },
-    // list: { type: Array, default: () => [] },
-  },
   components: { MiddleMenu },
-
+  data() {
+    return {
+      onRoutes: storage.get("__router_active__") || "",
+    };
+  },
   computed: {
-    ...mapState({
-      onRoutes: "routerDefaultActive",
-      defaultOpenedsArray: "defaultOpenedsArray",
-    }),
     menuTreeColle() {
       return [
         {

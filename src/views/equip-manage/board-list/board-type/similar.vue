@@ -19,7 +19,7 @@
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="$store.state.iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
               {{ titeData.mfgdate }}
@@ -27,7 +27,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="$store.state.iSuper" type="text" v-model="titeData.sn" />
+            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
 
             <template v-else>
               {{ titeData.sn }}
@@ -58,6 +58,7 @@
 
 <script>
 // ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"]
+import { storage } from "@/utils";
 import mixins from "@/utils/mixins";
 import M16 from "@/components/board/m16";
 import D16 from "@/components/board/d16";
@@ -73,5 +74,10 @@ export default {
   props: ["info", "visible"],
   mixins: [mixins],
   components: { M16, D16, Md8, M40, D40, Md16sfa, Md16sfb, Dcm },
+  data() {
+    return {
+      iSuper: storage.get("__iSuper__") || false,
+    };
+  },
 };
 </script>

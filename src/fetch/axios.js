@@ -5,7 +5,7 @@ const serve = axios.create({ baseURL, timeout: 5000 });
 
 serve.interceptors.request.use(
   (config) => {
-    // config.headers.toKen = store.state.__accessToken__;
+    // config.headers.toKen = storages.get("__accessToken__");
     return config;
   },
   (err) => Promise.reject(err)

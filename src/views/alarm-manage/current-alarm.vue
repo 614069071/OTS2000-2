@@ -28,12 +28,6 @@
             <el-option label="严重" value="5"></el-option>
           </el-select>
         </el-form-item>
-
-        <el-form-item label="板类型">
-          <el-select size="mini" v-model="dataForm.boardname" placeholder="请选择板类型">
-            <el-option label="NMU" value="NMU"></el-option>
-          </el-select>
-        </el-form-item>
       </el-form>
 
       <div class="current-alarm-search-submit">
@@ -47,8 +41,8 @@
     <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
       <el-table-column prop="occur_time" label="发生时间">
-        <template slot-scope="scope">
-          {{ (scope.row.occur_time * 1000) | formatTime }}
+        <template v-slot="{ row }">
+          {{ (row.occur_time * 1000) | formatTime }}
         </template>
       </el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
@@ -57,14 +51,18 @@
       <el-table-column prop="alarmtype" label="告警等级"></el-table-column>
       <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="confirm_time" label="确认时间">
-        <template slot-scope="scope">
-          {{ scope.row.confirm_time ? scope.row.confirm_time : "未确认" }}
+        <template v-slot="{ row }">
+          <template v-if="row.confirm_time">
+            {{ (row.confirm_time * 1000) | formatTime }}
+          </template>
+
+          <template v-else>未确认</template>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="160">
-        <template slot-scope="scope">
-          <button v-if="!scope.row.confirm_time" class="def-btn" @click="confimAlarm(scope.row)">确认</button>
-          <button class="def-btn" @click="deleteAlarm(scope.row)">删除</button>
+        <template v-slot="{ row }">
+          <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">确认</button>
+          <button class="def-btn" @click="deleteAlarm(row)">删除</button>
         </template>
       </el-table-column>
     </el-table>
@@ -72,7 +70,7 @@
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
         <button class="def-btn" @click="delCheckAlarm">删除所选条件警告</button>
-        <button class="def-btn" @click="delAllAlarm">删除全部历史警告</button>
+        <button class="def-btn" @click="delAllAlarm">删除全部当前警告</button>
       </div>
 
       <div class="pagination-switch-btns">
@@ -141,13 +139,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "confirm_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
+          const { id } = row;
+          const data = { otn2000: { boardname: "NMU", type: "confirm_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("确认成功", res);
+
+              this.getAlarm();
             })
             .catch(() => {
               console.log("确认失败");

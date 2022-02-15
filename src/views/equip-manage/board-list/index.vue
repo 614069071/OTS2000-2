@@ -87,14 +87,21 @@ export default {
     unifiedBoardName(v) {
       const boardNames = {
         otu10g: "4*10G OTU",
+        otu25g: "4*25G OTU",
+        ocp10g: "2*10G OCP",
+        otu100g: "40&100G OTU",
+        dco200: "200G CFP2 DCO",
         m16: "M16",
         d16: "D16",
+        md8: "MD8",
+        m40: "M40",
+        d40: "D40",
+        md16sfa: "MD16SFA",
+        md16sfb: "MD16SFB",
         dcm: "DCM",
         edfa: "EDFA",
-        olp: "OLP",
         NMU: "NMU",
-        ocp10g: "2*10G OCP",
-        dco200: "200G CFP2 DCO",
+        olp: "OLP",
       };
 
       return boardNames[v] || v;

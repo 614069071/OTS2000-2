@@ -1,6 +1,6 @@
 <template>
   <div class="board-otu100g-view-wrapper board-item-view-wrapper">
-    <div class="board-item-name"><span>4*100G OTU</span></div>
+    <div class="board-item-name"><span>40&100G OTU</span></div>
     <div class="board-link-wrapper otu100g-link-wrapper1">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>

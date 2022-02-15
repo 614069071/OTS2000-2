@@ -280,14 +280,14 @@
           <td>主备线路初始功率差（dB）</td>
           <td>
             <div class="coll-3">
-              <input type="text" class="def-input" v-model="infoData.channels[0].init_power" />
+              <input type="text" class="def-input" v-model.number="infoData.channels[0].init_power" />
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              <input type="text" class="def-input" v-model="infoData.channels[1].init_power" />
+              <input type="text" class="def-input" v-model.number="infoData.channels[1].init_power" />
             </div>
           </td>
           <td></td>

@@ -524,7 +524,7 @@ import mixins from "@/utils/mixins";
 import BoardDco200g from "@/components/board/dco200g";
 
 export default {
-  name: "otu10g",
+  name: "dco200g",
   mixins: [mixins],
   components: { BoardDco200g },
   data() {

@@ -16,7 +16,7 @@
       <el-table-column prop="boardname" label="单板型号">
         <template v-slot="{ row }">
           <template v-if="row.status">
-            {{ row.boardname }}
+            {{ row.boardname | unifiedBoardName }}
           </template>
         </template>
       </el-table-column>
@@ -82,6 +82,23 @@ export default {
   },
   created() {
     this.getboardList();
+  },
+  filters: {
+    unifiedBoardName(v) {
+      const boardNames = {
+        otu10g: "4*10G OTU",
+        m16: "M16",
+        d16: "D16",
+        dcm: "DCM",
+        edfa: "EDFA",
+        olp: "OLP",
+        NMU: "NMU",
+        ocp10g: "2*10G OCP",
+        dco200: "200G CFP2 DCO",
+      };
+
+      return boardNames[v];
+    },
   },
   methods: {
     getboardList() {

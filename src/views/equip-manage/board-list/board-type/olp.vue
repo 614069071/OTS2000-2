@@ -164,7 +164,7 @@ import CustomSelect from "@/components/custom-select";
 import BoardOlp from "@/components/board/olp";
 
 export default {
-  name: "otu10g",
+  name: "olp",
   components: { CustomSelect, BoardOlp },
   mixins: [mixins],
   data() {

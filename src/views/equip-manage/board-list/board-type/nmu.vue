@@ -40,7 +40,7 @@
           <td>{{ titeData.status ? "在位" : "脱位" }}</td>
           <td>信息描述</td>
           <td>
-            <input class="def-input" type="text" v-model="titeData.desc" />
+            <input class="def-input" type="text" maxlength="30" v-model="titeData.desc" />
           </td>
         </tr>
         <tr>

@@ -2,30 +2,30 @@
   <div class="board-otu10g-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>4*10G OTU</span></div>
     <div class="board-link-wrapper otu10g-link-wrapper1">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
+      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
     <div class="board-trx-wrapper otu10g-trx-wrapper1">
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">Cin</span></div>
+        <div class="trx-item-guide"><span class="f-9">Cin1</span></div>
         <div class="trx-item-main suc"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L2in</span></div>
+        <div class="trx-item-guide"><span class="f-9">Lin1</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L1in</span></div>
+        <div class="trx-item-guide"><span class="f-9">Cin2</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L1in</span></div>
+        <div class="trx-item-guide"><span class="f-9">Lin2</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
       </div>
@@ -33,21 +33,25 @@
 
     <div class="board-link-type2-wrapper otu10g-link-wrapper2">
       <div class="link-light">
+        <div class="link-name"><i class="f-8">C1LOS</i></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">2Link1</i></div>
-        <div class="link-name"><i class="f-8">2Link2</i></div>
-        <div class="link-name"><i class="f-8">2Loop</i></div>
+        <div class="link-square"></div>
+        <div class="link-name"><i class="f-8">L1LOS</i></div>
+        <div class="link-name"><i class="f-8">C2LOS</i></div>
+        <div class="link-name"><i class="f-8">L2LOS</i></div>
       </div>
 
       <div class="link-light">
+        <div class="link-name"><i class="f-8">C3LOS</i></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">3Link1</i></div>
-        <div class="link-name"><i class="f-8">3Link2</i></div>
-        <div class="link-name"><i class="f-8">3Loop</i></div>
+        <div class="link-square"></div>
+        <div class="link-name"><i class="f-8">L3LOS</i></div>
+        <div class="link-name"><i class="f-8">C4LOS</i></div>
+        <div class="link-name"><i class="f-8">L4LOS</i></div>
       </div>
     </div>
 

@@ -4,46 +4,46 @@
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column prop="slot" label="槽位号" width="100">
-        <template slot-scope="scoped">
-          {{ `slot ${scoped.row.slot}` }}
+        <template v-slot="{ row }">
+          {{ `slot ${row.slot}` }}
         </template>
       </el-table-column>
       <el-table-column prop="status" label="槽位状态">
-        <template slot-scope="scoped">
-          {{ scoped.row.status ? "在位" : "脱位" }}
+        <template v-slot="{ row }">
+          {{ row.status ? "在位" : "脱位" }}
         </template>
       </el-table-column>
       <el-table-column prop="boardname" label="单板型号">
-        <template slot-scope="scope">
-          <template v-if="scope.row.status">
-            {{ scope.row.boardname }}
+        <template v-slot="{ row }">
+          <template v-if="row.status">
+            {{ row.boardname }}
           </template>
         </template>
       </el-table-column>
       <el-table-column prop="h_ver" label="硬件版本">
-        <template slot-scope="scope">
-          <template v-if="scope.row.status">
-            {{ scope.row.h_ver }}
+        <template v-slot="{ row }">
+          <template v-if="row.status">
+            {{ row.h_ver }}
           </template>
         </template>
       </el-table-column>
       <el-table-column prop="s_ver" label="软件版本">
-        <template slot-scope="scope">
-          <template v-if="scope.row.status">
-            {{ scope.row.s_ver }}
+        <template v-slot="{ row }">
+          <template v-if="row.status">
+            {{ row.s_ver }}
           </template>
         </template>
       </el-table-column>
       <el-table-column prop="mfgdate" label="生产日期">
-        <template slot-scope="scope">
-          <template v-if="scope.row.status">
-            {{ scope.row.mfgdate }}
+        <template v-slot="{ row }">
+          <template v-if="row.status">
+            {{ row.mfgdate }}
           </template>
         </template>
       </el-table-column>
       <el-table-column label="详情信息" width="100">
-        <template slot-scope="scope">
-          <button v-if="scope.row.status" @click="lookDetail(scope.$index, scope.row)">点击查看</button>
+        <template v-slot="{ row }">
+          <button v-if="row.status" @click="lookDetail(row)">点击查看</button>
         </template>
       </el-table-column>
     </el-table>
@@ -100,7 +100,7 @@ export default {
           console.log(err);
         });
     },
-    lookDetail(index, data) {
+    lookDetail(data) {
       const boardName = data.boardname.toLowerCase();
       if (isSimilar(boardName)) {
         this.boardType = "similar";

@@ -9,7 +9,7 @@
       <el-table-column prop="name3" label="用户级别"></el-table-column>
       <el-table-column prop="name4" label="创建时间"></el-table-column>
       <el-table-column label="修改密码" width="160">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <button class="def-btn">点击修改</button>
           <button class="def-btn">删除</button>
         </template>

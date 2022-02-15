@@ -46,7 +46,11 @@
 
     <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="occur_time" label="发生时间"></el-table-column>
+      <el-table-column prop="occur_time" label="发生时间">
+        <template v-slot="{ row }">
+          {{ (row.occur_time * 1000) | formatTime }}
+        </template>
+      </el-table-column>
       <el-table-column prop="end_time" label="结束时间"></el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
       <el-table-column prop="board_type" label="板类型"></el-table-column>
@@ -54,14 +58,18 @@
       <el-table-column prop="alarmtype" label="告警等级"></el-table-column>
       <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="confirm_time" label="确认时间">
-        <template slot-scope="scope">
-          {{ scope.row.confirm_time ? scope.row.confirm_time : "未确认" }}
+        <template v-slot="{ row }">
+          <template v-if="row.confirm_time">
+            {{ (row.confirm_time * 1000) | formatTime }}
+          </template>
+
+          <template v-else>未确认</template>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="160">
-        <template slot-scope="scope">
-          <button v-if="!scope.row.confirm_time" class="def-btn" @click="confimAlarm(scope.row)">确认</button>
-          <button class="def-btn" @click="deleteAlarm(scope.row)">删除</button>
+        <template v-slot="{ row }">
+          <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">确认</button>
+          <button class="def-btn" @click="deleteAlarm(row)">删除</button>
         </template>
       </el-table-column>
     </el-table>

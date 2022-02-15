@@ -9,7 +9,7 @@
       <el-table-column prop="name4" label="操作时间"></el-table-column>
       <el-table-column prop="name5" label="操作方式"></el-table-column>
       <el-table-column label="操作" width="120">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <button class="def-btn">删除</button>
         </template>
       </el-table-column>

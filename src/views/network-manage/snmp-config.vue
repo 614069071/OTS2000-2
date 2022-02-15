@@ -22,7 +22,7 @@
       <el-table-column prop="name3" label="UDP通信端口"></el-table-column>
       <el-table-column prop="name4" label="状态"></el-table-column>
       <el-table-column prop="name5" label="操作" width="160">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <button class="def-btn">修改</button>
           <button class="def-btn">删除</button>
         </template>

@@ -352,8 +352,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[0].work_mode" v-model="infoData.channels[0].Switch">
-                <option :value="0">备</option>
-                <option :value="1">主</option>
+                <option :value="0">主</option>
+                <option :value="1">备</option>
               </select>
             </div>
           </td>
@@ -362,8 +362,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[1].work_mode" v-model="infoData.channels[1].Switch">
-                <option :value="0">备</option>
-                <option :value="1">主</option>
+                <option :value="0">主</option>
+                <option :value="1">备</option>
               </select>
             </div>
           </td>

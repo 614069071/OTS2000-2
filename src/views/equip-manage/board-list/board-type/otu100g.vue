@@ -31,7 +31,7 @@
               {{ titeData.sn }}
             </template>
           </td>
-          <td>版型号</td>
+          <td>板型号</td>
           <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>

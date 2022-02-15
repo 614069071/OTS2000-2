@@ -97,7 +97,7 @@ export default {
         dco200: "200G CFP2 DCO",
       };
 
-      return boardNames[v];
+      return boardNames[v] || v;
     },
   },
   methods: {

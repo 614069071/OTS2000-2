@@ -92,35 +92,31 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .board-otu10g-view-wrapper {
   .otu10g-link-wrapper1 {
-    left: 35px;
-    top: 20px;
+    left: 28px;
+    top: 10px;
   }
 
   .otu10g-trx-wrapper1 {
-    left: 131px;
-    bottom: 0px;
+    left: 47px;
+    bottom: -9px;
   }
 
   .otu10g-trx-wrapper2 {
-    left: 327px;
-    bottom: 0px;
+    left: 283px;
+    bottom: -9px;
   }
 
   .otu10g-link-wrapper2 {
-    left: 263px;
-    top: 4px;
+    left: 238px;
+    bottom: -26px;
   }
 
   .otu10g-rst-wrapper {
-    left: 471px;
-    top: 12px;
-  }
-
-  .trx-item {
-    margin-left: 0 !important;
+    left: 487px;
+    bottom: 6px;
   }
 }
 </style>

@@ -10,19 +10,19 @@
 
     <div class="board-trx-wrapper ocp-trx-wrapper1">
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">Cin</span></div>
+        <div class="trx-item-guide"><span>Cin</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L2in</span></div>
+        <div class="trx-item-guide"><span>L2in</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L1in</span></div>
+        <div class="trx-item-guide"><span>L1in</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
     </div>
 
@@ -34,24 +34,24 @@
 
     <div class="board-trx-wrapper ocp-trx-wrapper2">
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">Cin</span></div>
+        <div class="trx-item-guide"><span>Cin</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L2in</span></div>
+        <div class="trx-item-guide"><span>L2in</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span class="f-9">L1in</span></div>
+        <div class="trx-item-guide"><span>L1in</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
     </div>
 
     <div class="board-rst-wrapper ocp-rst-wrapper">
-      <div class="rst-name f-9">RST</div>
+      <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
   </div>

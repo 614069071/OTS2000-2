@@ -12,23 +12,25 @@
     <div class="board-console-wrapper nmu-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper nmu-rst-wrapper">
-      <div class="rst-name f-9">RST</div>
+      <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
+
     <div class="board-trx-wrapper nmu-trx-wrapper">
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
         <div class="trx-item-main suc"></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx2</span><span class="f-9">Rx2</span></div>
+        <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
         <div class="trx-item-main"></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx3</span><span class="f-9">Rx3</span></div>
+        <div class="trx-item-footer"><span>Tx3</span><span>Rx3</span></div>
         <div class="trx-item-main"></div>
       </div>
     </div>
+
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
         <div class="eth-item-main suc"></div>

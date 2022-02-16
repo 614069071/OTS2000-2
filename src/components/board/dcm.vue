@@ -12,7 +12,7 @@
     <div class="board-console-wrapper dcm-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper dcm-rst-wrapper">
-      <div class="rst-name f-9">RST</div>
+      <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
 

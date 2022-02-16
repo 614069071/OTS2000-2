@@ -143,24 +143,29 @@
   }
 }
 
-// rst
+// rst √
 .board-rst-wrapper {
   position: absolute;
   text-align: center;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .rst-name {
+    text-align: center;
+  }
 
   .rst-circle {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: #828180;
     margin: -4px 0 0 7px;
   }
 }
 
-// console
+// console  √
 .board-console-wrapper {
   position: absolute;
-  width: 40px;
   height: 27px;
   background: url(../assets/images/board/console.svg) bottom center/27px auto no-repeat;
   text-align: center;
@@ -169,6 +174,7 @@
 
   span {
     font-size: 12px;
+    text-align: center;
   }
 }
 
@@ -176,47 +182,31 @@
 .board-trx-wrapper {
   position: absolute;
   display: flex;
+  font-size: 12px;
+  transform: scale(0.6);
+
   .trx-item {
-    width: 30px;
-
-    .trx-item-title {
-      height: 10px;
-      display: flex;
-      justify-content: space-between;
-      margin: 0 0 2px -4px;
-    }
-
-    .trx-item-title span + span {
-      margin-left: -5px;
-    }
-
     .trx-item-guide {
       text-align: center;
-      height: 15px;
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .trx-item-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2px;
     }
 
     .trx-item-main {
-      width: 30px;
-      height: 21px;
+      width: 58px;
+      height: 40px;
       background: url(../assets/images/board/tx.png) center/contain no-repeat;
     }
 
     .trx-item-main.suc {
       background-image: url(../assets/images/board/tx-active.png);
     }
-
-    .trx-item-footer {
-      display: flex;
-      margin-left: -3px;
-    }
-
-    .trx-item-footer span + span {
-      margin-left: -5px;
-    }
-  }
-
-  .trx-item + .trx-item {
-    margin-left: 11px;
   }
 }
 

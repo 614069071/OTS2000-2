@@ -12,11 +12,11 @@
 
     <div class="board-trx-wrapper dco200g-trx-wrapper1">
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
         <div class="trx-item-main suc"></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx2</span><span class="f-9">Rx2</span></div>
+        <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
         <div class="trx-item-main"></div>
       </div>
     </div>
@@ -28,17 +28,17 @@
 
     <div class="board-trx-wrapper dco200g-trx-wrapper2">
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx1</span><span class="f-9">Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
         <div class="trx-item-main suc"></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-title"><span class="f-9">Tx2</span><span class="f-9">Rx2</span></div>
+        <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
         <div class="trx-item-main"></div>
       </div>
     </div>
 
     <div class="board-rst-wrapper dco200g-rst-wrapper">
-      <div class="rst-name f-9">RST</div>
+      <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
   </div>

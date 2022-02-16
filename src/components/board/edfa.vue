@@ -11,7 +11,7 @@
     <div class="board-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper edfa-rst-wrapper">
-      <div class="rst-name f-9">RST</div>
+      <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
 

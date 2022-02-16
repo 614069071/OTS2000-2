@@ -34,7 +34,7 @@
 // 网灯横显示 √
 .board-link-wrapper {
   position: absolute;
-  left: 15px;
+  left: 0px;
   top: 10px;
   font-size: 12px;
   transform: scale(0.6);
@@ -45,7 +45,7 @@
     height: 12px;
 
     span.k-name {
-      width: 40px;
+      width: 50px;
     }
 
     span.k-name:first-child {

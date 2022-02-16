@@ -79,6 +79,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
+  align-content: flex-start;
 }
 
 .structure-item-wrapper {

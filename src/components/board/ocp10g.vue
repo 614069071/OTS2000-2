@@ -67,8 +67,7 @@ export default {
 <style scoped lang="scss">
 .board-ocp-view-wrapper {
   .ocp-link-wrapper1 {
-    left: 35px;
-    top: 15px;
+    left: 18px;
   }
 
   .ocp-link-wrapper2 {
@@ -77,18 +76,15 @@ export default {
   }
 
   .ocp-rst-wrapper {
-    left: 441px;
-    top: 12px;
+    left: 470px;
   }
 
   .ocp-trx-wrapper1 {
-    left: 103px;
-    bottom: 0px;
+    left: 88px;
   }
 
   .ocp-trx-wrapper2 {
-    left: 320px;
-    bottom: 0px;
+    left: 310px;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="board-dcm-view-wrapper board-item-view-wrapper">
+  <div class="board-md16sfa-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>MD16SFA</span></div>
 
     <div class="board-link-wrapper">
@@ -33,16 +33,18 @@
 
 <script>
 export default {
-  name: "board-dcm",
+  name: "board-md16sfa",
   props: ["data"],
 };
 </script>
 
 <style lang="scss">
 .board-md16sfa-view-wrapper {
+  .board-link-wrapper {
+    left: 28px;
+  }
   .tx-rx-wrapper {
     left: 380px;
-    top: 3px;
   }
 }
 </style>

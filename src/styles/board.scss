@@ -178,7 +178,7 @@
   }
 }
 
-// tx rx
+// tx rx √
 .board-trx-wrapper {
   position: absolute;
   display: flex;
@@ -210,15 +210,17 @@
   }
 }
 
-// ETH
+// ETH √
 .board-eth-wrapper {
   position: absolute;
   display: flex;
+  font-size: 12px;
+  transform: scale(0.6);
 
   .eth-item {
     .eth-item-main {
-      width: 32px;
-      height: 25px;
+      width: 52px;
+      height: 40px;
       background: url(../assets/images/board/eth.png) center/contain no-repeat;
     }
 
@@ -227,11 +229,7 @@
     }
 
     .eth-item-title {
-      width: 30px;
-      height: 8px;
-      font-size: 12px;
-      line-height: 10px;
-      padding-left: 3px;
+      text-align: center;
     }
   }
 }

@@ -34,15 +34,15 @@
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
         <div class="eth-item-main suc"></div>
-        <div class="eth-item-title f-9">Eth1</div>
+        <div class="eth-item-title">Eth1</div>
       </div>
       <div class="eth-item">
         <div class="eth-item-main"></div>
-        <div class="eth-item-title f-9">Eth2</div>
+        <div class="eth-item-title">Eth2</div>
       </div>
       <div class="eth-item">
         <div class="eth-item-main"></div>
-        <div class="eth-item-title f-9">Eth3</div>
+        <div class="eth-item-title">Eth3</div>
       </div>
     </div>
     <div class="board-usb-wrapper nmu-usb-wrapper">

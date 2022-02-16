@@ -165,11 +165,11 @@
 // console  √
 .board-console-wrapper {
   position: absolute;
-  height: 27px;
-  background: url(../assets/images/board/console.svg) bottom center/27px auto no-repeat;
+  height: 32px;
+  background: url(../assets/images/board/console.svg) bottom center/42px auto no-repeat;
   text-align: center;
   white-space: nowrap;
-  transform: scale(0.7);
+  transform: scale(0.6);
 
   span {
     font-size: 12px;

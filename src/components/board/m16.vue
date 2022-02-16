@@ -123,7 +123,6 @@ export default {
 
   .tx-rx-m16-wrapper {
     left: -30px;
-    top: -6px;
   }
 }
 </style>

@@ -17,7 +17,7 @@
 // 单板名称
 .board-item-name {
   background-color: #db3d21;
-  width: 70px;
+  width: 90px;
   height: 14px;
   line-height: 14px;
   text-align: center;
@@ -116,7 +116,7 @@
 .tx-rx-wrapper {
   position: absolute;
   left: 100px;
-  top: 3px;
+  top: -6px;
   display: flex;
   font-size: 12px;
   transform: scale(0.6);
@@ -192,6 +192,7 @@
 // tx rx √
 .board-trx-wrapper {
   position: absolute;
+  bottom: -5px;
   display: flex;
   font-size: 12px;
   transform: scale(0.7);

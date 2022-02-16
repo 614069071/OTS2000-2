@@ -51,26 +51,19 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .board-dco200g-view-wrapper {
-  .dco200g-link-wrapper1 {
-    left: 0px;
-    top: 20px;
-  }
-
   .dco200g-trx-wrapper1 {
-    left: 169px;
-    top: 10px;
+    left: 150px;
   }
 
   .cfp2-dco200g-wrapper {
-    left: 250px;
+    left: 266px;
     top: 0px;
   }
 
   .dco200g-trx-wrapper2 {
     left: 369px;
-    top: 10px;
   }
 
   .dco200g-link-wrapper2 {

@@ -41,8 +41,7 @@ export default {
 <style lang="scss">
 .board-m40-view-wrapper {
   .tx-rx-wrapper {
-    left: 380px;
-    top: 3px;
+    left: 382px;
   }
 }
 </style>

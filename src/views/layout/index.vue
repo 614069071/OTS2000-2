@@ -67,7 +67,24 @@ export default {
         name: "webadmin",
         roleName: "管理员",
       },
-      dataTable: [],
+      dataTable: [
+        // { status: 1, boardname: "m16" },
+        // { status: 1, boardname: "otu10g" },
+        // { status: 1, boardname: "dcm" },
+        // { status: 1, boardname: "d16" },
+        // { status: 1, boardname: "d40" },
+        // { status: 1, boardname: "olp" },
+        // { status: 1, boardname: "edfa" },
+        { status: 1, boardname: "dco200g" },
+        { status: 1, boardname: "md16sfa" },
+        { status: 1, boardname: "md16sfb" },
+        { status: 1, boardname: "ocp10g" },
+        { status: 1, boardname: "otu25g" },
+        { status: 1, boardname: "otu100g" },
+        { status: 1, boardname: "m40" },
+        { status: 1, boardname: "nmu" },
+        // { status: 1, boardname: "md8" },
+      ],
       timerCount: 0,
     };
   },
@@ -83,7 +100,7 @@ export default {
   watch: {
     $route: {
       handler() {
-        this.getboardList();
+        // this.getboardList();
       },
       immediate: true,
     },

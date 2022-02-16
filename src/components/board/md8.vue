@@ -1,5 +1,5 @@
 <template>
-  <div class="board-m16-view-wrapper board-item-view-wrapper">
+  <div class="board-md8-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>MD8</span></div>
     <div class="board-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
@@ -116,14 +116,8 @@ export default {
 
 <style lang="scss">
 .board-md8-view-wrapper {
-  .board-link-wrapper {
-    left: 32px;
-    top: 15px;
-  }
-
   .tx-rx-wrapper {
-    left: 100px;
-    top: 3px;
+    left: -30px;
   }
 }
 </style>

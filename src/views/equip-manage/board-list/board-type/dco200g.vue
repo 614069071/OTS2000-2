@@ -405,7 +405,7 @@
           <td>在位状态</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
           <td>发送光功率(dBm)</td>
-          <td>{{ infoData.CFP2.tx_thr_L }}</td>
+          <td>{{ infoData.CFP2.launch_power }}</td>
           <td>接收光功率(dBm)</td>
           <td>{{ infoData.CFP2.rcv_power }}</td>
         </tr>

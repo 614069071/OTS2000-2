@@ -79,11 +79,11 @@ export default {
         // { status: 1, boardname: "md16sfa" },
         // { status: 1, boardname: "md16sfb" },
         // { status: 1, boardname: "ocp10g" },
-        { status: 1, boardname: "otu25g" },
-        { status: 1, boardname: "otu100g" },
-        { status: 1, boardname: "m40" },
-        { status: 1, boardname: "nmu" },
+        // { status: 1, boardname: "otu25g" },
+        // { status: 1, boardname: "m40" },
         // { status: 1, boardname: "md8" },
+        // { status: 1, boardname: "otu100g" },
+        // { status: 1, boardname: "nmu" },
       ],
       timerCount: 0,
     };
@@ -100,7 +100,7 @@ export default {
   watch: {
     $route: {
       handler() {
-        // this.getboardList();
+        this.getboardList();
       },
       immediate: true,
     },

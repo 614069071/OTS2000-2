@@ -1,7 +1,7 @@
 <template>
   <div class="board-otu100g-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>40&100G OTU</span></div>
-    <div class="board-link-wrapper otu100g-link-wrapper1">
+    <div class="board-link-wrapper otu100g-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
@@ -31,25 +31,25 @@
 
     <div class="board-link-column-wrapper otu100g-link-wrapper2">
       <div class="link-light">
+        <div class="link-name">2Link1</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">2Link1</i></div>
-        <div class="link-name"><i class="f-8">2Link2</i></div>
-        <div class="link-name"><i class="f-8">2Loop</i></div>
-        <div class="link-name"><i class="f-8">2Loop</i></div>
+        <div class="link-name">2Link2</div>
+        <div class="link-name">2Loop</div>
+        <div class="link-name">2Loop</div>
       </div>
 
       <div class="link-light">
+        <div class="link-name">3Link1</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">3Link1</i></div>
-        <div class="link-name"><i class="f-8">3Link2</i></div>
-        <div class="link-name"><i class="f-8">3Loop</i></div>
-        <div class="link-name"><i class="f-8">3Loop</i></div>
+        <div class="link-name">3Link2</div>
+        <div class="link-name">3Loop</div>
+        <div class="link-name">3Loop</div>
       </div>
     </div>
 
@@ -74,24 +74,26 @@ export default {
 
 <style scoped lang="scss">
 .board-otu100g-view-wrapper {
+  .otu100g-link-wrapper {
+    left: 15px;
+  }
+
   .otu100g-trx-wrapper {
-    left: 169px;
-    top: 10px;
+    left: 115px;
   }
 
   .otu100g-link-wrapper2 {
-    left: 300px;
-    top: 2px;
+    left: 310px;
+    top: -17px;
   }
 
   .otu100g-qsfp-wrapper {
-    left: 366px;
+    left: 386px;
     top: 10px;
   }
 
   .otu100g-rst-wrapper {
     left: 471px;
-    top: 12px;
   }
 }
 </style>

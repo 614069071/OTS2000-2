@@ -58,11 +58,6 @@ export default {
     top: 20px;
   }
 
-  .dco200g-console-wrapper {
-    left: 100px;
-    top: 30px;
-  }
-
   .dco200g-trx-wrapper1 {
     left: 169px;
     top: 10px;
@@ -81,11 +76,6 @@ export default {
   .dco200g-link-wrapper2 {
     left: 300px;
     top: 2px;
-  }
-
-  .dco200g-rst-wrapper {
-    left: 471px;
-    top: 12px;
   }
 
   .trx-item {

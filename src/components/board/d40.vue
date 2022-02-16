@@ -9,7 +9,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="board-console-wrapper dcm-console-wrapper"><span>Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper dcm-rst-wrapper">
       <div class="rst-name">RST</div>
@@ -33,31 +33,12 @@
 
 <script>
 export default {
-  name: "board-dcm",
+  name: "board-d40",
   props: ["data"],
 };
 </script>
 
 <style lang="scss">
-.board-dcm-view-wrapper {
-  .board-link-wrapper {
-    left: 32px;
-    top: 15px;
-  }
-
-  .dcm-console-wrapper {
-    top: 30px;
-    left: 122px;
-  }
-
-  .dcm-rst-wrapper {
-    top: 25px;
-    left: 170px;
-  }
-
-  .tx-rx-wrapper {
-    left: 380px;
-    top: 3px;
-  }
+.board-d40-view-wrapper {
 }
 </style>

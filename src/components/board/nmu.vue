@@ -9,9 +9,9 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
 
-    <div class="board-console-wrapper nmu-console-wrapper"><span>Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
-    <div class="board-rst-wrapper nmu-rst-wrapper">
+    <div class="board-rst-wrapper">
       <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -61,16 +61,6 @@ export default {
 
 <style lang="scss">
 .board-nmu-view-wrapper {
-  .nmu-console-wrapper {
-    left: 100px;
-    bottom: 0px;
-  }
-
-  .nmu-rst-wrapper {
-    left: 140px;
-    bottom: 3px;
-  }
-
   .nmu-trx-wrapper {
     left: 148px;
     bottom: -5px;

@@ -8,9 +8,9 @@
       <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
     </div>
 
-    <div class="board-console-wrapper olp-console-wrapper"><span>Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
-    <div class="board-rst-wrapper olp-rst-wrapper">
+    <div class="board-rst-wrapper">
       <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -61,21 +61,6 @@ export default {
 
 <style lang="scss">
 .board-olp-view-wrapper {
-  .olp-link-wrapper {
-    left: 32px;
-    top: 15px;
-  }
-
-  .olp-console-wrapper {
-    top: 30px;
-    left: 122px;
-  }
-
-  .olp-rst-wrapper {
-    top: 25px;
-    left: 170px;
-  }
-
   .olp-tx-rx-wrapper {
     left: 275px;
     top: -6px;

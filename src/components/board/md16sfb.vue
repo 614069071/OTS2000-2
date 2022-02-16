@@ -1,5 +1,5 @@
 <template>
-  <div class="board-dcm-view-wrapper board-item-view-wrapper">
+  <div class="board-md16sfb-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>MD16SFA</span></div>
 
     <div class="board-link-wrapper">
@@ -9,9 +9,9 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="board-console-wrapper dcm-console-wrapper"><span>Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
-    <div class="board-rst-wrapper dcm-rst-wrapper">
+    <div class="board-rst-wrapper">
       <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -39,22 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-.board-dcm-view-wrapper {
-  .board-link-wrapper {
-    left: 32px;
-    top: 15px;
-  }
-
-  .dcm-console-wrapper {
-    top: 30px;
-    left: 122px;
-  }
-
-  .dcm-rst-wrapper {
-    top: 25px;
-    left: 170px;
-  }
-
+.board-md16sfb-view-wrapper {
   .tx-rx-wrapper {
     left: 380px;
     top: 3px;

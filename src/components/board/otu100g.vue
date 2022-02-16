@@ -8,7 +8,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="board-console-wrapper otu100g-console-wrapper"><span>Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
     <div class="board-trx-wrapper otu100g-trx-wrapper">
       <div class="trx-item">
@@ -74,16 +74,6 @@ export default {
 
 <style scoped lang="scss">
 .board-otu100g-view-wrapper {
-  .otu100g-link-wrapper1 {
-    left: 30px;
-    top: 20px;
-  }
-
-  .otu100g-console-wrapper {
-    left: 100px;
-    top: 30px;
-  }
-
   .otu100g-trx-wrapper {
     left: 169px;
     top: 10px;
@@ -102,10 +92,6 @@ export default {
   .otu100g-rst-wrapper {
     left: 471px;
     top: 12px;
-  }
-
-  .trx-item {
-    margin-left: 0 !important;
   }
 }
 </style>

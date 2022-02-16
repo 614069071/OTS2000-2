@@ -50,11 +50,6 @@ export default {
 
 <style lang="scss">
 .board-edfa-view-wrapper {
-  .board-link-wrapper {
-    left: 15px;
-    top: 10px;
-  }
-
   .board-console-wrapper {
     left: 100px;
     bottom: 0px;

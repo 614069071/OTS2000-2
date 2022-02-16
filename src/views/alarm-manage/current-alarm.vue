@@ -164,7 +164,6 @@ export default {
       dataForm: {
         slot: 255,
         level: 255,
-        boardname: "NMU",
         start_time: null,
         end_time: null,
       },
@@ -197,16 +196,16 @@ export default {
   },
   methods: {
     resetDataForm() {
-      this.dataForm = { slot: 255, level: "", boardname: "NMU", start_time: "", end_time: "" };
+      this.dataForm = { slot: 255, level: 255, start_time: "", end_time: "" };
     },
     getAlarm() {
       const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };
-      const data = { otn2000: { type: "get_curralarm", ...this.dataForm, ...times } };
+      const data = { otn2000: { type: "get_curralarm", boardname: "NMU", ...this.dataForm, ...times } };
 
       this.$http
         .post(data)
         .then((res) => {
-          this.dataTable = res.otn2000_ack.records || [];
+          this.dataTable = (res.otn2000_ack.records || []).reverse();
         })
         .catch(() => {
           this.dataTable = [];
@@ -244,13 +243,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "del_curralarm", id } };
+          const { id } = row;
+          const data = { otn2000: { boardname: "NMU", type: "del_curralarm", id } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarm();
             })
             .catch(() => {
               console.log("删除失败");
@@ -267,13 +268,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { slot, start_time, end_time, board_type, level } = this.dataForm;
-          const data = { otn2000: { boardname: board_type, slot, start_time, end_time, level, type: "delpart_curralarm" } };
+          const { slot, start_time, end_time, level } = this.dataForm;
+          const data = { otn2000: { boardname: "NMU", slot, start_time, end_time, level, type: "delpart_curralarm" } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarm();
             })
             .catch(() => {
               console.log("删除失败");
@@ -296,6 +299,8 @@ export default {
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarm();
             })
             .catch(() => {
               console.log("删除失败");

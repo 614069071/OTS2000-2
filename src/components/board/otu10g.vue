@@ -31,27 +31,27 @@
       </div>
     </div>
 
-    <div class="board-link-type2-wrapper otu10g-link-wrapper2">
+    <div class="board-link-column-wrapper otu10g-link-wrapper2">
       <div class="link-light">
+        <div class="link-name">C1LOS</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">C1LOS</i></div>
-        <div class="link-name"><i class="f-8">L1LOS</i></div>
-        <div class="link-name"><i class="f-8">C2LOS</i></div>
-        <div class="link-name"><i class="f-8">L2LOS</i></div>
+        <div class="link-name">L1LOS</div>
+        <div class="link-name">C2LOS</div>
+        <div class="link-name">L2LOS</div>
       </div>
 
       <div class="link-light">
+        <div class="link-name">C3LOS</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">C3LOS</i></div>
-        <div class="link-name"><i class="f-8">L3LOS</i></div>
-        <div class="link-name"><i class="f-8">C4LOS</i></div>
-        <div class="link-name"><i class="f-8">L4LOS</i></div>
+        <div class="link-name">L3LOS</div>
+        <div class="link-name">C4LOS</div>
+        <div class="link-name">L4LOS</div>
       </div>
     </div>
 

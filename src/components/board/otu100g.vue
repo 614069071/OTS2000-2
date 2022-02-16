@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="board-link-type2-wrapper otu100g-link-wrapper2">
+    <div class="board-link-column-wrapper otu100g-link-wrapper2">
       <div class="link-light">
         <div class="link-square"></div>
         <div class="link-square"></div>

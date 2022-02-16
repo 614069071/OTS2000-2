@@ -109,13 +109,13 @@
 
 <script>
 export default {
-  name: "board-m16",
+  name: "board-md8",
   props: ["data"],
 };
 </script>
 
 <style lang="scss">
-.board-m16-view-wrapper {
+.board-md8-view-wrapper {
   .board-link-wrapper {
     left: 32px;
     top: 15px;

@@ -1,14 +1,14 @@
 <template>
   <div class="board-m16-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>M16</span></div>
-    <div class="board-link-wrapper">
+    <div class="board-link-wrapper m16-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="tx-rx-wrapper">
+    <div class="tx-rx-wrapper tx-rx-m16-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
           <i>Line</i>
@@ -116,14 +116,14 @@ export default {
 
 <style lang="scss">
 .board-m16-view-wrapper {
-  .board-link-wrapper {
-    left: 32px;
-    top: 15px;
+  .m16-link-wrapper {
+    left: 28px;
+    top: 10px;
   }
 
-  .tx-rx-wrapper {
-    left: 100px;
-    top: 3px;
+  .tx-rx-m16-wrapper {
+    left: -30px;
+    top: -6px;
   }
 }
 </style>

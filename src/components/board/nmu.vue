@@ -62,8 +62,8 @@ export default {
 <style lang="scss">
 .board-nmu-view-wrapper {
   .nmu-link-wrapper {
-    left: 32px;
-    top: 15px;
+    left: 15px;
+    top: 10px;
   }
 
   .nmu-console-wrapper {

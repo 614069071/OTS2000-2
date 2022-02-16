@@ -170,7 +170,7 @@
 
       <table class="board-table" style="margin-top: 20px" border="1">
         <tr>
-          <td>输入光功率告警门限（dBm）</td>
+          <td>输入光功率低告警门限（dBm）</td>
           <td>
             <!-- <CustomSelect
               
@@ -184,7 +184,7 @@
             /> -->
             <input type="text" class="def-input" v-model.number="infoData.lum_input_thr" />
           </td>
-          <td>输出光功率告警门限（dBm）</td>
+          <td>输出光功率低告警门限（dBm）</td>
           <td>
             <!-- <CustomSelect
               v-model="infoData.lum_output_thr"

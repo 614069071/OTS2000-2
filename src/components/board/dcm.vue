@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 .board-dcm-view-wrapper {
   .board-link-wrapper {
-    left: 32px;
+    left: 14px;
     top: 15px;
   }
 

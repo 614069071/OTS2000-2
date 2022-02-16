@@ -2,7 +2,7 @@
   <div class="board-m40-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>M40</span></div>
 
-    <div class="board-link-wrapper">
+    <div class="board-link-wrapper m40-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
@@ -40,6 +40,9 @@ export default {
 
 <style lang="scss">
 .board-m40-view-wrapper {
+  .m40-link-wrapper {
+    left: 14px;
+  }
   .tx-rx-wrapper {
     left: 382px;
   }

@@ -95,7 +95,7 @@ export default {
 <style lang="scss">
 .board-otu10g-view-wrapper {
   .otu10g-link-wrapper1 {
-    left: 28px;
+    left: 14px;
     top: 10px;
   }
 

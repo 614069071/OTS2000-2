@@ -117,7 +117,7 @@ export default {
 <style lang="scss">
 .board-m16-view-wrapper {
   .m16-link-wrapper {
-    left: 28px;
+    left: 14px;
     top: 10px;
   }
 

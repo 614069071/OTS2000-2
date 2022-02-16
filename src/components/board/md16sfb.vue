@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 .board-md16sfb-view-wrapper {
   .board-link-wrapper {
-    left: 28px;
+    left: 14px;
   }
   .tx-rx-wrapper {
     left: 380px;

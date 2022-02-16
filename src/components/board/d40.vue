@@ -1,5 +1,5 @@
 <template>
-  <div class="board-dcm-view-wrapper board-item-view-wrapper">
+  <div class="board-d40-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>D40</span></div>
 
     <div class="board-link-wrapper">
@@ -11,7 +11,7 @@
 
     <div class="board-console-wrapper"><span>Console</span></div>
 
-    <div class="board-rst-wrapper dcm-rst-wrapper">
+    <div class="board-rst-wrapper d40-rst-wrapper">
       <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -40,5 +40,8 @@ export default {
 
 <style lang="scss">
 .board-d40-view-wrapper {
+  .board-link-wrapper {
+    left: 14px;
+  }
 }
 </style>

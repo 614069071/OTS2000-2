@@ -1,14 +1,14 @@
 <template>
-  <div class="board-otu10g-view-wrapper board-item-view-wrapper">
+  <div class="board-otu25g-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>4*25G OTU</span></div>
-    <div class="board-link-wrapper otu10g-link-wrapper1">
+    <div class="board-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
       <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
 
-    <div class="board-trx-wrapper otu10g-trx-wrapper1">
+    <div class="board-trx-wrapper otu25g-trx-wrapper1">
       <div class="trx-item">
         <div class="trx-item-guide"><span>Cin</span></div>
         <div class="trx-item-main suc"></div>
@@ -31,27 +31,27 @@
       </div>
     </div>
 
-    <div class="board-link-column-wrapper otu10g-link-wrapper2">
+    <div class="board-link-column-wrapper otu25g-link-wrapper2">
       <div class="link-light">
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">2Link1</i></div>
-        <div class="link-name"><i class="f-8">2Link2</i></div>
-        <div class="link-name"><i class="f-8">2Loop</i></div>
+        <div class="link-name">2Link1</div>
+        <div class="link-name">2Link2</div>
+        <div class="link-name">2Loop</div>
       </div>
 
       <div class="link-light">
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name"><i class="f-8">3Link1</i></div>
-        <div class="link-name"><i class="f-8">3Link2</i></div>
-        <div class="link-name"><i class="f-8">3Loop</i></div>
+        <div class="link-name">3Link1</div>
+        <div class="link-name">3Link2</div>
+        <div class="link-name">3Loop</div>
       </div>
     </div>
 
-    <div class="board-trx-wrapper otu10g-trx-wrapper2">
+    <div class="board-trx-wrapper otu25g-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-guide"><span>Cin</span></div>
         <div class="trx-item-main suc"></div>
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <div class="board-rst-wrapper otu10g-rst-wrapper">
+    <div class="board-rst-wrapper otu25g-rst-wrapper">
       <div class="rst-name">RST</div>
       <div class="rst-circle"></div>
     </div>
@@ -89,34 +89,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.board-otu10g-view-wrapper {
-  .otu10g-link-wrapper1 {
+.board-otu25g-view-wrapper {
+  .otu25g-link-wrapper1 {
     left: 35px;
     top: 20px;
   }
 
-  .otu10g-trx-wrapper1 {
-    left: 131px;
-    bottom: 0px;
+  .otu25g-trx-wrapper1 {
+    left: 72px;
   }
 
-  .otu10g-trx-wrapper2 {
-    left: 327px;
-    bottom: 0px;
+  .otu25g-trx-wrapper2 {
+    left: 293px;
   }
 
-  .otu10g-link-wrapper2 {
-    left: 263px;
-    top: 12px;
+  .otu25g-link-wrapper2 {
+    left: 260px;
+    top: -4px;
   }
 
-  .otu10g-rst-wrapper {
-    left: 471px;
-    top: 12px;
-  }
-
-  .trx-item {
-    margin-left: 0 !important;
+  .otu25g-rst-wrapper {
+    left: 491px;
+    top: 10px;
   }
 }
 </style>

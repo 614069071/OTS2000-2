@@ -78,7 +78,7 @@ export default {
         // { status: 1, boardname: "dco200g" },
         // { status: 1, boardname: "md16sfa" },
         // { status: 1, boardname: "md16sfb" },
-        { status: 1, boardname: "ocp10g" },
+        // { status: 1, boardname: "ocp10g" },
         { status: 1, boardname: "otu25g" },
         { status: 1, boardname: "otu100g" },
         { status: 1, boardname: "m40" },

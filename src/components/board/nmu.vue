@@ -33,16 +33,16 @@
 
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
-        <div class="eth-item-main suc"></div>
         <div class="eth-item-title">Eth1</div>
+        <div class="eth-item-main suc"></div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-main"></div>
         <div class="eth-item-title">Eth2</div>
+        <div class="eth-item-main"></div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-main"></div>
         <div class="eth-item-title">Eth3</div>
+        <div class="eth-item-main"></div>
       </div>
     </div>
     <div class="board-usb-wrapper nmu-usb-wrapper">
@@ -67,28 +67,28 @@ export default {
   }
 
   .nmu-console-wrapper {
-    left: 120px;
-    bottom: 14px;
+    left: 100px;
+    bottom: 0px;
   }
 
   .nmu-rst-wrapper {
-    left: 150px;
-    top: 12px;
+    left: 140px;
+    bottom: 3px;
   }
 
   .nmu-trx-wrapper {
-    left: 195px;
-    bottom: 13px;
+    left: 148px;
+    bottom: -5px;
   }
 
   .nmu-eth-wrapper {
-    left: 340px;
-    bottom: 12px;
+    left: 300px;
+    bottom: -5px;
   }
 
   .nmu-usb-wrapper {
-    right: 33px;
-    bottom: 14px;
+    right: 34px;
+    bottom: 4px;
   }
 }
 </style>

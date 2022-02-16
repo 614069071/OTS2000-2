@@ -9,7 +9,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="board-console-wrapper dcm-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper dcm-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper dcm-rst-wrapper">
       <div class="rst-name f-9">RST</div>
@@ -19,11 +19,11 @@
     <div class="tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-9">OCT</i>
+          <i>OCT</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-9">IN</i>
+          <i>IN</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

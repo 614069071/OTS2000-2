@@ -8,7 +8,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
-    <div class="board-console-wrapper otu100g-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper otu100g-console-wrapper"><span>Console</span></div>
 
     <div class="board-trx-wrapper otu100g-trx-wrapper">
       <div class="trx-item">

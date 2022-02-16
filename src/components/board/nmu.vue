@@ -9,7 +9,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
 
-    <div class="board-console-wrapper nmu-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper nmu-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper nmu-rst-wrapper">
       <div class="rst-name f-9">RST</div>

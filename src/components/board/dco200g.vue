@@ -8,7 +8,7 @@
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
     </div>
 
-    <div class="board-console-wrapper dco200g-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper dco200g-console-wrapper"><span>Console</span></div>
 
     <div class="board-trx-wrapper dco200g-trx-wrapper1">
       <div class="trx-item">

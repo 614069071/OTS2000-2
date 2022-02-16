@@ -8,7 +8,7 @@
       <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
     </div>
 
-    <div class="board-console-wrapper olp-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper olp-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper olp-rst-wrapper">
       <div class="rst-name f-9">RST</div>
@@ -18,33 +18,33 @@
     <div class="tx-rx-wrapper olp-tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-10">Tx</i>
+          <i>Tx</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-10">Rx</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-      </div>
-
-      <div class="tx-rx-inner-item">
-        <div class="tx-rx-item">
-          <i class="f-10">Tx</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i class="f-10">Rx</i>
+          <i>Rx</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-10">Tx</i>
+          <i>Tx</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-10">Rx</i>
+          <i>Rx</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>Tx</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>Rx</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

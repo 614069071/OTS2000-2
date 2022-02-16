@@ -15,17 +15,24 @@
         <el-form-item label="槽位号">
           <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
             <el-option label="全部" :value="255"></el-option>
-            <el-option label="槽位1" :value="0"></el-option>
+            <el-option label="槽位1" :value="1"></el-option>
+            <el-option label="槽位2" :value="2"></el-option>
+            <el-option label="槽位3" :value="3"></el-option>
+            <el-option label="槽位4" :value="4"></el-option>
+            <el-option label="槽位5" :value="5"></el-option>
+            <el-option label="槽位6" :value="6"></el-option>
+            <el-option label="槽位7" :value="7"></el-option>
+            <el-option label="槽位8" :value="8"></el-option>
           </el-select>
         </el-form-item>
 
         <el-form-item label="告警等级">
           <el-select size="mini" v-model="dataForm.level" placeholder="请选择告警等级">
-            <el-option label="全部" value="1"></el-option>
-            <el-option label="提示" value="2"></el-option>
-            <el-option label="次要" value="3"></el-option>
-            <el-option label="主要" value="4"></el-option>
-            <el-option label="严重" value="5"></el-option>
+            <el-option label="全部" :value="255"></el-option>
+            <el-option label="提示" :value="0"></el-option>
+            <el-option label="次要" :value="1"></el-option>
+            <el-option label="主要" :value="2"></el-option>
+            <el-option label="严重" :value="3"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
@@ -183,8 +190,8 @@ export default {
       this.dataForm = { slot: 255, level: "", boardname: "NMU", start_time: "", end_time: "" };
     },
     getAlarm() {
-      // const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
-      const data = { otn2000: { type: "get_curralarm", boardname: "NMU", slot: 5 } };
+      const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
+      // const data = { otn2000: { type: "get_curralarm", boardname: "NMU", slot: 5 } };
 
       this.$http
         .post(data)

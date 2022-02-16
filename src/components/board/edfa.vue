@@ -8,7 +8,7 @@
       <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
     </div>
 
-    <div class="board-console-wrapper"><span class="f-9">Console</span></div>
+    <div class="board-console-wrapper"><span>Console</span></div>
 
     <div class="board-rst-wrapper edfa-rst-wrapper">
       <div class="rst-name f-9">RST</div>
@@ -18,22 +18,22 @@
     <div class="tx-rx-wrapper edfa-tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-9">OUT</i>
+          <i>OUT</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-9">IN</i>
+          <i>IN</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-9">MON</i>
+          <i>MON</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-9">NA</i>
+          <i>NA</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

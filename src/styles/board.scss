@@ -7,23 +7,6 @@
   box-sizing: border-box;
 }
 
-// .board-item-view-wrapper::after,
-// .board-item-view-wrapper::before {
-//   content: "+";
-//   display: block;
-//   width: 14px;
-//   height: 14px;
-//   background-color: #3b3835;
-//   border: 2px solid #848382;
-//   border-radius: 50%;
-//   position: absolute;
-//   top: 22px;
-//   color: #848382;
-//   line-height: 14px;
-//   text-align: center;
-//   font-size: 14px;
-// }
-
 .board-item-view-wrapper::before {
   left: 1px;
 }
@@ -48,29 +31,35 @@
   }
 }
 
-// 网灯
+// 网灯 √
 .board-link-wrapper {
   position: absolute;
+  font-size: 12px;
+  transform: scale(0.6);
 
   .board-light {
     display: flex;
+    align-items: center;
+    height: 12px;
 
     span.k-name {
-      width: 45px;
-      height: 5px;
-      line-height: 7px;
-      font-size: 12px;
-      transform: scale(0.6) translateX(25%);
+      width: 40px;
+    }
+
+    span.k-name:first-child {
+      padding-right: 4px;
       text-align: right;
     }
 
-    .k-name ~ .k-name {
+    span.k-name:last-child {
+      padding-left: 4px;
       text-align: left;
-      transform: scale(0.6) translateX(-25%);
     }
+
     span.k-item {
-      width: 7px;
-      height: 4px;
+      width: 12px;
+      height: 8px;
+      font-size: 0;
       background-color: #dedede;
     }
 
@@ -85,10 +74,6 @@
     .k-item + .k-item {
       margin-left: 5px;
     }
-  }
-
-  .board-light + .board-light {
-    margin-top: 2px;
   }
 }
 
@@ -121,28 +106,30 @@
   }
 }
 
-// 光纤
+// 光纤 √
 .tx-rx-wrapper {
   position: absolute;
   left: 100px;
   top: 3px;
   display: flex;
+  font-size: 12px;
+  transform: scale(0.6);
 
   .tx-rx-inner-item {
     display: flex;
 
     .tx-rx-item {
-      width: 18px;
-      height: 48px;
-
       i {
         height: 14px;
+        line-height: 14px;
+        display: block;
+        text-align: center;
       }
     }
 
     .tx-rx-item-main {
-      width: 19px;
-      height: 34px;
+      width: 31px;
+      height: 55px;
       background: url(../assets/images/board/fiber.png) center/contain no-repeat;
     }
 
@@ -174,10 +161,15 @@
 .board-console-wrapper {
   position: absolute;
   width: 40px;
-  height: 22px;
-  background: url(../assets/images/board/console.svg) bottom center/20px auto no-repeat;
+  height: 27px;
+  background: url(../assets/images/board/console.svg) bottom center/27px auto no-repeat;
   text-align: center;
   white-space: nowrap;
+  transform: scale(0.7);
+
+  span {
+    font-size: 12px;
+  }
 }
 
 // tx rx

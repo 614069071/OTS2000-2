@@ -16,7 +16,7 @@
       <div class="rst-circle"></div>
     </div>
 
-    <div class="tx-rx-wrapper">
+    <div class="tx-rx-wrapper d40-tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
           <i>OCT</i>
@@ -42,6 +42,10 @@ export default {
 .board-d40-view-wrapper {
   .board-link-wrapper {
     left: 14px;
+  }
+
+  .d40-tx-rx-wrapper {
+    left: 380px;
   }
 }
 </style>

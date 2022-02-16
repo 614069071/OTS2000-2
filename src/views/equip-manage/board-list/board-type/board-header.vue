@@ -388,7 +388,7 @@
           <td>是否自动回切</td>
           <td>
             <div class="coll-3">
-              <select :disabled="!!infoData.channels[0].work_mode" v-model="infoData.channels[0].enable_back">
+              <select :disabled="!!infoData.channels[0].work_mode" v-model="infoData.channels[0].enback_back">
                 <option :value="0">回切</option>
                 <option :value="1">不回切</option>
               </select>
@@ -398,7 +398,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select :disabled="!!infoData.channels[1].work_mode" v-model="infoData.channels[1].enable_back">
+              <select :disabled="!!infoData.channels[1].work_mode" v-model="infoData.channels[1].enback_back">
                 <option :value="0">回切</option>
                 <option :value="1">不回切</option>
               </select>

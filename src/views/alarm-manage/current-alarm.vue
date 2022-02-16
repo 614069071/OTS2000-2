@@ -47,8 +47,8 @@
       </el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
       <el-table-column prop="board_type" label="板类型"></el-table-column>
-      <el-table-column prop="name4" label="告警名称"></el-table-column>
-      <el-table-column prop="alarmtype" label="告警等级"></el-table-column>
+      <el-table-column prop="id" label="告警名称"></el-table-column>
+      <el-table-column prop="level" label="告警等级"></el-table-column>
       <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="confirm_time" label="确认时间">
         <template v-slot="{ row }">
@@ -83,6 +83,73 @@
 </template>
 
 <script>
+/* 
+const alarmTypes = {
+  // alarmid         确定告警类型
+  // portno + value  确定告警名称
+
+  1: "链路Link Down",
+  2: {
+    name: "光线路LOS",
+    values: {
+      1: "C1LOS",
+      2: "C2LOS",
+      3: "C3LOS",
+      4: "C4LOS",
+      5: "L1LOS",
+      6: "L2LOS",
+      7: "L3LOS",
+      8: "L4LOS",
+    },
+  },
+  3: "光线路LOL",
+  4: "光线路光功率低",
+  5: {
+    name: "模块不在位",
+    values: {
+      1: "C1 模块不在位",
+      2: "C2 模块不在位",
+      3: "C3 模块不在位",
+      4: "C4 模块不在位",
+      5: "L1 模块不在位",
+      6: "L2 模块不在位",
+      7: "L3 模块不在位",
+      8: "L4 模块不在位",
+    },
+  },
+  6: "光模块温度高警告",
+  7: "光模块温度低警告",
+  8: "光模块电压高警告",
+  9: "光模块电压低警告",
+  10: "光模块电流高警告",
+  11: "光模块电流低警告",
+  12: "光模块发送光功率高警告",
+  13: "光模块发送光功率低警告",
+  14: "光模块接收光功率高警告",
+  15: "光模块接收光功率低警告",
+  16: "光模块温度高告警",
+  17: "光模块温度低告警",
+  18: "光模块电压高告警",
+  19: "光模块电压低告警",
+  20: "光模块电流高告警",
+  21: "光模块电流低告警",
+  22: "光模块发送光功率高告警",
+  23: "光模块发送光功率低告警",
+  24: "光模块接收光功率高告警",
+  25: "光模块接收光功率低告警",
+  26: "Pump电流高告警",
+  27: "Pump温度过高告警",
+  28: "Pump温度过低告警",
+  29: "EDFA模块温度过高告警",
+  30: "EDFA模块温度过低告警",
+  31: "输入光功率低告警",
+  32: "输出光功率低告警",
+  33: "主线路光功率低告警",
+  34: "备线路光功率低告警",
+  35: "本地线路发光功率低告警",
+};
+*/
+
 export default {
   name: "current-alarm",
   data() {

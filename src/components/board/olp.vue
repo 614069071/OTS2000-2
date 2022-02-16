@@ -18,33 +18,33 @@
     <div class="tx-rx-wrapper olp-tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-10">tx</i>
+          <i class="f-10">Tx</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-10">rx</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-      </div>
-
-      <div class="tx-rx-inner-item">
-        <div class="tx-rx-item">
-          <i class="f-10">tx</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i class="f-10">rx</i>
+          <i class="f-10">Rx</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i class="f-10">tx</i>
+          <i class="f-10">Tx</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i class="f-10">rx</i>
+          <i class="f-10">Rx</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i class="f-10">Tx</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i class="f-10">Rx</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

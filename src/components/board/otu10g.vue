@@ -111,7 +111,7 @@ export default {
 
   .otu10g-link-wrapper2 {
     left: 263px;
-    top: 12px;
+    top: 4px;
   }
 
   .otu10g-rst-wrapper {

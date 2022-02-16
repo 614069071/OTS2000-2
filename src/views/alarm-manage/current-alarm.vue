@@ -5,11 +5,11 @@
 
       <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm">
         <el-form-item label="开始日期">
-          <el-date-picker size="mini" v-model="dataForm.start_time"> </el-date-picker>
+          <el-date-picker size="mini" v-model="dataForm.start_time" value-format="timestamp" />
         </el-form-item>
 
         <el-form-item label="结束日期">
-          <el-date-picker size="mini" v-model="dataForm.end_time"> </el-date-picker>
+          <el-date-picker size="mini" v-model="dataForm.end_time" value-format="timestamp" />
         </el-form-item>
 
         <el-form-item label="槽位号">
@@ -90,7 +90,7 @@
 </template>
 
 <script>
-/* 
+/*
 const alarmTypes = {
   // alarmid         确定告警类型
   // portno + value  确定告警名称
@@ -163,10 +163,10 @@ export default {
     return {
       dataForm: {
         slot: 255,
-        level: "",
+        level: 255,
         boardname: "NMU",
-        start_time: "",
-        end_time: "",
+        start_time: null,
+        end_time: null,
       },
       inquireLoading: false,
       dataTable: [
@@ -185,13 +185,23 @@ export default {
   created() {
     this.getAlarm();
   },
+  computed: {
+    mapStartTime() {
+      if (!this.dataForm.start_time) return;
+      return parseInt(this.dataForm.start_time / 1000);
+    },
+    mapEndTime() {
+      if (!this.dataForm.end_time) return;
+      return parseInt(this.dataForm.end_time / 1000);
+    },
+  },
   methods: {
     resetDataForm() {
       this.dataForm = { slot: 255, level: "", boardname: "NMU", start_time: "", end_time: "" };
     },
     getAlarm() {
-      const data = { otn2000: { type: "get_curralarm", ...this.dataForm } };
-      // const data = { otn2000: { type: "get_curralarm", boardname: "NMU", slot: 5 } };
+      const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };
+      const data = { otn2000: { type: "get_curralarm", ...this.dataForm, ...times } };
 
       this.$http
         .post(data)

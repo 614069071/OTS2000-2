@@ -67,18 +67,18 @@ export default {
   }
 
   .olp-console-wrapper {
-    left: 120px;
-    bottom: 14px;
+    top: 30px;
+    left: 122px;
   }
 
   .olp-rst-wrapper {
-    left: 150px;
-    top: 12px;
+    top: 25px;
+    left: 170px;
   }
 
   .olp-tx-rx-wrapper {
     left: 275px;
-    top: 3px;
+    top: -6px;
   }
 }
 </style>

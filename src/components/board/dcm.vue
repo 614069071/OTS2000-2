@@ -56,8 +56,8 @@ export default {
   }
 
   .tx-rx-wrapper {
-    left: 380px;
-    top: 3px;
+    left: 382px;
+    top: -6px;
   }
 }
 </style>

@@ -413,7 +413,7 @@
             <div class="coll-3">
               <CustomSelect
                 v-model="infoData.channels[0].enable_back_delay"
-                :disabled="!!infoData.channels[0].work_mode"
+                :disabled="!!infoData.channels[0].work_mode || !!infoData.channels[0].enable_back"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },
@@ -428,7 +428,7 @@
             <div class="coll-3">
               <CustomSelect
                 v-model="infoData.channels[1].enable_back_delay"
-                :disabled="!!infoData.channels[1].work_mode"
+                :disabled="!!infoData.channels[1].work_mode || !!infoData.channels[1].enable_back"
                 :options="[
                   { label: '5', value: 5 },
                   { label: '10', value: 10 },

@@ -212,23 +212,132 @@ export function dealPhone(str = "") {
   return str.slice(0, 3) + "****" + str.slice(7);
 }
 
-export const boardTypes = {
-  1: "Mx合波",
-  2: "Dx分波",
-  3: "4*10G OTU",
-  4: "2*10G OCP",
-  5: "4*25G OTU",
-  6: "40G&100G MUX",
-  7: "200G CFP2 OTU相干",
-  8: "EDFA",
-  9: "NMU",
-  10: "OLP",
-  11: "DCM",
-};
-
 export const alarmLevels = {
   0: "提示",
   1: "次要",
   2: "主要",
   3: "严重",
 };
+
+export const alarmTypes = {
+  1: "链路Link Down",
+  2: "LOS", //光线路LOS
+  3: "LOL", //光线路LOL
+  4: "光线路光功率低",
+  5: "模块不在位",
+  6: "光模块温度高警告",
+  7: "光模块温度低警告",
+  8: "光模块电压高警告",
+  9: "光模块电压低警告",
+  10: "光模块电流高警告",
+  11: "光模块电流低警告",
+  12: "光模块发送光功率高警告",
+  13: "光模块发送光功率低警告",
+  14: "光模块接收光功率高警告",
+  15: "光模块接收光功率低警告",
+  16: "光模块温度高告警",
+  17: "光模块温度低告警",
+  18: "光模块电压高告警",
+  19: "光模块电压低告警",
+  20: "光模块电流高告警",
+  21: "光模块电流低告警",
+  22: "光模块发送光功率高告警",
+  23: "光模块发送光功率低告警",
+  24: "光模块接收光功率高告警",
+  25: "光模块接收光功率低告警",
+  26: "Pump电流高告警",
+  27: "Pump温度过高告警",
+  28: "Pump温度过低告警",
+  29: "EDFA模块温度过高告警",
+  30: "EDFA模块温度过低告警",
+  31: "输入光功率低告警",
+  32: "输出光功率低告警",
+  33: "主线路光功率低告警",
+  34: "备线路光功率低告警",
+  35: "本地线路发光功率低告警",
+};
+
+export const mapAlarmTypes = {
+  // boardtype       确定板类型
+  // alarmid         确定告警类型
+  // portno + value  确定告警名称
+
+  1: {
+    name: "Mx合波板",
+  },
+  2: {
+    name: "Dx分波板",
+  },
+  3: {
+    name: "4*10G OTU板",
+    light: ["C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
+  },
+  4: {
+    name: "2*10G OTU板",
+    light: ["C1", "1L2", "2L1", "1L1", "C2", "2L2"],
+  },
+  5: {
+    name: "4*25G OTU板",
+    light: ["C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
+  },
+  6: {
+    name: "200G CFP2 OTU板",
+    light: [],
+  },
+  7: {
+    name: "40G&100G MUX板",
+    light: ["SFP28-1", "SFP28-2", "SFP28-3", "SFP28-4", "QSFP28"],
+  },
+  8: {
+    name: "EDFA板",
+  },
+  9: {
+    name: "NMU板",
+    light: ["SFP1", "SFP2", "SFP3"],
+  },
+  10: {
+    name: "OLP板",
+  },
+  11: {
+    name: "DCM板",
+  },
+};
+
+export function mapBoardAlarmName(boardType, alarmId, port) {
+  /* 
+    (40G&100G MUX板)  (200G CFP2 OTU相干板) NMU板 模块尚未定义
+  */
+  // 40G&100G MUX板
+  if (boardType == 6) {
+    if (alarmId == 5) {
+      // 模块不在位时处理
+    }
+    return;
+  }
+
+  // 200G CFP2 OTU相干板
+  if (boardType == 7) {
+    return;
+  }
+
+  // NMU板
+  if (boardType == 9) {
+    const arr = [2, 5];
+    if (arr.includes(alarmId)) {
+      //光线路LOS
+      return mapAlarmTypes[9]["light"][port] + " " + alarmTypes[alarmId];
+    }
+
+    // if(){
+
+    // }
+    return;
+  }
+
+  const board = mapAlarmTypes[boardType];
+  const model = port ? board.light[port] : "";
+  const alarm = alarmTypes[alarmId];
+  const result = model + alarm;
+
+  return result;
+}

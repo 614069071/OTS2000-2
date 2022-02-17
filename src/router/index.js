@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/login";
-import { storage } from "@/utils";
+import { storages } from "@/utils";
 
 Vue.use(VueRouter);
 
@@ -156,12 +156,13 @@ const staticRoutes = [
 ];
 
 const router = new VueRouter({ routes: staticRoutes });
+
 router.afterEach(({ matched = [] }) => {
   const route = matched[matched.length - 1];
   const exclude = ["/login", "/error"];
   const isExclude = exclude.includes(route.path);
 
-  !isExclude && storage.set("__router_active__", route.path);
+  !isExclude && storages.set("__router_active__", route.path);
 });
 
 export default router;

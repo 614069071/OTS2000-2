@@ -55,8 +55,8 @@
 
 <script>
 import Structure from "@/components/structure";
-import SideBar from "@components/side-bar";
-import { storages } from "@utils";
+import SideBar from "@/components/side-bar";
+import { storages } from "@/utils";
 
 export default {
   name: "layout",
@@ -100,7 +100,7 @@ export default {
   watch: {
     $route: {
       handler() {
-        this.getboardList();
+        this.getBoardList();
       },
       immediate: true,
     },
@@ -108,9 +108,10 @@ export default {
   methods: {
     initUserinfo() {
       const userInfo = storages.get("userInfo") || {};
+
       this.userInfo = Object.freeze(userInfo);
     },
-    getboardList() {
+    getBoardList() {
       const data = { otn2000: { boardname: "board_view", type: "get_info" } };
 
       this.$http
@@ -127,19 +128,21 @@ export default {
     refreshSystem() {
       this.timer && clearInterval(this.timer);
       this.timerCount = 60;
-      this.getboardList();
+      this.getBoardList();
     },
     startTimer() {
       this.timer = setInterval(() => {
         this.timerCount -= 1;
+
         if (this.timerCount <= 0) {
           this.timerCount = 60;
-          this.getboardList();
+          this.getBoardList();
         }
       }, 1000);
     },
     clearTimer() {
       clearInterval(this.timer);
+
       this.timer = null;
       this.timerCount = 60;
     },

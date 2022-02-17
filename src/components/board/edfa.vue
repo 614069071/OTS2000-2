@@ -2,10 +2,10 @@
   <div class="board-edfa-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>EDFA</span></div>
     <div class="board-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
-      <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">PTEMP</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">Pcur</span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">IN</span></div>
+      <div class="board-light"><span class="k-name">TEMP</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OUT</span></div>
     </div>
 
     <div class="board-console-wrapper"><span>Console</span></div>

@@ -63,8 +63,8 @@ export default {
   components: { SideBar, Structure },
   data() {
     return {
-      userInfo: {
-        name: "webadmin",
+      userProfile: {
+        userName: "webadmin",
         roleName: "管理员",
       },
       dataTable: [
@@ -107,9 +107,9 @@ export default {
   },
   methods: {
     initUserinfo() {
-      const userInfo = storages.get("userInfo") || {};
+      const userProfile = storages.get("userProfile") || {};
 
-      this.userInfo = Object.freeze(userInfo);
+      this.userProfile = Object.freeze(userProfile);
     },
     getBoardList() {
       const data = { otn2000: { boardname: "board_view", type: "get_info" } };

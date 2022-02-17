@@ -5,7 +5,7 @@
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column prop="slot" label="槽位号" width="100">
         <template v-slot="{ row }">
-          {{ `slot ${row.slot}` }}
+          {{ `SLOT ${row.slot}` }}
         </template>
       </el-table-column>
       <el-table-column prop="status" label="槽位状态">

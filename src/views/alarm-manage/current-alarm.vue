@@ -53,9 +53,15 @@
         </template>
       </el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
-      <el-table-column prop="board_type" label="板类型"></el-table-column>
+      <el-table-column prop="board_type" label="板类型">
+        <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
+      </el-table-column>
       <el-table-column prop="id" label="告警名称"></el-table-column>
-      <el-table-column prop="level" label="告警等级"></el-table-column>
+      <el-table-column prop="level" label="告警等级">
+        <template v-slot="{ row }">
+          {{ row.level | mapAlarmLevel }}
+        </template>
+      </el-table-column>
       <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="confirm_time" label="确认时间">
         <template v-slot="{ row }">

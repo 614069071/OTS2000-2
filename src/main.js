@@ -4,7 +4,7 @@ import router from "@/router";
 // import Bus from "@/utils/bus";
 import i18n from "@/locale";
 import fetch from "@/fetch";
-import { formatSeconds, clone, difference, formatTime } from "@/utils";
+import { formatSeconds, clone, difference, formatTime, boardTypes, alarmLevels } from "@/utils";
 import Structure from "@/components/structure";
 import Pupur from "@/components/pupur";
 
@@ -23,5 +23,7 @@ Vue.component("pupur", Pupur);
 
 Vue.filter("formatSeconds", (d) => formatSeconds(d));
 Vue.filter("formatTime", (d) => formatTime(d));
+Vue.filter("mapBoardType", (v) => boardTypes[v] || v);
+Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 
 new Vue({ router, i18n, render: (h) => h(App) }).$mount("#app");

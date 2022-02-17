@@ -211,3 +211,24 @@ export function checkUsername(str) {
 export function dealPhone(str = "") {
   return str.slice(0, 3) + "****" + str.slice(7);
 }
+
+export const boardTypes = {
+  1: "Mx合波",
+  2: "Dx分波",
+  3: "4*10G OTU",
+  4: "2*10G OCP",
+  5: "4*25G OTU",
+  6: "40G&100G MUX",
+  7: "200G CFP2 OTU相干",
+  8: "EDFA",
+  9: "NMU",
+  10: "OLP",
+  11: "DCM",
+};
+
+export const alarmLevels = {
+  0: "提示",
+  1: "次要",
+  2: "主要",
+  3: "严重",
+};

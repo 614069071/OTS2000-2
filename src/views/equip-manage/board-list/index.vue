@@ -73,7 +73,7 @@ export default {
     return {
       dataForm: {},
       inquireLoading: false,
-      dataTable: [], //ocp2x10g/d16/d40/dcm/edfa/m16/m40/md8/md16sfa/md16sfb/nmu/olp/otu4x10g/otu4x25g/otu40g100g/otucfpdco200g"
+      dataTable: [],
       dialogVisible: false,
       boardType: "",
       boardTilte: "",

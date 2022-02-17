@@ -52,11 +52,6 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      // list: ["nmu", "m16", "olp", "edfa", "d16", "ocp10g", "otu10g"],
-    };
-  },
 };
 </script>
 

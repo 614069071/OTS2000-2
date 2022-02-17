@@ -115,14 +115,14 @@
 </template>
 
 <script>
-import { storage } from "@/utils";
+import { storages } from "@/utils";
 
 export default {
   name: "equip-overview",
   data() {
     return {
       isTatic: true,
-      iSuper: storage.get("__iSuper__") || false,
+      iSuper: storages.get("__iSuper__") || false,
       systemInfo: {
         boardname: "",
         device_type: "",

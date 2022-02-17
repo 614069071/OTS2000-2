@@ -72,7 +72,7 @@
 
 <script>
 // ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"]
-import { storage } from "@/utils";
+import { storages } from "@/utils";
 import mixins from "@/utils/mixins";
 import M16 from "@/components/board/m16";
 import D16 from "@/components/board/d16";
@@ -90,7 +90,7 @@ export default {
   components: { M16, D16, Md8, M40, D40, Md16sfa, Md16sfb, Dcm },
   data() {
     return {
-      iSuper: storage.get("__iSuper__") || false,
+      iSuper: storages.get("__iSuper__") || false,
     };
   },
 };

@@ -105,8 +105,6 @@ export default {
       immediate: true,
     },
   },
-  created() {},
-  beforeDestroy() {},
   methods: {
     initUserinfo() {
       const userInfo = storages.get("userInfo") || {};

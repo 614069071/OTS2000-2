@@ -83,11 +83,11 @@
           <tr>
             <td>端口</td>
             <td>Client</td>
-            <td>Pri-Line</td>
             <td>Sec-Line</td>
+            <td>Pri-Line</td>
             <td>Client</td>
-            <td>Pri-Line</td>
             <td>Sec-Line</td>
+            <td>Pri-Line</td>
           </tr>
         </thead>
 

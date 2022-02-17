@@ -333,7 +333,7 @@
                   <option :value="2">CPRI2/3/4/5/6/7</option>
                   <option :value="3">CPRI2/3/5/7/8</option>
                   <option :value="4">OTU1/OTU1e</option>
-                  <option :value="5">OTU2/OTU2e”</option>
+                  <option :value="5">OTU2/OTU2e</option>
                   <option :value="6">OTU1f/OTU2f</option>
                   <option :value="7">GE/10GE</option>
                   <option :value="8">STM-16/STM-64</option>
@@ -361,7 +361,7 @@
                   <option :value="2">CPRI2/3/4/5/6/7</option>
                   <option :value="3">CPRI2/3/5/7/8</option>
                   <option :value="4">OTU1/OTU1e</option>
-                  <option :value="5">OTU2/OTU2e”</option>
+                  <option :value="5">OTU2/OTU2e</option>
                   <option :value="6">OTU1f/OTU2f</option>
                   <option :value="7">GE/10GE</option>
                   <option :value="8">STM-16/STM-64</option>
@@ -389,7 +389,7 @@
                   <option :value="2">CPRI2/3/4/5/6/7</option>
                   <option :value="3">CPRI2/3/5/7/8</option>
                   <option :value="4">OTU1/OTU1e</option>
-                  <option :value="5">OTU2/OTU2e”</option>
+                  <option :value="5">OTU2/OTU2e</option>
                   <option :value="6">OTU1f/OTU2f</option>
                   <option :value="7">GE/10GE</option>
                   <option :value="8">STM-16/STM-64</option>
@@ -417,7 +417,7 @@
                   <option :value="2">CPRI2/3/4/5/6/7</option>
                   <option :value="3">CPRI2/3/5/7/8</option>
                   <option :value="4">OTU1/OTU1e</option>
-                  <option :value="5">OTU2/OTU2e”</option>
+                  <option :value="5">OTU2/OTU2e</option>
                   <option :value="6">OTU1f/OTU2f</option>
                   <option :value="7">GE/10GE</option>
                   <option :value="8">STM-16/STM-64</option>

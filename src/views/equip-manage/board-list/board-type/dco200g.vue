@@ -471,7 +471,7 @@
           <td></td>
           <td>调制模式</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.EFC_mode">
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
               <option :value="0">DP-QPSK</option>
               <option :value="1">16QAM</option>
               <option :value="2">DP-8QAM</option>

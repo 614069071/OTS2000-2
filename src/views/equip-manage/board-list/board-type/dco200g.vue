@@ -498,7 +498,7 @@
         <tr>
           <td>环回控制</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.light_channel">
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
               <option :value="0">无</option>
               <option :value="1">host环回</option>
               <option :value="2">Line环回</option>

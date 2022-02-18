@@ -38,7 +38,7 @@
       </el-form>
 
       <div class="current-alarm-search-submit">
-        <button class="def-btn" @click="getAlarm">查询</button>
+        <button class="def-btn" @click="getAlarmList">查询</button>
         <button class="def-btn" @click="resetDataForm">重置</button>
       </div>
     </div>
@@ -89,7 +89,7 @@
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn" @click="getAlarm">刷新</button>
+        <button class="def-btn" @click="getAlarmList">刷新</button>
         <button class="def-btn">上一页</button>
         <button class="def-btn">下一页</button>
       </div>
@@ -123,7 +123,7 @@ export default {
     };
   },
   created() {
-    this.getAlarm();
+    this.getAlarmList();
   },
   computed: {
     mapStartTime() {
@@ -139,7 +139,7 @@ export default {
     resetDataForm() {
       this.dataForm = { slot: 255, level: 255, start_time: "", end_time: "" };
     },
-    getAlarm() {
+    getAlarmList() {
       const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };
       const data = { otn2000: { type: "get_curralarm", boardname: "NMU", ...this.dataForm, ...times } };
 
@@ -167,7 +167,7 @@ export default {
             .then((res) => {
               console.log("确认成功", res);
 
-              this.getAlarm();
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("确认失败");
@@ -192,7 +192,7 @@ export default {
             .then((res) => {
               console.log("删除成功", res);
 
-              this.getAlarm();
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");
@@ -217,7 +217,7 @@ export default {
             .then((res) => {
               console.log("删除成功", res);
 
-              this.getAlarm();
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");
@@ -241,7 +241,7 @@ export default {
             .then((res) => {
               console.log("删除成功", res);
 
-              this.getAlarm();
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");

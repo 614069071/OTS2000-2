@@ -5,39 +5,40 @@
 
       <el-form class="history-alarm-search" inline label-width="100px" :model="dataForm">
         <el-form-item label="开始日期">
-          <el-date-picker size="mini" v-model="dataForm.start_time"> </el-date-picker>
+          <el-date-picker size="mini" v-model="dataForm.start_time" value-format="timestamp" />
         </el-form-item>
 
         <el-form-item label="结束日期">
-          <el-date-picker size="mini" v-model="dataForm.end_time"> </el-date-picker>
+          <el-date-picker size="mini" v-model="dataForm.end_time" value-format="timestamp" />
         </el-form-item>
 
         <el-form-item label="槽位号">
           <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
             <el-option label="全部" :value="255"></el-option>
-            <el-option label="槽位1" :value="0"></el-option>
+            <el-option label="槽位1" :value="1"></el-option>
+            <el-option label="槽位2" :value="2"></el-option>
+            <el-option label="槽位3" :value="3"></el-option>
+            <el-option label="槽位4" :value="4"></el-option>
+            <el-option label="槽位5" :value="5"></el-option>
+            <el-option label="槽位6" :value="6"></el-option>
+            <el-option label="槽位7" :value="7"></el-option>
+            <el-option label="槽位8" :value="8"></el-option>
           </el-select>
         </el-form-item>
 
         <el-form-item label="告警等级">
           <el-select size="mini" v-model="dataForm.level" placeholder="请选择告警等级">
-            <el-option label="全部" value="1"></el-option>
-            <el-option label="提示" value="2"></el-option>
-            <el-option label="次要" value="3"></el-option>
-            <el-option label="主要" value="4"></el-option>
-            <el-option label="严重" value="5"></el-option>
-          </el-select>
-        </el-form-item>
-
-        <el-form-item label="板类型">
-          <el-select size="mini" v-model="dataForm.boardname" placeholder="请选择板类型">
-            <el-option label="NMU" value="NMU"></el-option>
+            <el-option label="全部" :value="255"></el-option>
+            <el-option label="提示" :value="0"></el-option>
+            <el-option label="次要" :value="1"></el-option>
+            <el-option label="主要" :value="2"></el-option>
+            <el-option label="严重" :value="3"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
 
       <div class="history-alarm-search-submit">
-        <button class="def-btn" @click="getAlarm">查询</button>
+        <button class="def-btn" @click="getAlarmList">查询</button>
         <button class="def-btn" @click="resetDataForm">重置</button>
       </div>
     </div>
@@ -51,11 +52,23 @@
           {{ (row.occur_time * 1000) | formatTime }}
         </template>
       </el-table-column>
-      <el-table-column prop="end_time" label="结束时间"></el-table-column>
+      <el-table-column prop="occur_time" label="结束时间">
+        <template v-slot="{ row }">
+          {{ (row.end_time * 1000) | formatTime }}
+        </template>
+      </el-table-column>
       <el-table-column prop="slot" label="槽位号"></el-table-column>
-      <el-table-column prop="board_type" label="板类型"></el-table-column>
-      <el-table-column prop="name4" label="告警名称"></el-table-column>
-      <el-table-column prop="alarmtype" label="告警等级"></el-table-column>
+      <el-table-column prop="board_type" label="板类型">
+        <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
+      </el-table-column>
+      <el-table-column prop="id" label="告警名称">
+        <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
+      </el-table-column>
+      <el-table-column prop="level" label="告警等级">
+        <template v-slot="{ row }">
+          {{ row.level | mapAlarmLevel }}
+        </template>
+      </el-table-column>
       <el-table-column prop="name6" label="告警原因"></el-table-column>
       <el-table-column prop="confirm_time" label="确认时间">
         <template v-slot="{ row }">
@@ -77,11 +90,11 @@
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
         <button class="def-btn" @click="delCheckAlarm">删除所选条件警告</button>
-        <button class="def-btn" @click="delAllAlarm">删除全部历史警告</button>
+        <button class="def-btn" @click="delAllAlarm">删除全部当前警告</button>
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn" @click="getAlarm">刷新</button>
+        <button class="def-btn" @click="getAlarmList">刷新</button>
         <button class="def-btn">上一页</button>
         <button class="def-btn">下一页</button>
       </div>
@@ -96,10 +109,9 @@ export default {
     return {
       dataForm: {
         slot: 255,
-        level: "",
-        boardname: "NMU",
-        start_time: "",
-        end_time: "",
+        level: 255,
+        start_time: null,
+        end_time: null,
       },
       inquireLoading: false,
       dataTable: [
@@ -110,25 +122,37 @@ export default {
         //   alarmtype: 1,
         //   portno: 0,
         //   occur_time: 0,
+        //   end_time:0,
         //   confirm_time: 0,
         // },
       ],
     };
   },
   created() {
-    this.getAlarm();
+    this.getAlarmList();
+  },
+  computed: {
+    mapStartTime() {
+      if (!this.dataForm.start_time) return;
+      return parseInt(this.dataForm.start_time / 1000);
+    },
+    mapEndTime() {
+      if (!this.dataForm.end_time) return;
+      return parseInt(this.dataForm.end_time / 1000);
+    },
   },
   methods: {
     resetDataForm() {
-      this.dataForm = { slot: 255, level: "", boardname: "NMU", start_time: "", end_time: "" };
+      this.dataForm = { slot: 255, level: 255, start_time: "", end_time: "" };
     },
-    getAlarm() {
-      const data = { otn2000: { type: "get_histalarm", ...this.dataForm } };
+    getAlarmList() {
+      const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };
+      const data = { otn2000: { type: "get_histalarm", boardname: "NMU", ...this.dataForm, ...times } };
 
       this.$http
         .post(data)
         .then((res) => {
-          this.dataTable = res.otn2000_ack.records || [];
+          this.dataTable = (res.otn2000_ack.records || []).reverse();
         })
         .catch(() => {
           this.dataTable = [];
@@ -141,13 +165,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "confirm_histalarm", id, confirm_time: parseInt(Date.now() / 1000) } };
+          const { id } = row;
+          const data = { otn2000: { boardname: "NMU", type: "confirm_histalarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("确认成功", res);
+
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("确认失败");
@@ -164,13 +190,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { id, board_type } = row;
-          const data = { otn2000: { boardname: board_type, type: "del_histalarm", id } };
+          const { id } = row;
+          const data = { otn2000: { boardname: "NMU", type: "del_histalarm", id } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");
@@ -187,13 +215,15 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          const { slot, start_time, end_time, board_type, level } = this.dataForm;
-          const data = { otn2000: { boardname: board_type, slot, start_time, end_time, level, type: "delpart_histalarm" } };
+          const { slot, start_time, end_time, level } = this.dataForm;
+          const data = { otn2000: { boardname: "NMU", slot, start_time, end_time, level, type: "delpart_histalarm" } };
 
           this.$http
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");
@@ -216,6 +246,8 @@ export default {
             .post(data)
             .then((res) => {
               console.log("删除成功", res);
+
+              this.getAlarmList();
             })
             .catch(() => {
               console.log("删除失败");

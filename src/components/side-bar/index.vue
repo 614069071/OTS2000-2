@@ -9,14 +9,14 @@
 
 <script>
 import MiddleMenu from "./middle-menu";
-import { storage } from "@/utils";
+import { storages } from "@/utils";
 
 export default {
   name: "side-bar",
   components: { MiddleMenu },
   data() {
     return {
-      onRoutes: storage.get("__router_active__") || "",
+      onRoutes: storages.get("__router_active__") || "",
     };
   },
   computed: {

@@ -270,15 +270,15 @@ export const mapAlarmTypes = {
   },
   3: {
     name: "4*10G OTU板",
-    light: ["C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
+    light: [null, "C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
   },
   4: {
     name: "2*10G OTU板",
-    light: ["C1", "1L2", "2L1", "1L1", "C2", "2L2"],
+    light: [null, "C1", "1L2", "2L1", "1L1", "C2", "2L2"],
   },
   5: {
     name: "4*25G OTU板",
-    light: ["C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
+    light: [null, "C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
   },
   6: {
     name: "200G CFP2 OTU板",
@@ -286,14 +286,14 @@ export const mapAlarmTypes = {
   },
   7: {
     name: "40G&100G MUX板",
-    light: ["SFP28-1", "SFP28-2", "SFP28-3", "SFP28-4", "QSFP28"],
+    light: [null, "SFP28-1", "SFP28-2", "SFP28-3", "SFP28-4", "QSFP28"],
   },
   8: {
     name: "EDFA板",
   },
   9: {
     name: "NMU板",
-    light: ["SFP1", "SFP2", "SFP3"],
+    light: [null, "SFP1", "SFP2", "SFP3"],
   },
   10: {
     name: "OLP板",

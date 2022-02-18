@@ -138,7 +138,7 @@
             <td>
               <template v-if="infoData.channels[0].link_status.line">
                 <input v-if="infoData.channels[0].rw_type.line" class="def-input" type="text" v-model.number="infoData.channels[0].wave_channel.line" />
-                <template v-else>{{ infoData.channels[0].wave_channel.line }}</template>
+                <template v-else>{{ infoData.channels[0].wave_channel.line ? infoData.channels[0].wave_channel.line : "NA" }}</template>
               </template>
               <template v-else>NA</template>
             </td>
@@ -146,7 +146,7 @@
             <td>
               <template v-if="infoData.channels[1].link_status.line">
                 <input v-if="infoData.channels[1].rw_type.line" class="def-input" type="text" v-model.number="infoData.channels[1].wave_channel.line" />
-                <template v-else>{{ infoData.channels[1].wave_channel.line }}</template>
+                <template v-else>{{ infoData.channels[1].wave_channel.line ? infoData.channels[1].wave_channel.line : "NA" }}</template>
               </template>
               <template v-else>NA</template>
             </td>
@@ -154,7 +154,7 @@
             <td>
               <template v-if="infoData.channels[2].link_status.line">
                 <input v-if="infoData.channels[2].rw_type.line" class="def-input" type="text" v-model.number="infoData.channels[2].wave_channel.line" />
-                <template v-else>{{ infoData.channels[2].wave_channel.line }}</template>
+                <template v-else>{{ infoData.channels[2].wave_channel.line ? infoData.channels[2].wave_channel.line : "NA" }}</template>
               </template>
               <template v-else>NA</template>
             </td>
@@ -162,7 +162,7 @@
             <td>
               <template v-if="infoData.channels[3].link_status.line">
                 <input v-if="infoData.channels[3].rw_type.line" class="def-input" type="text" v-model.number="infoData.channels[3].wave_channel.line" />
-                <template v-else>{{ infoData.channels[3].wave_channel.line }}</template>
+                <template v-else>{{ infoData.channels[3].wave_channel.line ? infoData.channels[3].wave_channel.line : "NA" }}</template>
               </template>
               <template v-else>NA</template>
             </td>

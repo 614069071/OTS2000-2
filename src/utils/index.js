@@ -255,6 +255,10 @@ export const alarmTypes = {
   33: "主线路光功率低告警",
   34: "备线路光功率低告警",
   35: "本地线路发光功率低告警",
+  36: "系统温度高告警",
+  37: "系统温度低告警",
+  38: "系统电压高告警", //1 直流 2 交流
+  39: "系统电压低告警", //1 直流 2 交流
 };
 
 export const mapAlarmTypes = {
@@ -304,6 +308,7 @@ export const mapAlarmTypes = {
 };
 
 export function mapBoardAlarmName(boardType, alarmId, port) {
+  // const elect = { 1: "直流", 2: "交流" };//alarmId 38 39
   /* 
     (40G&100G MUX板)  (200G CFP2 OTU相干板) NMU板 模块尚未定义
   */

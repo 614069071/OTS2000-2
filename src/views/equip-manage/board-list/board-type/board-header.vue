@@ -311,7 +311,7 @@
           <td>倒换条件差值（dB）</td>
           <td>
             <div class="coll-3">
-              <CustomSelect
+              <custom-select
                 v-model="infoData.channels[0].Switch_channel"
                 :options="[
                   { label: '3', value: 3 },
@@ -325,7 +325,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <CustomSelect
+              <custom-select
                 v-model="infoData.channels[1].Switch_channel"
                 :options="[
                   { label: '3', value: 3 },
@@ -411,7 +411,7 @@
           <td>回切WTR时间（min）</td>
           <td>
             <div class="coll-3">
-              <CustomSelect
+              <custom-select
                 v-model="infoData.channels[0].enable_back_delay"
                 :disabled="!!infoData.channels[0].work_mode"
                 :options="[
@@ -426,7 +426,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <CustomSelect
+              <custom-select
                 v-model="infoData.channels[1].enable_back_delay"
                 :disabled="!!infoData.channels[1].work_mode"
                 :options="[

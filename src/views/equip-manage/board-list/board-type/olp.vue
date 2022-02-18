@@ -104,7 +104,7 @@
           </td>
           <td>回切WTR时间（min）</td>
           <td>
-            <CustomSelect
+            <custom-select
               v-model="infoData.wtr_time"
               :options="[
                 { label: '5', value: 5 },
@@ -115,7 +115,7 @@
           </td>
           <td>主线路告警门限（dBm）</td>
           <td>
-            <CustomSelect
+            <custom-select
               v-model="infoData.main_line_alarm_thre"
               :options="[
                 { label: '-15', value: -15 },
@@ -127,7 +127,7 @@
         <tr>
           <td>主备初始差异（dB）</td>
           <td>
-            <CustomSelect
+            <custom-select
               v-model="infoData.main_slave_initdiff"
               :options="[
                 { label: '1', value: 1 },
@@ -141,7 +141,7 @@
           </td>
           <td>备线路告警门限</td>
           <td>
-            <CustomSelect
+            <custom-select
               v-model="infoData.slave_line_alarm_thre"
               :options="[
                 { label: '-15', value: -15 },
@@ -151,7 +151,7 @@
           </td>
           <td>倒换条件差异值（dB）</td>
           <td>
-            <CustomSelect
+            <custom-select
               v-model="infoData.switch_condition_diff"
               :options="[
                 { label: '4', value: 4 },

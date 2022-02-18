@@ -15,7 +15,7 @@
       <div class="layout-aside">
         <div class="aside-header-wrapper">
           <div class="aside-content-wrapper clear-scroll-bar">
-            <SideBar />
+            <side-bar />
           </div>
         </div>
 
@@ -42,7 +42,7 @@
             <div class="refresh-wrapper">自动刷新剩余时间：{{ timerCount }}秒 <button class="def-btn" @click="refreshSystem">立即刷新</button></div>
           </div> -->
 
-          <Structure :list="dataTable"></Structure>
+          <structure :list="dataTable" />
         </div>
 
         <div class="page-wrapper">

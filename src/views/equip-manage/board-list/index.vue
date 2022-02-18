@@ -85,8 +85,6 @@ export default {
   },
   mounted() {
     this.$bus.$on("boardView", (v) => {
-      console.log("boardView", v);
-
       this.lookDetail(v);
     });
   },

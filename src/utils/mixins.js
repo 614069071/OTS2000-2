@@ -129,8 +129,9 @@ export default {
       const diffData = this.$difference(this.infoData, this.clonData);
       const data = { otn2000: { ...diffData, slot, boardname, type: "post_info" } };
 
-      console.log("diffData", diffData);
-      // return;
+      if (JSON.stringify(diffData) === "{}") {
+        return this.$message("请选择配置项");
+      }
 
       this.setInfoDisabled = true;
       this.refreshInfoDisabled = true;

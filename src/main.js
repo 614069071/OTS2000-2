@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "@/App.vue";
 import router from "@/router";
-// import Bus from "@/utils/bus";
 import i18n from "@/locale";
 import fetch from "@/fetch";
 import { formatSeconds, clone, difference, formatTime, mapAlarmTypes, alarmLevels, mapBoardAlarmName } from "@/utils";

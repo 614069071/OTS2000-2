@@ -1,8 +1,8 @@
 <template>
   <div class="structure-wrapper">
     <div class="structure-inner-wrapper">
-      <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index">
-        <component v-if="item.boardname && item.status" :is="`board-${item.boardname.toLowerCase()}`"></component>
+      <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index" @click="setBoard(item)">
+        <component v-if="item.boardname && item.status" :is="`board-${item.boardname.toLowerCase()}`" :data="item"></component>
       </div>
     </div>
   </div>
@@ -50,6 +50,11 @@ export default {
     list: {
       type: Array,
       default: () => [],
+    },
+  },
+  methods: {
+    setBoard(v) {
+      this.$bus.$emit("boardView", v);
     },
   },
 };

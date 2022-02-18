@@ -83,6 +83,16 @@ export default {
   created() {
     this.getboardList();
   },
+  mounted() {
+    this.$bus.$on("boardView", (v) => {
+      console.log("boardView", v);
+
+      this.lookDetail(v);
+    });
+  },
+  beforeDestroy() {
+    this.$bus.$off("boardView");
+  },
   filters: {
     unifiedBoardName(v) {
       const boardNames = {
@@ -125,7 +135,12 @@ export default {
         });
     },
     lookDetail(data) {
-      const boardName = data.boardname.toLowerCase();
+      const { boardname, status } = data;
+
+      if (!status) return;
+
+      const boardName = boardname.toLowerCase();
+
       if (isSimilar(boardName)) {
         this.boardType = "similar";
       } else {

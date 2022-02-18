@@ -105,8 +105,6 @@ export default {
       dataForm: {
         slot: 255,
         level: 255,
-        start_time: null,
-        end_time: null,
       },
       inquireLoading: false,
       dataTable: [
@@ -137,7 +135,7 @@ export default {
   },
   methods: {
     resetDataForm() {
-      this.dataForm = { slot: 255, level: 255, start_time: "", end_time: "" };
+      this.dataForm = { slot: 255, level: 255 };
     },
     getAlarmList() {
       const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };

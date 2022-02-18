@@ -418,14 +418,6 @@
           <td>{{ infoData.CFP2.current }}</td>
         </tr>
         <tr>
-          <td>预留1</td>
-          <td></td>
-          <td>预留2</td>
-          <td></td>
-          <td>预留3</td>
-          <td></td>
-        </tr>
-        <tr>
           <td>接收光功率过低阈值(dBm)</td>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" />
@@ -467,8 +459,6 @@
           </td>
         </tr>
         <tr>
-          <td>业务类型</td>
-          <td></td>
           <td>调制模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
@@ -494,8 +484,6 @@
 
             <template v-else>NA</template>
           </td>
-        </tr>
-        <tr>
           <td>环回控制</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
@@ -507,18 +495,6 @@
 
             <template v-else>NA</template>
           </td>
-          <td>预留1</td>
-          <td></td>
-          <td>预留2</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>预留3</td>
-          <td></td>
-          <td>预留4</td>
-          <td></td>
-          <td>预留5</td>
-          <td></td>
         </tr>
       </table>
     </div>

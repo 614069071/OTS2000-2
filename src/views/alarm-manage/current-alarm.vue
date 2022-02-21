@@ -74,7 +74,7 @@
           <template v-else>未确认</template>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="160">
+      <el-table-column label="操作" width="110">
         <template v-slot="{ row }">
           <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">确认</button>
           <button class="def-btn" @click="deleteAlarm(row)">删除</button>

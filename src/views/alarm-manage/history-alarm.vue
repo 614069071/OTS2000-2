@@ -57,14 +57,14 @@
           {{ (row.end_time * 1000) | formatTime }}
         </template>
       </el-table-column>
-      <el-table-column prop="slot" label="槽位号"></el-table-column>
-      <el-table-column prop="board_type" label="板类型">
+      <el-table-column prop="slot" label="槽位号" width="60"></el-table-column>
+      <el-table-column prop="board_type" label="板类型" width="120">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
-      <el-table-column prop="id" label="告警名称">
+      <el-table-column prop="id" label="告警名称" width="180">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
-      <el-table-column prop="level" label="告警等级">
+      <el-table-column prop="level" label="告警等级" width="80">
         <template v-slot="{ row }">
           {{ row.level | mapAlarmLevel }}
         </template>

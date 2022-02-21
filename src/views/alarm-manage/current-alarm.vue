@@ -86,6 +86,8 @@
       <div class="pagination-btns-wrapper">
         <button class="def-btn" @click="delCheckAlarm">删除所选条件警告</button>
         <button class="def-btn" @click="delAllAlarm">删除全部当前警告</button>
+        <button class="def-btn" @click="confimCheckAlarm">确认满足条件警告</button>
+        <button class="def-btn" @click="confimAllAlarm">确认全部警告</button>
       </div>
 
       <div class="pagination-switch-btns">
@@ -158,7 +160,7 @@ export default {
       })
         .then(() => {
           const { id } = row;
-          const data = { otn2000: { boardname: "NMU", type: "confirm_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
+          const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
@@ -243,6 +245,54 @@ export default {
             })
             .catch(() => {
               console.log("删除失败");
+            })
+            .finally(() => {});
+        })
+        .catch(() => {
+          console.log("取消");
+        });
+    },
+    confimCheckAlarm() {
+      this.$confirm("确定确认满足条件的警告吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+      })
+        .then(() => {
+          const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", ...this.dataForm, confirm_time: parseInt(Date.now() / 1000) } };
+
+          this.$http
+            .post(data)
+            .then((res) => {
+              console.log("确认成功", res);
+
+              this.getAlarmList();
+            })
+            .catch(() => {
+              console.log("确认失败");
+            })
+            .finally(() => {});
+        })
+        .catch(() => {
+          console.log("取消");
+        });
+    },
+    confimAllAlarm() {
+      this.$confirm("确定确认所有警告吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+      })
+        .then(() => {
+          const data = { otn2000: { boardname: "NMU", type: "confall_curralarm", confirm_time: parseInt(Date.now() / 1000) } };
+
+          this.$http
+            .post(data)
+            .then((res) => {
+              console.log("确认成功", res);
+
+              this.getAlarmList();
+            })
+            .catch(() => {
+              console.log("确认失败");
             })
             .finally(() => {});
         })

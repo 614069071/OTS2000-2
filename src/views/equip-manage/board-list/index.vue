@@ -168,10 +168,12 @@ $border-color: #aaa;
 // 单板详情表格
 .board-header-wrapper {
   background-color: #fff;
-  display: flex;
+  position: relative;
+  height: 60px;
+
   & > div {
-    margin: auto;
-    // transform: scale(1.5);
+    left: 50%;
+    margin-left: -280px;
   }
 }
 

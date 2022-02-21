@@ -86,11 +86,6 @@ export default {
   height: 60px;
   width: 50% !important;
   box-sizing: border-box;
-  // border: 1px solid #000;
-  // box-sizing: border-box;
+  position: relative;
 }
-
-// .structure-item-wrapper:nth-child(odd) {
-//   border-left: 1px solid #000;
-// }
 </style>

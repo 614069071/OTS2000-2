@@ -1,5 +1,5 @@
 <template>
-  <div class="board-dco200g-view-wrapper board-item-view-wrapper">
+  <div class="board-dco200g-view-wrapper composite board-item-view-wrapper">
     <div class="board-item-name"><span>200G CFP2 DCO</span></div>
     <div class="board-link-wrapper dco200g-link-wrapper1">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
@@ -53,13 +53,17 @@ export default {
 
 <style lang="scss">
 .board-dco200g-view-wrapper {
+  .dco200g-link-wrapper1 {
+    top: 69px;
+  }
+
   .dco200g-trx-wrapper1 {
     left: 150px;
   }
 
   .cfp2-dco200g-wrapper {
     left: 266px;
-    top: 0px;
+    bottom: 2px;
   }
 
   .dco200g-trx-wrapper2 {

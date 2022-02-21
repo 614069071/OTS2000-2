@@ -1,5 +1,5 @@
 <template>
-  <div class="board-otu100g-view-wrapper board-item-view-wrapper">
+  <div class="board-otu100g-view-wrapper composite board-item-view-wrapper">
     <div class="board-item-name"><span>40&100G OTU</span></div>
     <div class="board-link-wrapper otu100g-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
@@ -76,6 +76,7 @@ export default {
 .board-otu100g-view-wrapper {
   .otu100g-link-wrapper {
     left: 15px;
+    top: 69px;
   }
 
   .otu100g-trx-wrapper {
@@ -84,12 +85,12 @@ export default {
 
   .otu100g-link-wrapper2 {
     left: 310px;
-    top: -17px;
+    top: 39px;
   }
 
   .otu100g-qsfp-wrapper {
     left: 386px;
-    top: 10px;
+    top: 70px;
   }
 
   .otu100g-rst-wrapper {

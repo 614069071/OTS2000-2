@@ -112,14 +112,18 @@
           </td>
           <td>工作模式</td>
           <td>
-            <custom-select
+            <!-- <custom-select
               v-model="infoData.mode"
               :options="[
                 { label: 'ACC', value: 0 },
                 { label: 'APC', value: 2 },
                 { label: 'AGC', value: 3 },
               ]"
-            />
+            /> -->
+            <select v-model="infoData.mode">
+              <option :value="2">APC</option>
+              <option :value="3">AGC</option>
+            </select>
           </td>
 
           <template v-if="titeData.bdtype === 'OBA20G22'">
@@ -271,12 +275,11 @@
 <script>
 import mixins from "@/utils/mixins";
 import Edfa from "@/components/board/edfa";
-import CustomSelect from "@/components/custom-select";
 
 export default {
   name: "edfa",
   mixins: [mixins],
-  components: { CustomSelect, Edfa },
+  components: { Edfa },
   data() {
     return {
       infoData: {

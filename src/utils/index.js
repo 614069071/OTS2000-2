@@ -298,6 +298,8 @@ export const mapAlarmTypes = {
   9: {
     name: "NMU板",
     light: [null, "SFP1", "SFP2", "SFP3"],
+    38: [null, "直流", "交流"],
+    39: [null, "直流", "交流"],
   },
   10: {
     name: "OLP板",
@@ -327,11 +329,11 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
 
   // NMU板
   if (boardType == 9) {
-    const arr = [2, 5];
-    if (arr.includes(alarmId)) {
-      //光线路LOS
-      return mapAlarmTypes[9]["light"][port] + " " + alarmTypes[alarmId];
-    }
+    //光线路LOS
+    if ([2, 5].includes(alarmId)) return mapAlarmTypes[9]["light"][port] + " " + alarmTypes[alarmId];
+
+    //系统电压告警
+    if ([38, 39].includes(alarmId)) return alarmTypes[alarmId];
 
     // if(){
 

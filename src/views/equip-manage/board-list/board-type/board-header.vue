@@ -202,48 +202,48 @@
           <td>激光器开关</td>
           <td>
             <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[0].link_status.Pri_Line" v-model="infoData.channels[0].tx_disable.Pri_Line">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[0].link_status.Sec_Line" v-model="infoData.channels[0].tx_disable.Sec_Line">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].tx_disable.client">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.Pri_Line" v-model="infoData.channels[1].tx_disable.Pri_Line">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.Sec_Line" v-model="infoData.channels[1].tx_disable.Sec_Line">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>

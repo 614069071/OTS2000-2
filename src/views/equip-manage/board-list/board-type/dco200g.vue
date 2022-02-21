@@ -288,8 +288,8 @@
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.tx_disable">
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+                <option :value="1">关</option>
+                <option :value="0">开</option>
               </select>
 
               <template v-else>NA</template>
@@ -301,8 +301,8 @@
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.tx_disable">
-                <option :value="0">关</option>
-                <option :value="1">开</option>
+                <option :value="1">关</option>
+                <option :value="0">开</option>
               </select>
 
               <template v-else>NA</template>
@@ -443,8 +443,8 @@
           <td>激光器开关</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.tx_disable">
-              <option :value="0">关</option>
-              <option :value="1">开</option>
+              <option :value="1">关</option>
+              <option :value="0">开</option>
             </select>
 
             <template v-else>NA</template>

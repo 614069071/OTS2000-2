@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="inner-container-title">历史警告信息</div>
+    <div class="inner-container-title">历史告警信息</div>
 
     <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
@@ -89,10 +89,10 @@
 
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
-        <button class="def-btn" @click="delCheckAlarm">删除所选条件警告</button>
-        <button class="def-btn" @click="delAllAlarm">删除全部当前警告</button>
-        <button class="def-btn" @click="confimCheckAlarm">确认满足条件警告</button>
-        <button class="def-btn" @click="confimAllAlarm">确认全部警告</button>
+        <button class="def-btn" @click="delCheckAlarm">删除满足条件告警</button>
+        <button class="def-btn" @click="delAllAlarm">删除全部告警</button>
+        <button class="def-btn" @click="confimCheckAlarm">确认满足条件告警</button>
+        <button class="def-btn" @click="confimAllAlarm">确认全部告警</button>
       </div>
 
       <div class="pagination-switch-btns">
@@ -160,7 +160,7 @@ export default {
         .finally(() => {});
     },
     confimAlarm(row) {
-      this.$confirm("确认当前警告吗?", "提示", {
+      this.$confirm("确认该告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
@@ -185,7 +185,7 @@ export default {
         });
     },
     deleteAlarm(row) {
-      this.$confirm("确定删除当前警告吗?", "提示", {
+      this.$confirm("确定删除该告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
@@ -210,7 +210,7 @@ export default {
         });
     },
     delCheckAlarm() {
-      this.$confirm("确定删除所选条件的警告吗?", "提示", {
+      this.$confirm("确定删除满足条件的告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
@@ -235,7 +235,7 @@ export default {
         });
     },
     delAllAlarm() {
-      this.$confirm("确定删除全部历史警告吗?", "提示", {
+      this.$confirm("确定删除全部告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
@@ -259,7 +259,7 @@ export default {
         });
     },
     confimCheckAlarm() {
-      this.$confirm("确定确认满足条件的警告吗?", "提示", {
+      this.$confirm("确定确认满足条件的告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
@@ -283,7 +283,7 @@ export default {
         });
     },
     confimAllAlarm() {
-      this.$confirm("确定确认所有警告吗?", "提示", {
+      this.$confirm("确定确认所有告警吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })

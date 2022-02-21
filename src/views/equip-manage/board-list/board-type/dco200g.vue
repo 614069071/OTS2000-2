@@ -471,7 +471,7 @@
 
             <template v-else>NA</template>
           </td>
-          <td>FEC模式</td>
+          <td>EFC模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.EFC_mode">
               <option :value="0">无</option>

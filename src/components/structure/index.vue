@@ -11,18 +11,18 @@
 <script>
 import BoardNmu from "@/components/board/nmu";
 import BoardOlp from "@/components/board/olp";
-import BoardOcp10g from "@/components/board/ocp10g";
-import BoardOtu10g from "@/components/board/otu10g";
-import BoardOtu100g from "@/components/board/otu100g";
-import BoardOtu25g from "@/components/board/otu25g";
 import BoardD16 from "@/components/board/d16";
 import BoardD40 from "@/components/board/d40";
 import BoardM16 from "@/components/board/m16";
 import BoardM40 from "@/components/board/m40";
 import BoardMd8 from "@/components/board/md8";
-import BoardEdfa from "@/components/board/edfa";
-import BoardDco200g from "@/components/board/dco200g";
 import BoardDcm from "@/components/board/dcm";
+import BoardEdfa from "@/components/board/edfa";
+import BoardOcp10g from "@/components/board/ocp10g";
+import BoardOtu10g from "@/components/board/otu10g";
+import BoardOtu25g from "@/components/board/otu25g";
+import BoardOtu100g from "@/components/board/otu100g";
+import BoardDco200g from "@/components/board/dco200g";
 import BoardMd16sfa from "@/components/board/md16sfa";
 import BoardMd16sfb from "@/components/board/md16sfb";
 
@@ -31,18 +31,18 @@ export default {
   components: {
     BoardNmu,
     BoardOlp,
-    BoardOcp10g,
-    BoardOtu10g,
-    BoardOtu100g,
-    BoardOtu25g,
     BoardD16,
     BoardM16,
-    BoardEdfa,
     BoardMd8,
-    BoardDco200g,
     BoardDcm,
     BoardD40,
     BoardM40,
+    BoardEdfa,
+    BoardOcp10g,
+    BoardOtu10g,
+    BoardOtu25g,
+    BoardOtu100g,
+    BoardDco200g,
     BoardMd16sfa,
     BoardMd16sfb,
   },

@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+.board-item-view-wrapper.composite {
+  height: 120px;
+}
+
 .board-item-view-wrapper::before {
   left: 1px;
 }

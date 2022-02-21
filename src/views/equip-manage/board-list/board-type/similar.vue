@@ -1,9 +1,7 @@
 <template>
   <div class="similar-cps-wrapper cps-wrapper">
     <div class="board-header-wrapper">
-      <div class="similar-board-wrapper">
-        <component :is="info.boardname" :data="info" :visible="visible"></component>
-      </div>
+      <component :is="info.boardname" :data="info" :visible="visible"></component>
     </div>
 
     <div class="board-table-title">

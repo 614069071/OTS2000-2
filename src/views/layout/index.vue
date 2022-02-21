@@ -212,7 +212,9 @@ export default {
 
 .layout-content {
   .board-overall-wrapper {
-    padding: 10px 0;
+    padding: 10px;
+    overflow-y: hidden;
+    overflow-x: auto;
   }
 
   .page-wrapper {

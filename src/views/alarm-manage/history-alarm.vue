@@ -164,7 +164,7 @@ export default {
       })
         .then(() => {
           const { id } = row;
-          const data = { otn2000: { boardname: "NMU", type: "confirm_histalarm", id, confirm_time: parseInt(Date.now() / 1000) } };
+          const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
@@ -249,6 +249,54 @@ export default {
             })
             .catch(() => {
               console.log("删除失败");
+            })
+            .finally(() => {});
+        })
+        .catch(() => {
+          console.log("取消");
+        });
+    },
+    confimCheckAlarm() {
+      this.$confirm("确定确认满足条件的警告吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+      })
+        .then(() => {
+          const data = { otn2000: { boardname: "NMU", type: "conf_histalarm", ...this.dataForm, confirm_time: parseInt(Date.now() / 1000) } };
+
+          this.$http
+            .post(data)
+            .then((res) => {
+              console.log("确认成功", res);
+
+              this.getAlarmList();
+            })
+            .catch(() => {
+              console.log("确认失败");
+            })
+            .finally(() => {});
+        })
+        .catch(() => {
+          console.log("取消");
+        });
+    },
+    confimAllAlarm() {
+      this.$confirm("确定确认所有警告吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+      })
+        .then(() => {
+          const data = { otn2000: { boardname: "NMU", type: "confall_histalarm", confirm_time: parseInt(Date.now() / 1000) } };
+
+          this.$http
+            .post(data)
+            .then((res) => {
+              console.log("确认成功", res);
+
+              this.getAlarmList();
+            })
+            .catch(() => {
+              console.log("确认失败");
             })
             .finally(() => {});
         })

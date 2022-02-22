@@ -258,7 +258,7 @@
           <td>FEC模式</td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.EFC_mode">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.FEC_mode">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -271,7 +271,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.EFC_mode">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.FEC_mode">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -471,9 +471,9 @@
 
             <template v-else>NA</template>
           </td>
-          <td>EFC模式</td>
+          <td>FEC模式</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.EFC_mode">
+            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
               <option :value="0">无</option>
               <option :value="1">SD-FEC</option>
               <option :value="2">HD-FEC</option>

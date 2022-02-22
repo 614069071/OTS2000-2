@@ -108,18 +108,19 @@ export default {
     loginRequest() {
       this.$http
         .login(this.loginInfo)
-        .then(({ resp_code, resp_msg, datas }) => {
+        .then(({ resp_code, datas }) => {
           if (!resp_code) {
             const { toKen, ...userInfo } = datas;
 
             storages.set("userInfo", userInfo);
             storages.set("__accessToken__", toKen);
           } else {
-            this.$message({ message: resp_msg });
+            //
           }
         })
         .catch((err) => {
           console.log(err);
+          alert("登录失败");
         });
     },
     langChange(e) {

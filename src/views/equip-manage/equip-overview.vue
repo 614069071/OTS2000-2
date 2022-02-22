@@ -181,11 +181,10 @@ export default {
         .then((res) => {
           this.systemInfo = res.otn2000_ack;
           this.isTatic = true;
-          this.$message("成功");
         })
         .catch((err) => {
           console.log(err);
-          this.$message("失败");
+          alert("配置失败");
         });
     },
     cancelChangeForm() {

@@ -84,16 +84,13 @@ export default {
         .post(data)
         .then(() => {
           this.setTilteDisabled = false;
-          return this.getTitle();
-        })
-        .then(() => {
-          this.refreshTitleDisabled = false;
-          this.$message("成功");
+
+          this.getTitle();
         })
         .catch(() => {
           this.setTilteDisabled = false;
           this.refreshTitleDisabled = false;
-          this.$message("失败");
+          alert("配置失败");
         });
     },
     getInfo() {
@@ -130,7 +127,7 @@ export default {
       const data = { otn2000: { ...diffData, slot, boardname, type: "post_info" } };
 
       if (JSON.stringify(diffData) === "{}") {
-        return this.$message("请选择配置项");
+        return alert("请选择配置项");
       }
 
       this.setInfoDisabled = true;
@@ -142,14 +139,10 @@ export default {
         .post(data)
         .then(() => {
           this.setInfoDisabled = false;
-
-          return this.getInfo();
-        })
-        .then(() => {
-          this.$message("成功");
+          this.getInfo();
         })
         .catch(() => {
-          this.$message("失败");
+          alert("配置失败");
         })
         .finally(() => {
           this.setInfoDisabled = false;
@@ -170,22 +163,10 @@ export default {
         .catch(() => {});
     },
     refreshTitle() {
-      this.getTitle()
-        .then(() => {
-          this.$message("成功");
-        })
-        .catch(() => {
-          this.$message("失败");
-        });
+      this.getTitle();
     },
     refreshInfo() {
-      this.getInfo()
-        .then(() => {
-          this.$message("成功");
-        })
-        .catch(() => {
-          this.$message("失败");
-        });
+      this.getInfo();
     },
     restoreDefaultInfo() {
       const { boardname, slot } = this.info;
@@ -196,13 +177,10 @@ export default {
       this.$http
         .post(data)
         .then(() => {
-          return this.getInfo();
-        })
-        .then(() => {
-          this.$message("成功");
+          this.getInfo();
         })
         .catch(() => {
-          this.$message("失败");
+          alert("配置失败");
         });
     },
     restorInfo() {
@@ -213,13 +191,10 @@ export default {
       this.$http
         .post(data)
         .then(() => {
-          return this.getInfo();
-        })
-        .then(() => {
-          this.$message("成功");
+          this.getInfo();
         })
         .catch(() => {
-          this.$message("失败");
+          alert("配置失败");
         });
     },
   },

@@ -823,7 +823,7 @@ export default {
         .post(data)
         .then((res) => {
           console.log("setInfos", res);
-          this.$message("成功");
+      
           this.setInfoDisabled = false;
           this.detection[i][status] = false;
 
@@ -833,11 +833,11 @@ export default {
             this.getInfo()
               .then(() => {
                 this.detection[i][`${status}End`] = true;
-                this.$message("检测成功");
+               alert("检测成功");
               })
               .catch(() => {
                 this.detection[i][`${status}End`] = true;
-                this.$message("检测失败");
+               alert("检测失败");
               });
           } else {
             this.detection[i][`${status}End`] = false;
@@ -846,7 +846,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
-          this.$message("失败");
+          alert("失败");
           this.setInfoDisabled = false;
         });
     },

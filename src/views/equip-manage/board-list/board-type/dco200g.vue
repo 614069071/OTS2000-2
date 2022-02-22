@@ -1,6 +1,6 @@
 <template>
   <div class="otucfpdco200g-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper composite">
+    <div class="board-header-wrapper" style="height:120px;">
       <BoardDco200g></BoardDco200g>
     </div>
 

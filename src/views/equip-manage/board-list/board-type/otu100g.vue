@@ -1,6 +1,6 @@
 <template>
   <div class="otu40g100g-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper composite">
+    <div class="board-header-wrapper" style="height:120px;">
       <BoardOtu100g></BoardOtu100g>
     </div>
 

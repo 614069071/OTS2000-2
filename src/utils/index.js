@@ -259,6 +259,7 @@ export const alarmTypes = {
   37: "系统温度低告警",
   38: "系统电压高告警", //1 直流 2 交流
   39: "系统电压低告警", //1 直流 2 交流
+  40: "风扇板警告",
 };
 
 export const mapAlarmTypes = {

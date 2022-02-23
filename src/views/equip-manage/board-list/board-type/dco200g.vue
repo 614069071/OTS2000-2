@@ -451,9 +451,11 @@
           </td>
           <td>光通道</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.light_channel">
+            <!-- <select >
               <option :value="0">C21-C60</option>
-            </select>
+            </select> -->
+
+            <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
 
             <template v-else>NA</template>
           </td>

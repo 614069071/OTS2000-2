@@ -113,14 +113,14 @@
           <td>工作状态</td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[0].work_status ? "主" : "备" }}
+              {{ infoData.channels[0].work_status ? "备" : "主" }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[1].work_status ? "主" : "备" }}
+              {{ infoData.channels[1].work_status ? "备" : "主" }}
             </div>
           </td>
           <td></td>
@@ -255,17 +255,27 @@
             <div class="coll-3">
               <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[0].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
-                <option :value="2">CPRIX(X值为3，5，6，7)</option>
-                <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                <option :value="2">CPRIX(X值为2，3，5，7)</option>
+                <option :value="3">CPRIX(X值为2，3，5，7，8)</option>
                 <option :value="4">OTU1/OTU1e</option>
                 <option :value="5">OTU2/OTU2e</option>
-                <option :value="6">OTU1f/OTU2f</option>
+                <option :value="6">OTU1f</option>
                 <option :value="7">GE/10GE</option>
-                <option :value="8">STM-16/64</option>
-                <option :value="9">FE(旁路)</option>
+                <option :value="8">STM-16/STM-64</option>
+                <option :value="9">FE/STM-1/STM-4</option>
               </select>
 
-              <select v-else v-model="infoData.channels[0].speed"> </select>
+              <select v-else-if="titeData.bdtype === '10G-OCPH'" v-model="infoData.channels[0].speed">
+                <option :value="1">10G FC</option>
+                <option :value="2">CPRI2/3/4/5/6/7</option>
+                <option :value="3">CPRI2/3/5/7/8</option>
+                <option :value="4">OTU1/OTU1e</option>
+                <option :value="5">OTU1f/OTU2f</option>
+                <option :value="6">OTU2/OTU2e</option>
+                <option :value="7">GE/10GE</option>
+                <option :value="8">STM-16/STM-64</option>
+                <option :value="9">FE/STM-1/STM-4</option>
+              </select>
             </div>
           </td>
           <td></td>
@@ -274,17 +284,27 @@
             <div class="coll-3">
               <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[1].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
-                <option :value="2">CPRIX(X值为3，5，6，7)</option>
-                <option :value="3">CPRIX(X值为3，5，7，8)</option>
+                <option :value="2">CPRIX(X值为2，3，5，7)</option>
+                <option :value="3">CPRIX(X值为2，3，5，7，8)</option>
                 <option :value="4">OTU1/OTU1e</option>
                 <option :value="5">OTU2/OTU2e</option>
-                <option :value="6">OTU1f/OTU2f</option>
+                <option :value="6">OTU1f</option>
                 <option :value="7">GE/10GE</option>
-                <option :value="8">STM-16/64</option>
-                <option :value="9">FE(旁路)</option>
+                <option :value="8">STM-16/STM-64</option>
+                <option :value="9">FE/STM-1/STM-4</option>
               </select>
 
-              <select v-else v-model="infoData.channels[1].speed"> </select>
+              <select v-else-if="titeData.bdtype === '10G-OCPH'" v-model="infoData.channels[1].speed">
+                <option :value="1">10G FC</option>
+                <option :value="2">CPRI2/3/4/5/6/7</option>
+                <option :value="3">CPRI2/3/5/7/8</option>
+                <option :value="4">OTU1/OTU1e</option>
+                <option :value="5">OTU1f/OTU2f</option>
+                <option :value="6">OTU2/OTU2e</option>
+                <option :value="7">GE/10GE</option>
+                <option :value="8">STM-16/STM-64</option>
+                <option :value="9">FE/STM-1/STM-4</option>
+              </select>
             </div>
           </td>
           <td></td>
@@ -366,8 +386,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[0].work_mode" v-model="infoData.channels[0].Switch">
-                <option :value="0">备</option>
-                <option :value="1">主</option>
+                <option :value="0">主</option>
+                <option :value="1">备</option>
               </select>
             </div>
           </td>
@@ -376,8 +396,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[1].work_mode" v-model="infoData.channels[1].Switch">
-                <option :value="0">备</option>
-                <option :value="1">主</option>
+                <option :value="0">主</option>
+                <option :value="1">备</option>
               </select>
             </div>
           </td>

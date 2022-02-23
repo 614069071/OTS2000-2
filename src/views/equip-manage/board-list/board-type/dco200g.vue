@@ -112,14 +112,14 @@
         </tr>
         <tr>
           <td>LINK状态</td>
-          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.los : "NA" }}</td>
-          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.los : "NA" }}</td>
-          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.los : "NA" }}</td>
-          <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel4.los : "NA" }}</td>
-          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel1.los : "NA" }}</td>
-          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel2.los : "NA" }}</td>
-          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel3.los : "NA" }}</td>
-          <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.los : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel1.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel2.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel3.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel4.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? (infoData.QSFP2.channel1.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? (infoData.QSFP2.channel2.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? (infoData.QSFP2.channel3.los ? "DOWN" : "UP") : "NA" }}</td>
+          <td>{{ infoData.QSFP2.link_status ? (infoData.QSFP2.channel4.los ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
           <td>距离（km）</td>

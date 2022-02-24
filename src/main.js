@@ -22,7 +22,7 @@ Vue.component("pupur", Pupur);
 
 Vue.filter("formatSeconds", (d) => formatSeconds(d));
 Vue.filter("formatTime", (d) => formatTime(d));
-Vue.filter("mapBoardType", (v) => mapAlarmTypes[v].name || v);
+Vue.filter("mapBoardType", (v) => (mapAlarmTypes[v] || {}).name || v);
 Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 Vue.filter("mapBoardAlarmName", (v) => {

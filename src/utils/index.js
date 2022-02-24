@@ -334,18 +334,13 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
     if ([2, 5].includes(alarmId)) return mapAlarmTypes[9]["light"][port] + " " + alarmTypes[alarmId];
 
     //系统电压告警
-    if ([38, 39].includes(alarmId)) return alarmTypes[alarmId];
-
-    // if(){
-
-    // }
-    return;
+    if ([36, 37, 38, 39].includes(alarmId)) return alarmTypes[alarmId];
   }
 
   const board = mapAlarmTypes[boardType];
   const model = port ? board.light[port] : "";
   const alarm = alarmTypes[alarmId];
-  const result = model + alarm;
+  const result = model + " " + alarm;
 
   return result;
 }

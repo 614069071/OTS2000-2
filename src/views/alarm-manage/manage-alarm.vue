@@ -48,17 +48,32 @@
 
     <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="name1" label="槽位号" width="60"></el-table-column>
-      <el-table-column prop="name2" label="板类型" width="120"></el-table-column>
-      <el-table-column prop="name3" label="端口" width="60"></el-table-column>
-      <el-table-column prop="name4" label="告警名称"> </el-table-column>
-      <el-table-column prop="name5" label="告警等级" width="80"> </el-table-column>
-      <el-table-column prop="name6" label="告警状态" width="80"></el-table-column>
-      <el-table-column label="操作" width="70">
-        <template>
-          <button class="def-btn">屏蔽</button>
+      <el-table-column prop="slot" label="槽位号" width="60"></el-table-column>
+      <el-table-column prop="board_type" label="板类型" width="120">
+        <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
+      </el-table-column>
+      <el-table-column prop="portno" label="端口" width="60"></el-table-column>
+      <el-table-column label="告警名称">
+        <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
+      </el-table-column>
+      <el-table-column prop="level" label="告警等级" width="80">
+        <template v-slot="{ row }">
+          {{ row.level | mapAlarmLevel }}
         </template>
       </el-table-column>
+      <el-table-column prop="status" label="告警状态" width="100">
+        <template v-slot="{ $index }">
+          <select size="mini" v-model="dataTable[$index].status" placeholder="请选择告警等级">
+            <option label="屏蔽" :value="1"></option>
+            <option label="正常" :value="0"></option>
+          </select>
+        </template>
+      </el-table-column>
+      <!-- <el-table-column label="操作" width="70">
+        <template>
+          <button class="def-btn">应用</button>
+        </template>
+      </el-table-column> -->
     </el-table>
 
     <div class="alarm-list-controls">
@@ -80,17 +95,11 @@ export default {
       },
       alarmSolot: 8,
       inquireLoading: false,
-      dataTable: [
-        {
-          name1: "8",
-          name2: "NUM",
-          name3: "1",
-          name4: "SFP1模块不在位",
-          name5: "次要",
-          name6: "屏蔽",
-        },
-      ],
+      dataTable: [],
     };
+  },
+  created() {
+    this.getAlarmList();
   },
   methods: {
     getAlarmList() {
@@ -99,7 +108,8 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          this.dataTable = (res.otn2000_ack.cfg_records || []).reverse();
+          // this.dataTable = (res.otn2000_ack.cfg_records || []).reverse();
+          this.dataTable = res.otn2000_ack.cfg_records || [];
         })
         .catch(() => {
           this.dataTable = [];

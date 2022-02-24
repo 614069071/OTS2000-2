@@ -80,7 +80,7 @@
           </td>
           <td>强制倒换</td>
           <td>
-            <select v-model="infoData.forced_switching">
+            <select :disabled="!infoData.protmode" v-model="infoData.forced_switching">
               <option :value="0">主</option>
               <option :value="1">备</option>
             </select>
@@ -97,15 +97,16 @@
         <tr>
           <td>是否自动回切</td>
           <td>
-            <select v-model="infoData.auto_switchback">
-              <option :value="0">是</option>
-              <option :value="1">否</option>
+            <select :disabled="!!infoData.protmode" v-model="infoData.auto_switchback">
+              <option :value="0">回切</option>
+              <option :value="1">不回切</option>
             </select>
           </td>
           <td>回切WTR时间（min）</td>
           <td>
             <custom-select
               v-model="infoData.wtr_time"
+              :disabled="!!infoData.protmode"
               :options="[
                 { label: '5', value: 5 },
                 { label: '10', value: 10 },
@@ -153,6 +154,7 @@
           <td>
             <custom-select
               v-model="infoData.switch_condition_diff"
+              :disabled="!!infoData.protmode"
               :options="[
                 { label: '4', value: 4 },
                 { label: '5', value: 5 },

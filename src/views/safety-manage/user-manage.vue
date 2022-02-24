@@ -2,7 +2,7 @@
   <div>
     <div class="inner-container-title">SNMP Trap配置</div>
 
-    <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+    <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
       <el-table-column prop="name1" label="用户名称"></el-table-column>
       <el-table-column prop="name2" label="密码"></el-table-column>

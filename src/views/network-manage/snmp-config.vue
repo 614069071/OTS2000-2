@@ -15,7 +15,7 @@
 
     <div class="inner-container-title">SNMP Trap配置</div>
 
-    <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+    <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="60"> </el-table-column>
       <el-table-column prop="name1" label="目标主机名称"></el-table-column>
       <el-table-column prop="name2" label="IP地址"></el-table-column>

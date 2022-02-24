@@ -46,7 +46,7 @@
       </el-form-item>
     </el-form>
 
-    <el-table ref="multipleTable" border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+    <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
       <el-table-column prop="slot" label="槽位号" width="60"></el-table-column>
       <el-table-column prop="board_type" label="板类型" width="120">

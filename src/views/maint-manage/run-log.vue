@@ -2,7 +2,7 @@
   <div class="run-log-page">
     <div class="inner-container-title">日志列表</div>
 
-    <el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+    <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column prop="name1" label="操作对象"></el-table-column>
       <el-table-column prop="name2" label="操作内容"></el-table-column>
       <el-table-column prop="name3" label="动作"></el-table-column>

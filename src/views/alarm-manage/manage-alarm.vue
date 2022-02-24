@@ -77,8 +77,8 @@
     </el-table>
 
     <div class="alarm-list-controls">
-      <button class="def-btn">应用</button>
-      <button class="def-btn">刷新</button>
+      <button class="def-btn" @click="submitAlarm">应用</button>
+      <button class="def-btn" @click="getAlarmList">刷新</button>
     </div>
   </div>
 </template>
@@ -89,11 +89,10 @@ export default {
   data() {
     return {
       dataForm: {
-        slot: 255,
+        slot: 8,
         portno: 255,
         level: 255,
       },
-      alarmSolot: 8,
       inquireLoading: false,
       dataTable: [],
     };
@@ -103,19 +102,38 @@ export default {
   },
   methods: {
     getAlarmList() {
-      const data = { otn2000: { type: "get_alarmconfig", slot: this.alarmSolot, boardname: "NMU" } };
+      const data = { otn2000: { type: "get_alarmconfig", boardname: "NMU", ...this.dataForm } };
 
       this.$http
         .post(data)
         .then((res) => {
-          // this.dataTable = (res.otn2000_ack.cfg_records || []).reverse();
-          this.dataTable = res.otn2000_ack.cfg_records || [];
+          const { cfg_records = [] } = res.otn2000_ack;
+          const result = cfg_records || [];
+          result.forEach((e) => (e.static = e.status));
+          this.dataTable = result;
         })
         .catch(() => {
           this.dataTable = [];
         });
     },
-    resetDataForm() {},
+    submitAlarm() {
+      const cfg_records = this.dataTable.filter((e) => e.static !== e.status);
+
+      if (!cfg_records.length) return;
+
+      const data = { otn2000: { slot: cfg_records[0]["slot"], type: "post_alarmconfig", cfg_records } };
+
+      console.log(data);
+
+      this.$http
+        .post(data)
+        .then(() => {
+          this.getAlarmList();
+        })
+        .catch(() => {
+          alert("配置失败");
+        });
+    },
   },
 };
 </script>

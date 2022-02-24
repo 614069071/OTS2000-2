@@ -7,6 +7,8 @@ import { formatSeconds, clone, difference, formatTime, mapAlarmTypes, alarmLevel
 import Structure from "@/components/structure";
 import Pupur from "@/components/pupur";
 
+console.log("app", App);
+
 import "@/element";
 import "@/styles";
 
@@ -25,8 +27,6 @@ Vue.filter("formatTime", (d) => formatTime(d));
 Vue.filter("mapBoardType", (v) => (mapAlarmTypes[v] || {}).name || v);
 Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
-Vue.filter("mapBoardAlarmName", (v) => {
-  return mapBoardAlarmName(v.board_type, v.alarmtype, v.portno);
-});
+Vue.filter("mapBoardAlarmName", (v) => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
 
 new Vue({ router, i18n, render: (h) => h(App) }).$mount("#app");

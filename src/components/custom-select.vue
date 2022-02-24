@@ -11,7 +11,19 @@
 <script>
 export default {
   name: "custom-select",
-  props: ["options", "value", "disabled"],
+  props: {
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    value: {
+      type: Number,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       selectVal: "",

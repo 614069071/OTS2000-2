@@ -7,8 +7,6 @@ import { formatSeconds, clone, difference, formatTime, mapAlarmTypes, alarmLevel
 import Structure from "@/components/structure";
 import Pupur from "@/components/pupur";
 
-console.log("app", App);
-
 import "@/element";
 import "@/styles";
 

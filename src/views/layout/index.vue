@@ -13,10 +13,8 @@
 
     <div class="layout-main">
       <div class="layout-aside">
-        <div class="aside-header-wrapper">
-          <div class="aside-content-wrapper clear-scroll-bar">
-            <side-bar />
-          </div>
+        <div class="aside-header-wrapper clear-scroll-bar">
+          <side-bar />
         </div>
 
         <div class="aside-footer-wrapper">
@@ -239,16 +237,11 @@ export default {
   }
 }
 
-.ayout-aside {
+.layout-aside {
   .aside-header-wrapper {
-    display: flex;
     flex: 1;
-    min-height: 200px;
-    flex-direction: column;
-
-    .aside-content-wrapper {
-      flex: 1;
-    }
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 

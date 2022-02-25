@@ -114,6 +114,7 @@ export default {
             reject(err);
           })
           .finally(() => {
+            console.log("get info finally");
             this.refreshInfoDisabled = false;
             this.setInfoDisabled = false;
             this.restorInfoDisabled = false;

@@ -140,9 +140,6 @@ export default {
 
 <style lang="scss">
 .sidebar {
-  overflow-x: hidden;
-  overflow-y: scroll;
-
   &::-webkit-scrollbar {
     width: 0;
   }

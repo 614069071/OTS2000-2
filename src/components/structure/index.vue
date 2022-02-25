@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     setBoard(v) {
-      this.$bus.$emit("boardView", v);
+      this.$bus.$emit("onBoardView", v);
     },
   },
 };

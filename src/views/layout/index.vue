@@ -128,7 +128,7 @@ export default {
           const list = res.otn2000_ack.channels || [];
 
           this.dataTable = list;
-          this.$bus.$emit("pushBoardList", list);
+          this.$bus.$emit("onBoardList", list);
         })
         .catch(() => {
           this.dataTable = [];

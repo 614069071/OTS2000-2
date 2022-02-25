@@ -84,17 +84,17 @@ export default {
     // this.getboardList();
   },
   mounted() {
-    this.$bus.$on("boardView", (v) => {
+    this.$bus.$on("onBoardView", (v) => {
       this.lookDetail(v);
     });
 
-    this.$bus.$on("pushBoardList", (v) => {
+    this.$bus.$on("onBoardList", (v) => {
       this.dataTable = v;
     });
   },
   beforeDestroy() {
-    this.$bus.$off("boardView");
-    this.$bus.$off("pushBoardList");
+    this.$bus.$off("onBoardView");
+    this.$bus.$off("onBoardList");
   },
   filters: {
     unifiedBoardName(v) {

@@ -96,12 +96,12 @@ export default {
     this.getAlarmList();
   },
   mounted() {
-    this.$bus.$on("pushBoardList", (v) => {
+    this.$bus.$on("onBoardList", (v) => {
       this.onlineBoardList = v.filter((e) => e.status && e.boardname !== "NMU");
     });
   },
   beforeDestroy() {
-    this.$bus.$off("pushBoardList");
+    this.$bus.$off("onBoardList");
   },
   methods: {
     getAlarmList() {

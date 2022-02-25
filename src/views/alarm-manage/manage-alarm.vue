@@ -6,14 +6,7 @@
       <el-form-item label="槽位号">
         <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
           <el-option label="全部" :value="255"></el-option>
-          <el-option label="槽位1" :value="1"></el-option>
-          <el-option label="槽位2" :value="2"></el-option>
-          <el-option label="槽位3" :value="3"></el-option>
-          <el-option label="槽位4" :value="4"></el-option>
-          <el-option label="槽位5" :value="5"></el-option>
-          <el-option label="槽位6" :value="6"></el-option>
-          <el-option label="槽位7" :value="7"></el-option>
-          <el-option label="槽位8" :value="8"></el-option>
+          <el-option label="槽位8" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot">槽位{{ slot }}</el-option>
         </el-select>
       </el-form-item>
 
@@ -95,10 +88,19 @@ export default {
       },
       inquireLoading: false,
       dataTable: [],
+      onlineBoardList: [],
     };
   },
   created() {
     this.getAlarmList();
+  },
+  mounted() {
+    this.$bus.$on("pushBoardList", (v) => {
+      this.onlineBoardList = v.filter((e) => e.status);
+    });
+  },
+  beforeDestroy() {
+    this.$bus.$off("pushBoardList");
   },
   methods: {
     getAlarmList() {

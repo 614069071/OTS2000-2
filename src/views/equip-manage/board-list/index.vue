@@ -81,15 +81,20 @@ export default {
     };
   },
   created() {
-    this.getboardList();
+    // this.getboardList();
   },
   mounted() {
     this.$bus.$on("boardView", (v) => {
       this.lookDetail(v);
     });
+
+    this.$bus.$on("pushBoardList", (v) => {
+      this.dataTable = v;
+    });
   },
   beforeDestroy() {
     this.$bus.$off("boardView");
+    this.$bus.$off("pushBoardList");
   },
   filters: {
     unifiedBoardName(v) {
@@ -150,7 +155,7 @@ export default {
       this.dialogVisible = true;
     },
     refresh() {
-      this.getboardList();
+      // this.getboardList();
       this.$bus.$emit("updateBoardView");
     },
   },

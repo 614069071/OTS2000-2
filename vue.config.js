@@ -1,4 +1,5 @@
 const TerserPlugin = require("terser-webpack-plugin");
+const FileManagerPlugin = require("filemanager-webpack-plugin");
 const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 const path = require("path");
 const resolve = (dir) => path.resolve(__dirname, dir);
@@ -45,6 +46,20 @@ module.exports = {
             }),
           ],
         },
+        plugins: [
+          new FileManagerPlugin({
+            events: {
+              onEnd: {
+                archive: [
+                  {
+                    source: "./dist",
+                    destination: `./dist/otn.dist.${Date.now()}.zip`,
+                  },
+                ],
+              },
+            },
+          }),
+        ],
       };
     }
   },

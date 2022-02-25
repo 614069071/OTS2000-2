@@ -405,17 +405,17 @@
           <td>在位状态</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
           <td>发送光功率(dBm)</td>
-          <td>{{ infoData.CFP2.launch_power }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.launch_power : "NA" }}</td>
           <td>接收光功率(dBm)</td>
-          <td>{{ infoData.CFP2.rcv_power }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
         </tr>
         <tr>
           <td>温度(℃)</td>
-          <td>{{ infoData.CFP2.temp }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.temp : "NA" }}</td>
           <td>电压(V)</td>
-          <td>{{ infoData.CFP2.voltage }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.voltage : "NA" }}</td>
           <td>电流(mA)</td>
-          <td>{{ infoData.CFP2.current }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
         </tr>
         <tr>
           <td>接收光功率过低阈值(dBm)</td>

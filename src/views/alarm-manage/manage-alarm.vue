@@ -6,7 +6,8 @@
       <el-form-item label="槽位号">
         <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
           <el-option label="全部" :value="255"></el-option>
-          <el-option label="槽位8" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot">槽位{{ slot }}</el-option>
+          <el-option :label="`槽位${slot}`" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
+          <el-option label="槽位8" :value="8"></el-option>
         </el-select>
       </el-form-item>
 
@@ -96,7 +97,7 @@ export default {
   },
   mounted() {
     this.$bus.$on("pushBoardList", (v) => {
-      this.onlineBoardList = v.filter((e) => e.status);
+      this.onlineBoardList = v.filter((e) => e.status && e.boardname !== "NMU");
     });
   },
   beforeDestroy() {

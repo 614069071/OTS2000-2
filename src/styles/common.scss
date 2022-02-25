@@ -147,6 +147,9 @@ button:active {
   color: #fff;
   padding: 0 20px;
   background-color: var(--dft-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .inner-pagination-wrapper {

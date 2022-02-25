@@ -103,6 +103,14 @@ export default {
       immediate: true,
     },
   },
+  mounted() {
+    this.$bus.$on("updateBoardView", () => {
+      this.getBoardList();
+    });
+  },
+  beforeDestroy() {
+    this.$bus.$off("updateBoardView");
+  },
   methods: {
     initUserinfo() {
       const userProfile = storages.get("userProfile") || {};

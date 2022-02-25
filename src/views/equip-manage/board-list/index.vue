@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="inner-container-title">单板列表</div>
+    <div class="inner-container-title">单板列表<button class="button-refresh-board-list" @click="refresh">刷新</button></div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column prop="slot" label="槽位号" width="100">
@@ -149,12 +149,23 @@ export default {
       this.boardData = data;
       this.dialogVisible = true;
     },
+    refresh() {
+      this.getboardList();
+      this.$bus.$emit("updateBoardView");
+    },
   },
 };
 </script>
 
 <style lang="scss">
 $border-color: #aaa;
+
+.button-refresh-board-list {
+  height: 20px;
+  padding: 0 5px;
+  font-size: 14px;
+  border-radius: 2px;
+}
 
 .cps-wrapper {
   // background-color: #fff;

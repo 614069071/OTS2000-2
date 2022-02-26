@@ -2,7 +2,9 @@
   <div class="structure-wrapper">
     <div class="structure-inner-wrapper">
       <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index" @click="setBoard(item)">
-        <component v-if="item.boardname && item.status" :is="`board-${item.boardname.toLowerCase()}`" :data="item"></component>
+        <div class="structure-board-inner">
+          <component v-if="item.boardname && item.status" :is="`board-${item.boardname.toLowerCase()}`" :data="item"></component>
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +62,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .structure-wrapper {
   width: 1200px;
   height: 284px;
@@ -87,5 +89,11 @@ export default {
   width: 50% !important;
   box-sizing: border-box;
   position: relative;
+}
+
+.structure-board-inner {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 </style>

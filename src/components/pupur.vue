@@ -41,6 +41,8 @@ export default {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    background-color: #fff;
+    padding: 0 10px 10px 10px;
   }
 
   .pupur-title-wrapper {

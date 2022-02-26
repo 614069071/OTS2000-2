@@ -1,68 +1,5 @@
 <template>
   <div class="edfa-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper">
-      <Edfa></Edfa>
-    </div>
-    <div class="board-table-title">
-      <table class="board-table" border="1">
-        <tr>
-          <td>硬件版本</td>
-          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
-          <td>软件版本</td>
-          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
-          <td>协议版本</td>
-          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
-        </tr>
-        <tr>
-          <td>生产日期</td>
-          <td>
-            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
-
-            <template v-else>
-              {{ titeData.mfgdate }}
-            </template>
-          </td>
-          <td>序列号</td>
-          <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
-
-            <template v-else>
-              {{ titeData.sn }}
-            </template>
-          </td>
-          <td>EDFA型号</td>
-          <td>{{ titeData.bdtype }}</td>
-        </tr>
-        <tr>
-          <td>设备类型</td>
-          <td>{{ titeData.device_type }}</td>
-          <td>状态</td>
-          <td>{{ titeData.status ? "在位" : "脱位" }}</td>
-          <td>信息描述</td>
-          <td><input class="def-input" type="text" maxlength="30" v-model="titeData.desc" /></td>
-        </tr>
-        <tr>
-          <td>MAC地址</td>
-          <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.mac_address" />
-
-            <template v-else>
-              {{ titeData.mac_address }}
-            </template>
-          </td>
-          <td>槽位号</td>
-          <td>{{ info.slot }}</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
-      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
-    </div>
-
     <!-- 状态信息 -->
     <div class="board-table-container">
       <table class="board-table" border="1">
@@ -126,7 +63,7 @@
             </select>
           </td>
 
-          <template v-if="titeData.bdtype === 'OBA20G22'">
+          <template v-if="info.bdtype === 'OBA20G22'">
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>
@@ -274,12 +211,10 @@
 
 <script>
 import mixins from "@/utils/mixins";
-import Edfa from "@/components/board/edfa";
 
 export default {
   name: "edfa",
   mixins: [mixins],
-  components: { Edfa },
   data() {
     return {
       infoData: {

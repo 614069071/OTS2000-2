@@ -2,12 +2,10 @@
   display: flex;
   width: 521px;
   height: 60px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   border: 1px solid #000;
   box-sizing: border-box;
   background-color: #fff;
+  position: relative;
 }
 
 .board-item-view-wrapper.composite {

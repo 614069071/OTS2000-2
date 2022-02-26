@@ -1,69 +1,5 @@
 <template>
   <div class="otu4x10g-cps-wrapper cps-wrapper">
-    <div class="board-header-wrapper">
-      <BoardOcp10g></BoardOcp10g>
-    </div>
-
-    <div class="board-table-title">
-      <table class="board-table" border="1">
-        <tr>
-          <td>硬件版本</td>
-          <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
-          <td>软件版本</td>
-          <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
-          <td>协议版本</td>
-          <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
-        </tr>
-        <tr>
-          <td>生产日期</td>
-          <td>
-            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
-
-            <template v-else>
-              {{ titeData.mfgdate }}
-            </template>
-          </td>
-          <td>序列号</td>
-          <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
-
-            <template v-else>
-              {{ titeData.sn }}
-            </template>
-          </td>
-          <td>板型号</td>
-          <td>{{ titeData.bdtype }}</td>
-        </tr>
-        <tr>
-          <td>设备类型</td>
-          <td>{{ titeData.device_type }}</td>
-          <td>状态</td>
-          <td>{{ titeData.status ? "告警" : "正常" }}</td>
-          <td>信息描述</td>
-          <td><input class="def-input" type="text" maxlength="30" v-model="titeData.desc" /></td>
-        </tr>
-        <tr>
-          <td>MAC地址</td>
-          <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.mac_address" />
-
-            <template v-else>
-              {{ titeData.mac_address }}
-            </template>
-          </td>
-          <td>槽位号</td>
-          <td>{{ info.slot }}</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshTitle">刷新</button>
-      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
-    </div>
-
     <div class="board-table-container">
       <table class="board-table" border="1">
         <thead>
@@ -253,7 +189,7 @@
           <td>速率（Mbps）</td>
           <td>
             <div class="coll-3">
-              <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[0].speed">
+              <select v-if="info.bdtype === '10G-OCPL'" v-model="infoData.channels[0].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
                 <option :value="2">CPRIX(X值为2，3，5，7)</option>
                 <option :value="3">CPRIX(X值为2，3，5，7，8)</option>
@@ -265,7 +201,7 @@
                 <option :value="9">FE/STM-1/STM-4</option>
               </select>
 
-              <select v-else-if="titeData.bdtype === '10G-OCPH'" v-model="infoData.channels[0].speed">
+              <select v-else-if="info.bdtype === '10G-OCPH'" v-model="infoData.channels[0].speed">
                 <option :value="1">10G FC</option>
                 <option :value="2">CPRI2/3/4/5/6/7</option>
                 <option :value="3">CPRI2/3/5/7/8</option>
@@ -282,7 +218,7 @@
           <td></td>
           <td>
             <div class="coll-3">
-              <select v-if="titeData.bdtype === '10G-OCPL'" v-model="infoData.channels[1].speed">
+              <select v-if="info.bdtype === '10G-OCPL'" v-model="infoData.channels[1].speed">
                 <option :value="1">FC(包含2G、4G、8G、10G)</option>
                 <option :value="2">CPRIX(X值为2，3，5，7)</option>
                 <option :value="3">CPRIX(X值为2，3，5，7，8)</option>
@@ -294,7 +230,7 @@
                 <option :value="9">FE/STM-1/STM-4</option>
               </select>
 
-              <select v-else-if="titeData.bdtype === '10G-OCPH'" v-model="infoData.channels[1].speed">
+              <select v-else-if="info.bdtype === '10G-OCPH'" v-model="infoData.channels[1].speed">
                 <option :value="1">10G FC</option>
                 <option :value="2">CPRI2/3/4/5/6/7</option>
                 <option :value="3">CPRI2/3/5/7/8</option>
@@ -601,12 +537,11 @@
 <script>
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
-import BoardOcp10g from "@/components/board/ocp10g";
 
 export default {
   name: "ocp10g",
   mixins: [mixins],
-  components: { CustomSelect, BoardOcp10g },
+  components: { CustomSelect },
   data() {
     return {
       infoData: {

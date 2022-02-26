@@ -49,26 +49,17 @@
     </el-table>
 
     <pupur :visible.sync="dialogVisible">
-      <component :is="boardType" :info="boardData" :visible="dialogVisible"></component>
+      <board-view :info="boardData" :visible.sync="dialogVisible"></board-view>
     </pupur>
   </div>
 </template>
 
 <script>
-import { isSimilar } from "@/utils";
-import Nmu from "./board-type/nmu";
-import Edfa from "./board-type/edfa";
-import Olp from "./board-type/olp";
-import Otu10g from "./board-type/otu10g";
-import Otu25g from "./board-type/otu25g";
-import Otu100g from "./board-type/otu100g";
-import Dco200g from "./board-type/dco200g";
-import Ocp10g from "./board-type/ocp10g";
-import Similar from "./board-type/similar";
+import BoardView from "./board-view";
 
 export default {
   name: "board-list",
-  components: { Nmu, Edfa, Olp, Otu10g, Otu25g, Otu100g, Dco200g, Ocp10g, Similar },
+  components: { BoardView },
   data() {
     return {
       dataForm: {},
@@ -144,12 +135,7 @@ export default {
 
       const boardName = boardname.toLowerCase();
 
-      if (isSimilar(boardName)) {
-        this.boardType = "similar";
-      } else {
-        this.boardType = boardName;
-      }
-
+      this.boardType = boardName;
       this.boardTilte = boardName;
       this.boardData = data;
       this.dialogVisible = true;
@@ -187,10 +173,10 @@ $border-color: #aaa;
   position: relative;
   height: 60px;
 
-  & > div {
-    left: 50%;
-    margin-left: -280px;
-  }
+  // & > div {
+  //   left: 50%;
+  //   margin-left: -280px;
+  // }
 }
 
 .board-inner-wrapper {
@@ -298,7 +284,7 @@ $border-color: #aaa;
   flex: 1;
   overflow: auto;
   position: relative;
-  padding: 0 10px;
+  // padding: 0 10px;
   background-color: #fff;
 }
 

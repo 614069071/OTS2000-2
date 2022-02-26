@@ -36,10 +36,11 @@ export default {
             resolve(res.otn2000_ack);
           })
           .catch((err) => {
+            // console.log("get info atch error", err);
             reject(err);
           })
           .finally(() => {
-            console.log("get info finally");
+            // console.log("get info finally");
             this.refreshInfoDisabled = false;
             this.setInfoDisabled = false;
             this.restorInfoDisabled = false;
@@ -76,13 +77,6 @@ export default {
           this.restorInfoDisabled = false;
           this.restoreDefaultInfoDisabled = false;
         });
-    },
-
-    refreshTitle() {
-      this.getTitle();
-    },
-    refreshInfo() {
-      this.getInfo();
     },
     restoreDefaultInfo() {
       const { boardname, slot } = this.info;

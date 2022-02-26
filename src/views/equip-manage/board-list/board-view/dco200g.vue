@@ -451,7 +451,7 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="getInfo">刷新</button>
       <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
       <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
       <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>

@@ -102,7 +102,7 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshInfo">刷新</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="getInfo">刷新</button>
     </div>
   </div>
 </template>

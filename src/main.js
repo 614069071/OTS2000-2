@@ -27,4 +27,41 @@ Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
 Vue.filter("mapBoardAlarmName", (v) => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
 
+Vue.directive("limit", {
+  bind(el, { value }, { context }) {
+    const reg = /([1-9]\d*\.?\d*)|(0\.\d*[1-9])/;
+    const { key = "", min = 0, max = 0 } = value;
+    const keys = key.split(".");
+    let count = 0;
+    let me = context;
+
+    while (count < keys.length - 1) {
+      me = me[keys[count]];
+      count++;
+    }
+
+    el.limit = (e) => {
+      const { value } = e.target;
+
+      if (reg.test(value)) {
+        if (Number(value) < min) {
+          return (me[keys[keys.length - 1]] = min);
+        }
+
+        if (Number(value) > max) {
+          return (me[keys[keys.length - 1]] = max);
+        }
+      } else {
+        me[keys[keys.length - 1]] = "";
+      }
+    };
+
+    el.addEventListener("input", el.limit);
+  },
+  unbind(el) {
+    el.removeEventListener("input", el.limit);
+    delete el.limit;
+  },
+});
+
 new Vue({ router, i18n, render: (h) => h(App) }).$mount("#app");

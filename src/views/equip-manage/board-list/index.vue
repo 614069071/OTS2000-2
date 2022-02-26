@@ -71,9 +71,6 @@ export default {
       boardData: {},
     };
   },
-  created() {
-    // this.getboardList();
-  },
   mounted() {
     this.$bus.$on("onBoardView", (v) => {
       this.lookDetail(v);
@@ -112,22 +109,6 @@ export default {
     },
   },
   methods: {
-    getboardList() {
-      this.$http
-        .post({
-          otn2000: {
-            boardname: "board_view",
-            type: "get_info",
-          },
-        })
-        .then((res) => {
-          if (!res) return;
-          this.dataTable = res.otn2000_ack.channels || [];
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
     lookDetail(data) {
       const { boardname, status } = data;
 
@@ -141,7 +122,6 @@ export default {
       this.dialogVisible = true;
     },
     refresh() {
-      // this.getboardList();
       this.$bus.$emit("updateBoardView");
     },
   },

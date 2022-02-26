@@ -73,6 +73,8 @@
     <div class="alarm-list-controls">
       <button class="def-btn" @click="submitAlarm">应用</button>
       <button class="def-btn" @click="getAlarmList">刷新</button>
+      <button class="def-btn" :disabled="prevDisabled" @click="prevPage">上一页</button>
+      <button class="def-btn" :disabled="nextDisabled" @click="nextPage">下一页</button>
     </div>
   </div>
 </template>
@@ -90,6 +92,10 @@ export default {
       inquireLoading: false,
       dataTable: [],
       onlineBoardList: [],
+      page: 1,
+      total: 30,
+      prevDisabled: true,
+      nextDisabled: false,
     };
   },
   created() {
@@ -105,15 +111,25 @@ export default {
   },
   methods: {
     getAlarmList() {
-      const data = { otn2000: { type: "get_alarmconfig", boardname: "NMU", ...this.dataForm } };
+      const data = { otn2000: { type: "get_alarmconfig", boardname: "NMU", ...this.dataForm, start_page: this.page, rows: this.total } };
 
       this.$http
         .post(data)
         .then((res) => {
-          const { cfg_records = [] } = res.otn2000_ack;
+          const { cfg_records = [], total_pages } = res.otn2000_ack;
           const result = cfg_records || [];
           result.forEach((e) => (e.static = e.status));
           this.dataTable = result;
+          if (this.page >= total_pages) {
+            this.prevDisabled = false;
+            this.nextDisabled = true;
+          } else if (this.page <= 1) {
+            this.prevDisabled = true;
+            this.nextDisabled = false;
+          } else {
+            this.prevDisabled = false;
+            this.nextDisabled = false;
+          }
         })
         .catch(() => {
           this.dataTable = [];
@@ -136,6 +152,14 @@ export default {
         .catch(() => {
           alert("配置失败");
         });
+    },
+    prevPage() {
+      this.page -= 1;
+      this.getAlarmList();
+    },
+    nextPage() {
+      this.page += 1;
+      this.getAlarmList();
     },
   },
 };

@@ -165,7 +165,7 @@
           <td>业务类型</td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.Business_type">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.Business_type" @change="changeBusTypeQsfp1">
                 <option :value="0">100GE</option>
                 <option :value="1">OTU4.4</option>
               </select>
@@ -178,7 +178,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.Business_type">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.Business_type" @change="changeBusTypeQsfp2">
                 <option :value="0">100GE</option>
                 <option :value="1">OTU4.4</option>
               </select>
@@ -194,7 +194,7 @@
           <td>FEC模式</td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.FEC_mode">
+              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.FEC_mode" @change="changeModeQsfp1">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -207,7 +207,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.FEC_mode">
+              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.FEC_mode" @change="changeModeQsfp2">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -340,20 +340,25 @@
         <tr>
           <td>在位状态</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
+          <td>CFP2状态</td>
+          <td>
+            {{ infoData.CFP2.state }}
+            <!-- 初始化状态 低功耗状态 高功耗打开状态 高功耗关闭状态 发送禁止状态 发送打开状态 发送关闭状态 失效状态 Ready状态 -->
+          </td>
           <td>发送光功率(dBm)</td>
-          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.launch_power : "NA" }}</td>
-          <td>接收光功率(dBm)</td>
-          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
+          <td>{{ <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /> <template>NA</template>}}</td>
         </tr>
         <tr>
+          <td>接收光功率(dBm)</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
           <td>温度(℃)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.temp : "NA" }}</td>
           <td>电压(V)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.voltage : "NA" }}</td>
-          <td>电流(mA)</td>
-          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
         </tr>
         <tr>
+          <td>电流(mA)</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
           <td>接收光功率过低阈值(dBm)</td>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" />
@@ -365,12 +370,12 @@
             <template v-else>NA</template>
           </td>
           <td>发送光功率过低阈值(dBm)</td>
+        </tr>
+        <tr>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" />
             <template v-else>NA</template>
           </td>
-        </tr>
-        <tr>
           <td>发送光功率过载阈值(dBm)</td>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" />
@@ -385,6 +390,8 @@
 
             <template v-else>NA</template>
           </td>
+        </tr>
+        <tr>
           <td>光通道</td>
           <td>
             <!-- <select >
@@ -395,11 +402,10 @@
 
             <template v-else>NA</template>
           </td>
-        </tr>
-        <tr>
           <td>调制模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
+              <!-- 待根据不同模块做判断修改 -->
               <option :value="0">DP-QPSK</option>
               <option :value="1">16QAM</option>
               <option :value="2">DP-8QAM</option>
@@ -412,6 +418,7 @@
           <td>FEC模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
+              <!-- 待根据不同模块做判断修改 -->
               <option :value="0">无</option>
               <option :value="1">SD-FEC</option>
               <option :value="2">HD-FEC</option>
@@ -422,6 +429,8 @@
 
             <template v-else>NA</template>
           </td>
+        </tr>
+        <tr>
           <td>环回控制</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
@@ -433,6 +442,10 @@
 
             <template v-else>NA</template>
           </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
     </div>
@@ -554,6 +567,20 @@ export default {
         },
       },
     };
+  },
+  methods: {
+    changeBusTypeQsfp1() {
+      this.infoData.QSFP2.Business_type = this.infoData.QSFP1.Business_type;
+    },
+    changeBusTypeQsfp2() {
+      this.infoData.QSFP1.Business_type = this.infoData.QSFP2.Business_type;
+    },
+    changeModeQsfp1() {
+      this.infoData.QSFP2.FEC_mode = this.infoData.QSFP1.FEC_mode;
+    },
+    changeModeQsfp2() {
+      this.infoData.QSFP1.FEC_mode = this.infoData.QSFP2.FEC_mode;
+    },
   },
 };
 </script>

@@ -152,7 +152,7 @@ export default {
       this.$http
         .post(data)
         .then((res) => {
-          this.dataTable = (res.otn2000_ack.records || []).reverse();
+          this.dataTable = res.otn2000_ack.records || [];
         })
         .catch(() => {
           this.dataTable = [];

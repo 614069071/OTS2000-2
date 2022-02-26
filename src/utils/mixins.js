@@ -27,26 +27,22 @@ export default {
       this.restorInfoDisabled = true;
       this.restoreDefaultInfoDisabled = true;
 
-      return new Promise((resolve, reject) => {
-        this.$http
-          .post(data)
-          .then((res) => {
-            this.infoData = res.otn2000_ack || {};
-            this.clonData = this.$clone(res.otn2000_ack);
-            resolve(res.otn2000_ack);
-          })
-          .catch((err) => {
-            // console.log("get info atch error", err);
-            reject(err);
-          })
-          .finally(() => {
-            // console.log("get info finally");
-            this.refreshInfoDisabled = false;
-            this.setInfoDisabled = false;
-            this.restorInfoDisabled = false;
-            this.restoreDefaultInfoDisabled = false;
-          });
-      });
+      this.$http
+        .post(data)
+        .then((res) => {
+          this.infoData = res.otn2000_ack || {};
+          this.clonData = this.$clone(res.otn2000_ack);
+        })
+        .catch(() => {
+          // console.log("get info atch error", err);
+        })
+        .finally(() => {
+          // console.log("get info finally");
+          this.refreshInfoDisabled = false;
+          this.setInfoDisabled = false;
+          this.restorInfoDisabled = false;
+          this.restoreDefaultInfoDisabled = false;
+        });
     },
     setInfo() {
       const { slot, boardname } = this.info;

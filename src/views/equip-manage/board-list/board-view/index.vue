@@ -65,7 +65,7 @@
     </div>
 
     <div class="board-type-container" v-if="info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">
-      <component ref="board" :is="info.boardname.toLowerCase()" :info="{ ...info, ...titeData }"></component>
+      <component ref="board" :is="info.boardname.toLowerCase()" :info="{ ...titeData, ...info }"></component>
     </div>
   </div>
 </template>

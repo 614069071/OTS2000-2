@@ -1,7 +1,7 @@
 <template>
   <div class="board-view-wrapper">
     <div class="board-view-view-wrapper">
-      <component v-if="info.boardname" :is="'board-' + info.boardname" :info="info"></component>
+      <component v-if="info.boardname" :is="'board-' + info.boardname.toLowerCase()" :info="info"></component>
     </div>
 
     <div class="board-view-form-wrapper">
@@ -64,8 +64,8 @@
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
-    <div class="board-type-container" v-if="['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">
-      <component ref="board" :is="info.boardname" :info="{ ...info, ...titeData }"></component>
+    <div class="board-type-container" v-if="info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">
+      <component ref="board" :is="info.boardname.toLowerCase()" :info="{ ...info, ...titeData }"></component>
     </div>
   </div>
 </template>
@@ -227,7 +227,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+$border-color: #aaa;
+
 .board-view-wrapper {
   height: 100%;
   display: flex;
@@ -245,5 +247,140 @@ export default {
 .board-type-container {
   flex: 1;
   overflow: hidden;
+}
+
+// 单板详情表格
+.cps-wrapper {
+  // background-color: #fff;
+  // padding: 0 10px 10px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.board-header-wrapper {
+  background-color: #fff;
+  position: relative;
+  height: 60px;
+
+  // & > div {
+  //   left: 50%;
+  //   margin-left: -280px;
+  // }
+}
+
+.board-inner-wrapper {
+  width: 1000px;
+  height: 84px;
+  border: 1px solid #aaa;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse !important;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff !important;
+    z-index: 100;
+
+    .coll-2,
+    .coll-3,
+    .coll-4 {
+      text-align: center;
+    }
+  }
+
+  tr,
+  th {
+    display: flex;
+    border: none;
+    font-weight: normal;
+  }
+
+  td {
+    min-height: 26px;
+    line-height: 26px;
+    flex: 1;
+    position: relative;
+    padding: 0 3px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  td > * {
+    margin: auto 0;
+  }
+
+  .coll-2,
+  .coll-3,
+  .coll-4 {
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0 2px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .coll-2 {
+    width: 200%;
+  }
+
+  .coll-3 {
+    width: 300%;
+  }
+
+  .coll-4 {
+    width: 400%;
+  }
+
+  .coll-2 > .def-input,
+  .coll-3 > .def-input,
+  .coll-4 > .def-input,
+  td > .def-input {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .el-date-editor.el-input {
+    width: 100%;
+  }
+}
+
+.board-change-btns {
+  text-align: right;
+  padding: 10px 10px;
+  background-color: #fff;
+}
+
+.board-table-container {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  // padding: 0 10px;
+  background-color: #fff;
+}
+
+.board-table-title {
+  background-color: #fff;
+  padding: 10px 10px 0 10px;
 }
 </style>

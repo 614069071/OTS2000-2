@@ -35,7 +35,7 @@ Vue.directive("limit", {
     let count = 0;
     let me = context;
 
-    while (count < keys.length - 1) {
+    while (me && count < keys.length - 1) {
       me = me[keys[count]];
       count++;
     }

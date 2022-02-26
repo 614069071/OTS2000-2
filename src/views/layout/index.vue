@@ -73,7 +73,7 @@ export default {
         // { status: 1, boardname: "d40" },
         // { status: 1, boardname: "olp" },
         // { status: 1, boardname: "edfa" },
-        { status: 1, boardname: "dco200g", slot: 5 },
+        // { status: 1, boardname: "dco200g", slot: 5 },
         // { status: 1, boardname: "md16sfa" },
         // { status: 1, boardname: "md16sfb" },
         // { status: 1, boardname: "ocp10g" },
@@ -81,7 +81,7 @@ export default {
         // { status: 1, boardname: "m40" },
         // { status: 1, boardname: "md8" },
         // { status: 1, boardname: "otu100g" },
-        { status: 1, boardname: "nmu", slot: 8 },
+        // { status: 1, boardname: "nmu", slot: 8 },
       ],
       timerCount: 0,
     };
@@ -95,14 +95,14 @@ export default {
       next({ path: "/login", replace: true });
     }
   },
-  // watch: {
-  //   $route: {
-  //     handler() {
-  //       this.getBoardList();
-  //     },
-  //     immediate: true,
-  //   },
-  // },
+  watch: {
+    $route: {
+      handler() {
+        this.getBoardList();
+      },
+      immediate: true,
+    },
+  },
   mounted() {
     this.$bus.$on("updateBoardView", () => {
       this.getBoardList();

@@ -95,7 +95,7 @@ export default {
       page: 1,
       total: 30,
       prevDisabled: true,
-      nextDisabled: false,
+      nextDisabled: true,
     };
   },
   created() {

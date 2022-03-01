@@ -3,7 +3,7 @@
     <div class="inner-header-wrapper">
       <div class="inner-container-title">查询条件</div>
 
-      <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm">
+      <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
         <el-form-item label="开始日期">
           <el-date-picker size="mini" v-model="dataForm.start_time" value-format="timestamp" />
         </el-form-item>

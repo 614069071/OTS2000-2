@@ -5,9 +5,7 @@
       <div class="chose-wrapper">
         <span>选择升级文件</span>
         <input type="file" accept=".bin" name="" id="" />
-      </div>
-      <div class="system-upgrade-submit-wrapper">
-        <button class="def-btn" type="primary">升级</button>
+        <button class="def-btn" @click="upgradeSubmit">升级</button>
       </div>
     </div>
   </div>
@@ -22,6 +20,11 @@ export default {
       fileList: [],
     };
   },
+  methods: {
+    upgradeSubmit() {
+      console.log("file");
+    },
+  },
 };
 </script>
 
@@ -35,8 +38,5 @@ export default {
   text-align: center;
   color: #959595;
   width: 250px;
-}
-.system-upgrade-submit-wrapper {
-  text-align: right;
 }
 </style>

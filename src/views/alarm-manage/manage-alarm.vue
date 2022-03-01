@@ -2,7 +2,7 @@
   <div>
     <div class="inner-container-title">告警管理</div>
 
-    <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm">
+    <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
       <el-form-item label="槽位号">
         <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
           <el-option label="全部" :value="255"></el-option>

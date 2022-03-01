@@ -92,8 +92,8 @@
 
       <div class="pagination-switch-btns">
         <button class="def-btn" @click="getAlarmList">刷新</button>
-        <button class="def-btn">上一页</button>
-        <button class="def-btn">下一页</button>
+        <button class="def-btn" :disabled="prevDisabled" @click="prevPage">上一页</button>
+        <button class="def-btn" :disabled="nextDisabled" @click="nextPage">下一页</button>
       </div>
     </div>
   </div>
@@ -120,6 +120,10 @@ export default {
         //   confirm_time: 0,
         // },
       ],
+      page: 1,
+      total: 3,
+      prevDisabled: true,
+      nextDisabled: true,
     };
   },
   created() {
@@ -141,12 +145,33 @@ export default {
     },
     getAlarmList() {
       const times = { start_time: this.mapStartTime, end_time: this.mapEndTime };
-      const data = { otn2000: { type: "get_curralarm", boardname: "NMU", ...this.dataForm, ...times } };
+      const data = { otn2000: { type: "get_curralarm", boardname: "NMU", ...this.dataForm, ...times, start_page: this.page, rows: this.total } };
 
       this.$http
         .post(data)
         .then((res) => {
-          this.dataTable = res.otn2000_ack.records || [];
+          const { records = [], total_pages } = res.otn2000_ack;
+
+          this.dataTable = records || [];
+
+          if (records.length < this.total) {
+            if (this.page === 1) {
+              this.prevDisabled = true;
+            }
+
+            this.nextDisabled = true;
+          } else {
+            if (this.page >= total_pages) {
+              this.prevDisabled = false;
+              this.nextDisabled = true;
+            } else if (this.page <= 1) {
+              this.prevDisabled = true;
+              this.nextDisabled = false;
+            } else {
+              this.prevDisabled = false;
+              this.nextDisabled = false;
+            }
+          }
         })
         .catch(() => {
           this.dataTable = [];
@@ -299,6 +324,14 @@ export default {
         .catch(() => {
           console.log("取消");
         });
+    },
+    prevPage() {
+      this.page -= 1;
+      this.getAlarmList();
+    },
+    nextPage() {
+      this.page += 1;
+      this.getAlarmList();
     },
   },
 };

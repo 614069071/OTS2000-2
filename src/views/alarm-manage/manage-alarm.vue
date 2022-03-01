@@ -120,15 +120,24 @@ export default {
           const result = cfg_records || [];
           result.forEach((e) => (e.static = e.status));
           this.dataTable = result;
-          if (this.page >= total_pages) {
-            this.prevDisabled = false;
+
+          if (result.length < this.total) {
+            if (this.page === 1) {
+              this.prevDisabled = true;
+            }
+
             this.nextDisabled = true;
-          } else if (this.page <= 1) {
-            this.prevDisabled = true;
-            this.nextDisabled = false;
           } else {
-            this.prevDisabled = false;
-            this.nextDisabled = false;
+            if (this.page >= total_pages) {
+              this.prevDisabled = false;
+              this.nextDisabled = true;
+            } else if (this.page <= 1) {
+              this.prevDisabled = true;
+              this.nextDisabled = false;
+            } else {
+              this.prevDisabled = false;
+              this.nextDisabled = false;
+            }
           }
         })
         .catch(() => {

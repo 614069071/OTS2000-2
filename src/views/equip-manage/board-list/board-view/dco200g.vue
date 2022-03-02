@@ -345,20 +345,26 @@
             {{ infoData.CFP2.state }}
             <!-- 初始化状态 低功耗状态 高功耗打开状态 高功耗关闭状态 发送禁止状态 发送打开状态 发送关闭状态 失效状态 Ready状态 -->
           </td>
-          <td>发送光功率(dBm)</td>
-          <td>{{ <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /> <template>NA</template>}}</td>
+          <td>OSNR(dB)</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.osnr : "NA" }}</td>
         </tr>
         <tr>
+          <td>发送光功率(dBm)</td>
+          <td>{{ <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /> <template>NA</template>}}</td>
           <td>接收光功率(dBm)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
           <td>温度(℃)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.temp : "NA" }}</td>
           <td>电压(V)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.voltage : "NA" }}</td>
+          <td>偏置电流(mA)</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
         </tr>
         <tr>
-          <td>电流(mA)</td>
-          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
           <td>接收光功率过低阈值(dBm)</td>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" />
@@ -370,12 +376,12 @@
             <template v-else>NA</template>
           </td>
           <td>发送光功率过低阈值(dBm)</td>
-        </tr>
-        <tr>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" />
             <template v-else>NA</template>
           </td>
+        </tr>
+        <tr>
           <td>发送光功率过载阈值(dBm)</td>
           <td>
             <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" />
@@ -391,17 +397,17 @@
             <template v-else>NA</template>
           </td>
         </tr>
-        <tr>
-          <td>光通道</td>
-          <td>
-            <!-- <select >
+        <td>光通道</td>
+        <td>
+          <!-- <select >
               <option :value="0">C21-C60</option>
             </select> -->
 
-            <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
+          <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
 
-            <template v-else>NA</template>
-          </td>
+          <template v-else>NA</template>
+        </td>
+        <tr>
           <td>调制模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
@@ -429,8 +435,6 @@
 
             <template v-else>NA</template>
           </td>
-        </tr>
-        <tr>
           <td>环回控制</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
@@ -442,10 +446,6 @@
 
             <template v-else>NA</template>
           </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       </table>
     </div>

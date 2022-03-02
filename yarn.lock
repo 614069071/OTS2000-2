@@ -5410,7 +5410,7 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4
 
 loader-utils@^2.0.0:
   version "2.0.2"
-  resolved "https://registry.npmjs.org/loader-utils/-/loader-utils-2.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.2.tgz#d6e3b4fb81870721ae4e0868ab11dd638368c129"
   integrity sha512-TM57VeHptv569d/GKh6TAYdzKblwDNiumOdkFnejjD0XwTH87K90w3O7AiJRqdQoXygvi1VQTJTLGhJl7WqA7A==
   dependencies:
     big.js "^5.2.2"
@@ -7714,9 +7714,9 @@ sass-graph@2.2.5:
     yargs "^13.3.2"
 
 sass-loader@^10.1.0:
-  version "10.2.0"
-  resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-10.2.0.tgz"
-  integrity sha512-kUceLzC1gIHz0zNJPpqRsJyisWatGYNFRmv2CKZK2/ngMJgLqxTbXwe/hJ85luyvZkgqU3VlJ33UVF2T/0g6mw==
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-10.2.1.tgz#17e51df313f1a7a203889ce8ff91be362651276e"
+  integrity sha512-RRvWl+3K2LSMezIsd008ErK4rk6CulIMSwrcc2aZvjymUgKo/vjXGp1rSWmfTUX7bblEOz8tst4wBwWtCGBqKA==
   dependencies:
     klona "^2.0.4"
     loader-utils "^2.0.0"

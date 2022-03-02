@@ -294,27 +294,6 @@
           <td>发送光功率过低阈值（dBm）</td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" />
-              <template v-else>NA</template>
-            </div>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="coll-4">
-              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" />
-              <template v-else>NA</template>
-            </div>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>发送光功率过载阈值（dBm）</td>
-          <td>
-            <div class="coll-4">
               <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_L" />
               <template v-else>NA</template>
             </div>
@@ -332,6 +311,27 @@
           <td></td>
           <td></td>
         </tr>
+        <tr>
+          <td>发送光功率过载阈值（dBm）</td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="coll-4">
+              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" />
+              <template v-else>NA</template>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       </table>
 
       <div class="cfp2-title">CFP2</div>
@@ -340,11 +340,13 @@
         <tr>
           <td>在位状态</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
+          <!-- 新增字段 待设备添加 -->
           <td>CFP2状态</td>
           <td>
             {{ infoData.CFP2.state }}
             <!-- 初始化状态 低功耗状态 高功耗打开状态 高功耗关闭状态 发送禁止状态 发送打开状态 发送关闭状态 失效状态 Ready状态 -->
           </td>
+          <!-- 新增字段 待设备添加 -->
           <td>OSNR(dB)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.osnr : "NA" }}</td>
         </tr>
@@ -396,17 +398,17 @@
 
             <template v-else>NA</template>
           </td>
-        </tr>
-        <td>光通道</td>
-        <td>
-          <!-- <select >
+          <td>光通道</td>
+          <td>
+            <!-- <select >
               <option :value="0">C21-C60</option>
             </select> -->
 
-          <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
+            <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
 
-          <template v-else>NA</template>
-        </td>
+            <template v-else>NA</template>
+          </td>
+        </tr>
         <tr>
           <td>调制模式</td>
           <td>

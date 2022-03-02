@@ -2,9 +2,9 @@
   <div>
     <div class="inner-container-title">需要升级的单板</div>
     <div class="board-check-wrapper">
-      <el-checkbox>单板#2</el-checkbox><br />
-      <el-checkbox>单板#4</el-checkbox><br />
-      <el-checkbox>单板#6</el-checkbox><br />
+      <el-checkbox>单板#2</el-checkbox>
+      <el-checkbox>单板#4</el-checkbox>
+      <el-checkbox>单板#6</el-checkbox>
       <el-checkbox>单板#8</el-checkbox>
     </div>
 

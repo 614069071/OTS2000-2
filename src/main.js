@@ -20,12 +20,12 @@ Vue.config.productionTip = false;
 Vue.component("structure", Structure);
 Vue.component("pupur", Pupur);
 
-Vue.filter("formatSeconds", (d) => formatSeconds(d));
-Vue.filter("formatTime", (d) => formatTime(d));
-Vue.filter("mapBoardType", (v) => (mapAlarmTypes[v] || {}).name || v);
-Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
-Vue.filter("mapAlarmLevel", (v) => alarmLevels[v] || v);
-Vue.filter("mapBoardAlarmName", (v) => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
+Vue.filter("formatSeconds", d => formatSeconds(d));
+Vue.filter("formatTime", d => (d ? formatTime(d) : ""));
+Vue.filter("mapBoardType", v => (mapAlarmTypes[v] || {}).name || v);
+Vue.filter("mapAlarmLevel", v => alarmLevels[v] || v);
+Vue.filter("mapAlarmLevel", v => alarmLevels[v] || v);
+Vue.filter("mapBoardAlarmName", v => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
 
 Vue.directive("limit", {
   bind(el, { value }, { context }) {
@@ -40,7 +40,7 @@ Vue.directive("limit", {
       count++;
     }
 
-    el.limit = (e) => {
+    el.limit = e => {
       const { value } = e.target;
 
       if (reg.test(value)) {
@@ -64,4 +64,4 @@ Vue.directive("limit", {
   },
 });
 
-new Vue({ router, i18n, render: (h) => h(App) }).$mount("#app");
+new Vue({ router, i18n, render: h => h(App) }).$mount("#app");

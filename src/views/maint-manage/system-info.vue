@@ -4,14 +4,19 @@
 
     <div class="system-info-wrapper">
       <div class="system-info-item-other">
-        <span class="item-before"><el-radio v-model="dataForm.name1" label="1">手动</el-radio></span>
-        <span class="item-after"><el-date-picker size="mini" v-model="dataForm.name7" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"> </el-date-picker></span>
+        <span class="item-before"><el-radio v-model="isAutoConfigTime" :label="false">手动</el-radio></span>
+        <span class="item-after"> <el-date-picker v-model="configManualTime" value-format="timestamp" type="datetime" placeholder="选择日期时间"/></span>
       </div>
       <div class="system-info-item-other">
-        <span class="item-before"><el-radio v-model="dataForm.name1" label="2">自动从互联网获取NTP Server</el-radio></span>
-        <span class="item-after"><input class="def-input" v-model="dataForm.name3"/></span>
+        <span class="item-before"><el-radio v-model="isAutoConfigTime" :label="true">自动从互联网获取NTP Server</el-radio></span>
+        <span class="item-after">{{ configAutoTime | formatTime }}</span>
       </div>
       <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div>
+
+      <div class="system-info-btns">
+        <button class="def-btn" @click="getTimeConfig">刷新</button>
+        <button class="def-btn" @click="setTimeConfig">应用</button>
+      </div>
 
       <div class="inner-container-title">机箱温度</div>
       <div class="system-info-item-other">
@@ -25,8 +30,8 @@
     </div>
 
     <div class="system-info-btns">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
+      <button class="def-btn" @click="getTempConfig">刷新</button>
+      <button class="def-btn" @click="setTempConfig">应用</button>
     </div>
   </div>
 </template>
@@ -36,18 +41,56 @@ export default {
   name: "system-info",
   data() {
     return {
-      dataForm: {
-        name3: 1,
-      },
+      isAutoConfigTime: true,
+      configManualTime: Date.now(),
+      configAutoTime: Date.now(),
+      configAutoTimeTimer: null,
     };
   },
-  methods: {},
+  watch: {
+    isAutoConfigTime: {
+      handler(v) {
+        if (!v) return;
+        this.getConfigManualTime();
+      },
+      immediate: true,
+    },
+  },
+  beforeDestroy() {
+    clearInterval(this.configAutoTimeTimer);
+    this.configAutoTimeTimer = null;
+  },
+  methods: {
+    getTimeConfig() {},
+    setTimeConfig() {
+      const { isAutoConfigTime, configManualTime, configAutoTime } = this;
+      const utctime = isAutoConfigTime ? configAutoTime : configManualTime;
+      const data = { otn2000: { boardname: "NMU", utctime: parseInt(utctime / 1000), type: "set_systime" } };
+
+      this.$http
+        .post(data)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    getConfigManualTime() {
+      this.configAutoTimeTimer = setInterval(() => {
+        this.configAutoTime = Date.now();
+      }, 1000);
+    },
+    getTempConfig() {},
+    setTempConfig() {},
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .system-info-btns {
   text-align: right;
+  margin-bottom: 20px;
 }
 
 .system-info-wrapper {

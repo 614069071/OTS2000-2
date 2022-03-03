@@ -1,17 +1,6 @@
 <template>
   <div class="login-page">
-    <div class="login-header-wrapper">
-      <div class="logo-wrapper">
-        <img src="../../assets/images/logo-white.png" alt="" />
-      </div>
-      <div class="login-lang-set">
-        <span>{{ $t("LANGUAGE") }}</span>
-        <select class="lang-select" v-model="langType" @change="langChange">
-          <option value="1">中文</option>
-          <option value="2">English</option>
-        </select>
-      </div>
-    </div>
+    <LoginHeader />
 
     <div class="login-main">
       <div class="login-main-left">
@@ -33,15 +22,18 @@
       </div>
     </div>
 
-    <footer class="login-footer f16">www.cdatatec.com</footer>
+    <LoginFooter />
   </div>
 </template>
 
 <script>
+import LoginHeader from "./login-header";
+import LoginFooter from "./login-footer";
 import { storages } from "@utils";
 
 export default {
   name: "login",
+  components: { LoginHeader, LoginFooter },
   data() {
     return {
       langType: "1",
@@ -80,11 +72,7 @@ export default {
     storages.set("userInfo", {});
     next();
   },
-  created() {
-    const lang = localStorage.getItem("ost-lang") || "zh";
-    this.$i18n.locale = lang;
-    this.langType = lang === "zh" ? "1" : "2";
-  },
+  created() {},
   methods: {
     login() {
       // 模拟登录
@@ -122,13 +110,6 @@ export default {
           console.log(err);
           alert("登录失败");
         });
-    },
-    langChange(e) {
-      const value = e.target.value;
-      const lang = value === "1" ? "zh" : "en";
-      this.$i18n.locale = lang;
-
-      localStorage.setItem("ost-lang", lang);
     },
   },
 };
@@ -242,14 +223,5 @@ export default {
 .login-banner-wrapper {
   width: 500px;
   height: 133px;
-}
-
-.login-footer {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.lang-select {
-  border: none;
 }
 </style>

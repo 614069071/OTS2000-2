@@ -3,13 +3,15 @@ const FileManagerPlugin = require("filemanager-webpack-plugin");
 const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 const path = require("path");
 const resolve = (dir) => path.resolve(__dirname, dir);
+const host = process.env.VUE_APP_BASE_HOST;
+const port = process.env.VUE_APP_BASE_PORT;
 
 module.exports = {
   devServer: {
-    port: 3000,
+    port: Number(port) /*|| 3000*/,
     proxy: {
       "/api": {
-        target: "http://192.168.20.110:8080/",
+        target: host /*|| "http://192.168.20.110:8080/"*/,
         changeOrigin: true,
         pathRewrite: { "^/api": "" },
         secure: false,

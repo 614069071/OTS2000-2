@@ -32,6 +32,8 @@
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "babel-plugin-lodash": "^3.3.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
     "filemanager-webpack-plugin": "^6.1.7",
@@ -40,5 +42,10 @@
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

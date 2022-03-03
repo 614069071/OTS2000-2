@@ -72,11 +72,11 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("onBoardView", (v) => {
+    this.$bus.$on("onBoardView", v => {
       this.lookDetail(v);
     });
 
-    this.$bus.$on("onBoardList", (v) => {
+    this.$bus.$on("onBoardList", v => {
       this.dataTable = v;
     });
   },

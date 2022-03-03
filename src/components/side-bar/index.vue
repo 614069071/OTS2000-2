@@ -116,6 +116,11 @@ export default {
               menuName: "运行日志",
               menuLink: "/maint-manage/run-log",
             },
+            {
+              icon: "",
+              menuName: "设置时间",
+              menuLink: "/maint-manage/run-log",
+            },
           ],
         },
       ];

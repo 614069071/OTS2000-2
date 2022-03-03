@@ -118,7 +118,7 @@ export default {
             //
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           alert("登录失败");
         });
@@ -150,7 +150,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 0 60px;
-  margin-top: 58px;
+  margin-top: 20px;
 }
 
 .login-header-wrapper select {
@@ -159,8 +159,8 @@ export default {
 }
 
 .logo-wrapper {
-  height: 80px;
-  width: 172px;
+  height: 54px;
+  width: 110px;
 }
 
 .login-main {
@@ -185,18 +185,18 @@ export default {
 }
 
 .login-user-main {
-  width: 679px;
-  height: 365px;
+  width: 500px;
+  height: 280px;
   border-radius: 34px;
-  padding-top: 58px;
+  padding-top: 30px;
   box-sizing: border-box;
   background-color: rgba(96, 96, 96, 0.5);
 }
 
 .login-user-wrapper,
 .login-ps-wrapper {
-  height: 66px;
-  width: 433px;
+  height: 46px;
+  width: 400px;
   border-bottom: 1px solid #fff;
   display: flex;
   align-items: center;
@@ -206,7 +206,7 @@ export default {
     flex: 1;
     background-color: transparent;
     color: #b0c3be;
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
@@ -216,8 +216,8 @@ export default {
 
 .login-user-before,
 .login-ps-before {
-  width: 46px;
-  height: 46px;
+  width: 26px;
+  height: 26px;
   margin: 0 15px 0 5px;
   background: url(../../assets/images/user.png) center/contain no-repeat;
 }
@@ -240,12 +240,12 @@ export default {
 }
 
 .login-banner-wrapper {
-  width: 660px;
+  width: 500px;
   height: 133px;
 }
 
 .login-footer {
-  margin-bottom: 85px;
+  margin-bottom: 20px;
   text-align: center;
 }
 

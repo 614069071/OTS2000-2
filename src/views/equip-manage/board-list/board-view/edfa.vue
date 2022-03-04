@@ -62,7 +62,7 @@
               <option :value="3">AGC</option>
             </select>
           </td>
-
+          <!-- OBA -->
           <template v-if="info.bdtype === 'OBA20G22'">
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
@@ -84,7 +84,30 @@
             </template>
           </template>
 
-          <template v-else>
+          <!-- OLA -->
+          <!-- <template v-if="info.bdtype === 'OLA20G22'">
+            <template v-if="infoData.mode === 3">
+              <td>增益值</td>
+              <td>
+                <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 2">
+              <td>功率值</td>
+              <td>
+                <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-11" :max="20"></el-input-number>
+              </td>
+            </template>
+
+            <template v-else-if="infoData.mode === 0">
+              <td></td>
+              <td></td>
+            </template>
+          </template> -->
+
+          <!-- OPA -->
+          <template v-else-if="info.bdtype === 'OPA20G32'">
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>

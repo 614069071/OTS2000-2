@@ -150,12 +150,14 @@
               ]"
             /> -->
 
-            <input type="text" class="def-input" v-model.number="infoData.pump_cur_thr" />
+            <!-- <input type="text" class="def-input" v-model.number="infoData.pump_cur_thr" /> -->
+            {{ infoData.pump_cur_thr }}
           </td>
           <td>PUMP温度高门限（℃）</td>
           <td>
             <!-- <custom-select v-model="infoData.pump_temp_high" :options="[{ label: '30', value: 30 }]" /> -->
-            <input type="text" class="def-input" v-model.number="infoData.pump_temp_high" />
+            <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_high" /> -->
+            {{ infoData.pump_temp_high }}
           </td>
         </tr>
         <tr>
@@ -175,7 +177,8 @@
           <td>PUMP温度低门限（℃）</td>
           <td>
             <!-- <custom-select v-model="infoData.pump_temp_low" :options="[{ label: '20', value: 20 }]" /> -->
-            <input type="text" class="def-input" v-model.number="infoData.pump_temp_low" />
+            <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_low" /> -->
+            {{ infoData.pump_temp_low }}
           </td>
         </tr>
         <tr>

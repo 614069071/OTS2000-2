@@ -121,7 +121,7 @@ export default {
         // },
       ],
       page: 1,
-      total: 3,
+      total: 30,
       prevDisabled: true,
       nextDisabled: true,
     };
@@ -149,16 +149,13 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
+        .then(res => {
           const { records = [], total_pages } = res.otn2000_ack;
 
           this.dataTable = records || [];
 
           if (records.length < this.total) {
-            if (this.page === 1) {
-              this.prevDisabled = true;
-            }
-
+            this.prevDisabled = this.page === 1;
             this.nextDisabled = true;
           } else {
             if (this.page >= total_pages) {
@@ -189,7 +186,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("确认成功", res);
 
               this.getAlarmList();
@@ -214,7 +211,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("删除成功", res);
 
               this.getAlarmList();
@@ -239,7 +236,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("删除成功", res);
 
               this.getAlarmList();
@@ -263,7 +260,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("删除成功", res);
 
               this.getAlarmList();
@@ -287,7 +284,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("确认成功", res);
 
               this.getAlarmList();
@@ -311,7 +308,7 @@ export default {
 
           this.$http
             .post(data)
-            .then((res) => {
+            .then(res => {
               console.log("确认成功", res);
 
               this.getAlarmList();

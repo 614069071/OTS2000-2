@@ -102,8 +102,8 @@ export default {
     this.getAlarmList();
   },
   mounted() {
-    this.$bus.$on("onBoardList", (v) => {
-      this.onlineBoardList = v.filter((e) => e.status && e.boardname !== "NMU");
+    this.$bus.$on("onBoardList", v => {
+      this.onlineBoardList = v.filter(e => e.status && e.boardname !== "NMU");
     });
   },
   beforeDestroy() {
@@ -115,17 +115,14 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
+        .then(res => {
           const { cfg_records = [], total_pages } = res.otn2000_ack;
           const result = cfg_records || [];
-          result.forEach((e) => (e.static = e.status));
+          result.forEach(e => (e.static = e.status));
           this.dataTable = result;
 
           if (result.length < this.total) {
-            if (this.page === 1) {
-              this.prevDisabled = true;
-            }
-
+            this.prevDisabled = this.page === 1;
             this.nextDisabled = true;
           } else {
             if (this.page >= total_pages) {
@@ -145,7 +142,7 @@ export default {
         });
     },
     submitAlarm() {
-      const cfg_records = this.dataTable.filter((e) => e.static !== e.status);
+      const cfg_records = this.dataTable.filter(e => e.static !== e.status);
 
       if (!cfg_records.length) return;
 

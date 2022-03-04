@@ -352,7 +352,7 @@
         </tr>
         <tr>
           <td>发送光功率(dBm)</td>
-          <td>{{ <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /> <template>NA</template>}}</td>
+          <td><input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /><template v-else>NA</template></td>
           <td>接收光功率(dBm)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
           <td></td>

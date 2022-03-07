@@ -176,12 +176,12 @@ export default {
       return new Promise((resolve, reject) => {
         this.$http
           .post(data)
-          .then((res) => {
+          .then(res => {
             this.titeData = res.otn2000_ack;
 
             resolve(res.otn2000_ack);
           })
-          .catch((err) => {
+          .catch(err => {
             reject(err);
           })
           .finally(() => {

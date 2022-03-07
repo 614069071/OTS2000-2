@@ -71,7 +71,9 @@ export default {
         .post(data)
         .then(() => {
           this.setInfoDisabled = false;
-          this.getInfo();
+          this.getInfo().catch(() => {
+            alert("获取失败");
+          });
         })
         .catch(() => {
           alert("配置失败");

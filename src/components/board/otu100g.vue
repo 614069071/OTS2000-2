@@ -31,31 +31,31 @@
 
     <div class="board-link-column-wrapper otu100g-link-wrapper2">
       <div class="link-light">
-        <div class="link-name">2Link1</div>
+        <div class="link-name">L1LOS</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name">2Link2</div>
-        <div class="link-name">2Loop</div>
-        <div class="link-name">2Loop</div>
+        <div class="link-name">L2LOS</div>
+        <div class="link-name">L3LOS</div>
+        <div class="link-name">L4LOS</div>
       </div>
 
       <div class="link-light">
-        <div class="link-name">3Link1</div>
+        <div class="link-name">C1LOS</div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
         <div class="link-square"></div>
-        <div class="link-name">3Link2</div>
-        <div class="link-name">3Loop</div>
-        <div class="link-name">3Loop</div>
+        <div class="link-name">C2LOS</div>
+        <div class="link-name">C3LOS</div>
+        <div class="link-name">C4LOS</div>
       </div>
     </div>
 
     <div class="board-qsfp-wrapper otu100g-qsfp-wrapper">
-      <div class="board-qsfp-k">QSFP28</div>
       <div class="board-qsfp-n"><span class="f-10">Tx</span><span class="f-10">Rx</span></div>
+      <div class="board-qsfp-k">QSFP28</div>
     </div>
 
     <div class="board-rst-wrapper otu100g-rst-wrapper">
@@ -84,13 +84,13 @@ export default {
   }
 
   .otu100g-link-wrapper2 {
-    left: 310px;
+    left: 305px;
     top: 39px;
   }
 
   .otu100g-qsfp-wrapper {
     left: 386px;
-    top: 70px;
+    top: 65px;
   }
 
   .otu100g-rst-wrapper {

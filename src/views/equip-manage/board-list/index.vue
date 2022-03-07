@@ -1,49 +1,51 @@
 <template>
   <div>
-    <div class="inner-container-title">单板列表<button class="button-refresh-board-list" @click="refresh">刷新</button></div>
+    <div class="inner-container-title">
+      {{ $t("LIST.BOARD_LIST") }}<button class="button-refresh-board-list" @click="refresh">{{ $t("COMMON.REFRESH") }}</button>
+    </div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column prop="slot" label="槽位号" width="100">
+      <el-table-column prop="slot" width="100" :label="$t('LIST.SLOT_NUMBER')">
         <template v-slot="{ row }">
           {{ `SLOT ${row.slot}` }}
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="槽位状态">
+      <el-table-column prop="status" :label="$t('LIST.SLOT_STATUS')">
         <template v-slot="{ row }">
           {{ row.status ? "在位" : "脱位" }}
         </template>
       </el-table-column>
-      <el-table-column prop="boardname" label="单板型号">
+      <el-table-column prop="boardname" :label="$t('LIST.BOARD_TYPE')">
         <template v-slot="{ row }">
           <template v-if="row.status">
             {{ row.boardname | unifiedBoardName }}
           </template>
         </template>
       </el-table-column>
-      <el-table-column prop="h_ver" label="硬件版本">
+      <el-table-column prop="h_ver" :label="$t('COMMON.HARDWARE_VERSION')">
         <template v-slot="{ row }">
           <template v-if="row.status">
             {{ row.h_ver }}
           </template>
         </template>
       </el-table-column>
-      <el-table-column prop="s_ver" label="软件版本">
+      <el-table-column prop="s_ver" :label="$t('COMMON.SOFTWARE_VERSION')">
         <template v-slot="{ row }">
           <template v-if="row.status">
             {{ row.s_ver }}
           </template>
         </template>
       </el-table-column>
-      <el-table-column prop="mfgdate" label="生产日期">
+      <el-table-column prop="mfgdate" :label="$t('LIST.PRODUCTION_DATE')">
         <template v-slot="{ row }">
           <template v-if="row.status">
             {{ row.mfgdate }}
           </template>
         </template>
       </el-table-column>
-      <el-table-column label="详情信息" width="100">
+      <el-table-column :label="$t('LIST.DETAIL')" width="100">
         <template v-slot="{ row }">
-          <button v-if="row.status" @click="lookDetail(row)">点击查看</button>
+          <button v-if="row.status" @click="lookDetail(row)">{{ $t("LIST.CLICK_LOOK") }}</button>
         </template>
       </el-table-column>
     </el-table>

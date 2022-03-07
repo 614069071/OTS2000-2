@@ -16,7 +16,7 @@
           </span>
         </div>
         <div class="system-info-item">
-          <span>{{ $t("HOME.HARDWARE_VERSION") }}</span>
+          <span>{{ $t("COMMON.HARDWARE_VERSION") }}</span>
           <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
         </div>
         <div class="system-info-item">
@@ -67,7 +67,7 @@
           </span>
         </div>
         <div class="system-info-item">
-          <span>{{ $t("HOME.FIRMWARE_VERSION") }}</span
+          <span>{{ $t("COMMON.FIRMWARE_VERSION") }}</span
           ><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
         </div>
         <div class="system-info-item">
@@ -79,7 +79,7 @@
           ><span>{{ systemInfo.run_time | formatSeconds }}</span>
         </div>
         <div class="system-info-item">
-          <span>{{ $t("HOME.WEB_VERSION") }}</span
+          <span>{{ $t("COMMON.WEB_VERSION") }}</span
           ><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
         </div>
       </div>

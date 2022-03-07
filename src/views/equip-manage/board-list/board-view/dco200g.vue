@@ -343,16 +343,16 @@
           <!-- 新增字段 待设备添加 -->
           <td>CFP2状态</td>
           <td>
-            {{ infoData.CFP2.state }}
+            {{ infoData.CFP2.cfp2_states | mapCfpState }}
             <!-- 初始化状态 低功耗状态 高功耗打开状态 高功耗关闭状态 发送禁止状态 发送打开状态 发送关闭状态 失效状态 Ready状态 -->
           </td>
           <!-- 新增字段 待设备添加 -->
           <td>OSNR(dB)</td>
-          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.osnr : "NA" }}</td>
+          <td>{{ infoData.CFP2.link_status ? infoData.CFP2.signal_bit : "NA" }}</td>
         </tr>
         <tr>
           <td>发送光功率(dBm)</td>
-          <td><input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model="infoData.CFP2.launch_power" /><template v-else>NA</template></td>
+          <td><input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template></td>
           <td>接收光功率(dBm)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
           <td></td>
@@ -413,12 +413,18 @@
           <td>调制模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
-              <!-- 待根据不同模块做判断修改 -->
-              <option :value="0">DP-QPSK</option>
-              <option :value="1">16QAM</option>
-              <option :value="2">DP-8QAM</option>
+              <!-- 先默认一个 -->
               <option :value="3">DP-16QAM</option>
-              <option :value="4">DP-64QAM</option>
+
+              <!-- 待根据不同模块做判断修改 -->
+              <!-- <template v-if="infoData.CFP2.cfp2_type === 10"> </template>
+
+              <template v-if="infoData.CFP2.cfp2_type == 0">
+                <option :value="0">DP-QPSK</option>
+                <option :value="1">16QAM</option>
+                <option :value="2">DP-8QAM</option>
+                <option :value="4">DP-64QAM</option>
+              </template> -->
             </select>
 
             <template v-else>NA</template>
@@ -426,13 +432,18 @@
           <td>FEC模式</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
-              <!-- 待根据不同模块做判断修改 -->
+              <!-- 先默认一个 -->
               <option :value="0">无</option>
+              <option :value="3">O-FEC</option>
+
+              <!-- 待根据不同模块做判断修改 -->
+              <!-- <template v-if="infoData.CFP2.cfp2_type === 10"></template>
+              <template v-if="infoData.CFP2.cfp2_type === 0"></template>
+
               <option :value="1">SD-FEC</option>
               <option :value="2">HD-FEC</option>
-              <option :value="3">O-FEC</option>
               <option :value="4">C-FEC</option>
-              <option :value="5">SC-FEC</option>
+              <option :value="5">SC-FEC</option> -->
             </select>
 
             <template v-else>NA</template>
@@ -440,6 +451,10 @@
           <td>环回控制</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
+              <!-- 待根据不同模块做判断修改 -->
+              <template v-if="infoData.CFP2.cfp2_type === 10"></template>
+              <template v-if="infoData.CFP2.cfp2_type == 0"></template>
+
               <option :value="0">无</option>
               <option :value="1">host环回</option>
               <option :value="2">Line环回</option>
@@ -453,7 +468,7 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="getInfo">刷新</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
       <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
       <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
       <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
@@ -569,6 +584,13 @@ export default {
         },
       },
     };
+  },
+  filters: {
+    mapCfpState(v) {
+      const state = [null, "初始化状态", "低功耗状态", "高功耗打开状态", "发送禁止状态", "发送打开状态", "Ready状态", "失效状态", "发送关闭状态", "高功耗关闭状态"];
+
+      return state[v] || v;
+    },
   },
   methods: {
     changeBusTypeQsfp1() {

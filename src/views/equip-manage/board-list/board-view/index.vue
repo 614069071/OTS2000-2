@@ -60,7 +60,7 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshTitleDisabled" @click="getTitle">刷新</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshGetTitle">刷新</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
     </div>
 
@@ -188,6 +188,11 @@ export default {
             this.setTilteDisabled = false;
             this.refreshTitleDisabled = false;
           });
+      });
+    },
+    refreshGetTitle() {
+      this.getTitle().catch(() => {
+        alert("获取失败");
       });
     },
     setTilte() {

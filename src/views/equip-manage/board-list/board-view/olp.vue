@@ -100,7 +100,7 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" @click="getInfo">刷新</button>
+      <button class="def-btn" @click="refreshGetInfo">刷新</button>
       <button class="def-btn" @click="setInfo">应用</button>
       <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
     </div>

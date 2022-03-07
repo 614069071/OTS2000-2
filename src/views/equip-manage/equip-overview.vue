@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="inner-container-title custom-title">{{ $t("HOME.SYSTEM_INFO") }}</div>
+    <div class="inner-container-title custom-title">{{ $t("HOME.DEVICE_INFO") }}</div>
 
     <div class="system-info-main">
       <div class="system-info-wrapper">
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <div class="inner-container-title">{{ $t("HOME.SYSTEM_PERFOR") }}</div>
+    <div class="inner-container-title">{{ $t("HOME.DEVICE_PERFOR") }}</div>
     <div class="system-performance-wrapper">
       <div class="fan-state-wrapper">
         <div class="state-title"><i class="c-icon icon-setting"></i>{{ $t("HOME.FAN_STATE") }}</div>

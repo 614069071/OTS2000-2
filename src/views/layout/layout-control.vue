@@ -3,14 +3,14 @@
     <div class="setting-btns-wrapper">
       <div class="setting-btn-wrapper">
         <div><i class="c-icon icon-back"></i></div>
-        <div>重启</div>
+        <div>{{ $t("LOYOUT.RESTART") }}</div>
       </div>
 
       <div class="vertical-line"></div>
 
       <div class="setting-btn-wrapper" @click="$router.push('/login')">
         <div><i class="c-icon icon-next"></i></div>
-        <div>退出</div>
+        <div>{{ $t("LOYOUT.EXIT") }}</div>
       </div>
     </div>
   </div>
@@ -41,6 +41,7 @@ export default {
 
     .setting-btn-wrapper {
       cursor: pointer;
+      text-align: center;
     }
 
     .vertical-line {

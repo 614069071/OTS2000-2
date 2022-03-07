@@ -6,10 +6,10 @@ export default {
     LANGUAGE: "language",
   },
   LOYOUT: {
-    RESTART: "重启",
-    EXIT: "退出",
-    USER_NAME: "当前用户",
-    USER_LEVER: "用户级别",
+    RESTART: "restart",
+    EXIT: "logout",
+    USER_NAME: "user name",
+    USER_LEVER: "user level",
   },
   HOME: {
     DEVICE_INFO: "系统信息",

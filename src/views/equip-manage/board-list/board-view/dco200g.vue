@@ -452,8 +452,8 @@
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
               <!-- 待根据不同模块做判断修改 -->
-              <template v-if="infoData.CFP2.cfp2_type === 10"></template>
-              <template v-if="infoData.CFP2.cfp2_type == 0"></template>
+              <!-- <template v-if="infoData.CFP2.cfp2_type === 10"></template>
+              <template v-if="infoData.CFP2.cfp2_type == 0"></template> -->
 
               <option :value="0">无</option>
               <option :value="1">host环回</option>

@@ -19,12 +19,12 @@
     <div class="tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>OUT</i>
           <div class="tx-rx-item-main"></div>
+          <i>OUT</i>
         </div>
         <div class="tx-rx-item">
-          <i>IN</i>
           <div class="tx-rx-item-main"></div>
+          <i>IN</i>
         </div>
       </div>
     </div>

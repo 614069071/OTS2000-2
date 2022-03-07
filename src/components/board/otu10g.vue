@@ -4,7 +4,7 @@
     <div class="board-link-wrapper otu10g-link-wrapper1">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
     </div>
 
@@ -17,17 +17,17 @@
       <div class="trx-item">
         <div class="trx-item-guide"><span>Lin1</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span>Cin2</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx3</span><span>Rx3</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span>Lin2</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx4</span><span>Rx4</span></div>
       </div>
     </div>
 
@@ -57,24 +57,24 @@
 
     <div class="board-trx-wrapper otu10g-trx-wrapper2">
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Cin</span></div>
+        <div class="trx-item-guide"><span>Cin3</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx5</span><span>Rx5</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>L2in</span></div>
+        <div class="trx-item-guide"><span>Lin3</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx6</span><span>Rx6</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>L1in</span></div>
+        <div class="trx-item-guide"><span>Cin4</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx7</span><span>Rx7</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>L1in</span></div>
+        <div class="trx-item-guide"><span>Lin4</span></div>
         <div class="trx-item-main"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx8</span><span>Rx8</span></div>
       </div>
     </div>
 

@@ -1,99 +1,99 @@
 <template>
   <div>
     <div class="inner-header-wrapper">
-      <div class="inner-container-title">查询条件</div>
+      <div class="inner-container-title">{{ $t("COMMON.SEARCH") }}</div>
 
       <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
-        <el-form-item label="开始日期">
+        <el-form-item :label="$t('COMMON.START_TIME')">
           <el-date-picker size="mini" v-model="dataForm.start_time" value-format="timestamp" />
         </el-form-item>
 
-        <el-form-item label="结束日期">
+        <el-form-item :label="$t('COMMON.END_TIME')">
           <el-date-picker size="mini" v-model="dataForm.end_time" value-format="timestamp" />
         </el-form-item>
 
         <el-form-item label="槽位号">
-          <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
-            <el-option label="全部" :value="255"></el-option>
-            <el-option label="槽位1" :value="1"></el-option>
-            <el-option label="槽位2" :value="2"></el-option>
-            <el-option label="槽位3" :value="3"></el-option>
-            <el-option label="槽位4" :value="4"></el-option>
-            <el-option label="槽位5" :value="5"></el-option>
-            <el-option label="槽位6" :value="6"></el-option>
-            <el-option label="槽位7" :value="7"></el-option>
-            <el-option label="槽位8" :value="8"></el-option>
+          <el-select size="mini" v-model="dataForm.slot">
+            <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 1" :value="1"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 2" :value="2"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 3" :value="3"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 4" :value="4"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 5" :value="5"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 6" :value="6"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 7" :value="7"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 8" :value="8"></el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item label="告警等级">
-          <el-select size="mini" v-model="dataForm.level" placeholder="请选择告警等级">
-            <el-option label="全部" :value="255"></el-option>
-            <el-option label="提示" :value="0"></el-option>
-            <el-option label="次要" :value="1"></el-option>
-            <el-option label="主要" :value="2"></el-option>
-            <el-option label="严重" :value="3"></el-option>
+        <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
+          <el-select size="mini" v-model="dataForm.level">
+            <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+            <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
+            <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>
+            <el-option :label="$t('COMMON.MAIN')" :value="2"></el-option>
+            <el-option :label="$t('COMMON.SEVERITY')" :value="3"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
 
       <div class="current-alarm-search-submit">
-        <button class="def-btn" @click="getAlarmList">查询</button>
-        <button class="def-btn" @click="resetDataForm">重置</button>
+        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.SEARCH") }}</button>
+        <button class="def-btn" @click="resetDataForm">{{ $t("COMMON.RESET") }}</button>
       </div>
     </div>
 
-    <div class="inner-container-title">当前告警信息</div>
+    <div class="inner-container-title">{{ $t("CURRENT_ALARM.CURRENT_ALARM") }}</div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="occur_time" label="发生时间">
+      <el-table-column prop="occur_time" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
         <template v-slot="{ row }">
           {{ (row.occur_time * 1000) | formatTime }}
         </template>
       </el-table-column>
-      <el-table-column prop="slot" label="槽位号" width="60"></el-table-column>
-      <el-table-column prop="board_type" label="板类型" width="120">
+      <el-table-column prop="slot" :label="$t('COMMON.SLOT')" width="60"></el-table-column>
+      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
-      <el-table-column prop="id" label="告警名称" width="180">
+      <el-table-column prop="id" :label="$t('ALARM_COMMON.ALARM_NAME')" width="180">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
-      <el-table-column prop="level" label="告警等级" width="80">
+      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="80">
         <template v-slot="{ row }">
           {{ row.level | mapAlarmLevel }}
         </template>
       </el-table-column>
-      <el-table-column prop="name6" label="告警原因"></el-table-column>
-      <el-table-column prop="confirm_time" label="确认时间">
+      <el-table-column prop="name6" :label="$t('ALARM_COMMON.ALARM_CAUSE')"></el-table-column>
+      <el-table-column prop="confirm_time" :label="$t('ALARM_COMMON.CONFIRM_TIME')">
         <template v-slot="{ row }">
           <template v-if="row.confirm_time">
             {{ (row.confirm_time * 1000) | formatTime }}
           </template>
 
-          <template v-else>未确认</template>
+          <template v-else>{{ $t("ALARM_COMMON.UNCONFIRM") }}</template>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="110">
+      <el-table-column :label="$t('COMMON.CONTROL')" width="110">
         <template v-slot="{ row }">
-          <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">确认</button>
-          <button class="def-btn" @click="deleteAlarm(row)">删除</button>
+          <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">{{ $t("COMMON.CONFIRM") }}</button>
+          <button class="def-btn" @click="deleteAlarm(row)">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
 
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
-        <button class="def-btn" @click="delCheckAlarm">删除满足条件告警</button>
-        <button class="def-btn" @click="delAllAlarm">删除全部告警</button>
-        <button class="def-btn" @click="confimCheckAlarm">确认满足条件告警</button>
-        <button class="def-btn" @click="confimAllAlarm">确认全部告警</button>
+        <button class="def-btn" @click="delCheckAlarm">{{ $t("ALARM_COMMON.DELETE_CHECK") }}</button>
+        <button class="def-btn" @click="delAllAlarm">{{ $t("ALARM_COMMON.DELETE_ALL") }}</button>
+        <button class="def-btn" @click="confimCheckAlarm">{{ $t("ALARM_COMMON.CONFIRM_CHECK") }}</button>
+        <button class="def-btn" @click="confimAllAlarm">{{ $t("ALARM_COMMON.CONFIRM_ALL") }}</button>
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn" @click="getAlarmList">刷新</button>
-        <button class="def-btn" :disabled="prevDisabled" @click="prevPage">上一页</button>
-        <button class="def-btn" :disabled="nextDisabled" @click="nextPage">下一页</button>
+        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.REFRESH") }}</button>
+        <button class="def-btn" :disabled="prevDisabled" @click="prevPage">{{ $t("COMMON.PREV_PAGE") }}</button>
+        <button class="def-btn" :disabled="nextDisabled" @click="nextPage">{{ $t("COMMON.NEXT_PAGE") }}</button>
       </div>
     </div>
   </div>

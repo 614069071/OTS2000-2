@@ -1,80 +1,75 @@
 <template>
   <div>
-    <div class="inner-container-title">告警管理</div>
+    <div class="inner-container-title">{{ $t("ALARM_SET.ALARM_SET") }}</div>
 
     <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
-      <el-form-item label="槽位号">
-        <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
-          <el-option label="全部" :value="255"></el-option>
-          <el-option :label="`槽位${slot}`" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
-          <el-option label="槽位8" :value="8"></el-option>
+      <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
+        <el-select size="mini" v-model="dataForm.slot">
+          <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+          <el-option :label="$t('COMMON.SLOT') + slot" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
+          <el-option :label="$t('COMMON.SLOT') + 8" :value="8"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item label="端口号">
-        <el-select size="mini" v-model="dataForm.portno" placeholder="请选择槽位号">
-          <el-option label="全部端口" :value="255"></el-option>
-          <el-option label="端口1" :value="1"></el-option>
-          <el-option label="端口2" :value="2"></el-option>
-          <el-option label="端口3" :value="3"></el-option>
-          <el-option label="端口4" :value="4"></el-option>
-          <el-option label="端口5" :value="5"></el-option>
-          <el-option label="端口6" :value="6"></el-option>
-          <el-option label="端口7" :value="7"></el-option>
-          <el-option label="端口8" :value="8"></el-option>
+      <el-form-item :label="$t('COMMON.PORT_NUMBER')">
+        <el-select size="mini" v-model="dataForm.portno">
+          <el-option :label="$t('COMMON.ALL_PORT')" :value="255"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 1" :value="1"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 2" :value="2"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 3" :value="3"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 4" :value="4"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 5" :value="5"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 6" :value="6"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 7" :value="7"></el-option>
+          <el-option :label="$t('COMMON.PORT') + 8" :value="8"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item label="告警等级">
-        <el-select size="mini" v-model="dataForm.level" placeholder="请选择告警等级">
-          <el-option label="全部" :value="255"></el-option>
-          <el-option label="提示" :value="0"></el-option>
-          <el-option label="次要" :value="1"></el-option>
-          <el-option label="主要" :value="2"></el-option>
-          <el-option label="严重" :value="3"></el-option>
+      <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
+        <el-select size="mini" v-model="dataForm.level">
+          <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+          <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
+          <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>
+          <el-option :label="$t('COMMON.MAIN')" :value="2"></el-option>
+          <el-option :label="$t('COMMON.SEVERITY')" :value="3"></el-option>
         </el-select>
       </el-form-item>
 
       <el-form-item>
-        <button class="def-btn" @click="getAlarmList">查询</button>
+        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.SEARCH") }}</button>
       </el-form-item>
     </el-form>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="slot" label="槽位号" width="60"></el-table-column>
-      <el-table-column prop="board_type" label="板类型" width="120">
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="50"></el-table-column>
+      <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="60"></el-table-column>
+      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
-      <el-table-column prop="portno" label="端口" width="60"></el-table-column>
-      <el-table-column label="告警名称">
+      <el-table-column prop="portno" :label="$t('COMMON.PORT')" width="60"></el-table-column>
+      <el-table-column :label="$t('ALARM_COMMON.ALARM_NAME')">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
-      <el-table-column prop="level" label="告警等级" width="80">
+      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="80">
         <template v-slot="{ row }">
           {{ row.level | mapAlarmLevel }}
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="告警状态" width="100">
+      <el-table-column prop="status" :label="$t('ALARM_COMMON.ALARM_STATUS')" width="100">
         <template v-slot="{ $index }">
-          <select size="mini" v-model="dataTable[$index].status" placeholder="请选择告警等级">
-            <option label="屏蔽" :value="1"></option>
-            <option label="正常" :value="0"></option>
+          <select size="mini" v-model="dataTable[$index].status">
+            <option :label="$t('COMMON.DISABLE')" :value="1"></option>
+            <option :label="$t('COMMON.ENABLE')" :value="0"></option>
           </select>
         </template>
       </el-table-column>
-      <!-- <el-table-column label="操作" width="70">
-        <template>
-          <button class="def-btn">应用</button>
-        </template>
-      </el-table-column> -->
     </el-table>
 
     <div class="alarm-list-controls">
-      <button class="def-btn" @click="submitAlarm">应用</button>
-      <button class="def-btn" @click="getAlarmList">刷新</button>
-      <button class="def-btn" :disabled="prevDisabled" @click="prevPage">上一页</button>
-      <button class="def-btn" :disabled="nextDisabled" @click="nextPage">下一页</button>
+      <button class="def-btn" @click="submitAlarm">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="prevDisabled" @click="prevPage">{{ $t("COMMON.PREV_PAGE") }}</button>
+      <button class="def-btn" :disabled="nextDisabled" @click="nextPage">{{ $t("COMMON.NEXT_PAGE") }}</button>
     </div>
   </div>
 </template>

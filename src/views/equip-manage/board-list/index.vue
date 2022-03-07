@@ -5,7 +5,7 @@
     </div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column prop="slot" width="100" :label="$t('LIST.SLOT_NUMBER')">
+      <el-table-column prop="slot" width="100" :label="$t('COMMON.SLOT_NUMBER')">
         <template v-slot="{ row }">
           {{ `SLOT ${row.slot}` }}
         </template>
@@ -15,7 +15,7 @@
           {{ row.status ? "在位" : "脱位" }}
         </template>
       </el-table-column>
-      <el-table-column prop="boardname" :label="$t('LIST.BOARD_TYPE')">
+      <el-table-column prop="boardname" :label="$t('COMMON.BOARD_TYPE')">
         <template v-slot="{ row }">
           <template v-if="row.status">
             {{ row.boardname | unifiedBoardName }}

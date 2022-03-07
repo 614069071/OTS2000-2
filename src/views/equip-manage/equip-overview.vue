@@ -1,57 +1,57 @@
 <template>
   <div>
-    <div class="inner-container-title custom-title">系统信息</div>
+    <div class="inner-container-title custom-title">{{ $t("HOME.SYSTEM_INFO") }}</div>
 
     <div class="system-info-main">
       <div class="system-info-wrapper">
         <div class="system-info-item">
-          <span>设备型号</span>
+          <span>{{ $t("HOME.DEVICE_TYPE") }}</span>
           <span>{{ systemInfo.device_type }} </span>
         </div>
         <div class="system-info-item">
-          <span>序列号</span>
+          <span>{{ $t("HOME.DEVICE_SN") }}</span>
           <span>
             <template v-if="isTatic || !iSuper">{{ systemInfo.sn }}</template>
             <input v-if="!isTatic && iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
           </span>
         </div>
         <div class="system-info-item">
-          <span>硬件版本</span>
+          <span>{{ $t("HOME.HARDWARE_VERSION") }}</span>
           <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
         </div>
         <div class="system-info-item">
-          <span>设备标识</span>
+          <span>{{ $t("HOME.DEVICE_ID") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
             <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" />
           </span>
         </div>
         <div class="system-info-item">
-          <span>设备位置</span>
+          <span>{{ $t("HOME.DEVICE_LOCALTION") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.location }}</template>
             <input v-else class="def-input" type="text" v-model="systemInfo.location" />
           </span>
         </div>
         <div class="system-info-item">
-          <span>联系人</span>
+          <span>{{ $t("HOME.CONCART") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.contacts }}</template>
             <input v-else class="def-input" type="text" v-model="systemInfo.contacts" />
           </span>
         </div>
         <div class="system-info-change-wrapper">
-          <button v-if="isTatic" class="def-btn" @click="isTatic = false">修改</button>
+          <button v-if="isTatic" class="def-btn" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
           <template v-else>
-            <button class="def-btn" @click="submitChangeFrom">提交</button>
-            <button class="def-btn" @click="cancelChangeForm">取消</button>
+            <button class="def-btn" @click="submitChangeFrom">{{ $t("COMMON.SUBMIT") }}</button>
+            <button class="def-btn" @click="cancelChangeForm">{{ $t("COMMON.CANCEL") }}</button>
           </template>
         </div>
       </div>
 
       <div class="system-info-wrapper">
         <div class="system-info-item">
-          <span>电源1属性</span>
+          <span>{{ $t("HOME.POWER_TYPE_1") }}</span>
           <span>
             {{
               systemInfo.source_1.output > 0 ? `${systemInfo.source_1.type ? "直流" : "交流"}${systemInfo.source_1.on_off ? "开" : "关"} 输出 ${systemInfo.source_1.output.toFixed(2)}（V）` : "无输出"
@@ -59,7 +59,7 @@
           </span>
         </div>
         <div class="system-info-item">
-          <span>电源2属性</span>
+          <span>{{ $t("HOME.POWER_TYPE_2") }}</span>
           <span>
             {{
               systemInfo.source_2.output > 0 ? `${systemInfo.source_2.type ? "直流" : "交流"}${systemInfo.source_2.on_off ? "开" : "关"} 输出 ${systemInfo.source_2.output.toFixed(2)}（V）` : "无输出"
@@ -67,42 +67,46 @@
           </span>
         </div>
         <div class="system-info-item">
-          <span>固件版本</span><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
+          <span>{{ $t("HOME.FIRMWARE_VERSION") }}</span
+          ><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
         </div>
         <div class="system-info-item">
-          <span>系统时间</span><span>{{ systemInfo.sys_time }}</span>
+          <span>{{ $t("HOME.SYSTEM_TIME") }}</span
+          ><span>{{ systemInfo.sys_time }}</span>
         </div>
         <div class="system-info-item">
-          <span>运行时间</span><span>{{ systemInfo.run_time | formatSeconds }}</span>
+          <span>{{ $t("HOME.RUN_TIME") }}</span
+          ><span>{{ systemInfo.run_time | formatSeconds }}</span>
         </div>
         <div class="system-info-item">
-          <span>网关版本</span><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
+          <span>{{ $t("HOME.WEB_VERSION") }}</span
+          ><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
         </div>
       </div>
     </div>
 
-    <div class="inner-container-title">系统性能</div>
+    <div class="inner-container-title">{{ $t("HOME.SYSTEM_PERFOR") }}</div>
     <div class="system-performance-wrapper">
       <div class="fan-state-wrapper">
-        <div class="state-title"><i class="c-icon icon-setting"></i>风扇状态</div>
+        <div class="state-title"><i class="c-icon icon-setting"></i>{{ $t("HOME.FAN_STATE") }}</div>
         <div class="state-inner-wrapper">
           <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'"></div>
         </div>
       </div>
       <div class="cpu-state-wrapper">
-        <div class="state-title"><i class="c-icon icon-cpu"></i>CPU使用率</div>
+        <div class="state-title"><i class="c-icon icon-cpu"></i>{{ $t("HOME.CPU_STATE") }}</div>
         <div class="state-inner-wrapper">
           <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.cpu_rate)" color="#003466"></el-progress>
         </div>
       </div>
       <div class="memory-state-wrapper">
-        <div class="state-title"><i class="c-icon icon-memory"></i>内存使用率</div>
+        <div class="state-title"><i class="c-icon icon-memory"></i>{{ $t("HOME.MEMORY_STATE") }}</div>
         <div class="state-inner-wrapper">
           <el-progress type="dashboard" :percentage="Math.ceil(systemInfo.mem_rate)" color="#003466"></el-progress>
         </div>
       </div>
       <div class="temperature-state-wrapper">
-        <div class="state-title"><i class="c-icon icon-temper"></i>设备温度</div>
+        <div class="state-title"><i class="c-icon icon-temper"></i>{{ $t("HOME.DEVICE_TEMP") }}</div>
         <div class="state-inner-wrapper">
           <div class="temperature-wrapper">
             <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
@@ -162,12 +166,12 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
+        .then(res => {
           if (!res.otn2000_ack) return;
 
           this.systemInfo = res.otn2000_ack;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -178,11 +182,11 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
+        .then(res => {
           this.systemInfo = res.otn2000_ack;
           this.isTatic = true;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           alert("配置失败");
         });

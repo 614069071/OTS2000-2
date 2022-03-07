@@ -1,6 +1,39 @@
 export default {
-  LOGIN: '登录',
-  USER_NAME: '账号',
-  PASSWORD: '密码',
-  LANGUAGE: '语言'
-}
+  LOGIN: {
+    LOGIN: "登录",
+    USER_NAME: "账号",
+    PASSWORD: "密码",
+    LANGUAGE: "语言",
+  },
+  LOYOUT: {
+    RESTART: "重启",
+    EXIT: "退出",
+    USER_NAME: "当前用户",
+    USER_LEVER: "用户级别",
+  },
+  HOME: {
+    DEVICE_INFO: "系统信息",
+    DEVICE_PERFOR: "系统性能",
+    DEVICE_TYPE: "设备型号",
+    DEVICE_SN: "序列号",
+    HARDWARE_VERSION: "硬件版本",
+    DEVICE_ID: "设备标识",
+    DEVICE_LOCALTION: "设备位置",
+    CONCART: "联系人",
+    POWER_TYPE_1: "电源1属性",
+    POWER_TYPE_2: "电源2属性",
+    FIRMWARE_VERSION: "固件版本",
+    SYSTEM_TIME: "系统时间",
+    RUN_TIME: "运行时间",
+    WEB_VERSION: "网关版本",
+    FAN_STATE: "风扇状态",
+    CPU_STATE: "CPU使用率",
+    MEMORY_STATE: "内存使用率",
+    DEVICE_TEMP: "设备温度",
+  },
+  COMMON: {
+    SUBMIT: "提交",
+    CANCEL: "取消",
+    CHANGE: "修改",
+  },
+};

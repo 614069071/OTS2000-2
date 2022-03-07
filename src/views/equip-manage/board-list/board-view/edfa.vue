@@ -49,14 +49,6 @@
           </td>
           <td>工作模式</td>
           <td>
-            <!-- <custom-select
-              v-model="infoData.mode"
-              :options="[
-                { label: 'ACC', value: 0 },
-                { label: 'APC', value: 2 },
-                { label: 'AGC', value: 3 },
-              ]"
-            /> -->
             <select v-model="infoData.mode">
               <option :value="2">APC</option>
               <option :value="3">AGC</option>
@@ -84,7 +76,7 @@
             </template>
           </template>
 
-          <!-- OLA -->
+          <!-- OLA 带单板-->
           <!-- <template v-if="info.bdtype === 'OLA20G22'">
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
@@ -136,49 +128,36 @@
         <tr>
           <td>输入光功率低告警门限（dBm）</td>
           <td>
-            <!-- <custom-select
-              
-              :options="[
-                { label: '-20', value: -20 },
-                { label: '-24', value: -24 },
-                { label: '-26', value: -26 },
-                { label: '-28', value: -28 },
-                { label: '-31', value: -31 },
-              ]"
-            /> -->
             <input type="text" class="def-input" v-model.number="infoData.lum_input_thr" />
+            <!-- v-limit="{ key: 'infoData.lum_input_thr', min: 0, max: 10 }" -->
+            <!-- 
+              info.bdtype
+              OBA模块阈值范围在-26—+12dBm；
+              OLA模块阈值范围在-33—+5dBm；
+              OPA模块阈值范围在-33—+5dBm； 
+            -->
           </td>
           <td>输出光功率低告警门限（dBm）</td>
           <td>
-            <!-- <custom-select
-              v-model="infoData.lum_output_thr"
-              :options="[
-                { label: '-5', value: -5 },
-                { label: '-3', value: -3 },
-                { label: '-2', value: -2 },
-              ]"
-            /> -->
             <input type="text" class="def-input" v-model.number="infoData.lum_output_thr" />
+
+            <!-- 
+              info.bdtype
+              OBA模块阈值范围在-11—+20.5dBm；
+              OLA模块阈值范围在-14—+20.5dBm；
+              OPA模块阈值范围在-8—+20.5dBm；
+             -->
           </td>
         </tr>
 
         <tr>
           <td>PUMP电流门限（mA）</td>
           <td>
-            <!-- <custom-select
-              v-model="infoData.pump_cur_thr"
-              :options="[
-                { label: '600', value: 600 },
-                { label: '800', value: 800 },
-              ]"
-            /> -->
-
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_cur_thr" /> -->
             {{ infoData.pump_cur_thr }}
           </td>
           <td>PUMP温度高门限（℃）</td>
           <td>
-            <!-- <custom-select v-model="infoData.pump_temp_high" :options="[{ label: '30', value: 30 }]" /> -->
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_high" /> -->
             {{ infoData.pump_temp_high }}
           </td>
@@ -186,20 +165,15 @@
         <tr>
           <td>模块温度低门限（℃）</td>
           <td>
-            <!-- <custom-select
-              v-model="infoData.mod_temp_low"
-              :options="[
-                { label: '-40', value: -40 },
-                { label: '-45', value: -45 },
-                { label: '-50', value: -50 },
-                { label: '-55', value: -55 },
-              ]"
-            /> -->
             <input type="text" class="def-input" v-model.number="infoData.mod_temp_low" />
+            <!-- 
+              OBA模块阈值范围在-55—+70℃；
+              OLA模块阈值范围在-55—+70℃；
+              OPA模块阈值范围在-55—+70℃； 
+            -->
           </td>
           <td>PUMP温度低门限（℃）</td>
           <td>
-            <!-- <custom-select v-model="infoData.pump_temp_low" :options="[{ label: '20', value: 20 }]" /> -->
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_low" /> -->
             {{ infoData.pump_temp_low }}
           </td>
@@ -207,21 +181,25 @@
         <tr>
           <td>模块温度高门限（℃）</td>
           <td>
-            <!-- <custom-select
-              v-model="infoData.mod_temp_high"
-              :options="[
-                { label: '55', value: 55 },
-                { label: '60', value: 60 },
-                { label: '65', value: 65 },
-                { label: '70', value: 70 },
-              ]"
-            /> -->
+            <input type="text" class="def-input" placeholder="有效范围-55~70℃" v-model.number="infoData.mod_temp_high" />
 
-            <input type="text" class="def-input" v-model.number="infoData.mod_temp_high" />
+            <!-- 
+              info.bdtype
+              OBA模块阈值范围在-55—+70℃；
+              OLA模块阈值范围在-55—+70℃；
+              OPA模块阈值范围在-55—+70℃； 
+            -->
           </td>
           <td>PUMP关断功率（dBm）</td>
           <td>
             <input class="def-input" type="text" v-model.number="infoData.sw_power" />
+
+            <!-- 
+              info.bdtype
+              OBA模块阈值范围在-26—+4dBm；
+              OLA模块阈值范围在-33—+5dBm；
+              OPA模块阈值范围在-33—+5dBm；
+             -->
           </td>
         </tr>
       </table>
@@ -237,6 +215,10 @@
 
 <script>
 import mixins from "@/utils/mixins";
+
+/* 
+info.bdtype OBA20G22 OPA20G32
+*/
 
 export default {
   name: "edfa",

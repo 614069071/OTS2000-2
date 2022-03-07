@@ -4,7 +4,7 @@
       <img src="../../assets/images/logo-white.png" alt="" />
     </div>
     <div class="login-lang-set">
-      <span>{{ $t("LANGUAGE") }}</span>
+      <span>{{ $t("LOGIN.LANGUAGE") }}</span>
       <select class="lang-select" v-model="langType" @change="langChange">
         <option value="1">中文</option>
         <option value="2">English</option>

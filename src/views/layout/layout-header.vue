@@ -5,8 +5,8 @@
     </router-link>
 
     <div class="user-info-wrapper">
-      <span>当前用户：webadmin</span>
-      <span>用户级别：管理员</span>
+      <span>{{ $t("LOYOUT.USER_NAME") }}：webadmin</span>
+      <span>{{ $t("LOYOUT.USER_LEVER") }}：管理员</span>
     </div>
   </div>
 </template>

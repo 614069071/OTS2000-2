@@ -11,13 +11,13 @@
         <div class="login-user-main">
           <div class="login-user-wrapper">
             <div class="login-user-before"></div>
-            <input type="text" :placeholder="$t('USER_NAME')" />
+            <input type="text" :placeholder="$t('LOGIN.USER_NAME')" />
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="password" :placeholder="$t('PASSWORD')" />
+            <input type="password" :placeholder="$t('LOGIN.PASSWORD')" />
           </div>
-          <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN") }}</button>
+          <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN.LOGIN") }}</button>
         </div>
       </div>
     </div>

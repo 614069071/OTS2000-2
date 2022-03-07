@@ -64,6 +64,10 @@ export default {
   .nmu-trx-wrapper {
     left: 148px;
     bottom: -5px;
+
+    .trx-item + .trx-item {
+      margin-left: 10px;
+    }
   }
 
   .nmu-eth-wrapper {

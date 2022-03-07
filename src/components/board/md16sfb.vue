@@ -19,11 +19,95 @@
     <div class="tx-rx-wrapper">
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>OCT</i>
+          <i>Line</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>IN</i>
+          <i></i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i></i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i></i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M29</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D21</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M30</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D22</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M31</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D23</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M32</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D24</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M33</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D25</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M34</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D26</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M35</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D27</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M36</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D28</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
@@ -44,7 +128,7 @@ export default {
     left: 14px;
   }
   .tx-rx-wrapper {
-    left: 380px;
+    left: -30px;
   }
 }
 </style>

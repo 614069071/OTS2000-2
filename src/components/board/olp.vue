@@ -62,8 +62,12 @@ export default {
 <style lang="scss">
 .board-olp-view-wrapper {
   .olp-tx-rx-wrapper {
-    left: 275px;
+    left: 222px;
     top: -6px;
+
+    .tx-rx-inner-item + .tx-rx-inner-item {
+      margin-left: 50px;
+    }
   }
 }
 </style>

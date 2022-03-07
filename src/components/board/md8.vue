@@ -30,64 +30,26 @@
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>D36</i>
+          <i>M21</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>D35</i>
+          <i>D21</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>D34</i>
+          <i>M22</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>D33</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-      </div>
-
-      <div class="tx-rx-inner-item">
-        <div class="tx-rx-item">
-          <i>D32</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D31</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D30</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D29</i>
+          <i>D22</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>D28</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D27</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D26</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-        <div class="tx-rx-item">
-          <i>D25</i>
-          <div class="tx-rx-item-main"></div>
-        </div>
-      </div>
-
-      <div class="tx-rx-inner-item">
-        <div class="tx-rx-item">
-          <i>D24</i>
+          <i>M23</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
@@ -95,11 +57,49 @@
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>D22</i>
+          <i>M24</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>D21</i>
+          <i>D24</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M25</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D25</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M26</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D26</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+      </div>
+
+      <div class="tx-rx-inner-item">
+        <div class="tx-rx-item">
+          <i>M27</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D27</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>M28</i>
+          <div class="tx-rx-item-main"></div>
+        </div>
+        <div class="tx-rx-item">
+          <i>D28</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

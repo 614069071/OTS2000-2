@@ -51,11 +51,11 @@ export default {
 <style lang="scss">
 .board-edfa-view-wrapper {
   .edfa-tx-rx-wrapper {
-    left: 275px;
+    left: 245px;
     top: -5px;
 
     .tx-rx-inner-item + .tx-rx-inner-item {
-      margin-left: 20px;
+      margin-left: 50px;
     }
   }
 }

@@ -2,22 +2,18 @@
   <div class="board-dco200g-view-wrapper composite board-item-view-wrapper">
     <div class="board-item-name"><span>200G CFP2 DCO</span></div>
     <div class="board-link-wrapper dco200g-link-wrapper1">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">C1LOS</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">C2LOS</span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">L1LOS</span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">RATE</span></div>
     </div>
 
     <div class="board-console-wrapper dco200g-console-wrapper"><span>Console</span></div>
 
-    <div class="board-trx-wrapper dco200g-trx-wrapper1">
+    <div class="board-trx-big-wrapper dco200g-trx-wrapper1">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
         <div class="trx-item-main suc"></div>
-      </div>
-      <div class="trx-item">
-        <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
-        <div class="trx-item-main"></div>
       </div>
     </div>
 
@@ -26,14 +22,10 @@
       <div class="cfp2-k"></div>
     </div>
 
-    <div class="board-trx-wrapper dco200g-trx-wrapper2">
-      <div class="trx-item">
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
-        <div class="trx-item-main suc"></div>
-      </div>
+    <div class="board-trx-big-wrapper dco200g-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main suc"></div>
       </div>
     </div>
 
@@ -58,11 +50,11 @@ export default {
   }
 
   .dco200g-trx-wrapper1 {
-    left: 150px;
+    left: 135px;
   }
 
   .cfp2-dco200g-wrapper {
-    left: 266px;
+    left: 260px;
     bottom: 2px;
   }
 
@@ -77,6 +69,10 @@ export default {
 
   .trx-item {
     margin-left: 0 !important;
+  }
+
+  .dco200g-rst-wrapper {
+    left: 480px;
   }
 }
 </style>

@@ -225,6 +225,38 @@
   }
 }
 
+.board-trx-big-wrapper {
+  position: absolute;
+  bottom: -5px;
+  display: flex;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .trx-item {
+    .trx-item-guide {
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .trx-item-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 14px;
+    }
+
+    .trx-item-main {
+      width: 116px;
+      height: 40px;
+      border: 1px solid #000;
+    }
+
+    .trx-item-main.suc {
+      background-color: #ccc;
+    }
+  }
+}
+
 // ETH √
 .board-eth-wrapper {
   position: absolute;
@@ -299,5 +331,6 @@
     display: flex;
     height: 14px;
     justify-content: space-between;
+    padding: 0 10px;
   }
 }

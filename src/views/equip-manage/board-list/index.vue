@@ -91,7 +91,7 @@ export default {
         otu25g: "4*25G OTU",
         ocp10g: "2*10G OCP",
         otu100g: "40&100G OTU",
-        dco200: "200G CFP2 DCO",
+        dco200g: "200G CFP2 DCO",
         m16: "M16",
         d16: "D16",
         md8: "MD8",

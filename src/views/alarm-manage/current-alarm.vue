@@ -12,7 +12,7 @@
           <el-date-picker size="mini" v-model="dataForm.end_time" value-format="timestamp" />
         </el-form-item>
 
-        <el-form-item label="槽位号">
+        <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
           <el-select size="mini" v-model="dataForm.slot">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 1" :value="1"></el-option>
@@ -46,7 +46,7 @@
     <div class="inner-container-title">{{ $t("CURRENT_ALARM.CURRENT_ALARM") }}</div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" label="序号" width="50"></el-table-column>
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="50"></el-table-column>
       <el-table-column prop="occur_time" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
         <template v-slot="{ row }">
           {{ (row.occur_time * 1000) | formatTime }}
@@ -176,9 +176,11 @@ export default {
         .finally(() => {});
     },
     confimAlarm(row) {
-      this.$confirm("确认该告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const { id } = row;
@@ -186,24 +188,20 @@ export default {
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("确认成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("确认失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     deleteAlarm(row) {
-      this.$confirm("确定删除该告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const { id } = row;
@@ -211,24 +209,20 @@ export default {
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("删除成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("删除失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     delCheckAlarm() {
-      this.$confirm("确定删除满足条件的告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const { slot, start_time, end_time, level } = this.dataForm;
@@ -236,91 +230,73 @@ export default {
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("删除成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("删除失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     delAllAlarm() {
-      this.$confirm("确定删除全部告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_ALL_DELETE_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "delall_curralarm" } };
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("删除成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("删除失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     confimCheckAlarm() {
-      this.$confirm("确定确认满足条件的告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_CHECKED_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", ...this.dataForm, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("确认成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("确认失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     confimAllAlarm() {
-      this.$confirm("确定确认所有告警吗?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      const { $t } = this;
+
+      this.$confirm($t("ALARM_COMMON.CONFIRM_ALL_ALARM"), $t("COMMON.HINT"), {
+        confirmButtonText: $t("COMMON.SUBMIT"),
+        cancelButtonText: $t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "confall_curralarm", confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)
-            .then(res => {
-              console.log("确认成功", res);
-
+            .then(() => {
               this.getAlarmList();
             })
-            .catch(() => {
-              console.log("确认失败");
-            })
+            .catch(() => {})
             .finally(() => {});
         })
-        .catch(() => {
-          console.log("取消");
-        });
+        .catch(() => {});
     },
     prevPage() {
       this.page -= 1;

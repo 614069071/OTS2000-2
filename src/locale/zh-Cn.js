@@ -1,6 +1,6 @@
 export default {
   COMMON: {
-    SUBMIT: "提交",
+    SUBMIT: "确定",
     CANCEL: "取消",
     CHANGE: "修改",
     REFRESH: "刷新",
@@ -13,6 +13,7 @@ export default {
     PORT_NUMBER: "端口号",
     SN: "序列号",
     SERIAL: "序号",
+    SLOT: "槽位",
     SLOT_NUMBER: "槽位号",
     PORT: "端口",
     PREV_PAGE: "上一页",
@@ -26,12 +27,13 @@ export default {
     MINOR: "次要",
     MAIN: "主要",
     SEVERITY: "严重",
-    SLOT: "槽位",
     START_TIME: "开始日期",
     END_TIME: "结束日期",
     CONTROL: "操作",
     DELETE: "删除",
     CONFIRM: "确认",
+    SUCCESS: "成功",
+    FAIL: "失败",
   },
   LOGIN: {
     LOGIN: "登录",
@@ -82,6 +84,12 @@ export default {
     CONFIRM_CHECK: "确认满足条件告警",
     CONFIRM_ALL: "确认全部告警",
     UNCONFIRM: "未确认",
+    CONFIRM_ALARM: "确认该告警吗？",
+    CONFIRM_DELETE_ALARM: "确定删除该告警吗？",
+    CONFIRM_CHECK_DELETE_ALARM: "确定删除满足条件的告警吗?",
+    CONFIRM_ALL_DELETE_ALARM: "确定删除全部告警吗?",
+    CONFIRM_CHECKED_ALARM: "确定确认满足条件的告警吗?",
+    CONFIRM_ALL_ALARM: "确定确认满足条件的告警吗?",
   },
   ALARM_SET: {
     ALARM_SET: "告警设置",

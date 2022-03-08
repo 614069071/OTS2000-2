@@ -6,25 +6,26 @@
     <div class="login-lang-set">
       <span>{{ $t("LOGIN.LANGUAGE") }}</span>
       <select class="lang-select" v-model="langType" @change="langChange">
-        <option value="1">中文</option>
-        <option value="2">English</option>
+        <option value="zh">中文</option>
+        <option value="en">English</option>
       </select>
     </div>
   </div>
 </template>
 
 <script>
+import { setI18Locale } from "@/locale";
 export default {
   name: "LoginHeader",
   data() {
     return {
-      langType: "1",
+      langType: "zh",
     };
   },
   created() {
-    const lang = localStorage.getItem("ost-lang") || "zh";
+    const lang = localStorage.getItem("otn-lang") || "zh";
     this.$i18n.locale = lang;
-    this.langType = lang === "zh" ? "1" : "2";
+    this.langType = lang;
   },
   mounted() {
     console.log("mounted");
@@ -32,10 +33,7 @@ export default {
   methods: {
     langChange(e) {
       const value = e.target.value;
-      const lang = value === "1" ? "zh" : "en";
-      this.$i18n.locale = lang;
-
-      localStorage.setItem("ost-lang", lang);
+      setI18Locale(value);
     },
   },
 };

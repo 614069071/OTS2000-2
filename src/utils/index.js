@@ -18,7 +18,7 @@ export function difference(object, base) {
 
 function makeMap(arr) {
   const obj = {};
-  arr.forEach((e) => (obj[e] = true));
+  arr.forEach(e => (obj[e] = true));
 
   return function(k) {
     return !!obj[k];
@@ -85,12 +85,12 @@ export const storages = {
   },
 };
 
-export const formatNumber = (n) => {
+export const formatNumber = n => {
   n = n.toString();
   return n[1] ? n : "0" + n;
 };
 
-export const formatTime = (time) => {
+export const formatTime = time => {
   const date = new Date(time);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -126,7 +126,7 @@ export function scrollToView(dom = "") {
 export function autoload(Vue) {
   const files = require.context("@components", false, /\.vue$/);
 
-  files.keys().forEach((path) => {
+  files.keys().forEach(path => {
     const instance = files(path).default;
     const name = path.split(".")[1].slice(1);
     Vue.component(name, instance);
@@ -146,7 +146,7 @@ export function overlapRouter(arr1 = [], arr2 = []) {
     let item = {};
 
     // 方法1 两次循环
-    arr2.forEach((ele) => {
+    arr2.forEach(ele => {
       if (url === ele.path) {
         item.path = ele.path;
         item.component = ele.component;

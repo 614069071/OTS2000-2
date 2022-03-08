@@ -29,22 +29,22 @@
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>Tx</i>
+          <i>Tx2</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>Rx</i>
+          <i>Rx2</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>
 
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
-          <i>Tx</i>
+          <i>Tx1</i>
           <div class="tx-rx-item-main"></div>
         </div>
         <div class="tx-rx-item">
-          <i>Rx</i>
+          <i>Rx1</i>
           <div class="tx-rx-item-main"></div>
         </div>
       </div>

@@ -163,4 +163,13 @@ export default {
     UPGRADE_BOARD: "升级单板固件",
     CHECK_UPGRADE_FILE: "选择升级文件",
   },
+  RUN_LOG: {
+    LOG_LIST: "日志列表",
+    DELETE_ALL: "删除全部日志",
+    CONTROL_OBJ: "操作对象",
+    CONTROL_CONTEXT: "操作内容",
+    ACTION: "动作",
+    CONTROL_TIME: "操作时间",
+    CONTROL_WAY: "操作方式",
+  },
 };

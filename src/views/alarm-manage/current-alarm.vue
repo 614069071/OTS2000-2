@@ -176,11 +176,9 @@ export default {
         .finally(() => {});
     },
     confimAlarm(row) {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const { id } = row;
@@ -197,11 +195,9 @@ export default {
         .catch(() => {});
     },
     deleteAlarm(row) {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const { id } = row;
@@ -218,11 +214,9 @@ export default {
         .catch(() => {});
     },
     delCheckAlarm() {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_DELETE_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const { slot, start_time, end_time, level } = this.dataForm;
@@ -239,11 +233,9 @@ export default {
         .catch(() => {});
     },
     delAllAlarm() {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_ALL_DELETE_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_ALL_DELETE_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "delall_curralarm" } };
@@ -259,11 +251,9 @@ export default {
         .catch(() => {});
     },
     confimCheckAlarm() {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_CHECKED_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_CHECKED_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", ...this.dataForm, confirm_time: parseInt(Date.now() / 1000) } };
@@ -279,11 +269,9 @@ export default {
         .catch(() => {});
     },
     confimAllAlarm() {
-      const { $t } = this;
-
-      this.$confirm($t("ALARM_COMMON.CONFIRM_ALL_ALARM"), $t("COMMON.HINT"), {
-        confirmButtonText: $t("COMMON.SUBMIT"),
-        cancelButtonText: $t("COMMON.CANCEL"),
+      this.$confirm(this.$t("ALARM_COMMON.CONFIRM_ALL_ALARM"), this.$t("COMMON.HINT"), {
+        confirmButtonText: this.$t("COMMON.SUBMIT"),
+        cancelButtonText: this.$t("COMMON.CANCEL"),
       })
         .then(() => {
           const data = { otn2000: { boardname: "NMU", type: "confall_curralarm", confirm_time: parseInt(Date.now() / 1000) } };

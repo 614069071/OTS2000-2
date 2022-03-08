@@ -3,10 +3,10 @@
     <div class="board-item-name"><span>NMU</span></div>
 
     <div class="board-link-wrapper nmu-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">LINK1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">LINK2</span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">LINK3</span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">SRV</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">OLINK2</span></div>
+      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK3</span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">BLINK</span></div>
     </div>
 
     <div class="board-console-wrapper"><span>Console</span></div>
@@ -33,15 +33,15 @@
 
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
-        <div class="eth-item-title">Eth1</div>
+        <div class="eth-item-title">ETH1</div>
         <div class="eth-item-main suc"></div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-title">Eth2</div>
+        <div class="eth-item-title">ETH2</div>
         <div class="eth-item-main"></div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-title">Eth3</div>
+        <div class="eth-item-title">ETH3</div>
         <div class="eth-item-main"></div>
       </div>
     </div>

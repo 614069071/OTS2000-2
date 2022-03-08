@@ -53,8 +53,12 @@
           </td>
           <td>槽位号</td>
           <td>{{ info.slot }}</td>
-          <td></td>
-          <td></td>
+          <td>
+            <!-- 测试 -->
+          </td>
+          <td>
+            <!-- <input v-limit="{ min: 2, max: 120, data: test.text }" type="text" class="def-input" v-model="test.text" /> -->
+          </td>
         </tr>
       </table>
     </div>
@@ -152,6 +156,9 @@ export default {
       },
       refreshTitleDisabled: false,
       setTilteDisabled: false,
+      test: {
+        text: "",
+      },
     };
   },
   watch: {

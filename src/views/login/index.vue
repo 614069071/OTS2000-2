@@ -157,7 +157,7 @@ export default {
 
 .login-main-left {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   padding-right: 120px;
 }
 

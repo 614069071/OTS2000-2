@@ -34,6 +34,10 @@ export default {
     CONFIRM: "确认",
     SUCCESS: "成功",
     FAIL: "失败",
+    IP_ADDRESS: "IP地址",
+    SUBNET_MASK: "子网掩码",
+    GATEWAY: "网关",
+    MAC_ADDRESS: "MAC地址",
   },
   LOGIN: {
     LOGIN: "登录",
@@ -99,5 +103,8 @@ export default {
   },
   HISTORY_ALARM: {
     HISTORY_ALARM: "历史告警",
+  },
+  IP_CONFIG: {
+    IP_CONFIG: "IP地址配置",
   },
 };

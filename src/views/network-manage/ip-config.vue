@@ -1,17 +1,31 @@
 <template>
   <div>
-    <div class="inner-container-title">IP地址配置</div>
+    <div class="inner-container-title">{{ $t("IP_CONFIG.IP_CONFIG") }}</div>
     <div class="ip-config-form-wrapper">
-      <div class="config-form-item"><span>IP地址</span><input class="def-input" type="text" /></div>
-      <div class="config-form-item"><span>子网掩码</span><input class="def-input" type="text" /></div>
-      <div class="config-form-item"><span>网关</span><input class="def-input" type="text" /></div>
-      <div class="config-form-item"><span>端口</span><span>9091</span></div>
-      <div class="config-form-item"><span>MAC地址</span><span>3a:3a:3a:3a:3a:3a</span></div>
+      <div class="config-form-item">
+        <span>{{ $t("COMMON.IP_ADDRESS") }}</span
+        ><input class="def-input" type="text" />
+      </div>
+      <div class="config-form-item">
+        <span>{{ $t("COMMON.SUBNET_MASK") }}</span
+        ><input class="def-input" type="text" />
+      </div>
+      <div class="config-form-item">
+        <span>{{ $t("COMMON.GATEWAY") }}</span
+        ><input class="def-input" type="text" />
+      </div>
+      <div class="config-form-item">
+        <span>{{ $t("COMMON.PORT") }}</span
+        ><span>9091</span>
+      </div>
+      <div class="config-form-item">
+        <span>{{ $t("COMMON.MAC_ADDRESS") }}</span
+        ><span>3a:3a:3a:3a:3a:3a</span>
+      </div>
     </div>
 
     <div class="ip-config-form-submit">
-      <button class="def-btn">修改</button>
-      <button class="def-btn">保存设置</button>
+      <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
     </div>
   </div>
 </template>

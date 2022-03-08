@@ -1,35 +1,35 @@
 <template>
   <div>
-    <div class="inner-container-title">SNMP Trap配置</div>
+    <div class="inner-container-title">{{ $t("USER_MANAGE.USER_LIST") }}</div>
 
     <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
-      <el-table-column prop="name1" label="用户名称"></el-table-column>
-      <el-table-column prop="name2" label="密码"></el-table-column>
-      <el-table-column prop="name3" label="用户级别"></el-table-column>
-      <el-table-column prop="name4" label="创建时间"></el-table-column>
-      <el-table-column label="修改密码" width="160">
-        <template v-slot="scope">
-          <button class="def-btn">点击修改</button>
-          <button class="def-btn">删除</button>
+      <el-table-column prop="name1" :label="$t('USER_MANAGE.USER_NAME')"></el-table-column>
+      <el-table-column prop="name2" :label="$t('COMMON.PASSWORD')"></el-table-column>
+      <el-table-column prop="name3" :label="$t('USER_MANAGE.USER_LEVEL')"></el-table-column>
+      <el-table-column prop="name4" :label="$t('USER_MANAGE.CREATE_TIME')"></el-table-column>
+      <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">
+        <template>
+          <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
+          <button class="def-btn">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
 
     <div class="add-user-config-wrapper" v-for="item in addUserArg" :key="item">
-      <input class="def-input" type="text" placeholder="请输入用户名称" />
-      <input class="def-input" type="text" placeholder="请输入密码" />
-      <el-select size="small" placeholder="请选择用户级别" v-model="dataForm.name3">
-        <el-option label="管理员" value="1"></el-option>
-        <el-option label="一般用户" value="2"></el-option>
+      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_NAME')" />
+      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
+      <el-select size="small" :placeholder="$t('USER_MANAGE.INPUT_USER_LEVEL')" v-model="dataForm.name3">
+        <el-option :label="$t('USER_MANAGE.ADMIN')" value="1"></el-option>
+        <el-option :label="$t('USER_MANAGE.AVERAGE')" value="2"></el-option>
       </el-select>
-      <button class="def-btn">确定</button>
+      <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
     </div>
 
     <div class="user-btns-wrapper">
-      <button class="def-btn">刷新</button>
-      <button class="def-btn">应用</button>
-      <button class="def-btn" @click="addUserItem">新增用户</button>
+      <button class="def-btn">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" @click="addUserItem">{{ $t("USER_MANAGE.ADD_USER") }}</button>
     </div>
   </div>
 </template>

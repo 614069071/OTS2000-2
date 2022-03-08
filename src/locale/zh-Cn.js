@@ -39,11 +39,11 @@ export default {
     GATEWAY: "网关",
     MAC_ADDRESS: "MAC地址",
     STATUS: "状态",
+    PASSWORD: "密码",
   },
   LOGIN: {
     LOGIN: "登录",
     USER_NAME: "账号",
-    PASSWORD: "密码",
     LANGUAGE: "语言",
   },
   LOYOUT: {
@@ -127,5 +127,18 @@ export default {
     ODD_EVEN_CHECK: "奇偶校验",
     STOP_BIT: "停止位",
     FLOW_CONTROL: "流量控制",
+  },
+  USER_MANAGE: {
+    USER_LIST: "用户列表",
+    USER_NAME: "用户名称",
+    USER_LEVEL: "用户级别",
+    CREATE_TIME: "创建时间",
+    CHANGE_PASSWORD: "修改密码",
+    ADD_USER: "新增用户",
+    INPUT_USER_NAME: "请输入用户名称",
+    INPUT_USER_PASSWORD: "请输入密码",
+    INPUT_USER_LEVEL: "请选择用户级别",
+    ADMIN: "管理员",
+    AVERAGE: "普通用户",
   },
 };

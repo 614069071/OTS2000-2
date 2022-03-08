@@ -64,12 +64,12 @@
       <div class="trx-item">
         <div class="trx-item-guide"><span>Lin3</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span>Tx7</span><span>Rx7</span></div>
+        <div class="trx-item-footer"><span>Tx6</span><span>Rx6</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span>Cin4</span></div>
         <div class="trx-item-main suc"></div>
-        <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
+        <div class="trx-item-footer"><span>Tx7</span><span>Rx7</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"><span>Lin4</span></div>

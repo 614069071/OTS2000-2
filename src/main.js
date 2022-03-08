@@ -29,7 +29,7 @@ Vue.filter("mapBoardAlarmName", v => mapBoardAlarmName(v.board_type, v.alarmtype
 
 Vue.directive("limit", {
   bind(el, { value }, { context }) {
-    const reg = /(^[-]?[0-9]{0,4}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
+    const reg = /(^[-]?[0-9]{0,}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
     const { key = "", min = 0, max = 0 } = value;
     const keys = key.split(".");
     const lastKey = keys[keys.length - 1];
@@ -46,17 +46,10 @@ Vue.directive("limit", {
       const val = parseFloat(value);
 
       if (reg.test(value)) {
-        if (val < min) {
-          me[lastKey] = min;
-          return;
-        }
-
-        if (val > max) {
-          me[lastKey] = max;
-          return;
+        if (val < min || val > max) {
+          me[lastKey] = "";
         }
       } else {
-        console.log("不符合");
         me[lastKey] = "";
       }
     };

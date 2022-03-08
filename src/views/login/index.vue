@@ -15,7 +15,7 @@
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="password" :placeholder="$t('LOGIN.PASSWORD')" />
+            <input type="password" :placeholder="$t('COMMON.PASSWORD')" />
           </div>
           <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN.LOGIN") }}</button>
         </div>

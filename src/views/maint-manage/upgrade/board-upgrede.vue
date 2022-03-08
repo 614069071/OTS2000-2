@@ -1,28 +1,28 @@
 <template>
   <div>
-    <div class="inner-container-title">需要升级的单板</div>
+    <div class="inner-container-title">{{ $t("UPGRADE.NEED_UPGRADE_BOARD") }}</div>
     <div class="board-check-wrapper">
-      <el-checkbox>单板#2</el-checkbox>
-      <el-checkbox>单板#4</el-checkbox>
-      <el-checkbox>单板#6</el-checkbox>
-      <el-checkbox>单板#8</el-checkbox>
+      <el-checkbox>{{ $t("COMMON.BOARD") }}#2</el-checkbox>
+      <el-checkbox>{{ $t("COMMON.BOARD") }}#4</el-checkbox>
+      <el-checkbox>{{ $t("COMMON.BOARD") }}#6</el-checkbox>
+      <el-checkbox>{{ $t("COMMON.BOARD") }}#8</el-checkbox>
     </div>
 
     <div class="board-upgrede-btns">
-      <button class="def-btn">全选</button>
-      <button class="def-btn">全不选</button>
-      <button class="def-btn">反选</button>
-      <button class="def-btn">恢复出厂设置</button>
+      <button class="def-btn">{{ $t("UPGRADE.ALL_SELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.ALL_UNSELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.UN_ALL_SELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</button>
     </div>
 
-    <div class="inner-container-title">升级单板固件</div>
+    <div class="inner-container-title">{{ $t("UPGRADE.UPGRADE_BOARD") }}</div>
 
     <div class="chose-wrapper">
-      <span>选择升级文件</span>
+      <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
       <input type="file" accept=".bin" name="" id="" />
     </div>
     <div class="board-upgrade-submit-wrapper">
-      <button class="def-btn" type="primary">升级</button>
+      <button class="def-btn" type="primary">{{ $t("UPGRADE.UPGRADE") }}</button>
     </div>
   </div>
 </template>

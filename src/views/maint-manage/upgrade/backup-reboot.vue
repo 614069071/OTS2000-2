@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="inner-container-title">备份与恢复出厂设置</div>
+    <div class="inner-container-title">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</div>
     <div class="backup-reboot-checks">
       <el-checkbox>板卡#2</el-checkbox>
       <el-checkbox>板卡#4</el-checkbox>
@@ -11,11 +11,11 @@
     </div>
 
     <div class="setting-btns">
-      <button class="def-btn">备份</button>
-      <button class="def-btn">全选</button>
-      <button class="def-btn">反选</button>
-      <button class="def-btn">全不选</button>
-      <button class="def-btn">恢复出厂设置</button>
+      <button class="def-btn">{{ $t("UPGRADE.BACKUP") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.ALL_SELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.ALL_UNSELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.UN_ALL_SELECT") }}</button>
+      <button class="def-btn">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</button>
     </div>
   </div>
 </template>

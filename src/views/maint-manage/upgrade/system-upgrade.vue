@@ -1,11 +1,11 @@
 <template>
   <div class="system-upgrade-page">
     <div>
-      <div class="inner-container-title">系统升级</div>
+      <div class="inner-container-title">{{ $t("UPGRADE.SYS_UPGRADE") }}</div>
       <div class="chose-wrapper">
-        <span>选择升级文件</span>
+        <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
         <input type="file" accept=".bin" name="" id="" />
-        <button class="def-btn" @click="upgradeSubmit">升级</button>
+        <button class="def-btn" @click="upgradeSubmit">{{ $t("UPGRADE.UPGRADE") }}</button>
       </div>
     </div>
   </div>

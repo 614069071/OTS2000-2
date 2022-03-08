@@ -6,17 +6,11 @@
   box-sizing: border-box;
   background-color: #fff;
   position: relative;
+  user-select: none;
 }
 
 .board-item-view-wrapper.composite {
   height: 120px;
-}
-
-.board-item-view-wrapper::before {
-  left: 1px;
-}
-.board-item-view-wrapper::after {
-  right: 1px;
 }
 
 // 单板名称

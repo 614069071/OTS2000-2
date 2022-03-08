@@ -1,37 +1,42 @@
 <template>
   <div>
-    <div class="inner-container-title">设置时间</div>
+    <div class="inner-container-title">{{ $t("SYSTEM_INFO.SET_TIME") }}</div>
 
     <div class="system-info-wrapper">
       <div class="system-info-item-other">
-        <span class="item-before"><el-radio v-model="isAutoConfigTime" :label="false">手动</el-radio></span>
+        <span class="item-before"
+          ><el-radio v-model="isAutoConfigTime" :label="false">{{ $t("SYSTEM_INFO.MANUAL") }}</el-radio></span
+        >
         <span class="item-after"> <el-date-picker v-model="configManualTime" value-format="timestamp" type="datetime" placeholder="选择日期时间"/></span>
       </div>
       <div class="system-info-item-other">
-        <span class="item-before"><el-radio v-model="isAutoConfigTime" :label="true">自动从互联网获取NTP Server</el-radio></span>
+        <span class="item-before"
+          ><el-radio v-model="isAutoConfigTime" :label="true">{{ $t("SYSTEM_INFO.AUTO_GET_TIME") }}</el-radio></span
+        >
         <span class="item-after">{{ configAutoTime | formatTime }}</span>
       </div>
-      <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div>
+      <!-- <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div> -->
 
       <div class="system-info-btns">
-        <button class="def-btn" @click="getTimeConfig">刷新</button>
-        <button class="def-btn" @click="setTimeConfig">应用</button>
+        <button class="def-btn" @click="getTimeConfig">{{ $t("COMMON.REFRESH") }}</button>
+        <button class="def-btn" @click="setTimeConfig">{{ $t("COMMON.SUBMIT") }}</button>
       </div>
 
-      <div class="inner-container-title">机箱温度</div>
+      <div class="inner-container-title">{{ $t("SYSTEM_INFO.CASE_TEMP") }}</div>
       <div class="system-info-item-other">
-        <span class="item-before">最低温度</span>
+        <span class="item-before">{{ $t("SYSTEM_INFO.LOW_TEMP") }}</span>
         <span class="item-after"><input type="text" class="def-input" /> ℃</span>
       </div>
 
       <div class="system-info-item-other">
-        <span class="item-before">最高温度</span><span class="item-after"><input type="text" class="def-input" /> ℃</span>
+        <span class="item-before">{{ $t("SYSTEM_INFO.HIG_TEMP") }}</span
+        ><span class="item-after"><input type="text" class="def-input" /> ℃</span>
       </div>
     </div>
 
     <div class="system-info-btns">
-      <button class="def-btn" @click="getTempConfig">刷新</button>
-      <button class="def-btn" @click="setTempConfig">应用</button>
+      <button class="def-btn" @click="getTempConfig">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.SUBMIT") }}</button>
     </div>
   </div>
 </template>

@@ -141,4 +141,12 @@ export default {
     ADMIN: "管理员",
     AVERAGE: "普通用户",
   },
+  SYSTEM_INFO: {
+    SET_TIME: "设置时间",
+    MANUAL: "手动",
+    AUTO_GET_TIME: "自动从互联网获取NTP Server",
+    CASE_TEMP: "机箱温度",
+    LOW_TEMP: "最低温度",
+    HIG_TEMP: "最高温度",
+  },
 };

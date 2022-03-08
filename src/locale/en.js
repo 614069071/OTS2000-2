@@ -38,6 +38,7 @@ export default {
     SUBNET_MASK: "子网掩码",
     GATEWAY: "网关",
     MAC_ADDRESS: "MAC地址",
+    STATUS: "状态",
   },
   LOGIN: {
     LOGIN: "登录",
@@ -106,5 +107,17 @@ export default {
   },
   IP_CONFIG: {
     IP_CONFIG: "IP地址配置",
+  },
+  SNMP_CONFIG: {
+    GLOBAL_CONFIG: "全局配置",
+    SNMP_READ_COM: "SNMP读共同体",
+    SNMP_WRITE_COM: "SNMP写共同体",
+    SNMP_TRAP_CONFIG: "SNMP Trap 配置",
+    HOST_NAME: "目标主机名",
+    UDP_PORT: "UDP通信端口",
+    ADD_TRAP: "增加Trap",
+    INPUT_HOST_NAME: "请输入主机名称",
+    INPUT_IP_ADDRESS: "请输入IP地址",
+    INPUT_UDP_PORT: "请输入UDP通信端口",
   },
 };

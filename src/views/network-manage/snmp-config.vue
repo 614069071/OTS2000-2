@@ -1,43 +1,51 @@
 <template>
   <div>
-    <div class="inner-container-title">全局配置</div>
+    <div class="inner-container-title">{{ $t("SNMP_CONFIG.GLOBAL_CONFIG") }}</div>
 
     <div class="global-config-snmp-wrapper">
       <div class="global-info-wrapper">
-        <div class="system-info-item"><span>SNMP读共同体</span><span>pulic</span></div>
-        <div class="system-info-item"><span>SNMP写共同体</span><span>private</span></div>
+        <div class="system-info-item">
+          <span>{{ $t("SNMP_CONFIG.SNMP_READ_COM") }}</span
+          ><span>pulic</span>
+        </div>
+        <div class="system-info-item">
+          <span>{{ $t("SNMP_CONFIG.SNMP_WRITE_COM") }}</span
+          ><span>private</span>
+        </div>
       </div>
 
       <div class="change-global-snmp-btn">
-        <button class="def-btn">保存配置</button>
+        <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
       </div>
     </div>
 
-    <div class="inner-container-title">SNMP Trap配置</div>
+    <div class="inner-container-title">{{ $t("SNMP_CONFIG.SNMP_TRAP_CONFIG") }}</div>
 
     <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" label="序号" width="60"> </el-table-column>
-      <el-table-column prop="name1" label="目标主机名称"></el-table-column>
-      <el-table-column prop="name2" label="IP地址"></el-table-column>
-      <el-table-column prop="name3" label="UDP通信端口"></el-table-column>
-      <el-table-column prop="name4" label="状态"></el-table-column>
-      <el-table-column prop="name5" label="操作" width="160">
-        <template v-slot="scope">
-          <button class="def-btn">修改</button>
-          <button class="def-btn">删除</button>
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"> </el-table-column>
+      <el-table-column prop="name1" :label="$t('SNMP_CONFIG.HOST_NAME')"></el-table-column>
+      <el-table-column prop="name2" :label="$t('COMMON.IP_ADDRESS')"></el-table-column>
+      <el-table-column prop="name3" :label="$t('SNMP_CONFIG.UDP_PORT')"></el-table-column>
+      <el-table-column prop="name4" :label="$t('COMMON.STATUS')"></el-table-column>
+      <el-table-column prop="name5" :label="$t('COMMON.CONTROL')" width="160">
+        <template>
+          <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
+          <button class="def-btn">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
 
     <div class="add-trap-config-wrapper" v-for="item in addTrapArg" :key="item">
-      <input class="def-input" type="text" placeholder="请输入主机名称" />
-      <input class="def-input" type="text" placeholder="请输入IP地址" />
-      <input class="def-input" type="text" placeholder="请输入UDP通信端口" />
+      <input class="def-input" type="text" :placeholder="$T('SNMP_CONFIG.INPUT_HOST_NAME')" />
+      <input class="def-input" type="text" :placeholder="$T('SNMP_CONFIG.INPUT_IP_ADDRESS')" />
+      <input class="def-input" type="text" :placeholder="$T('SNMP_CONFIG.INPUT_UDP_PORT')" />
 
-      <button class="def-btn">启用</button>
+      <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
     </div>
 
-    <div class="add-trap-wrapper"><button class="def-btn" @click="addTrapItme">增加Trap</button></div>
+    <div class="add-trap-wrapper">
+      <button class="def-btn" @click="addTrapItme">{{ $t("SNMP_CONFIG.ADD_TRAP") }}</button>
+    </div>
   </div>
 </template>
 

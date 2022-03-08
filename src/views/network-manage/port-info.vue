@@ -1,13 +1,28 @@
 <template>
   <div>
-    <div class="inner-container-title">串口信息</div>
+    <div class="inner-container-title">{{ $t("PORT_INFO.PORT_INFO") }}</div>
 
     <div class="port-info-wrapper">
-      <div class="system-info-item"><span>波特率</span><span>11520</span></div>
-      <div class="system-info-item"><span>数据位</span><span>3</span></div>
-      <div class="system-info-item"><span>奇偶校验</span><span>none</span></div>
-      <div class="system-info-item"><span>停止位</span><span>1</span></div>
-      <div class="system-info-item"><span>流量控制</span><span>none</span></div>
+      <div class="system-info-item">
+        <span>{{ $t("PORT_INFO.BAUD_RATE") }}</span
+        ><span>11520</span>
+      </div>
+      <div class="system-info-item">
+        <span>{{ $t("PORT_INFO.DATA_BIT") }}</span
+        ><span>3</span>
+      </div>
+      <div class="system-info-item">
+        <span>{{ $t("PORT_INFO.ODD_EVEN_CHECK") }}</span
+        ><span>none</span>
+      </div>
+      <div class="system-info-item">
+        <span>{{ $t("PORT_INFO.STOP_BIT") }}</span
+        ><span>1</span>
+      </div>
+      <div class="system-info-item">
+        <span>{{ $t("PORT_INFO.FLOW_CONTROL") }}</span
+        ><span>none</span>
+      </div>
     </div>
   </div>
 </template>

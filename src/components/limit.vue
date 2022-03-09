@@ -1,7 +1,7 @@
 <template>
   <div class="input-limit-wrapper">
     <div class="input-text-hint" v-show="display">{{ hint }}</div>
-    <input class="def-input" type="text" v-model="vale" @input="change($event)" />
+    <input class="def-input" type="text" :value="vale" @input="change($event)" />
   </div>
 </template>
 
@@ -13,12 +13,11 @@ export default {
     return {
       hint: "",
       display: false,
-      vale: this.value || "",
     };
   },
-  watch: {
-    value(v) {
-      this.vale = v;
+  computed: {
+    vale() {
+      return this.value;
     },
   },
   methods: {

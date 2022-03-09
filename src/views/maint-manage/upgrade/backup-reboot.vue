@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="inner-container-title">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</div>
     <div class="backup-reboot-checks">
       <el-checkbox>板卡#2</el-checkbox>
       <el-checkbox>板卡#4</el-checkbox>

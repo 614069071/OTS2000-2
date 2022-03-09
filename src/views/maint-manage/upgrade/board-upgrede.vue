@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="inner-container-title">{{ $t("UPGRADE.NEED_UPGRADE_BOARD") }}</div>
     <div class="board-check-wrapper">
       <el-checkbox>{{ $t("COMMON.BOARD") }}#2</el-checkbox>
       <el-checkbox>{{ $t("COMMON.BOARD") }}#4</el-checkbox>

@@ -1,13 +1,8 @@
 <template>
-  <div class="system-upgrade-page">
-    <div>
-      <div class="inner-container-title">{{ $t("UPGRADE.SYS_UPGRADE") }}</div>
-      <div class="chose-wrapper">
-        <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
-        <input type="file" accept=".bin" name="" id="" />
-        <button class="def-btn" @click="upgradeSubmit">{{ $t("UPGRADE.UPGRADE") }}</button>
-      </div>
-    </div>
+  <div class="chose-wrapper">
+    <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
+    <input type="file" accept=".bin" name="" id="" />
+    <button class="def-btn" @click="upgradeSubmit">{{ $t("UPGRADE.UPGRADE") }}</button>
   </div>
 </template>
 

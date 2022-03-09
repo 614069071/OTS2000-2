@@ -194,7 +194,7 @@
           <td>FEC模式</td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.FEC_mode" @change="changeModeQsfp1">
+              <select v-if="infoData.QSFP1.link_status" :disabled="infoData.QSFP1.Business_type === 1" v-model="infoData.QSFP1.FEC_mode" @change="changeModeQsfp1">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -207,7 +207,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <select v-if="infoData.QSFP2.link_status" v-model="infoData.QSFP2.FEC_mode" @change="changeModeQsfp2">
+              <select v-if="infoData.QSFP2.link_status" :disabled="infoData.QSFP2.Business_type === 1" v-model="infoData.QSFP2.FEC_mode" @change="changeModeQsfp2">
                 <option :value="0">无</option>
                 <option :value="1">GFEC</option>
               </select>
@@ -252,7 +252,9 @@
           <td>接受光功率过低阈值（dBm）</td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_L" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-12" v-model="infoData.QSFP1.rcv_thr_L" />
+
+              <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_L" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -261,7 +263,8 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_L" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-12" v-model="infoData.QSFP2.rcv_thr_L" />
+              <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_L" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -273,7 +276,8 @@
           <td>接受光功率过载阈值（dBm）</td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.rcv_thr_H" />
+              <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_H" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -282,7 +286,8 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :max="3" v-model="infoData.QSFP2.rcv_thr_H" />
+              <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_H" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -294,7 +299,8 @@
           <td>发送光功率过低阈值（dBm）</td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_L" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-7" v-model="infoData.QSFP1.tx_thr_L" />
+              <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_L" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -303,7 +309,8 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_L" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-7" v-model="infoData.QSFP2.tx_thr_L" />
+              <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_L" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -315,7 +322,8 @@
           <td>发送光功率过载阈值（dBm）</td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.tx_thr_H" />
+              <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -324,7 +332,8 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :max="3" v-model="infoData.QSFP2.tx_thr_H" />
+              <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
           </td>
@@ -353,13 +362,8 @@
         <tr>
           <td>发送光功率(dBm)</td>
           <td>
-            <input
-              v-if="infoData.CFP2.link_status"
-              type="text"
-              class="def-input"
-              v-limit="{ key: 'infoData.CFP2.launch_power', min: 5, max: 8 }"
-              v-model.number="infoData.CFP2.launch_power"
-            /><template v-else>NA</template>
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" v-model="infoData.CFP2.launch_power" />
+            <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template> -->
           </td>
           <td>接收光功率(dBm)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
@@ -377,24 +381,28 @@
         <tr>
           <td>接收光功率过低阈值(dBm)</td>
           <td>
-            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-23" v-model="infoData.CFP2.rcv_thr_L" />
+            <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" /> -->
             <template v-else>NA</template>
           </td>
           <td>接收光功率过载阈值(dBm)</td>
           <td>
-            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :max="8" v-model="infoData.CFP2.rcv_thr_H" />
+            <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" /> -->
             <template v-else>NA</template>
           </td>
           <td>发送光功率过低阈值(dBm)</td>
           <td>
-            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" v-model="infoData.CFP2.tx_thr_L" />
+            <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" /> -->
             <template v-else>NA</template>
           </td>
         </tr>
         <tr>
           <td>发送光功率过载阈值(dBm)</td>
           <td>
-            <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :max="5" v-model="infoData.CFP2.tx_thr_H" />
+            <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" /> -->
             <template v-else>NA</template>
           </td>
           <td>激光器开关</td>
@@ -603,9 +611,19 @@ export default {
   methods: {
     changeBusTypeQsfp1() {
       this.infoData.QSFP2.Business_type = this.infoData.QSFP1.Business_type;
+
+      if (this.infoData.QSFP1.Business_type === 1) {
+        this.infoData.QSFP1.FEC_mode = 0;
+        this.infoData.QSFP2.FEC_mode = 0;
+      }
     },
     changeBusTypeQsfp2() {
       this.infoData.QSFP1.Business_type = this.infoData.QSFP2.Business_type;
+
+      if (this.infoData.QSFP2.Business_type === 1) {
+        this.infoData.QSFP1.FEC_mode = 0;
+        this.infoData.QSFP2.FEC_mode = 0;
+      }
     },
     changeModeQsfp1() {
       this.infoData.QSFP2.FEC_mode = this.infoData.QSFP1.FEC_mode;

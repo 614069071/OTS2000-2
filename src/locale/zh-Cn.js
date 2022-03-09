@@ -45,7 +45,7 @@ export default {
   LOGIN: {
     LOGIN: "登录",
     USER_NAME: "账号",
-    LANGUAGE: "语言",
+    LANGUAGE: "Language",
   },
   LOYOUT: {
     RESTART: "重启",

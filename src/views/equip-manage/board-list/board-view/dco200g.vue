@@ -430,7 +430,7 @@
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
               <!-- 先默认一个 -->
-              <option :value="0">DP-16QAM</option>
+              <option :value="3">DP-16QAM</option>
 
               <!-- 待根据不同模块做判断修改 -->
               <!-- <template v-if="infoData.CFP2.cfp2_type === 10"> </template>

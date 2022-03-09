@@ -437,35 +437,49 @@
           <tr>
             <td>输出幅度（mVpp）</td>
             <td>
-              <el-input-number v-if="infoData.channels[0].link_status.client" v-model.number="infoData.channels[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[0].link_status.client" :min="400" :max="900" v-model="infoData.channels[0].output_amplitude.client" />
+              <!-- <el-input-number v-if="infoData.channels[0].link_status.client" v-model.number="infoData.channels[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[0].link_status.line" v-model.number="infoData.channels[0].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[0].link_status.line" :min="400" :max="900" v-model="infoData.channels[0].output_amplitude.line" />
+
+              <!-- <el-input-number v-if="infoData.channels[0].link_status.line" v-model.number="infoData.channels[0].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[1].link_status.client" v-model.number="infoData.channels[1].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[1].link_status.client" :min="400" :max="900" v-model="infoData.channels[1].output_amplitude.client" />
+              <!-- <el-input-number v-if="infoData.channels[1].link_status.client" v-model.number="infoData.channels[1].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[1].link_status.line" v-model.number="infoData.channels[1].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[1].link_status.line" :min="400" :max="900" v-model="infoData.channels[1].output_amplitude.line" />
+
+              <!-- <el-input-number v-if="infoData.channels[1].link_status.line" v-model.number="infoData.channels[1].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[2].link_status.client" v-model.number="infoData.channels[2].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[2].link_status.client" :min="400" :max="900" v-model="infoData.channels[2].output_amplitude.client" />
+
+              <!-- <el-input-number v-if="infoData.channels[2].link_status.client" v-model.number="infoData.channels[2].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[2].link_status.line" v-model.number="infoData.channels[2].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[2].link_status.line" :min="400" :max="900" v-model="infoData.channels[2].output_amplitude.line" />
+
+              <!-- <el-input-number v-if="infoData.channels[2].link_status.line" v-model.number="infoData.channels[2].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[3].link_status.client" v-model.number="infoData.channels[3].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[3].link_status.client" :min="400" :max="900" v-model="infoData.channels[3].output_amplitude.client" />
+
+              <!-- <el-input-number v-if="infoData.channels[3].link_status.client" v-model.number="infoData.channels[3].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
             <td>
-              <el-input-number v-if="infoData.channels[3].link_status.line" v-model.number="infoData.channels[3].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly />
+              <Limit v-if="infoData.channels[3].link_status.line" :min="400" :max="900" v-model="infoData.channels[3].output_amplitude.line" />
+
+              <!-- <el-input-number v-if="infoData.channels[3].link_status.line" v-model.number="infoData.channels[3].output_amplitude.line" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
               <template v-else>NA</template>
             </td>
           </tr>
@@ -756,7 +770,7 @@ export default {
 
       this.$http
         .post(data)
-        .then((res) => {
+        .then(res => {
           console.log("setInfos", res);
 
           this.setInfoDisabled = false;
@@ -779,7 +793,7 @@ export default {
             this.detection[i][status] = false;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           alert("失败");
           this.setInfoDisabled = false;

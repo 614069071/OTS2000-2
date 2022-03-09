@@ -11,16 +11,10 @@ export default {
   props: { min: Number, max: Number, value: [String, Number] },
   data() {
     return {
-      display: false,
       hint: "",
+      display: false,
       vale: this.value,
     };
-  },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
   },
   methods: {
     change(e) {

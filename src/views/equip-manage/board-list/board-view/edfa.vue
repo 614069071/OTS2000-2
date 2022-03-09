@@ -59,14 +59,16 @@
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>
-                <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number>
+                <!-- <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number> -->
+                <Limit :min="19" :max="25" v-model="infoData.gain" />
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>功率值</td>
               <td>
-                <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-4" :max="20"></el-input-number>
+                <Limit :min="-4" :max="20" v-model="infoData.APC_output_power" />
+                <!-- <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-4" :max="20"></el-input-number> -->
               </td>
             </template>
 
@@ -103,14 +105,17 @@
             <template v-if="infoData.mode === 3">
               <td>增益值</td>
               <td>
-                <el-input-number v-model="infoData.gain" size="mini" :min="29" :max="35"></el-input-number>
+                <Limit :min="29" :max="35" v-model="infoData.gain" />
+
+                <!-- <el-input-number v-model="infoData.gain" size="mini" :min="29" :max="35"></el-input-number> -->
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>功率值</td>
               <td>
-                <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-1" :max="20"></el-input-number>
+                <Limit :min="-1" :max="20" v-model="infoData.APC_output_power" />
+                <!-- <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-1" :max="20"></el-input-number> -->
               </td>
             </template>
 

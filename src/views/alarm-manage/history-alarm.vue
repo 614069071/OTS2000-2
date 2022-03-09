@@ -333,10 +333,12 @@ export default {
         });
     },
     prevPage() {
+      this.dataTable = [];
       this.page -= 1;
       this.getAlarmList();
     },
     nextPage() {
+      this.dataTable = [];
       this.page += 1;
       this.getAlarmList();
     },

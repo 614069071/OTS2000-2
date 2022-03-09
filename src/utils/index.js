@@ -116,13 +116,6 @@ export function formatSeconds(value) {
   return result;
 }
 
-// 滚动指定dom位置
-export function scrollToView(dom = "") {
-  const el = document.querySelector(dom);
-  const scroll = el.offsetTop;
-  scroll ? window.scroll(0, scroll) : el.scrollIntoView();
-}
-
 // 自动挂载组件
 export function autoload(Vue) {
   const files = require.context("@components", false, /\.vue$/);
@@ -134,12 +127,18 @@ export function autoload(Vue) {
   });
 }
 
-/* 
-  将后台返回的菜单列表数据map成新的路由
-  @arr1     后端返回的菜单路由
-  @arr2     前端动态路由
-  @return   新的路由列表
-*/
+/*
+// 滚动指定dom位置
+export function scrollToView(dom = "") {
+  const el = document.querySelector(dom);
+  const scroll = el.offsetTop;
+  scroll ? window.scroll(0, scroll) : el.scrollIntoView();
+}
+
+// 将后台返回的菜单列表数据map成新的路由
+// @arr1     后端返回的菜单路由
+// @arr2     前端动态路由
+// @return   新的路由列表
 export function overlapRouter(arr1 = [], arr2 = []) {
   let arr = [];
 
@@ -178,7 +177,7 @@ export function overlapRouter(arr1 = [], arr2 = []) {
   return arr;
 }
 
-// 校验相关
+ // 校验相关
 // 邮箱验证
 export function checkEmail(str) {
   const reg = /[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+/g;
@@ -211,7 +210,7 @@ export function checkUsername(str) {
 // 手机号隐藏中间数字
 export function dealPhone(str = "") {
   return str.slice(0, 3) + "****" + str.slice(7);
-}
+} */
 
 export const alarmLevels = [i18nToKey("COMMON.HINT"), i18nToKey("COMMON.MINOR"), i18nToKey("COMMON.MAIN"), i18nToKey("COMMON.SEVERITY")];
 

@@ -75,8 +75,8 @@
           ><span>{{ systemInfo.sys_time }}</span>
         </div>
         <div class="system-info-item">
-          <span>{{ $t("HOME.RUN_TIME") }}</span
-          ><span>{{ systemInfo.run_time | formatSeconds }}</span>
+          <span>{{ $t("HOME.RUN_TIME") }}</span>
+          <span>{{ systemInfo.run_time | formatSeconds }}</span>
         </div>
         <div class="system-info-item">
           <span>{{ $t("COMMON.WEB_VERSION") }}</span
@@ -90,7 +90,10 @@
       <div class="fan-state-wrapper">
         <div class="state-title"><i class="c-icon icon-setting"></i>{{ $t("HOME.FAN_STATE") }}</div>
         <div class="state-inner-wrapper">
-          <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'"></div>
+          <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'">
+            <div class="fan-blade"></div>
+          </div>
+          <div class="state-footer">{{ systemInfo.fan_status || 0 }}rpm</div>
         </div>
       </div>
       <div class="cpu-state-wrapper">
@@ -110,8 +113,9 @@
         <div class="state-inner-wrapper">
           <div class="temperature-wrapper">
             <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
-            <div class="temperature-value">{{ systemInfo.temp }}℃</div>
+            <!-- <div class="temperature-value">{{ systemInfo.temp }}℃</div> -->
           </div>
+          <div class="state-footer">{{ systemInfo.temp }}℃</div>
         </div>
       </div>
     </div>
@@ -274,6 +278,21 @@ export default {
     height: 100%;
     background: url("../../assets/images/fans.png") center/contain no-repeat, url("../../assets/images/icons/right.png") 85px 84px/24px 24px no-repeat;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fan-blade {
+      width: 60px;
+      height: 60px;
+      background: url("../../assets/images/fan-bo.jpg") center/contain no-repeat;
+      animation: rotate linear 1.4s infinite;
+    }
+  }
+
+  .state-footer {
+    text-align: center;
+    font-size: 16px;
   }
 
   .fan-wrapper.error {
@@ -292,7 +311,7 @@ export default {
     height: 43px;
     background-color: var(--dft-color);
     position: absolute;
-    left: 60px;
+    left: 57px;
     bottom: 44px;
     border-radius: 3px 3px 0 0;
   }
@@ -301,6 +320,12 @@ export default {
     left: 95px;
     bottom: 55px;
     font-size: 18px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
   }
 }
 </style>

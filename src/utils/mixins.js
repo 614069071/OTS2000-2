@@ -50,7 +50,7 @@ export default {
     },
     refreshGetInfo() {
       this.getInfo().catch(() => {
-        alert("获取失败");
+        alert(this.$t("COMMON.FAIL"));
       });
     },
     setInfo() {
@@ -59,7 +59,7 @@ export default {
       const data = { otn2000: { ...diffData, slot, boardname, type: "post_info" } };
 
       if (JSON.stringify(diffData) === "{}") {
-        return alert("请选择配置项");
+        return alert(this.$t("COMMON.SELECT_CONFIG_HINT"));
       }
 
       this.setInfoDisabled = true;
@@ -72,11 +72,11 @@ export default {
         .then(() => {
           this.setInfoDisabled = false;
           this.getInfo().catch(() => {
-            alert("获取失败");
+            alert(this.$t("COMMON.FAIL"));
           });
         })
         .catch(() => {
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         })
         .finally(() => {
           this.setInfoDisabled = false;
@@ -97,7 +97,7 @@ export default {
           this.getInfo();
         })
         .catch(() => {
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         });
     },
     restorInfo() {
@@ -111,7 +111,7 @@ export default {
           this.getInfo();
         })
         .catch(() => {
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         });
     },
   },

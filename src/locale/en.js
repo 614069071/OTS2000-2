@@ -41,6 +41,7 @@ export default {
     MAC_ADDRESS: "MAC address",
     STATUS: "Status",
     PASSWORD: "Password",
+    SELECT_CONFIG_HINT: "Select the configuration item",
   },
   LOGIN: {
     LOGIN: "Login",

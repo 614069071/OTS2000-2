@@ -6,7 +6,7 @@
 
     <div class="user-info-wrapper">
       <span>{{ $t("LOYOUT.USER_NAME") }}：webadmin</span>
-      <span>{{ $t("LOYOUT.USER_LEVER") }}：管理员</span>
+      <span>{{ $t("LOYOUT.USER_LEVER") }}：{{ $t("USER_MANAGE.ADMIN") }}</span>
     </div>
   </div>
 </template>

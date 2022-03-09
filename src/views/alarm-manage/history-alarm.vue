@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="inner-header-wrapper">
-      <div class="inner-container-title">查询条件</div>
+      <div class="inner-container-title">{{ $t("COMMON.SEARCH") }}</div>
 
       <el-form class="history-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
         <el-form-item :label="$t('COMMON.START_TIME')">

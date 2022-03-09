@@ -24,7 +24,7 @@ export default {
     BOARD_TYPE: "Board type",
     ALL_PORT: "All port",
     ALL: "All",
-    HINT: "hint",
+    HINT: "Hint",
     MINOR: "Minor",
     MAIN: "Main",
     SEVERITY: "Severiry",

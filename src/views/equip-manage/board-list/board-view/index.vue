@@ -7,15 +7,15 @@
     <div class="board-view-form-wrapper">
       <table class="board-table" border="1">
         <tr>
-          <td>硬件版本</td>
+          <td>{{ $t("COMMON.HARDWARE_VERSION") }}</td>
           <td>{{ `${titeData.h_rev ? "V" + titeData.h_rev : ""}` }}</td>
-          <td>软件版本</td>
+          <td>{{ $t("COMMON.SOFTWARE_VERSION") }}</td>
           <td>{{ `${titeData.s_rev ? "V" + titeData.s_rev : ""}` }}</td>
-          <td>协议版本</td>
+          <td>{{ $t("COMMON.PROTOL_VER") }}</td>
           <td>{{ `${titeData.p_rev ? "V" + titeData.p_rev : ""}` }}</td>
         </tr>
         <tr>
-          <td>生产日期</td>
+          <td>{{ $t("LIST.PRODUCTION_DATE") }}</td>
           <td>
             <el-date-picker v-if="isAdmin" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
@@ -23,7 +23,7 @@
               {{ titeData.mfgdate }}
             </template>
           </td>
-          <td>序列号</td>
+          <td>{{ $t("COMMON.SN") }}</td>
           <td>
             <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.sn" />
 
@@ -31,19 +31,19 @@
               {{ titeData.sn }}
             </template>
           </td>
-          <td>板型号</td>
+          <td>{{ $t("COMMON.BOARD_TYPE") }}</td>
           <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
-          <td>设备类型</td>
+          <td>{{ $t("HOME.DEVICE_TYPE") }}</td>
           <td>{{ titeData.device_type }}</td>
-          <td>状态</td>
+          <td>{{ $t("COMMON.STATUS") }}</td>
           <td>{{ titeData.status ? "告警" : "正常" }}</td>
-          <td>信息描述</td>
+          <td>{{ $t("COMMON.DES") }}</td>
           <td><input class="def-input" type="text" maxlength="30" v-model="titeData.desc" /></td>
         </tr>
         <tr>
-          <td>MAC地址</td>
+          <td>{{ $t("COMMON.MAC_ADDRESS") }}</td>
           <td>
             <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.mac_address" />
 
@@ -51,7 +51,7 @@
               {{ titeData.mac_address }}
             </template>
           </td>
-          <td>槽位号</td>
+          <td>{{ $t("COMMON.SLOT_NUMBER") }}</td>
           <td>{{ info.slot }}</td>
           <td>
             <!-- 测试 -->

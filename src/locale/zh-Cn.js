@@ -9,6 +9,7 @@ export default {
     HARDWARE_VERSION: "硬件版本",
     SOFTWARE_VERSION: "软件版本",
     FIRMWARE_VERSION: "固件版本",
+    PROTOL_VER: "协议版本",
     WEB_VERSION: "网关版本",
     PORT_NUMBER: "端口号",
     SN: "序列号",
@@ -44,6 +45,7 @@ export default {
     SELECT_CONFIG_HINT: "请选择配置项",
     UP: "在位",
     DOWN: "脱位",
+    DES: "信息描述",
   },
   LOGIN: {
     LOGIN: "登录",

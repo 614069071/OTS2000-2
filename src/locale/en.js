@@ -9,6 +9,7 @@ export default {
     HARDWARE_VERSION: "Hardware version",
     SOFTWARE_VERSION: "Software version",
     FIRMWARE_VERSION: "Firmware version",
+    PROTOL_VER: "Protocol version",
     WEB_VERSION: "Web version",
     PORT_NUMBER: "Port number",
     SN: "Sn",
@@ -44,6 +45,7 @@ export default {
     SELECT_CONFIG_HINT: "Select the configuration item",
     UP: "Up",
     DOWN: "Down",
+    DES: "Description",
   },
   LOGIN: {
     LOGIN: "Login",

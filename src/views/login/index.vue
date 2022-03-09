@@ -148,6 +148,7 @@ export default {
   flex: 1;
   display: flex;
   align-items: center;
+  padding-bottom: 110px;
 }
 
 .login-main-left,
@@ -192,7 +193,7 @@ export default {
 }
 
 .login-ps-wrapper {
-  margin-top: 53px;
+  margin-top: 44px;
 }
 
 .login-user-before,
@@ -209,7 +210,7 @@ export default {
 
 .login-submit {
   display: block;
-  width: 95px;
+  width: 404px;
   height: 40px;
   line-height: 40px;
   text-align: center;

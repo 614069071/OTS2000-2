@@ -24,74 +24,74 @@ export default {
       return [
         {
           icon: "icon-system",
-          menuName: "设备管理",
+          menuName: this.$t("MENU.DEVICE_MANAGE"),
           children: [
             {
               icon: "",
-              menuName: "设备概览",
+              menuName: this.$t("MENU.DEVICE_VIEW"),
               menuLink: "/",
             },
             {
               icon: "",
-              menuName: "单板列表",
+              menuName: this.$t("MENU.BOARD_LIST"),
               menuLink: "/board-list",
             },
           ],
         },
         {
           icon: "icon-warning",
-          menuName: "告警管理",
+          menuName: this.$t("MENU.ALARM_MANAGE"),
           children: [
             {
               icon: "",
-              menuName: "告警管理",
+              menuName: this.$t("MENU.ALARM_CONFIG"),
               menuLink: "/alarm-manage",
             },
             {
               icon: "",
-              menuName: "当前告警",
+              menuName: this.$t("MENU.CURRENT_ALARM"),
               menuLink: "/alarm-manage/current-alarm",
             },
             {
               icon: "",
-              menuName: "历史告警",
+              menuName: this.$t("MENU.HISTORY_ALARM"),
               menuLink: "/alarm-manage/history-alarm",
             },
           ],
         },
         {
           icon: "icon-earth",
-          menuName: "网络管理",
+          menuName: this.$t("MENU.NET_MANAGE"),
           children: [
             {
               icon: "",
-              menuName: "IP地址配置",
+              menuName: this.$t("MENU.IP_CONFIG"),
               menuLink: "/network-manage",
             },
             {
               icon: "",
-              menuName: "SNMP配置",
+              menuName: this.$t("MENU.SNMP_CONFIG"),
               menuLink: "/network-manage/snmp-config",
             },
             {
               icon: "",
-              menuName: "串口信息",
+              menuName: this.$t("MENU.PORT_INFO"),
               menuLink: "/network-manage/port-info",
             },
             {
               icon: "",
-              menuName: "级联配置",
+              menuName: this.$t("MENU.CAS_CONFIG"),
               menuLink: "/network-manage/cascade-config",
             },
           ],
         },
         {
           icon: "icon-security",
-          menuName: "安全管理",
+          menuName: this.$t("MENU.SEC_MANAGE"),
           children: [
             {
               icon: "",
-              menuName: "用户管理",
+              menuName: this.$t("MENU.USER_MANAGE"),
               menuLink: "/safety-manage",
             },
           ],
@@ -99,21 +99,21 @@ export default {
         {
           icon: "icon-ampl",
           menuId: 5,
-          menuName: "维护管理",
+          menuName: this.$t("MENU.MAIN_MANAGE"),
           children: [
             {
               icon: "",
-              menuName: "系统信息",
+              menuName: this.$t("MENU.SYS_INFO"),
               menuLink: "/maint-manage",
             },
             {
               icon: "",
-              menuName: "远程升级",
+              menuName: this.$t("MENU.UPGRADE"),
               menuLink: "/upgrade",
             },
             {
               icon: "",
-              menuName: "运行日志",
+              menuName: this.$t("MENU.RUN_LOG"),
               menuLink: "/maint-manage/run-log",
             },
           ],
@@ -149,7 +149,7 @@ export default {
   }
 
   .sidebar-el-menu:not(.el-menu--collapse) {
-    width: 160px;
+    width: 190px;
     // min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
   }
 

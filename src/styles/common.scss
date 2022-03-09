@@ -293,14 +293,3 @@ button:disabled {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-.input-text-toast {
-  display: none;
-  position: absolute;
-  background-color: #555;
-  z-index: 100;
-  height: 22px;
-  line-height: 22px;
-  padding: 0 5px;
-  color: #fff;
-}

@@ -57,6 +57,7 @@
             <!-- 测试 -->
           </td>
           <td>
+            <!-- <Limit :min="0" :max="30" v-model="test.text"></Limit> -->
             <!-- <input v-limit="{ min: 2, max: 120, data: test.text }" type="text" class="def-input" v-model="test.text" /> -->
           </td>
         </tr>

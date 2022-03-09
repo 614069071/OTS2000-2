@@ -115,7 +115,7 @@
             <div class="temperature-inner-wrapper" :style="{ height: ((systemInfo.temp >= 100 ? 100 : systemInfo.temp) / 100) * 60 + 'px' }"></div>
             <!-- <div class="temperature-value">{{ systemInfo.temp }}℃</div> -->
           </div>
-          <div class="state-footer">{{ systemInfo.temp }}℃</div>
+          <div class="state-footer">{{ systemInfo.temp || 0 }}℃</div>
         </div>
       </div>
     </div>

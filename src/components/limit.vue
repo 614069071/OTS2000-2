@@ -1,18 +1,19 @@
 <template>
   <div class="input-limit-wrapper">
     <div class="input-text-hint" v-show="display">{{ hint }}</div>
-    <input class="def-input" type="text" @input="change($event)" />
+    <input class="def-input" type="text" v-model="vale" @input="change($event)" />
   </div>
 </template>
 
 <script>
 export default {
   name: "Limit",
-  props: { min: Number, max: Number, value: String },
+  props: { min: Number, max: Number, value: [String, Number] },
   data() {
     return {
       display: false,
       hint: "",
+      vale: this.value,
     };
   },
   created() {
@@ -62,7 +63,7 @@ export default {
         }
       }
 
-      this.$emit("input", data);
+      this.$emit("input", isNaN(val) ? data : val);
     },
   },
 };

@@ -26,7 +26,6 @@ Vue.filter("formatSeconds", d => formatSeconds(d));
 Vue.filter("formatTime", d => (d ? formatTime(d) : ""));
 Vue.filter("mapBoardType", v => (mapAlarmTypes[v] || {}).name || v);
 Vue.filter("mapAlarmLevel", v => alarmLevels[v] || v);
-Vue.filter("mapAlarmLevel", v => alarmLevels[v] || v);
 Vue.filter("mapBoardAlarmName", v => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
 
 new Vue({ router, i18n, render: h => h(App) }).$mount("#app");

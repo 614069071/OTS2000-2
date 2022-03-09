@@ -1,4 +1,5 @@
 import { transform, isEqual, isObject, cloneDeep } from "lodash";
+import { i18nToKey } from "@/locale";
 
 // 比较两个对象差异
 export function difference(object, base) {
@@ -212,12 +213,7 @@ export function dealPhone(str = "") {
   return str.slice(0, 3) + "****" + str.slice(7);
 }
 
-export const alarmLevels = {
-  0: "提示",
-  1: "次要",
-  2: "主要",
-  3: "严重",
-};
+export const alarmLevels = [i18nToKey("COMMON.HINT"), i18nToKey("COMMON.MINOR"), i18nToKey("COMMON.MAIN"), i18nToKey("COMMON.SEVERITY")];
 
 export const alarmTypes = {
   1: "链路Link Down",

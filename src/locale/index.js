@@ -30,8 +30,11 @@ ElementLocale.i18n((key, value) => i18n.t(key, value));
 
 export function setI18Locale(lang) {
   i18n.locale = lang;
-
   localStorage.setItem("otn-lang", lang);
+}
+
+export function i18nToKey(key) {
+  return i18n.t(key);
 }
 
 export default i18n;

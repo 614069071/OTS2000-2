@@ -42,6 +42,8 @@ export default {
     STATUS: "Status",
     PASSWORD: "Password",
     SELECT_CONFIG_HINT: "Select the configuration item",
+    UP: "Up",
+    DOWN: "Down",
   },
   LOGIN: {
     LOGIN: "Login",

@@ -41,7 +41,9 @@ export default {
     MAC_ADDRESS: "MAC地址",
     STATUS: "状态",
     PASSWORD: "密码",
-    SELECT_CONFIG_HINT: "请选择配置项 ",
+    SELECT_CONFIG_HINT: "请选择配置项",
+    UP: "在位",
+    DOWN: "脱位",
   },
   LOGIN: {
     LOGIN: "登录",

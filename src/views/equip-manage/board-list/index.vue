@@ -12,7 +12,7 @@
       </el-table-column>
       <el-table-column prop="status" :label="$t('LIST.SLOT_STATUS')">
         <template v-slot="{ row }">
-          {{ row.status ? "在位" : "脱位" }}
+          {{ row.status ? $t("COMMON.UP") : $t("COMMON.DOWN") }}
         </template>
       </el-table-column>
       <el-table-column prop="boardname" :label="$t('COMMON.BOARD_TYPE')">

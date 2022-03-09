@@ -89,7 +89,7 @@ export default {
     simulateLogin() {
       setTimeout(() => {
         storages.set("__accessToken__", 123);
-        storages.set("__iSuper__", true);
+        storages.set("__isAdmin__", true);
         this.$router.push("/");
       }, 1000);
     },

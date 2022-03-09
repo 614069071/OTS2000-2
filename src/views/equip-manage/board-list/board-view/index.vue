@@ -142,7 +142,7 @@ export default {
   },
   data() {
     return {
-      iSuper: storages.get("__iSuper__") || false,
+      iSuper: storages.get("__isAdmin__") || false,
       titeData: {
         sn: "",
         desc: "",

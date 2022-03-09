@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       isTatic: true,
-      iSuper: storages.get("__iSuper__") || false,
+      iSuper: storages.get("__isAdmin__") || false,
       systemInfo: {
         boardname: "",
         device_type: "",

@@ -782,11 +782,11 @@ export default {
             this.getInfo()
               .then(() => {
                 this.detection[i][`${status}End`] = true;
-                alert("检测成功");
+                alert(this.$t("COMMON.SUCCESS"));
               })
               .catch(() => {
                 this.detection[i][`${status}End`] = true;
-                alert("检测失败");
+                alert(this.$t("COMMON.FAIL"));
               });
           } else {
             this.detection[i][`${status}End`] = false;
@@ -795,7 +795,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
-          alert("失败");
+          alert(this.$t("COMMON.FAIL"));
           this.setInfoDisabled = false;
         });
     },

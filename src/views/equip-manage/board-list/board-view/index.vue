@@ -200,7 +200,7 @@ export default {
     },
     refreshGetTitle() {
       this.getTitle().catch(() => {
-        alert("获取失败");
+        alert(this.$t("COMMON.FAIL"));
       });
     },
     setTilte() {
@@ -222,7 +222,7 @@ export default {
         .catch(() => {
           this.setTilteDisabled = false;
           this.refreshTitleDisabled = false;
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         });
     },
     getDetail() {

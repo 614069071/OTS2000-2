@@ -192,7 +192,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         });
     },
     cancelChangeForm() {

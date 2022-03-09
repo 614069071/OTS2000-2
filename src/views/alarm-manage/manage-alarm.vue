@@ -155,7 +155,7 @@ export default {
           this.getAlarmList();
         })
         .catch(() => {
-          alert("配置失败");
+          alert(this.$t("COMMON.FAIL"));
         });
     },
     prevPage() {

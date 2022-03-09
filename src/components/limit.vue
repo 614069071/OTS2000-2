@@ -21,23 +21,19 @@ export default {
       const reg = /(^[-]?[0-9]{0,}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
       const { min, max } = this;
       const data = e.target.value;
-      const val = parseFloat(data);
+      const val = Number(data);
 
       if (data != 0 && !data) return;
 
-      if (reg.test(data)) {
+      if (reg.test(data) && data !== "-" && data !== ".") {
         if (!!min || min === 0) {
           this.hint = "有效值不能小于" + min;
           this.display = (val || val === 0) && val < min;
-
-          return;
         }
 
         if (!!max || max === 0) {
           this.hint = "有效值不能大于" + max;
           this.display = (val || val === 0) && val > max;
-
-          return;
         }
 
         if ((!!min || min === 0) && (!!max || max === 0)) {

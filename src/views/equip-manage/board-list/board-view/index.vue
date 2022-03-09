@@ -17,7 +17,7 @@
         <tr>
           <td>生产日期</td>
           <td>
-            <el-date-picker v-if="iSuper" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="isAdmin" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
               {{ titeData.mfgdate }}
@@ -25,7 +25,7 @@
           </td>
           <td>序列号</td>
           <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.sn" />
+            <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.sn" />
 
             <template v-else>
               {{ titeData.sn }}
@@ -45,7 +45,7 @@
         <tr>
           <td>MAC地址</td>
           <td>
-            <input class="def-input" v-if="iSuper" type="text" v-model="titeData.mac_address" />
+            <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.mac_address" />
 
             <template v-else>
               {{ titeData.mac_address }}
@@ -142,7 +142,7 @@ export default {
   },
   data() {
     return {
-      iSuper: storages.get("__isAdmin__") || false,
+      isAdmin: storages.get("__isAdmin__") || false,
       titeData: {
         sn: "",
         desc: "",
@@ -206,7 +206,7 @@ export default {
     setTilte() {
       const { mfgdate, sn, desc } = this.titeData;
       const { boardname, slot } = this.info;
-      const iSuperData = this.iSuper ? { mfgdate, sn } : {};
+      const iSuperData = this.isAdmin ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.setTilteDisabled = true;

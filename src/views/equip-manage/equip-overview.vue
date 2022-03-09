@@ -11,8 +11,8 @@
         <div class="system-info-item">
           <span>{{ $t("HOME.DEVICE_SN") }}</span>
           <span>
-            <template v-if="isTatic || !iSuper">{{ systemInfo.sn }}</template>
-            <input v-if="!isTatic && iSuper" class="def-input" type="text" v-model="systemInfo.sn" />
+            <template v-if="isTatic || !isAdmin">{{ systemInfo.sn }}</template>
+            <input v-if="!isTatic && isAdmin" class="def-input" type="text" v-model="systemInfo.sn" />
           </span>
         </div>
         <div class="system-info-item">
@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       isTatic: true,
-      iSuper: storages.get("__isAdmin__") || false,
+      isAdmin: storages.get("__isAdmin__") || false,
       systemInfo: {
         boardname: "",
         device_type: "",
@@ -181,7 +181,7 @@ export default {
     },
     submitChangeFrom() {
       const { dev_sign, contacts, location, sn } = this.systemInfo;
-      const asin = this.iSuper ? { sn } : {};
+      const asin = this.isAdmin ? { sn } : {};
       const data = { otn2000: { boardname: "sys_view", type: "post_info", dev_sign, contacts, location, ...asin } };
 
       this.$http

@@ -202,4 +202,5 @@ export default {
     REMOVE_CAS: "清除级联",
     MAIN_NET: "主网元",
   },
+  BOARD_INFO: {},
 };

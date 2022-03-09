@@ -13,8 +13,13 @@ export default {
     return {
       hint: "",
       display: false,
-      vale: this.value,
+      vale: this.value || "",
     };
+  },
+  watch: {
+    value(v) {
+      this.vale = v;
+    },
   },
   methods: {
     change(e) {
@@ -45,7 +50,7 @@ export default {
         this.display = !!data.length;
       }
 
-      this.$emit("input", isNaN(val) ? data : val);
+      this.$emit("input", !data || isNaN(val) ? data : val);
     },
   },
 };

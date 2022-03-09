@@ -1,25 +1,5 @@
 import Vue from "vue";
-import {
-  Menu,
-  MenuItem,
-  Submenu,
-  Table,
-  TableColumn,
-  Form,
-  FormItem,
-  Select,
-  Input,
-  DatePicker,
-  Option,
-  MessageBox,
-  Message,
-  Notification,
-  Loading,
-  Checkbox,
-  Progress,
-  Radio,
-  InputNumber,
-} from "element-ui";
+import { Menu, MenuItem, Submenu, Table, TableColumn, Form, FormItem, Select, Input, DatePicker, Option, MessageBox, Message, Notification, Loading, Checkbox, Progress, Radio } from "element-ui";
 
 import "./element-variables.scss";
 
@@ -51,5 +31,4 @@ Vue.use(Menu)
   .use(DatePicker)
   .use(Checkbox)
   .use(Progress)
-  .use(Radio)
-  .use(InputNumber);
+  .use(Radio);

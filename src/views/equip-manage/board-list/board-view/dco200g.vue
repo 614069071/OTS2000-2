@@ -352,7 +352,10 @@
           <!-- 新增字段 待设备添加 -->
           <td>CFP2状态</td>
           <td>
-            {{ infoData.CFP2.cfp2_states | mapCfpState }}
+            <template v-if="infoData.CFP2.link_status">
+              {{ infoData.CFP2.cfp2_states | mapCfpState }}
+            </template>
+            <template v-else>NA</template>
             <!-- 初始化状态 低功耗状态 高功耗打开状态 高功耗关闭状态 发送禁止状态 发送打开状态 发送关闭状态 失效状态 Ready状态 -->
           </td>
           <!-- 新增字段 待设备添加 -->
@@ -363,6 +366,7 @@
           <td>发送光功率(dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" v-model="infoData.CFP2.launch_power" />
+            <template v-else>NA</template>
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template> -->
           </td>
           <td>接收光功率(dBm)</td>

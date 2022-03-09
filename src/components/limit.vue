@@ -34,33 +34,25 @@ export default {
       if (reg.test(data)) {
         if (!!min || min === 0) {
           this.hint = "有效值不能小于" + min;
+          this.display = (val || val === 0) && val < min;
+
+          return;
         }
 
         if (!!max || max === 0) {
           this.hint = "有效值不能大于" + max;
+          this.display = (val || val === 0) && val > max;
+
+          return;
         }
 
         if ((!!min || min === 0) && (!!max || max === 0)) {
           this.hint = "有效值范围为" + min + "~" + max;
-        }
-
-        if (data.length > 0) {
-          if (val >= min && val <= max) {
-            this.display = false;
-          } else {
-            this.display = true;
-          }
-        } else {
-          this.display = false;
+          this.display = (val || val === 0) && (val > max || val < min);
         }
       } else {
         this.hint = "请输入有效的值";
-
-        if (data.length > 0) {
-          this.display = true;
-        } else {
-          this.display = false;
-        }
+        this.display = !!data.length;
       }
 
       this.$emit("input", isNaN(val) ? data : val);

@@ -44,7 +44,7 @@ export default {
   },
   LOGIN: {
     LOGIN: "Login",
-    USER_NAME: "user name",
+    USER_NAME: "User name",
     LANGUAGE: "语言",
   },
   LOYOUT: {

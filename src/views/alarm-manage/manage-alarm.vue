@@ -41,7 +41,11 @@
     </el-form>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"></el-table-column>
+      <el-table-column :label="$t('COMMON.SERIAL')" width="60">
+        <template v-slot="{ $index }">
+          {{ (page - 1) * total + $index + 1 }}
+        </template>
+      </el-table-column>
       <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="100"></el-table-column>
       <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>

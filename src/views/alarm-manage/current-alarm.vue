@@ -46,7 +46,11 @@
     <div class="inner-container-title">{{ $t("CURRENT_ALARM.CURRENT_ALARM") }}</div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"></el-table-column>
+      <el-table-column :label="$t('COMMON.SERIAL')" width="60">
+        <template v-slot="{ $index }">
+          {{ (page - 1) * total + $index + 1 }}
+        </template>
+      </el-table-column>
       <el-table-column prop="occur_time" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
         <template v-slot="{ row }">
           {{ (row.occur_time * 1000) | formatTime }}

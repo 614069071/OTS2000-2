@@ -192,4 +192,9 @@ export default {
     UPGRADE: "远程升级",
     RUN_LOG: "运行日志",
   },
+  CASCADE_CONFIG: {
+    CASCADE_CONFIG: "级联配置",
+    REMOVE_CAS: "清除级联",
+    MAIN_NET: "主网元",
+  },
 };

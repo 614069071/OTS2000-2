@@ -192,4 +192,9 @@ export default {
     UPGRADE: "Upgrade",
     RUN_LOG: "Run Log",
   },
+  CASCADE_CONFIG: {
+    CASCADE_CONFIG: "Cascade config",
+    REMOVE_CAS: "Remove cascade",
+    MAIN_NET: "Main network element",
+  },
 };

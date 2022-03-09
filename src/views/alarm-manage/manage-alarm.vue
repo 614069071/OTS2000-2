@@ -41,8 +41,8 @@
     </el-form>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="50"></el-table-column>
-      <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="60"></el-table-column>
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"></el-table-column>
+      <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="100"></el-table-column>
       <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
@@ -50,7 +50,7 @@
       <el-table-column :label="$t('ALARM_COMMON.ALARM_NAME')">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
-      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="80">
+      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="100">
         <template v-slot="{ row }">
           {{ row.level | mapAlarmLevel }}
         </template>

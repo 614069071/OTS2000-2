@@ -8,7 +8,7 @@
       <el-table-column prop="name3" :label="$t('RUN_LOG.ACTION')"></el-table-column>
       <el-table-column prop="name4" :label="$t('RUN_LOG.CONTROL_TIME')"></el-table-column>
       <el-table-column prop="name5" :label="$t('RUN_LOG.CONTROL_WAY')"></el-table-column>
-      <el-table-column :label="$t('COMMON.CONTAROL')" width="120">
+      <el-table-column :label="$t('COMMON.CONTROL')" width="120">
         <template>
           <button class="def-btn">{{ $t("COMMON.DELETE") }}</button>
         </template>

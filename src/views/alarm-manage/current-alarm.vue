@@ -46,7 +46,7 @@
     <div class="inner-container-title">{{ $t("CURRENT_ALARM.CURRENT_ALARM") }}</div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="50"></el-table-column>
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"></el-table-column>
       <el-table-column prop="occur_time" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
         <template v-slot="{ row }">
           {{ (row.occur_time * 1000) | formatTime }}
@@ -59,7 +59,7 @@
       <el-table-column prop="id" :label="$t('ALARM_COMMON.ALARM_NAME')" width="180">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
-      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="80">
+      <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="100">
         <template v-slot="{ row }">
           {{ row.level | mapAlarmLevel }}
         </template>
@@ -74,7 +74,7 @@
           <template v-else>{{ $t("ALARM_COMMON.UNCONFIRM") }}</template>
         </template>
       </el-table-column>
-      <el-table-column :label="$t('COMMON.CONTROL')" width="110">
+      <el-table-column :label="$t('COMMON.CONTROL')" width="140">
         <template v-slot="{ row }">
           <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">{{ $t("COMMON.CONFIRM") }}</button>
           <button class="def-btn" @click="deleteAlarm(row)">{{ $t("COMMON.DELETE") }}</button>

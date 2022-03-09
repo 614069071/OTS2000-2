@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="inner-container-title">IP地址配置</div>
+    <div class="inner-container-title">级联配置</div>
 
     <div class="cascade-form-wrapper">
       <div class="cascade-item-wrapper">

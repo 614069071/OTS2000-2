@@ -22,7 +22,7 @@
     <div class="inner-container-title">{{ $t("SNMP_CONFIG.SNMP_TRAP_CONFIG") }}</div>
 
     <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
-      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="60"> </el-table-column>
+      <el-table-column type="index" :label="$t('COMMON.SERIAL')" width="70"> </el-table-column>
       <el-table-column prop="name1" :label="$t('SNMP_CONFIG.HOST_NAME')"></el-table-column>
       <el-table-column prop="name2" :label="$t('COMMON.IP_ADDRESS')"></el-table-column>
       <el-table-column prop="name3" :label="$t('SNMP_CONFIG.UDP_PORT')"></el-table-column>

@@ -2,7 +2,7 @@
   <div class="custom-select-wrapper">
     <select :disabled="disabled" v-model="selectVal" @change="selectChange">
       <option v-for="(item, index) in options" :value="item.value" :key="`${index}${item.value}`">{{ item.label }}</option>
-      <option value="custom">自定义</option>
+      <option value="custom">{{ this.$t("COMMON.CUSTOM") }}</option>
     </select>
     <input :disabled="disabled" v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
   </div>
@@ -36,7 +36,7 @@ export default {
       handler(n) {
         this.selectVal = n;
 
-        const isHave = this.options.some((e) => n === e.value);
+        const isHave = this.options.some(e => n === e.value);
 
         if (!isHave) {
           //自定义值

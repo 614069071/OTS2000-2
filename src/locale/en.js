@@ -70,6 +70,7 @@ export default {
     STOP: "stop",
     START: "start",
     RESULT: "result",
+    OUTPUT: "output",
   },
   LOGIN: {
     LOGIN: "Login",

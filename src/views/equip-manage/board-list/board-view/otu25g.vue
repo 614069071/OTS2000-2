@@ -38,14 +38,14 @@
         <tbody>
           <tr>
             <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
-            <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[0].link_status.line ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[1].link_status.client ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[1].link_status.line ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[2].link_status.client ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[2].link_status.line ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[3].link_status.client ? "在位" : "脱位" }}</td>
-            <td>{{ infoData.channels[3].link_status.line ? "在位" : "脱位" }}</td>
+            <td>{{ infoData.channels[0].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[0].link_status.line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[1].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[1].link_status.line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[2].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[2].link_status.line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[3].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+            <td>{{ infoData.channels[3].link_status.line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
@@ -60,14 +60,14 @@
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.PROPERTY") }}</td>
-            <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].rw_type.client ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[0].link_status.line ? (infoData.channels[0].rw_type.line ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].rw_type.client ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[1].link_status.line ? (infoData.channels[1].rw_type.line ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[2].link_status.client ? (infoData.channels[2].rw_type.client ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[2].link_status.line ? (infoData.channels[2].rw_type.line ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[3].link_status.client ? (infoData.channels[3].rw_type.client ? "读写" : "只读") : "NA" }}</td>
-            <td>{{ infoData.channels[3].link_status.line ? (infoData.channels[3].rw_type.line ? "读写" : "只读") : "NA" }}</td>
+            <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].rw_type.client ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[0].link_status.line ? (infoData.channels[0].rw_type.line ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].rw_type.client ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[1].link_status.line ? (infoData.channels[1].rw_type.line ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[2].link_status.client ? (infoData.channels[2].rw_type.client ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[2].link_status.line ? (infoData.channels[2].rw_type.line ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[3].link_status.client ? (infoData.channels[3].rw_type.client ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
+            <td>{{ infoData.channels[3].link_status.line ? (infoData.channels[3].rw_type.line ? $t("COMMON.READ_WRITE") : $t("COMMON.READ_ONLY")) : "NA" }}</td>
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.CHANNEL") }}</td>
@@ -186,64 +186,64 @@
             <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
             <td>
               <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[0].link_status.line" v-model="infoData.channels[0].tx_disable.line">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].tx_disable.client">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[1].link_status.line" v-model="infoData.channels[1].tx_disable.line">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[2].link_status.client" v-model="infoData.channels[2].tx_disable.client">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[2].link_status.line" v-model="infoData.channels[2].tx_disable.line">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[3].link_status.client" v-model="infoData.channels[3].tx_disable.client">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
             </td>
             <td>
               <select v-if="infoData.channels[3].link_status.line" v-model="infoData.channels[3].tx_disable.line">
-                <option :value="1">关</option>
-                <option :value="0">开</option>
+                <option :value="1">{{ $t("COMMON.OFF") }}</option>
+                <option :value="0">{{ $t("COMMON.ON") }}</option>
               </select>
 
               <template v-else>NA</template>
@@ -253,64 +253,72 @@
             <td>{{ $t("BOARD_INFO.ERROR_DETECTION") }}</td>
             <td>
               <div v-if="infoData.channels[0].link_status.client">
-                <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.channels[0].prbs_en.client ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[0].clientEnd ? (infoData.channels[0].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">
+                  {{ infoData.channels[0].prbs_en.client ? $t("COMMON.STOP") : $t("COMMON.START") }}
+                </button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[0].clientEnd ? (infoData.channels[0].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[0].link_status.line">
-                <button class="def-btn" :disabled="detection[0]['line']" @click="detectionPrbs(0, 'line')">{{ infoData.channels[0].prbs_en.line ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[0].lineEnd ? (infoData.channels[0].prbs.line ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[0]['line']" @click="detectionPrbs(0, 'line')">{{ infoData.channels[0].prbs_en.line ? $t("COMMON.STOP") : $t("COMMON.START") }}</button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[0].lineEnd ? (infoData.channels[0].prbs.line ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[1].link_status.client">
-                <button class="def-btn" :disabled="detection[1]['client']" @click="detectionPrbs(1, 'client')">{{ infoData.channels[1].prbs_en.client ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[1].clientEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[1]['client']" @click="detectionPrbs(1, 'client')">
+                  {{ infoData.channels[1].prbs_en.client ? $t("COMMON.STOP") : $t("COMMON.START") }}
+                </button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[1].clientEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[1].link_status.line">
-                <button class="def-btn" :disabled="detection[1]['line']" @click="detectionPrbs(1, 'line')">{{ infoData.channels[1].prbs_en.line ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[1].lineEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[1]['line']" @click="detectionPrbs(1, 'line')">{{ infoData.channels[1].prbs_en.line ? $t("COMMON.STOP") : $t("COMMON.START") }}</button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[1].lineEnd ? (infoData.channels[1].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[2].link_status.client">
-                <button class="def-btn" :disabled="detection[2]['client']" @click="detectionPrbs(2, 'client')">{{ infoData.channels[2].prbs_en.client ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[2].clientEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[2]['client']" @click="detectionPrbs(2, 'client')">
+                  {{ infoData.channels[2].prbs_en.client ? $t("COMMON.STOP") : $t("COMMON.START") }}
+                </button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[2].clientEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[2].link_status.line">
-                <button class="def-btn" :disabled="detection[2]['line']" @click="detectionPrbs(2, 'line')">{{ infoData.channels[2].prbs_en.line ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[2].lineEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[2]['line']" @click="detectionPrbs(2, 'line')">{{ infoData.channels[2].prbs_en.line ? $t("COMMON.STOP") : $t("COMMON.START") }}</button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[2].lineEnd ? (infoData.channels[2].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[3].link_status.client">
-                <button class="def-btn" :disabled="detection[3]['client']" @click="detectionPrbs(3, 'client')">{{ infoData.channels[3].prbs_en.client ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[3].clientEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[3]['client']" @click="detectionPrbs(3, 'client')">
+                  {{ infoData.channels[3].prbs_en.client ? $t("COMMON.STOP") : $t("COMMON.START") }}
+                </button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[3].clientEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>
             </td>
             <td>
               <div v-if="infoData.channels[3].link_status.line">
-                <button class="def-btn" :disabled="detection[3]['line']" @click="detectionPrbs(3, 'line')">{{ infoData.channels[3].prbs_en.line ? "停止" : "开始" }}</button>
-                <span>结果：{{ detection[3].lineEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
+                <button class="def-btn" :disabled="detection[3]['line']" @click="detectionPrbs(3, 'line')">{{ infoData.channels[3].prbs_en.line ? $t("COMMON.STOP") : $t("COMMON.START") }}</button>
+                <span>{{ $t("COMMON.RESULT") }}：{{ detection[3].lineEnd ? (infoData.channels[3].prbs.client ? "有误码" : "无误码") : "" }}</span>
               </div>
 
               <template v-else>NA</template>

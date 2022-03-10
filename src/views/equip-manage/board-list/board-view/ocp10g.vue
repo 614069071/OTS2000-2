@@ -29,12 +29,12 @@
 
         <tr>
           <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
-          <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.channels[0].link_status.Pri_Line ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.channels[0].link_status.Sec_Line ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.channels[1].link_status.client ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.channels[1].link_status.Pri_Line ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.channels[1].link_status.Sec_Line ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.channels[0].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.channels[0].link_status.Pri_Line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.channels[0].link_status.Sec_Line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.channels[1].link_status.client ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.channels[1].link_status.Pri_Line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.channels[1].link_status.Sec_Line ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
         </tr>
         <tr>
           <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
@@ -138,48 +138,48 @@
           <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
             <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[0].link_status.Pri_Line" v-model="infoData.channels[0].tx_disable.Pri_Line">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[0].link_status.Sec_Line" v-model="infoData.channels[0].tx_disable.Sec_Line">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].tx_disable.client">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.Pri_Line" v-model="infoData.channels[1].tx_disable.Pri_Line">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>
           </td>
           <td>
             <select v-if="infoData.channels[1].link_status.Sec_Line" v-model="infoData.channels[1].tx_disable.Sec_Line">
-              <option :value="1">关</option>
-              <option :value="0">开</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
             </select>
 
             <template v-else>NA</template>

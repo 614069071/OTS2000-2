@@ -71,6 +71,7 @@ export default {
     STOP: "停止",
     START: "开始",
     RESULT: "结果",
+    OUTPUT: "输出",
   },
   LOGIN: {
     LOGIN: "登录",

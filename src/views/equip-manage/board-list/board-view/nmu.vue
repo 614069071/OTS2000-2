@@ -13,9 +13,9 @@
 
         <tr>
           <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
-          <td>{{ infoData.sfp1.online_status ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.sfp2.online_status ? "在位" : "脱位" }}</td>
-          <td>{{ infoData.sfp3.online_status ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.sfp1.online_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.sfp2.online_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
+          <td>{{ infoData.sfp3.online_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
         </tr>
         <tr>
           <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>

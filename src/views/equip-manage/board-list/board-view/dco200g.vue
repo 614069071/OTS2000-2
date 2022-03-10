@@ -34,13 +34,13 @@
         <tr>
           <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
           <td>
-            <div class="coll-4">{{ infoData.QSFP1.link_status ? "在位" : "脱位" }}</div>
+            <div class="coll-4">{{ infoData.QSFP1.link_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</div>
           </td>
           <td></td>
           <td></td>
           <td></td>
           <td>
-            <div class="coll-4">{{ infoData.QSFP2.link_status ? "在位" : "脱位" }}</div>
+            <div class="coll-4">{{ infoData.QSFP2.link_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</div>
           </td>
           <td></td>
           <td></td>
@@ -195,7 +195,7 @@
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP1.link_status" :disabled="infoData.QSFP1.Business_type === 1" v-model="infoData.QSFP1.FEC_mode" @change="changeModeQsfp1">
-                <option :value="0">无</option>
+                <option :value="0">{{ $t("COMMON.NO") }}</option>
                 <option :value="1">GFEC</option>
               </select>
 
@@ -208,7 +208,7 @@
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP2.link_status" :disabled="infoData.QSFP2.Business_type === 1" v-model="infoData.QSFP2.FEC_mode" @change="changeModeQsfp2">
-                <option :value="0">无</option>
+                <option :value="0">{{ $t("COMMON.NO") }}</option>
                 <option :value="1">GFEC</option>
               </select>
 
@@ -348,7 +348,7 @@
       <table class="board-table board-title-table board-cfp2-table" border="1">
         <tr>
           <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
-          <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
+          <td>{{ infoData.CFP2.link_status ? $t("COMMON.IN_OFFICE") : $t("COMMON.DISLOCATION") }}</td>
           <!-- 新增字段 待设备添加 -->
           <td>CFP2 {{ $t("COMMON.STATUS") }}</td>
           <td>
@@ -453,7 +453,7 @@
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
               <!-- 先默认一个 -->
-              <option :value="0">无</option>
+              <option :value="0">{{ $t("COMMON.NO") }}</option>
               <option :value="3">O-FEC</option>
 
               <!-- 待根据不同模块做判断修改 -->
@@ -475,7 +475,7 @@
               <!-- <template v-if="infoData.CFP2.cfp2_type === 10"></template>
               <template v-if="infoData.CFP2.cfp2_type == 0"></template> -->
 
-              <option :value="0">无</option>
+              <option :value="0">{{ $t("COMMON.NO") }}</option>
               <option :value="1">host环回</option>
               <option :value="2">Line环回</option>
               <option :value="3">host和Line同时环回</option>

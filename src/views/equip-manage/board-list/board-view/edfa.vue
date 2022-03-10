@@ -43,8 +43,8 @@
           <td>PUMP{{ $t("BOARD_INFO.SHUT_OFF") }}</td>
           <td style="text-align: left">
             <select style="width: 66px" v-model="infoData.pump_sw">
-              <option :value="0">打开</option>
-              <option :value="1">关闭</option>
+              <option :value="0">{{ $t("COMMON.ON") }}</option>
+              <option :value="1">{{ $t("COMMON.OFF") }}</option>
             </select>
           </td>
           <td>{{ $t("BOARD_INFO.WORK_MODE") }}</td>

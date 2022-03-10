@@ -23,18 +23,18 @@
 
         <tr>
           <td>{{ $t("BOARD_INFO.INPUT_POWER_ALARM") }}</td>
-          <td>{{ infoData.input_power_alarm ? "告警" : "正常" }}</td>
+          <td>{{ infoData.input_power_alarm ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
           <td>{{ $t("BOARD_INFO.OUTPUT_POWER_ALARM") }}</td>
-          <td>{{ infoData.output_power_alarm ? "告警" : "正常" }}</td>
+          <td>{{ infoData.output_power_alarm ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
           <td>PUMP{{ $t("BOARD_INFO.CURRENT_ALARM") }}</td>
-          <td>{{ infoData.pump_cur_alarm ? "告警" : "正常" }}</td>
+          <td>{{ infoData.pump_cur_alarm ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
         </tr>
 
         <tr>
           <td>{{ $t("BOARD_INFO.MODULE_TEMOP_ALARM") }}</td>
-          <td>{{ infoData.mod_temp_alarm ? "告警" : "正常" }}</td>
+          <td>{{ infoData.mod_temp_alarm ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
           <td>PUMP{{ $t("BOARD_INFO.TEMP_ALARM") }}</td>
-          <td>{{ infoData.pump_temp_alarm ? "告警" : "正常" }}</td>
+          <td>{{ infoData.pump_temp_alarm ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
           <td></td>
           <td></td>
         </tr>

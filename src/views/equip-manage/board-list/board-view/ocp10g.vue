@@ -49,14 +49,14 @@
           <td>{{ $t("BOARD_INFO.WORK_STATE") }}</td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[0].work_status ? "备" : "主" }}
+              {{ infoData.channels[0].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[1].work_status ? "备" : "主" }}
+              {{ infoData.channels[1].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }}
             </div>
           </td>
           <td></td>
@@ -126,7 +126,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].temp.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>预留1</td>
+          <td>{{ $t("COMMON.RESERVER") }}1</td>
           <td></td>
           <td></td>
           <td></td>
@@ -299,8 +299,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[0].work_mode">
-                <option :value="0">自动</option>
-                <option :value="1">手动</option>
+                <option :value="0">{{ $t("COMMON.AUTO") }}</option>
+                <option :value="1">{{ $t("COMMON.MANUAL") }}</option>
               </select>
             </div>
           </td>
@@ -309,8 +309,8 @@
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[1].work_mode">
-                <option :value="0">自动</option>
-                <option :value="1">手动</option>
+                <option :value="0">{{ $t("COMMON.AUTO") }}</option>
+                <option :value="1">{{ $t("COMMON.MANUAL") }}</option>
               </select>
             </div>
           </td>
@@ -322,8 +322,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[0].work_mode" v-model="infoData.channels[0].Switch">
-                <option :value="0">主</option>
-                <option :value="1">备</option>
+                <option :value="0">{{ $t("COMMON.MAIN_REA") }}</option>
+                <option :value="1">{{ $t("COMMON.PREPARE_REA") }}</option>
               </select>
             </div>
           </td>
@@ -332,8 +332,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[1].work_mode" v-model="infoData.channels[1].Switch">
-                <option :value="0">主</option>
-                <option :value="1">备</option>
+                <option :value="0">{{ $t("COMMON.MAIN_REA") }}</option>
+                <option :value="1">{{ $t("COMMON.PREPARE_REA") }}</option>
               </select>
             </div>
           </td>
@@ -345,8 +345,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!!infoData.channels[0].work_mode" v-model="infoData.channels[0].enable_back">
-                <option :value="0">回切</option>
-                <option :value="1">不回切</option>
+                <option :value="0">{{ $t("COMMON.CUT_BACK") }}</option>
+                <option :value="1">{{ $t("COMMON.UN_CUT_BACK") }}</option>
               </select>
             </div>
           </td>
@@ -355,8 +355,8 @@
           <td>
             <div class="coll-3">
               <select :disabled="!!infoData.channels[1].work_mode" v-model="infoData.channels[1].enable_back">
-                <option :value="0">回切</option>
-                <option :value="1">不回切</option>
+                <option :value="0">{{ $t("COMMON.CUT_BACK") }}</option>
+                <option :value="1">{{ $t("COMMON.UN_CUT_BACK") }}</option>
               </select>
             </div>
           </td>
@@ -505,7 +505,7 @@
           </td>
         </tr>
         <tr>
-          <td>预留2</td>
+          <td>{{ $t("COMMON.RESERVER") }}2</td>
           <td></td>
           <td></td>
           <td></td>
@@ -514,7 +514,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>预留3</td>
+          <td>{{ $t("COMMON.RESERVER") }}3</td>
           <td></td>
           <td></td>
           <td></td>

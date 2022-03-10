@@ -121,7 +121,7 @@
           <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.current : "NA" }}</td>
         </tr>
         <tr>
-          <td>预留1</td>
+          <td>{{ $t("COMMON.RESERVER") }}1</td>
           <td></td>
           <td></td>
           <td></td>

@@ -4,19 +4,19 @@
       <table class="board-table board-title-table" border="1">
         <tr>
           <td>{{ $t("BOARD_INFO.WORK_STATE") }}</td>
-          <td>{{ infoData.work_state ? "备" : "主" }}</td>
+          <td>{{ infoData.work_state ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }}</td>
           <td>{{ $t("BOARD_INFO.PROTECTED_MODE") }}</td>
           <td>
             <select v-model="infoData.protmode">
-              <option :value="0">自动</option>
-              <option :value="1">手动</option>
+              <option :value="0">{{ $t("COMMON.AUTO") }}</option>
+              <option :value="1">{{ $t("COMMON.MANUAL") }}</option>
             </select>
           </td>
           <td>{{ $t("BOARD_INFO.MAN_REA") }}</td>
           <td>
             <select :disabled="!infoData.protmode" v-model="infoData.forced_switching">
-              <option :value="0">主</option>
-              <option :value="1">备</option>
+              <option :value="0">{{ $t("COMMON.MAIN_REA") }}</option>
+              <option :value="1">{{ $t("COMMON.PREPARE_REA") }}</option>
             </select>
           </td>
         </tr>
@@ -32,8 +32,8 @@
           <td>{{ $t("BOARD_INFO.WHETHER_SWITCH_AUTO") }}</td>
           <td>
             <select :disabled="!!infoData.protmode" v-model="infoData.auto_switchback">
-              <option :value="0">回切</option>
-              <option :value="1">不回切</option>
+              <option :value="0">{{ $t("COMMON.CUT_BACK") }}</option>
+              <option :value="1">{{ $t("COMMON.UN_CUT_BACK") }}</option>
             </select>
           </td>
           <td>{{ $t("BOARD_INFO.WTR_TIME_SWITCH") }}（min）</td>

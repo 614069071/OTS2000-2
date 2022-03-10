@@ -65,6 +65,7 @@ export default {
     RESERVER: "Reserved",
     NO: "No",
     NORMAL: "Normal",
+    ALARM: "Alarm",
     READ_ONLY: "read only",
     READ_WRITE: "read write",
     STOP: "stop",

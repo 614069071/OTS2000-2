@@ -66,6 +66,7 @@ export default {
     RESERVER: "预留",
     NO: "无",
     NORMAL: "正常",
+    ALARM: "告警",
     READ_ONLY: "只读",
     READ_WRITE: "读写",
     STOP: "停止",

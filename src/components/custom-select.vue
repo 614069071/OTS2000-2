@@ -2,7 +2,7 @@
   <div class="custom-select-wrapper">
     <select :disabled="disabled" v-model="selectVal" @change="selectChange">
       <option v-for="(item, index) in options" :value="item.value" :key="`${index}${item.value}`">{{ item.label }}</option>
-      <option value="custom">{{ this.$t("COMMON.CUSTOM") }}</option>
+      <option value="custom">{{ $t("COMMON.CUSTOM") }}</option>
     </select>
     <input :disabled="disabled" v-show="selectVal === 'custom'" class="def-input custom-select-input" type="text" v-model.number="selectCustomVal" />
   </div>

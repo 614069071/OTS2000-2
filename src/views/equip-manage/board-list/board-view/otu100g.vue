@@ -6,20 +6,20 @@
           <tr>
             <td></td>
             <td>
-              <div class="coll-4">SFP28光模块</div>
+              <div class="coll-4">SFP28 {{ $t("BOARD_INFO.LIGHT_MODULE") }}</div>
             </td>
             <td></td>
             <td></td>
             <td></td>
             <td>
-              <div class="coll-4">QSFP28光模块</div>
+              <div class="coll-4">QSFP28 {{ $t("BOARD_INFO.LIGHT_MODULE") }}</div>
             </td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
           <tr>
-            <td>通道</td>
+            <td>{{ $t("BOARD_INFO.AISLE") }}</td>
             <td>1</td>
             <td>2</td>
             <td>3</td>
@@ -32,7 +32,7 @@
         </thead>
 
         <tr>
-          <td>$t('BOARD_INFO.IN_STATE')</td>
+          <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? "在位" : "脱位" }}</td>
@@ -45,7 +45,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>$t('BOARD_INFO.LINK_STATE')</td>
+          <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
@@ -56,7 +56,7 @@
           <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
-          <td>属性</td>
+          <td>{{ $t("BOARD_INFO.PROPERTY") }}</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? (infoData.sfp28_info.channels[0].rw_type ? "读写" : "只读") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? (infoData.sfp28_info.channels[1].rw_type ? "读写" : "只读") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? (infoData.sfp28_info.channels[2].rw_type ? "读写" : "只读") : "NA" }}</td>
@@ -67,7 +67,7 @@
           <td>{{ infoData.qsfp28_info.status ? (infoData.qsfp28_info.rw_type ? "读写" : "只读") : "NA" }}</td>
         </tr>
         <tr>
-          <td>波道</td>
+          <td>{{ $t("BOARD_INFO.CHANNEL") }}</td>
           <td>
             <template v-if="infoData.sfp28_info.channels[0].status">
               <input v-if="infoData.sfp28_info.channels[0].rw_type" class="def-input" type="text" v-model.number="infoData.sfp28_info.channels[0].wave_channel" />
@@ -102,7 +102,7 @@
           <td>NA</td>
         </tr>
         <tr>
-          <td>波长（nm）</td>
+          <td>{{ $t("BOARD_INFO.WAVE_LEN") }}（nm）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].wave_len : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].wave_len : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].wave_len : "NA" }}</td>
@@ -113,7 +113,7 @@
           <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].wave_len : "NA" }}</td>
         </tr>
         <tr>
-          <td>距离（km）</td>
+          <td>{{ $t("BOARD_INFO.DISTANCE") }}（km）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].launch_range : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].launch_range : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].launch_range : "NA" }}</td>
@@ -124,7 +124,7 @@
           <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].launch_range : "NA" }}</td>
         </tr>
         <tr>
-          <td>发射功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].launch_power : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].launch_power : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].launch_power : "NA" }}</td>
@@ -135,7 +135,7 @@
           <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].launch_power : "NA" }}</td>
         </tr>
         <tr>
-          <td>接受功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].rcv_power : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].rcv_power : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].rcv_power : "NA" }}</td>
@@ -146,7 +146,7 @@
           <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].rcv_power : "NA" }}</td>
         </tr>
         <tr>
-          <td>偏置电流（mA）</td>
+          <td>{{ $t("BOARD_INFO.BIAS_CURRENT") }}（mA）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].current : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[1].current : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[2].current : "NA" }}</td>
@@ -157,7 +157,7 @@
           <td>{{ infoData.qsfp28_info.status ? infoData.qsfp28_info.channels[3].current : "NA" }}</td>
         </tr>
         <tr>
-          <td>电压（V）</td>
+          <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[0].voltage : "NA" }}</td>
@@ -170,7 +170,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>温度（℃）</td>
+          <td>{{ $t("BOARD_INFO.TEMPERATURE") }}（℃）</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? infoData.sfp28_info.channels[0].temp : "NA" }}</td>
@@ -183,7 +183,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>激光器</td>
+          <td>{{ $t("BOARD_INFO.LASER") }}</td>
           <td>
             <select v-if="infoData.sfp28_info.channels[0].status" v-model="infoData.sfp28_info.channels[0].tx_disable">
               <option :value="1">关</option>
@@ -250,7 +250,7 @@
           </td>
         </tr>
         <!-- <tr>
-          <td>误码检测</td>
+          <td>{{$t('BOARD_INFO.ERROR_DETECTION')}}</td>
           <td>
             <div v-if="infoData.sfp28_info.channels[0].status">
               <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.sfp28_info.channels[0].prbs_en ? "停止" : "开始" }}</button>
@@ -317,7 +317,7 @@
           </td>
         </tr> -->
         <tr>
-          <td>速率</td>
+          <td>{{ $t("BOARD_INFO.SPEED") }}</td>
           <td>
             <div class="coll-4">
               <select v-model="infoData.sfp28_info.speed">
@@ -342,7 +342,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>接受光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].rcv_thr_L" />
             <template v-else>NA</template>
@@ -370,7 +370,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>接受光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].rcv_thr_H" />
             <template v-else>NA</template>
@@ -398,7 +398,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>发送光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].tx_thr_L" />
             <template v-else>NA</template>
@@ -426,7 +426,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>发送光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.sfp28_info.channels[0].status" type="text" class="def-input" v-model.number="infoData.sfp28_info.channels[0].tx_thr_H" />
             <template v-else>NA</template>
@@ -457,10 +457,10 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
-      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
-      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">{{ $t("COMMON.RESET") }}</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>
@@ -612,7 +612,7 @@ export default {
     };
   },
   methods: {
-    // 误码检测
+    // $t('BOARD_INFO.ERROR_DETECTION')
     // detectionPrbs(i, status) {
     //   const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
     //   this.infoData.channels[i].prbs_en[status] = val;

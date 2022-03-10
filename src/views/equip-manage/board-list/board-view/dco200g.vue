@@ -6,20 +6,20 @@
           <tr>
             <td></td>
             <td>
-              <div class="coll-4">QSFP28模块1</div>
+              <div class="coll-4">QSFP28 {{ $t("BOARD_INFO.MODULE") }} 1</div>
             </td>
             <td></td>
             <td></td>
             <td></td>
             <td>
-              <div class="coll-4">QSFP28模块2</div>
+              <div class="coll-4">QSFP28 {{ $t("BOARD_INFO.MODULE") }} 2</div>
             </td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
           <tr>
-            <td>通道</td>
+            <td>{{ $t("BOARD_INFO.AISLE") }}</td>
             <td>1</td>
             <td>2</td>
             <td>3</td>
@@ -32,7 +32,7 @@
         </thead>
 
         <tr>
-          <td>$t('BOARD_INFO.IN_STATE')</td>
+          <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? "在位" : "脱位" }}</div>
           </td>
@@ -47,7 +47,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>$t('BOARD_INFO.LINK_STATE')</td>
+          <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel1.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel2.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel3.los ? "DOWN" : "UP") : "NA" }}</td>
@@ -58,7 +58,7 @@
           <td>{{ infoData.QSFP2.link_status ? (infoData.QSFP2.channel4.los ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
-          <td>距离（km）</td>
+          <td>{{ $t("BOARD_INFO.DISTANCE") }}（km）</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.launch_range : "NA" }}</div>
           </td>
@@ -73,7 +73,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>波长（nm）</td>
+          <td>{{ $t("BOARD_INFO.WAVE_LEN") }}（nm）</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.wave_len : "NA" }}</div>
           </td>
@@ -88,7 +88,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>发射光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.launch_power : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.launch_power : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.launch_power : "NA" }}</td>
@@ -99,7 +99,7 @@
           <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.launch_power : "NA" }}</td>
         </tr>
         <tr>
-          <td>接收光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.rcv_power : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.rcv_power : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.rcv_power : "NA" }}</td>
@@ -110,7 +110,7 @@
           <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.rcv_power : "NA" }}</td>
         </tr>
         <tr>
-          <td>偏置电流（mA）</td>
+          <td>{{ $t("BOARD_INFO.BIAS_CURRENT") }}（mA）</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel1.current : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel2.current : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? infoData.QSFP1.channel3.current : "NA" }}</td>
@@ -132,7 +132,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>电压（V）</td>
+          <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V）</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.voltage : "NA" }}</div>
           </td>
@@ -147,7 +147,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>温度（℃）</td>
+          <td>{{ $t("BOARD_INFO.TEMPERATURE") }}（℃）</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.temp : "NA" }}</div>
           </td>
@@ -162,7 +162,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>业务类型</td>
+          <td>{{ $t("BOARD_INFO.BUS_TYPE") }}</td>
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.Business_type" @change="changeBusTypeQsfp1">
@@ -191,7 +191,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>FEC模式</td>
+          <td>FEC{{ $t("BOARD_INFO.MODEL") }}</td>
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP1.link_status" :disabled="infoData.QSFP1.Business_type === 1" v-model="infoData.QSFP1.FEC_mode" @change="changeModeQsfp1">
@@ -220,7 +220,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>激光器开关</td>
+          <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
             <div class="coll-4">
               <select v-if="infoData.QSFP1.link_status" v-model="infoData.QSFP1.tx_disable">
@@ -249,7 +249,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>接受光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
               <Limit v-if="infoData.QSFP1.link_status" :min="-12" v-model="infoData.QSFP1.rcv_thr_L" />
@@ -273,7 +273,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>接受光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
               <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.rcv_thr_H" />
@@ -296,7 +296,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>发送光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
               <Limit v-if="infoData.QSFP1.link_status" :min="-7" v-model="infoData.QSFP1.tx_thr_L" />
@@ -319,7 +319,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>发送光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
               <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.tx_thr_H" />
@@ -347,10 +347,10 @@
 
       <table class="board-table board-title-table board-cfp2-table" border="1">
         <tr>
-          <td>$t('BOARD_INFO.IN_STATE')</td>
+          <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
           <!-- 新增字段 待设备添加 -->
-          <td>CFP2状态</td>
+          <td>CFP2 {{ $t("COMMON.STATUS") }}</td>
           <td>
             <template v-if="infoData.CFP2.link_status">
               {{ infoData.CFP2.cfp2_states | mapCfpState }}
@@ -363,39 +363,39 @@
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.signal_bit : "NA" }}</td>
         </tr>
         <tr>
-          <td>发送光功率(dBm)</td>
+          <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" v-model="infoData.CFP2.launch_power" />
             <template v-else>NA</template>
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template> -->
           </td>
-          <td>接收光功率(dBm)</td>
+          <td>{{ $t("BOARD_INFO.RECE_OPTICAL_POWER") }}（dBm)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.rcv_power : "NA" }}</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>温度(℃)</td>
+          <td>{{ $t("BOARD_INFO.TEMPERATURE") }}（℃)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.temp : "NA" }}</td>
-          <td>电压(V)</td>
+          <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.voltage : "NA" }}</td>
-          <td>偏置电流(mA)</td>
+          <td>{{ $t("BOARD_INFO.BIAS_CURRENT") }}（mA)</td>
           <td>{{ infoData.CFP2.link_status ? infoData.CFP2.current : "NA" }}</td>
         </tr>
         <tr>
-          <td>接收光功率过低阈值(dBm)</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :min="-23" v-model="infoData.CFP2.rcv_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" /> -->
             <template v-else>NA</template>
           </td>
-          <td>接收光功率过载阈值(dBm)</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :max="8" v-model="infoData.CFP2.rcv_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" /> -->
             <template v-else>NA</template>
           </td>
-          <td>发送光功率过低阈值(dBm)</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :min="-8" v-model="infoData.CFP2.tx_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" /> -->
@@ -403,13 +403,13 @@
           </td>
         </tr>
         <tr>
-          <td>发送光功率过载阈值(dBm)</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
             <Limit v-if="infoData.CFP2.link_status" :max="5" v-model="infoData.CFP2.tx_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" /> -->
             <template v-else>NA</template>
           </td>
-          <td>激光器开关</td>
+          <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.tx_disable">
               <option :value="1">关</option>
@@ -418,7 +418,7 @@
 
             <template v-else>NA</template>
           </td>
-          <td>光通道</td>
+          <td>{{ $t("BOARD_INFO.OPTICAL_CHANNEL") }}</td>
           <td>
             <!-- <select >
               <option :value="0">C21-C60</option>
@@ -430,7 +430,7 @@
           </td>
         </tr>
         <tr>
-          <td>调制模式</td>
+          <td>{{ $t("BOARD_INFO.MODU_MODE") }}</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
               <!-- 先默认一个 -->
@@ -449,7 +449,7 @@
 
             <template v-else>NA</template>
           </td>
-          <td>FEC模式</td>
+          <td>FEC{{ $t("BOARD_INFO.MODEL") }}</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
               <!-- 先默认一个 -->
@@ -468,7 +468,7 @@
 
             <template v-else>NA</template>
           </td>
-          <td>环回控制</td>
+          <td>{{ $t("BOARD_INFO.LOOP_CONTAROL") }}</td>
           <td>
             <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
               <!-- 待根据不同模块做判断修改 -->
@@ -488,10 +488,10 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
-      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
-      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">{{ $t("COMMON.RESET") }}</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>

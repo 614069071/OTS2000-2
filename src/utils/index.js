@@ -28,6 +28,10 @@ function makeMap(arr) {
 
 const similar = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfb", "dcm"];
 
+const noBoardTypes = ["m16", "d16", "md8", "m40", "d40", "md16sfa", "md16sfa"];
+
+export const isNoBoardType = makeMap(noBoardTypes);
+
 export const isSimilar = makeMap(similar);
 
 export const clone = cloneDeep;

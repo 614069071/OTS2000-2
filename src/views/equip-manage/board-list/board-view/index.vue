@@ -100,7 +100,8 @@ import BoardOtu100g from "@/components/board/otu100g";
 import BoardDco200g from "@/components/board/dco200g";
 import BoardMd16sfa from "@/components/board/md16sfa";
 import BoardMd16sfb from "@/components/board/md16sfb";
-import { storages, isSimilar } from "@/utils";
+import { storages, isSimilar, isNoBoardType } from "@/utils";
+import { i18nToKey } from "@/locale";
 
 export default {
   name: "board-view",
@@ -171,7 +172,7 @@ export default {
   },
   filters: {
     isNoBoardType(v) {
-      return isSimilar(v) ? "" : this.$t("COMMON.BOARD_TYPE");
+      return isNoBoardType(v) ? "" : i18nToKey("COMMON.BOARD_TYPE");
     },
   },
   mounted() {

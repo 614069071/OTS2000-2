@@ -45,14 +45,14 @@ export default {
         roleName: "管理员",
       },
       dataTable: [
-        { status: 1, boardname: "dco200g", slot: 5 },
-        { status: 1, boardname: "otu100g" },
-        { status: 1, boardname: "otu10g" },
-        { status: 1, boardname: "olp" },
-        { status: 1, boardname: "edfa" },
-        { status: 1, boardname: "otu25g" },
-        { status: 1, boardname: "ocp10g" },
-        { status: 1, boardname: "nmu", slot: 8 },
+        // { status: 1, boardname: "dco200g", slot: 5 },
+        // { status: 1, boardname: "otu100g" },
+        // { status: 1, boardname: "otu10g" },
+        // { status: 1, boardname: "olp" },
+        // { status: 1, boardname: "edfa" },
+        // { status: 1, boardname: "otu25g" },
+        // { status: 1, boardname: "ocp10g" },
+        // { status: 1, boardname: "nmu", slot: 8 },
         // { status: 1, boardname: "md16sfa" },
         // { status: 1, boardname: "md16sfb" },
         // { status: 1, boardname: "dcm" },
@@ -75,12 +75,12 @@ export default {
     }
   },
   watch: {
-    // $route: {
-    //   handler() {
-    //     this.getBoardList();
-    //   },
-    //   immediate: true,
-    // },
+    $route: {
+      handler() {
+        this.getBoardList();
+      },
+      immediate: true,
+    },
   },
   mounted() {
     this.$bus.$on("updateBoardView", () => {
@@ -179,7 +179,7 @@ export default {
     padding: 10px;
     overflow-y: hidden;
     overflow-x: auto;
-    height: 520px;
+    // height: 520px;
   }
 
   .page-wrapper {

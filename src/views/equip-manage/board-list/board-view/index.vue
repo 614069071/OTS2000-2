@@ -31,7 +31,7 @@
               {{ titeData.sn }}
             </template>
           </td>
-          <td>{{ titeData.bdtype ? $t("COMMON.BOARD_TYPE") : "" }}</td>
+          <td>{{ info.boardname | isNoBoardType }}</td>
           <td>{{ titeData.bdtype }}</td>
         </tr>
         <tr>
@@ -167,6 +167,11 @@ export default {
       if (!n) return;
       console.log("board-view mixins");
       this.getDetail();
+    },
+  },
+  filters: {
+    isNoBoardType(v) {
+      return isSimilar(v) ? "" : this.$t("COMMON.BOARD_TYPE");
     },
   },
   mounted() {

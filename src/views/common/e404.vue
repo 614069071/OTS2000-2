@@ -4,9 +4,9 @@
       <div class="error-404-main-wrapper">
         <div class="error-404-img-wrapper"></div>
 
-        <p class="error-404-mes-wrapper">抱歉，你访问的页面不存在</p>
+        <p class="error-404-mes-wrapper">{{ $t("COMMON.NO_PAGE") }}</p>
 
-        <button>返回首页</button>
+        <button>{{ $t("COMMON.BACK_HOME") }}</button>
       </div>
     </div>
   </div>

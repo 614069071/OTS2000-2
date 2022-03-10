@@ -47,6 +47,30 @@ export default {
     DOWN: "脱位",
     DES: "信息描述",
     RESTOR_DEF: "恢复默认",
+
+    VALUE_CANNOT_LESS: "有效值不能小于",
+    VALUE_CANNOT_GREATER: "有效值不能大于",
+    VALUE_VALID: "请输入有效的值",
+    VALUE_RANG: "有效值范围为",
+    CUSETOM: "自定义",
+    NO_PAGE: "抱歉，你访问的页面不存在",
+    BACK_HOME: "返回首页",
+    DC: "直流",
+    AC: "交流",
+    ON: "开",
+    OFF: "关",
+    NO_OUTPUT: "无输出",
+    NO_INPUT: "无输入",
+    IN_OFFICE: "在位",
+    DISLOCATION: "脱位",
+    RESERVER: "预留",
+    NO: "无",
+    NORMAL: "正常",
+    READ_ONLY: "只读",
+    READ_WRITE: "读写",
+    STOP: "停止",
+    START: "开始",
+    RESULT: "结果",
   },
   LOGIN: {
     LOGIN: "登录",
@@ -269,5 +293,7 @@ export default {
     OUTPUT_OPT_POWER_ALARM_THR: "输出光功率低告警门限", //
     REVER_COND_DIFF: "倒换条件差值", //
     INIT_POWER_DIFF_BET_STAND_LINE: "主备线路初始功率差", //
+    GAIN_VAL: "增益值", //
+    POWER_VAL: "功率值", //
   },
 };

@@ -7,7 +7,7 @@
         <span class="item-before"
           ><el-radio v-model="isAutoConfigTime" :label="false">{{ $t("SYSTEM_INFO.MANUAL") }}</el-radio></span
         >
-        <span class="item-after"> <el-date-picker v-model="configManualTime" value-format="timestamp" type="datetime" placeholder="选择日期时间"/></span>
+        <span class="item-after"> <el-date-picker v-model="configManualTime" value-format="timestamp" type="datetime"/></span>
       </div>
       <div class="system-info-item-other">
         <span class="item-before"

@@ -13,7 +13,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('COMMON.SLOT')">
-          <el-select size="mini" v-model="dataForm.slot" placeholder="请选择槽位号">
+          <el-select size="mini" v-model="dataForm.slot">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 1" :value="1"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 2" :value="2"></el-option>
@@ -27,7 +27,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
-          <el-select size="mini" v-model="dataForm.level" placeholder="请选择告警等级">
+          <el-select size="mini" v-model="dataForm.level">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
             <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>

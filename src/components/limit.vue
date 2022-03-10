@@ -31,21 +31,21 @@ export default {
 
       if (reg.test(data) && data !== "-" && data !== ".") {
         if (!!min || min === 0) {
-          this.hint = "有效值不能小于" + min;
+          this.hint = this.$t("COMMON.VALUE_CANNOT_LESS") + min;
           this.display = (val || val === 0) && val < min;
         }
 
         if (!!max || max === 0) {
-          this.hint = "有效值不能大于" + max;
+          this.hint = this.$t("COMMON.VALUE_CANNOT_GREATER") + max;
           this.display = (val || val === 0) && val > max;
         }
 
         if ((!!min || min === 0) && (!!max || max === 0)) {
-          this.hint = "有效值范围为" + min + "~" + max;
+          this.hint = this.$t("COMMON.VALUE_RANG") + min + "~" + max;
           this.display = (val || val === 0) && (val > max || val < min);
         }
       } else {
-        this.hint = "请输入有效的值";
+        this.hint = this.$t("COMMON.VALUE_VALID");
         this.display = !!data.length;
       }
 

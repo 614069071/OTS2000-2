@@ -57,7 +57,7 @@
           <!-- OBA -->
           <template v-if="info.bdtype === 'OBA20G22'">
             <template v-if="infoData.mode === 3">
-              <td>增益值</td>
+              <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
                 <!-- <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number> -->
                 <Limit :min="19" :max="25" v-model="infoData.gain" />
@@ -65,7 +65,7 @@
             </template>
 
             <template v-else-if="infoData.mode === 2">
-              <td>功率值</td>
+              <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
                 <Limit :min="-4" :max="20" v-model="infoData.APC_output_power" />
                 <!-- <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-4" :max="20"></el-input-number> -->
@@ -81,14 +81,14 @@
           <!-- OLA 带单板-->
           <!-- <template v-if="info.bdtype === 'OLA20G22'">
             <template v-if="infoData.mode === 3">
-              <td>增益值</td>
+              <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
                 <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number>
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
-              <td>功率值</td>
+              <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
                 <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-11" :max="20"></el-input-number>
               </td>
@@ -103,7 +103,7 @@
           <!-- OPA -->
           <template v-else-if="info.bdtype === 'OPA20G32'">
             <template v-if="infoData.mode === 3">
-              <td>增益值</td>
+              <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
                 <Limit :min="29" :max="35" v-model="infoData.gain" />
 
@@ -112,7 +112,7 @@
             </template>
 
             <template v-else-if="infoData.mode === 2">
-              <td>功率值</td>
+              <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
                 <Limit :min="-1" :max="20" v-model="infoData.APC_output_power" />
                 <!-- <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-1" :max="20"></el-input-number> -->

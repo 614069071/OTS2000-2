@@ -46,6 +46,7 @@ export default {
     UP: "Up",
     DOWN: "Down",
     DES: "Description",
+    RESTOR_DEF: "Restore the default",
   },
   LOGIN: {
     LOGIN: "Login",
@@ -258,5 +259,8 @@ export default {
     RECE_LIGHT_POWER_UPPER_THRESHOLD: "Overload threshold of received optical power",
     SEND_LIGHT_POWER_LOWER_THRESHOLD: "Sent optical power exceeds the lower threshold. Procedure",
     SEND_LIGHT_POWER_UPPER_THRESHOLD: "Overload threshold of the sent optical power",
+    MODU_MODE: "Modulation mode",
+    PUMP_CURRENT_THR: "PUMP Current threshold",
+    MODULE: "Module",
   },
 };

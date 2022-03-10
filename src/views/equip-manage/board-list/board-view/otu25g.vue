@@ -6,24 +6,24 @@
           <tr>
             <td></td>
             <td>
-              <div class="coll-2">通道1</div>
+              <div class="coll-2">{{ $t("BOARD_INFO.AISLE") }}1</div>
             </td>
             <td></td>
             <td>
-              <div class="coll-2">通道2</div>
+              <div class="coll-2">{{ $t("BOARD_INFO.AISLE") }}2</div>
             </td>
             <td></td>
             <td>
-              <div class="coll-2">通道3</div>
+              <div class="coll-2">{{ $t("BOARD_INFO.AISLE") }}3</div>
             </td>
             <td></td>
             <td>
-              <div class="coll-2">通道4</div>
+              <div class="coll-2">{{ $t("BOARD_INFO.AISLE") }}4</div>
             </td>
             <td></td>
           </tr>
           <tr>
-            <td>端口</td>
+            <td>{{ $t("COMMON.PORT") }}</td>
             <td>Client</td>
             <td>Line</td>
             <td>Client</td>
@@ -37,7 +37,7 @@
 
         <tbody>
           <tr>
-            <td>$t('BOARD_INFO.IN_STATE')</td>
+            <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
             <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? "在位" : "脱位" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? "在位" : "脱位" }}</td>
@@ -48,7 +48,7 @@
             <td>{{ infoData.channels[3].link_status.line ? "在位" : "脱位" }}</td>
           </tr>
           <tr>
-            <td>$t('BOARD_INFO.LINK_STATE')</td>
+            <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
             <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? (infoData.channels[0].los.line ? "DOWN" : "UP") : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].los.client ? "DOWN" : "UP") : "NA" }}</td>
@@ -59,7 +59,7 @@
             <td>{{ infoData.channels[3].link_status.line ? (infoData.channels[3].los.line ? "DOWN" : "UP") : "NA" }}</td>
           </tr>
           <tr>
-            <td>属性</td>
+            <td>{{ $t("BOARD_INFO.PROPERTY") }}</td>
             <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].rw_type.client ? "读写" : "只读") : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? (infoData.channels[0].rw_type.line ? "读写" : "只读") : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].rw_type.client ? "读写" : "只读") : "NA" }}</td>
@@ -70,7 +70,7 @@
             <td>{{ infoData.channels[3].link_status.line ? (infoData.channels[3].rw_type.line ? "读写" : "只读") : "NA" }}</td>
           </tr>
           <tr>
-            <td>波道</td>
+            <td>{{ $t("BOARD_INFO.CHANNEL") }}</td>
             <td>NA</td>
             <td>
               <template v-if="infoData.channels[0].link_status.line">
@@ -105,7 +105,7 @@
             </td>
           </tr>
           <tr>
-            <td>波长（nm）</td>
+            <td>{{ $t("BOARD_INFO.WAVE_LEN") }}（nm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].wave_len.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].wave_len.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].wave_len.client : "NA" }}</td>
@@ -116,7 +116,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].wave_len.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>距离（km）</td>
+            <td>{{ $t("BOARD_INFO.DISTANCE") }}（km）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_range.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].launch_range.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].launch_range.client : "NA" }}</td>
@@ -127,7 +127,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].launch_range.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>发射功率（dBm）</td>
+            <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_power.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].launch_power.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].launch_power.client : "NA" }}</td>
@@ -138,7 +138,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].launch_power.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>接受功率（dBm）</td>
+            <td>{{ $t("BOARD_INFO.RECE_OPTICAL_POWER") }}（dBm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].rcv_power.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].rcv_power.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].rcv_power.client : "NA" }}</td>
@@ -149,7 +149,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].rcv_power.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>电压（V）</td>
+            <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].voltage.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].voltage.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].voltage.client : "NA" }}</td>
@@ -161,7 +161,7 @@
           </tr>
 
           <tr>
-            <td>偏置电流（dBm）</td>
+            <td>{{ $t("BOARD_INFO.BIAS_CURRENT") }}（dBm）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].current.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].current.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].current.client : "NA" }}</td>
@@ -172,7 +172,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].current.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>温度（℃）</td>
+            <td>{{ $t("BOARD_INFO.TEMPERATURE") }}（℃）</td>
             <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].temp.client : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? infoData.channels[0].temp.line : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? infoData.channels[1].temp.client : "NA" }}</td>
@@ -183,7 +183,7 @@
             <td>{{ infoData.channels[3].link_status.line ? infoData.channels[3].temp.line : "NA" }}</td>
           </tr>
           <tr>
-            <td>激光器开关</td>
+            <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
             <td>
               <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
                 <option :value="1">关</option>
@@ -250,7 +250,7 @@
             </td>
           </tr>
           <tr class="prbs-tr">
-            <td>误码检测</td>
+            <td>{{ $t("BOARD_INFO.ERROR_DETECTION") }}</td>
             <td>
               <div v-if="infoData.channels[0].link_status.client">
                 <button class="def-btn" :disabled="detection[0]['client']" @click="detectionPrbs(0, 'client')">{{ infoData.channels[0].prbs_en.client ? "停止" : "开始" }}</button>
@@ -317,7 +317,7 @@
             </td>
           </tr>
           <tr>
-            <td>速率</td>
+            <td>{{ $t("BOARD_INFO.SPEED") }}</td>
             <td>
               <div class="coll-2">
                 <select v-if="info.bdtype === '25G-OTUL'" v-model="infoData.channels[0].speed">
@@ -373,7 +373,7 @@
             <td></td>
           </tr>
           <tr>
-            <td>输入EQ（dB）</td>
+            <td>{{ $t("BOARD_INFO.ENTER_EQ") }}（dB）</td>
             <td>
               <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].input_eq.client">
                 <option v-for="item in eqoptions" :key="item.value" :value="item.value">{{ item.lable }}</option>
@@ -435,7 +435,7 @@
             </td>
           </tr>
           <tr>
-            <td>输出幅度（mVpp）</td>
+            <td>{{ $t("BOARD_INFO.OUTPU_AMP") }}（mVpp）</td>
             <td>
               <Limit v-if="infoData.channels[0].link_status.client" :min="400" :max="900" v-model="infoData.channels[0].output_amplitude.client" />
               <!-- <el-input-number v-if="infoData.channels[0].link_status.client" v-model.number="infoData.channels[0].output_amplitude.client" size="mini" :min="400" :max="900" :step="5" step-strictly /> -->
@@ -484,7 +484,7 @@
             </td>
           </tr>
           <tr>
-            <td>接收光功率过低阈值（dBm）</td>
+            <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
             <td>
               <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.client" />
               <template v-else>NA</template>
@@ -519,7 +519,7 @@
             </td>
           </tr>
           <tr>
-            <td>接收光功率过载阈值（dBm）</td>
+            <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
             <td>
               <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.client" />
               <template v-else>NA</template>
@@ -554,7 +554,7 @@
             </td>
           </tr>
           <tr>
-            <td>发送光功率过载阈值（dBm）</td>
+            <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
             <td>
               <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.client" />
               <template v-else>NA</template>
@@ -589,7 +589,7 @@
             </td>
           </tr>
           <tr>
-            <td>发送光功率过低阈值（dBm）</td>
+            <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
             <td>
               <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.client" />
               <template v-else>NA</template>
@@ -628,10 +628,10 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
-      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
-      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">{{ $t("COMMON.RESET") }}</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>
@@ -755,7 +755,7 @@ export default {
     };
   },
   methods: {
-    // 误码检测
+    // $t('BOARD_INFO.ERROR_DETECTION')
     detectionPrbs(i, status) {
       const val = (this.infoData.channels[i].prbs_en[status] + 1) % 2;
       this.infoData.channels[i].prbs_en[status] = val;

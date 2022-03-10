@@ -3,16 +3,16 @@
     <div class="board-table-container">
       <table class="board-table board-title-table" border="1">
         <tr>
-          <td>工作状态</td>
+          <td>{{ $t("BOARD_INFO.WORK_STATE") }}</td>
           <td>{{ infoData.work_state ? "备" : "主" }}</td>
-          <td>保护模式</td>
+          <td>{{ $t("BOARD_INFO.PROTECTED_MODE") }}</td>
           <td>
             <select v-model="infoData.protmode">
               <option :value="0">自动</option>
               <option :value="1">手动</option>
             </select>
           </td>
-          <td>强制倒换</td>
+          <td>{{ $t("BOARD_INFO.MAN_REA") }}</td>
           <td>
             <select :disabled="!infoData.protmode" v-model="infoData.forced_switching">
               <option :value="0">主</option>
@@ -21,22 +21,22 @@
           </td>
         </tr>
         <tr>
-          <td>主线路收光信号</td>
+          <td>{{ $t("BOARD_INFO.MAIN_LINE_RECE_SIGNAL") }}</td>
           <td>{{ infoData.main_rx_signal_power | signal }}</td>
-          <td>备线路收光信号</td>
+          <td>{{ $t("BOARD_INFO.STANDBY_LINE_OPTICAL_SIGNAL") }}</td>
           <td>{{ infoData.slave_rx_signal_power | signal }}</td>
-          <td>本地线路收光信号</td>
+          <td>{{ $t("BOARD_INFO.LOCAL_LINE_OPTICAL_SIGNAL") }}</td>
           <td>{{ infoData.local_rx_signal_power | signal }}</td>
         </tr>
         <tr>
-          <td>是否自动回切</td>
+          <td>{{ $t("BOARD_INFO.WHETHER_SWITCH_AUTO") }}</td>
           <td>
             <select :disabled="!!infoData.protmode" v-model="infoData.auto_switchback">
               <option :value="0">回切</option>
               <option :value="1">不回切</option>
             </select>
           </td>
-          <td>回切WTR时间（min）</td>
+          <td>{{ $t("BOARD_INFO.WTR_TIME_SWITCH") }}（min）</td>
           <td>
             <custom-select
               v-model="infoData.wtr_time"
@@ -48,7 +48,7 @@
               ]"
             />
           </td>
-          <td>主线路告警门限（dBm）</td>
+          <td>{{ $t("BOARD_INFO.MAIN_LINE_ALARM_THRESHOLD") }}（dBm）</td>
           <td>
             <custom-select
               v-model="infoData.main_line_alarm_thre"
@@ -60,7 +60,7 @@
           </td>
         </tr>
         <tr>
-          <td>主备初始差异（dB）</td>
+          <td>{{ $t("BOARD_INFO.INITIAL_DIFF_BETWEEN") }}（dB）</td>
           <td>
             <custom-select
               v-model="infoData.main_slave_initdiff"
@@ -74,7 +74,7 @@
               ]"
             />
           </td>
-          <td>备线路告警门限</td>
+          <td>{{ $t("BOARD_INFO.ALARM_THRESHOLD_LINE_STANDBY") }}</td>
           <td>
             <custom-select
               v-model="infoData.slave_line_alarm_thre"
@@ -84,7 +84,7 @@
               ]"
             />
           </td>
-          <td>倒换条件差异值（dB）</td>
+          <td>{{ $t("BOARD_INFO.CHANGE_DIFF_COND") }}（dB）</td>
           <td>
             <custom-select
               v-model="infoData.switch_condition_diff"
@@ -100,9 +100,9 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" @click="setInfo">应用</button>
-      <button class="def-btn" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>

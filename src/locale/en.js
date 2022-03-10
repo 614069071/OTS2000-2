@@ -262,5 +262,12 @@ export default {
     MODU_MODE: "Modulation mode",
     PUMP_CURRENT_THR: "PUMP Current threshold",
     MODULE: "Module",
+    MAIN_LINE_RECE_SIGNAL: "Main line receives optical signal",
+    INPUT_THR_LOWER_ALARM: "Low alarm threshold for the input optical power",
+    INPUT_OPT_POWER: "Input optical power",
+    OUTPUT_OPT_POWER: "Output optical power",
+    OUTPUT_OPT_POWER_ALARM_THR: "Low alarm threshold for the output optical power",
+    REVER_COND_DIFF: "Reverse conditional difference",
+    INIT_POWER_DIFF_BET_STAND_LINE: "Initial power difference between active and standby lines",
   },
 };

@@ -65,8 +65,8 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshGetTitle">刷新</button>
-      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">应用</button>
+      <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshGetTitle">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">{{ $t("COMMON.SUBMIT") }}</button>
     </div>
 
     <div class="board-type-container" v-if="info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">

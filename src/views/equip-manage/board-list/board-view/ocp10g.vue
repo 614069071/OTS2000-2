@@ -6,18 +6,18 @@
           <tr>
             <td></td>
             <td>
-              <div class="coll-3">通道1</div>
+              <div class="coll-3">{{ $t("BOARD_INFO.AISLE") }}1</div>
             </td>
             <td></td>
             <td></td>
             <td>
-              <div class="coll-3">通道2</div>
+              <div class="coll-3">{{ $t("BOARD_INFO.AISLE") }}2</div>
             </td>
             <td></td>
             <td></td>
           </tr>
           <tr>
-            <td>端口</td>
+            <td>{{ $t("COMMON.PORT") }}</td>
             <td>Client</td>
             <td>Sec-Line</td>
             <td>Pri-Line</td>
@@ -28,7 +28,7 @@
         </thead>
 
         <tr>
-          <td>$t('BOARD_INFO.IN_STATE')</td>
+          <td>{{ $t("BOARD_INFO.IN_STATE") }}</td>
           <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? "在位" : "脱位" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? "在位" : "脱位" }}</td>
@@ -37,7 +37,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? "在位" : "脱位" }}</td>
         </tr>
         <tr>
-          <td>$t('BOARD_INFO.LINK_STATE')</td>
+          <td>{{ $t("BOARD_INFO.LINK_STATE") }}</td>
           <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? (infoData.channels[0].los.Pri_Line ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? (infoData.channels[0].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
@@ -46,7 +46,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? (infoData.channels[1].los.Sec_Line ? "DOWN" : "UP") : "NA" }}</td>
         </tr>
         <tr>
-          <td>工作状态</td>
+          <td>{{ $t("BOARD_INFO.WORK_STATE") }}</td>
           <td>
             <div class="coll-3">
               {{ infoData.channels[0].work_status ? "备" : "主" }}
@@ -63,7 +63,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>波长（nm）</td>
+          <td>{{ $t("BOARD_INFO.WAVE_LEN") }}（nm）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].wave_len.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].wave_len.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].wave_len.Sec_Line : "NA" }}</td>
@@ -72,7 +72,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].wave_len.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>距离（km）</td>
+          <td>{{ $t("BOARD_INFO.DISTANCE") }}（km）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_range.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].launch_range.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].launch_range.Sec_Line : "NA" }}</td>
@@ -81,7 +81,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].launch_range.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>发射光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].launch_power.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].launch_power.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].launch_power.Sec_Line : "NA" }}</td>
@@ -90,7 +90,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].launch_power.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>接收光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_OPTICAL_POWER") }}（dBm）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].rcv_power.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].rcv_power.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].rcv_power.Sec_Line : "NA" }}</td>
@@ -99,7 +99,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].rcv_power.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>电压（V）</td>
+          <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].voltage.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].voltage.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].voltage.Sec_Line : "NA" }}</td>
@@ -108,7 +108,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].voltage.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>偏置电流（mA）</td>
+          <td>{{ $t("BOARD_INFO.BIAS_CURRENT") }}（mA）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].current.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].current.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].current.Sec_Line : "NA" }}</td>
@@ -117,7 +117,7 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].current.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>温度（℃）</td>
+          <td>{{ $t("BOARD_INFO.TEMPERATURE") }}（℃）</td>
           <td>{{ infoData.channels[0].link_status.client ? infoData.channels[0].temp.client : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Pri_Line ? infoData.channels[0].temp.Pri_Line : "NA" }}</td>
           <td>{{ infoData.channels[0].link_status.Sec_Line ? infoData.channels[0].temp.Sec_Line : "NA" }}</td>
@@ -135,7 +135,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>激光器开关</td>
+          <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
             <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
               <option :value="1">关</option>
@@ -186,7 +186,7 @@
           </td>
         </tr>
         <tr>
-          <td>速率（Mbps）</td>
+          <td>{{ $t("BOARD_INFO.SPEED") }}（Mbps）</td>
           <td>
             <div class="coll-3">
               <select v-if="info.bdtype === '10G-OCPL'" v-model="infoData.channels[0].speed">
@@ -247,7 +247,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>主备线路初始功率差（dB）</td>
+          <td>{{ $t("BOARD_INFO.INIT_POWER_DIFF_BET_STAND_LINE") }}（dB）</td>
           <td>
             <div class="coll-3">
               <input type="text" class="def-input" v-model.number="infoData.channels[0].init_power" />
@@ -264,7 +264,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>倒换条件差值（dB）</td>
+          <td>{{ $t("BOARD_INFO.REVER_COND_DIFF") }}（dB）</td>
           <td>
             <div class="coll-3">
               <custom-select
@@ -295,7 +295,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>保护模式</td>
+          <td>{{ $t("BOARD_INFO.PROTECTED_MODE") }}</td>
           <td>
             <div class="coll-3">
               <select v-model="infoData.channels[0].work_mode">
@@ -318,7 +318,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>强制倒换</td>
+          <td>{{ $t("BOARD_INFO.MAN_REA") }}</td>
           <td>
             <div class="coll-3">
               <select :disabled="!infoData.channels[0].work_mode" v-model="infoData.channels[0].Switch">
@@ -341,7 +341,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>是否自动回切</td>
+          <td>{{ $t("BOARD_INFO.WHETHER_SWITCH_AUTO") }}</td>
           <td>
             <div class="coll-3">
               <select :disabled="!!infoData.channels[0].work_mode" v-model="infoData.channels[0].enable_back">
@@ -364,7 +364,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>回切WTR时间（min）</td>
+          <td>{{ $t("BOARD_INFO.WTR_TIME_SWITCH") }}（min）</td>
           <td>
             <div class="coll-3">
               <custom-select
@@ -397,7 +397,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>接收光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.client" />
             <template v-else>NA</template>
@@ -424,7 +424,7 @@
           </td>
         </tr>
         <tr>
-          <td>接收光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.client" />
             <template v-else>NA</template>
@@ -451,7 +451,7 @@
           </td>
         </tr>
         <tr>
-          <td>发送光功率过低阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.client" />
             <template v-else>NA</template>
@@ -478,7 +478,7 @@
           </td>
         </tr>
         <tr>
-          <td>发送光功率过载阈值（dBm）</td>
+          <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.client" />
             <template v-else>NA</template>
@@ -526,10 +526,10 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
-      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">复位</button>
-      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">{{ $t("COMMON.RESET") }}</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>

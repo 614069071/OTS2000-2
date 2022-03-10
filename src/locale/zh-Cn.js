@@ -261,6 +261,13 @@ export default {
     SEND_LIGHT_POWER_UPPER_THRESHOLD: "发送光功率过载阈值", //
     MODU_MODE: "调制模式", //
     PUMP_CURRENT_THR: "PUMP电流门限", //
-    MODULE: "模块",
+    MODULE: "模块", //
+    MAIN_LINE_RECE_SIGNAL: "主线路收光信号", //
+    INPUT_THR_LOWER_ALARM: "输入光功率低告警门限", //
+    INPUT_OPT_POWER: "输入光功率", //
+    OUTPUT_OPT_POWER: "输出光功率", //
+    OUTPUT_OPT_POWER_ALARM_THR: "输出光功率低告警门限", //
+    REVER_COND_DIFF: "倒换条件差值", //
+    INIT_POWER_DIFF_BET_STAND_LINE: "主备线路初始功率差", //
   },
 };

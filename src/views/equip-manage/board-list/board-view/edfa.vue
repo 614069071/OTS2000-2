@@ -4,50 +4,50 @@
     <div class="board-table-container">
       <table class="board-table" border="1">
         <tr>
-          <td>输入光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.INPUT_OPT_POWER") }}（dBm）</td>
           <td>{{ infoData.lum_input === 327.67 ? "无输入" : infoData.lum_input }}</td>
-          <td>输出光功率（dBm）</td>
+          <td>{{ $t("BOARD_INFO.OUTPUT_OPT_POWER") }}（dBm）</td>
           <td>{{ infoData.lum_output === 327.67 ? "无输出" : infoData.lum_output }}</td>
-          <td>TEC制冷电流（mA）</td>
+          <td>TEC{{ $t("BOARD_INFO.REF_ELE_CURRENT") }}（mA）</td>
           <td>{{ infoData.tec_cold_cur }}</td>
         </tr>
 
         <tr>
-          <td>模块温度（℃）</td>
+          <td>{{ $t("BOARD_INFO.MODULE_TEMP") }}（℃）</td>
           <td>{{ infoData.mod_temp }}</td>
-          <td>PUMP温度（℃）</td>
+          <td>PUMP{{ $t("BOARD_INFO.TEMPERATURE") }}（℃）</td>
           <td>{{ infoData.pump_temp }}</td>
-          <td>PUMP电流（mA）</td>
+          <td>PUMP{{ $t("BOARD_INFO.AMPERE") }}（mA）</td>
           <td>{{ infoData.pump_cur }}</td>
         </tr>
 
         <tr>
-          <td>输入功率告警</td>
+          <td>{{ $t("BOARD_INFO.INPUT_POWER_ALARM") }}</td>
           <td>{{ infoData.input_power_alarm ? "告警" : "正常" }}</td>
-          <td>输出功率告警</td>
+          <td>{{ $t("BOARD_INFO.OUTPUT_POWER_ALARM") }}</td>
           <td>{{ infoData.output_power_alarm ? "告警" : "正常" }}</td>
-          <td>PUMP电流告警</td>
+          <td>PUMP{{ $t("BOARD_INFO.CURRENT_ALARM") }}</td>
           <td>{{ infoData.pump_cur_alarm ? "告警" : "正常" }}</td>
         </tr>
 
         <tr>
-          <td>模块温度告警</td>
+          <td>{{ $t("BOARD_INFO.MODULE_TEMOP_ALARM") }}</td>
           <td>{{ infoData.mod_temp_alarm ? "告警" : "正常" }}</td>
-          <td>PUMP温度告警</td>
+          <td>PUMP{{ $t("BOARD_INFO.TEMP_ALARM") }}</td>
           <td>{{ infoData.pump_temp_alarm ? "告警" : "正常" }}</td>
           <td></td>
           <td></td>
         </tr>
 
         <tr>
-          <td>PUMP关断</td>
+          <td>PUMP{{ $t("BOARD_INFO.SHUT_OFF") }}</td>
           <td style="text-align: left">
             <select style="width: 66px" v-model="infoData.pump_sw">
               <option :value="0">打开</option>
               <option :value="1">关闭</option>
             </select>
           </td>
-          <td>工作模式</td>
+          <td>{{ $t("BOARD_INFO.WORK_MODE") }}</td>
           <td>
             <select v-model="infoData.mode">
               <option :value="2">APC</option>
@@ -131,7 +131,7 @@
 
       <table class="board-table" style="margin-top: 20px" border="1">
         <tr>
-          <td>输入光功率低告警门限（dBm）</td>
+          <td>{{ $t("BOARD_INFO.INPUT_THR_LOWER_ALARM") }}（dBm）</td>
           <td>
             <input type="text" class="def-input" v-model.number="infoData.lum_input_thr" />
             <!-- v-limit="{ key: 'infoData.lum_input_thr', min: 0, max: 10 }" -->
@@ -142,7 +142,7 @@
               OPA模块阈值范围在-33—+5dBm； 
             -->
           </td>
-          <td>输出光功率低告警门限（dBm）</td>
+          <td>{{ $t("BOARD_INFO.OUTPUT_OPT_POWER_ALARM_THR") }}（dBm）</td>
           <td>
             <input type="text" class="def-input" v-model.number="infoData.lum_output_thr" />
 
@@ -156,19 +156,19 @@
         </tr>
 
         <tr>
-          <td>PUMP电流门限（mA）</td>
+          <td>{{ $t("BOARD_INFO.PUMP_CURRENT_THR") }}（mA）</td>
           <td>
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_cur_thr" /> -->
             {{ infoData.pump_cur_thr }}
           </td>
-          <td>PUMP温度高门限（℃）</td>
+          <td>PUMP{{ $t("BOARD_INFO.UPPER_TEMP_THRESHOLD") }}（℃）</td>
           <td>
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_high" /> -->
             {{ infoData.pump_temp_high }}
           </td>
         </tr>
         <tr>
-          <td>模块温度低门限（℃）</td>
+          <td>{{ $t("BOARD_INFO.LOWER_MODULE_TEMP_THRESHOLD") }}（℃）</td>
           <td>
             <input type="text" class="def-input" v-model.number="infoData.mod_temp_low" />
             <!-- 
@@ -177,14 +177,14 @@
               OPA模块阈值范围在-55—+70℃； 
             -->
           </td>
-          <td>PUMP温度低门限（℃）</td>
+          <td>PUMP{{ $t("BOARD_INFO.LOWER_TEMP_THRESHOLD") }}（℃）</td>
           <td>
             <!-- <input type="text" class="def-input" v-model.number="infoData.pump_temp_low" /> -->
             {{ infoData.pump_temp_low }}
           </td>
         </tr>
         <tr>
-          <td>模块温度高门限（℃）</td>
+          <td>{{ $t("BOARD_INFO.UPPER_MODULE_TEMP_THRESHOLD") }}（℃）</td>
           <td>
             <input type="text" class="def-input" placeholder="有效范围-55~70℃" v-model.number="infoData.mod_temp_high" />
 
@@ -195,7 +195,7 @@
               OPA模块阈值范围在-55—+70℃； 
             -->
           </td>
-          <td>PUMP关断功率（dBm）</td>
+          <td>PUMP{{ $t("BOARD_INFO.SHUT_OFF_POWER") }}（dBm）</td>
           <td>
             <input class="def-input" type="text" v-model.number="infoData.sw_power" />
 
@@ -211,9 +211,9 @@
     </div>
 
     <div class="board-change-btns">
-      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">刷新</button>
-      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">应用</button>
-      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">恢复默认</button>
+      <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+      <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
     </div>
   </div>
 </template>

@@ -12,13 +12,13 @@
         </thead>
 
         <tr>
-          <td>在位状态</td>
+          <td>$t('BOARD_INFO.IN_STATE')</td>
           <td>{{ infoData.sfp1.online_status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp2.online_status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp3.online_status ? "在位" : "脱位" }}</td>
         </tr>
         <tr>
-          <td>LINK状态</td>
+          <td>$t('BOARD_INFO.LINK_STATE')</td>
           <td>{{ infoData.sfp1.online_status ? (infoData.sfp1.link_status ? "UP" : "DOWN") : "NA" }}</td>
           <td>{{ infoData.sfp2.online_status ? (infoData.sfp2.link_status ? "UP" : "DOWN") : "NA" }}</td>
           <td>{{ infoData.sfp3.online_status ? (infoData.sfp3.link_status ? "UP" : "DOWN") : "NA" }}</td>
@@ -81,7 +81,7 @@
           <td>ETH3</td>
         </tr>
         <tr>
-          <td>LINK状态</td>
+          <td>$t('BOARD_INFO.LINK_STATE')</td>
           <td>{{ infoData.eth1.eth_status ? "UP" : "DOWN" }}</td>
           <td>{{ infoData.eth2.eth_status ? "UP" : "DOWN" }}</td>
           <td>{{ infoData.eth3.eth_status ? "UP" : "DOWN" }}</td>

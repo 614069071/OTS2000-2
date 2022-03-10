@@ -37,7 +37,7 @@
 
         <tbody>
           <tr>
-            <td>在位状态</td>
+            <td>$t('BOARD_INFO.IN_STATE')</td>
             <td>{{ infoData.channels[0].link_status.client ? "在位" : "脱位" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? "在位" : "脱位" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? "在位" : "脱位" }}</td>
@@ -48,7 +48,7 @@
             <td>{{ infoData.channels[3].link_status.line ? "在位" : "脱位" }}</td>
           </tr>
           <tr>
-            <td>LINK状态</td>
+            <td>$t('BOARD_INFO.LINK_STATE')</td>
             <td>{{ infoData.channels[0].link_status.client ? (infoData.channels[0].los.client ? "DOWN" : "UP") : "NA" }}</td>
             <td>{{ infoData.channels[0].link_status.line ? (infoData.channels[0].los.line ? "DOWN" : "UP") : "NA" }}</td>
             <td>{{ infoData.channels[1].link_status.client ? (infoData.channels[1].los.client ? "DOWN" : "UP") : "NA" }}</td>

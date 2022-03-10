@@ -32,7 +32,7 @@
         </thead>
 
         <tr>
-          <td>在位状态</td>
+          <td>$t('BOARD_INFO.IN_STATE')</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? "在位" : "脱位" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? "在位" : "脱位" }}</td>
@@ -45,7 +45,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>LINK状态</td>
+          <td>$t('BOARD_INFO.LINK_STATE')</td>
           <td>{{ infoData.sfp28_info.channels[0].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[1].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.sfp28_info.channels[2].status ? (infoData.sfp28_info.los ? "DOWN" : "UP") : "NA" }}</td>

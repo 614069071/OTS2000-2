@@ -32,7 +32,7 @@
         </thead>
 
         <tr>
-          <td>在位状态</td>
+          <td>$t('BOARD_INFO.IN_STATE')</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? "在位" : "脱位" }}</div>
           </td>
@@ -47,7 +47,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>LINK状态</td>
+          <td>$t('BOARD_INFO.LINK_STATE')</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel1.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel2.los ? "DOWN" : "UP") : "NA" }}</td>
           <td>{{ infoData.QSFP1.link_status ? (infoData.QSFP1.channel3.los ? "DOWN" : "UP") : "NA" }}</td>
@@ -347,7 +347,7 @@
 
       <table class="board-table board-title-table board-cfp2-table" border="1">
         <tr>
-          <td>在位状态</td>
+          <td>$t('BOARD_INFO.IN_STATE')</td>
           <td>{{ infoData.CFP2.link_status ? "在位" : "脱位" }}</td>
           <!-- 新增字段 待设备添加 -->
           <td>CFP2状态</td>

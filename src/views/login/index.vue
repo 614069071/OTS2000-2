@@ -38,7 +38,7 @@ export default {
     return {
       langType: "1",
       loginInfo: {
-        username: "admin", //ordin manu admin
+        username: "admin", //ordin manuf admin
         password: "", //默认123
       },
     };
@@ -52,7 +52,7 @@ export default {
   methods: {
     simulateLogin() {
       const { username } = this.loginInfo;
-      const roles = ["ordin", "manu", "admin"];
+      const roles = ["ordin", "manuf", "admin"];
       const roleType = roles.indexOf(username);
 
       if (roleType > -1) {

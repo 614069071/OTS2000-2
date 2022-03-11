@@ -22,8 +22,8 @@ export default {
   computed: {
     menuTreeColle() {
       const role = storages.get("__role__") || "0";
-      const ORDINARY = "0";
-      const MANU = "1";
+      const ORDIN = "0";
+      const MANUF = "1";
       const ADMIN = "2";
 
       const menus = [
@@ -31,7 +31,7 @@ export default {
           icon: "icon-system",
           menuName: this.$t("MENU.DEVICE_MANAGE"),
           meta: {
-            role: [MANU, ADMIN, ORDINARY],
+            role: [MANUF, ADMIN, ORDIN],
           },
           children: [
             {
@@ -39,7 +39,7 @@ export default {
               menuName: this.$t("MENU.DEVICE_VIEW"),
               menuLink: "/",
               meta: {
-                role: [MANU, ADMIN, ORDINARY],
+                role: [MANUF, ADMIN, ORDIN],
               },
             },
             {
@@ -47,7 +47,7 @@ export default {
               menuName: this.$t("MENU.BOARD_LIST"),
               menuLink: "/board-list",
               meta: {
-                role: [MANU, ADMIN, ORDINARY],
+                role: [MANUF, ADMIN, ORDIN],
               },
             },
           ],
@@ -56,7 +56,7 @@ export default {
           icon: "icon-warning",
           menuName: this.$t("MENU.ALARM_MANAGE"),
           meta: {
-            role: [ADMIN, ORDINARY],
+            role: [ADMIN, ORDIN],
           },
           children: [
             {
@@ -64,7 +64,7 @@ export default {
               menuName: this.$t("MENU.ALARM_CONFIG"),
               menuLink: "/alarm-manage",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN],
               },
             },
             {
@@ -72,7 +72,7 @@ export default {
               menuName: this.$t("MENU.CURRENT_ALARM"),
               menuLink: "/alarm-manage/current-alarm",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
             {
@@ -80,7 +80,7 @@ export default {
               menuName: this.$t("MENU.HISTORY_ALARM"),
               menuLink: "/alarm-manage/history-alarm",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
           ],
@@ -89,7 +89,7 @@ export default {
           icon: "icon-earth",
           menuName: this.$t("MENU.NET_MANAGE"),
           meta: {
-            role: [ADMIN, ORDINARY],
+            role: [ADMIN, ORDIN],
           },
           children: [
             {
@@ -97,7 +97,7 @@ export default {
               menuName: this.$t("MENU.IP_CONFIG"),
               menuLink: "/network-manage",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN],
               },
             },
             {
@@ -105,7 +105,7 @@ export default {
               menuName: this.$t("MENU.SNMP_CONFIG"),
               menuLink: "/network-manage/snmp-config",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN],
               },
             },
             {
@@ -113,7 +113,7 @@ export default {
               menuName: this.$t("MENU.PORT_INFO"),
               menuLink: "/network-manage/port-info",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
             {
@@ -121,7 +121,7 @@ export default {
               menuName: this.$t("MENU.CAS_CONFIG"),
               menuLink: "/network-manage/cascade-config",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN],
               },
             },
           ],
@@ -130,7 +130,7 @@ export default {
           icon: "icon-security",
           menuName: this.$t("MENU.SEC_MANAGE"),
           meta: {
-            role: [ADMIN, ORDINARY],
+            role: [ADMIN, ORDIN],
           },
           children: [
             {
@@ -138,7 +138,7 @@ export default {
               menuName: this.$t("MENU.USER_MANAGE"),
               menuLink: "/safety-manage",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
           ],
@@ -148,7 +148,7 @@ export default {
           menuId: 5,
           menuName: this.$t("MENU.MAIN_MANAGE"),
           meta: {
-            role: [ADMIN, ORDINARY],
+            role: [ADMIN, ORDIN],
           },
           children: [
             {
@@ -156,7 +156,7 @@ export default {
               menuName: this.$t("MENU.SYS_INFO"),
               menuLink: "/maint-manage",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
             {
@@ -172,7 +172,7 @@ export default {
               menuName: this.$t("MENU.RUN_LOG"),
               menuLink: "/maint-manage/run-log",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN, ORDIN],
               },
             },
           ],

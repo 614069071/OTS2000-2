@@ -64,12 +64,12 @@
       </table>
     </div>
 
-    <div class="board-change-btns">
+    <div class="board-change-btns" v-permission="'control'">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshGetTitle">{{ $t("COMMON.REFRESH") }}</button>
       <button class="def-btn" :disabled="setTilteDisabled" @click="setTilte">{{ $t("COMMON.SUBMIT") }}</button>
     </div>
 
-    <div class="board-type-container" v-if="info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">
+    <div class="board-type-container" v-if="isRole != '1' && info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">
       <component ref="board" :is="info.boardname.toLowerCase()" :info="{ ...titeData, ...info }"></component>
     </div>
   </div>

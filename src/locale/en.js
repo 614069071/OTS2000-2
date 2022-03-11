@@ -83,6 +83,7 @@ export default {
     LOGIN: "Login",
     USER_NAME: "User name",
     LANGUAGE: "语言",
+    VALID_USER_AND_PASS_ERROR: "The account or password is incorrect",
   },
   LOYOUT: {
     RESTART: "Restart",

@@ -84,6 +84,7 @@ export default {
     LOGIN: "登录",
     USER_NAME: "账号",
     LANGUAGE: "Language",
+    VALID_USER_AND_PASS_ERROR: "账号或密码错误",
   },
   LOYOUT: {
     RESTART: "重启",

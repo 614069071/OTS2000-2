@@ -17,7 +17,7 @@
             <div class="login-ps-before"></div>
             <input type="password" v-model="loginInfo.password" :placeholder="$t('COMMON.PASSWORD')" />
           </div>
-          <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN.LOGIN") }}</button>
+          <button class="login-submit" @click="loginRequest">{{ $t("LOGIN.LOGIN") }}</button>
         </div>
       </div>
     </div>
@@ -38,50 +38,39 @@ export default {
     return {
       langType: "1",
       loginInfo: {
-        username: "admin", //ordin manuf admin
-        password: "", //默认123
+        boardname: "NMU",
+        type: "get_privilege",
+        username: "manuweb", //ordin manuf admin 生产用户:manuweb 默认密码:cdata666666 管理用户: adminweb 默认密码:cdata888888
+        password: "cdata666666", //默认123
       },
     };
   },
   beforeRouteEnter(to, from, next) {
-    storages.set("__accessToken__", "");
+    storages.set("__user__", "");
     storages.set("userInfo", {});
     next();
   },
   created() {},
   methods: {
-    simulateLogin() {
-      const { username } = this.loginInfo;
-      const roles = ["ordin", "manuf", "admin"];
-      const roleType = roles.indexOf(username);
-
-      if (roleType > -1) {
-        setTimeout(() => {
-          /* 0 普通 1 生产 2 管理员*/
-
-          storages.set("__accessToken__", 123);
-          storages.set("__role__", roleType);
-          this.$router.push("/");
-        }, 1000);
-      } else {
-        alert(this.$t("LOGIN.VALID_USER_AND_PASS_ERROR"));
-      }
-    },
     loginRequest() {
-      this.$http
-        .login(this.loginInfo)
-        .then(({ resp_code, datas }) => {
-          if (!resp_code) {
-            const { toKen, ...userInfo } = datas;
+      /* 0 普通 1 生产 2 管理员*/
 
-            storages.set("userInfo", userInfo);
-            storages.set("__accessToken__", toKen);
+      const data = { otn2000: this.loginInfo };
+
+      this.$http
+        .post(data)
+        .then(({ otn2000_ack: { code, privilege } }) => {
+          // 0: 成功 1：用户不存在  2：密码错误 else：获取权限失败
+
+          if (!code) {
+            storages.set("__user__", this.loginInfo.username);
+            storages.set("__role__", privilege);
+            this.$router.push("/");
           } else {
-            //
+            alert(this.$t("LOGIN.VALID_USER_AND_PASS_ERROR"));
           }
         })
-        .catch(err => {
-          console.log(err);
+        .catch(() => {
           alert(this.$t("COMMON.FAIL"));
         });
     },

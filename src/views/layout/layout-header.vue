@@ -5,8 +5,8 @@
     </router-link>
 
     <div class="user-info-wrapper">
-      <span>{{ $t("LOYOUT.USER_NAME") }}：webadmin</span>
-      <span>{{ $t("LOYOUT.USER_LEVER") }}：{{ $t("USER_MANAGE.ADMIN") }}</span>
+      <span>{{ $t("LOYOUT.USER_NAME") }}：{{ user.user }}</span>
+      <span>{{ $t("LOYOUT.USER_LEVER") }}：{{ user.role | mapRoleLevel }}</span>
     </div>
   </div>
 </template>
@@ -14,14 +14,11 @@
 <script>
 export default {
   name: "LayoutHeader",
-  data() {
-    return {};
-  },
-  created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("mounted");
+  props: ["user"],
+  filters: {
+    mapRoleLevel(v) {
+      return ["普通用户", "生产用户", "管理员"][v] || v;
+    },
   },
 };
 </script>

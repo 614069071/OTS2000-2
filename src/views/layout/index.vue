@@ -1,6 +1,6 @@
 <template>
   <div class="layout-wrapper">
-    <LayoutHeader />
+    <LayoutHeader :user="userProfile" />
 
     <div class="layout-main">
       <div class="layout-aside">
@@ -41,8 +41,8 @@ export default {
   data() {
     return {
       userProfile: {
-        userName: "webadmin",
-        roleName: "管理员",
+        user: "webadmin",
+        role: "管理员",
       },
       dataTable: [
         // { status: 1, boardname: "dco200g" },
@@ -66,9 +66,9 @@ export default {
     };
   },
   beforeRouteEnter(to, form, next) {
-    const __accessToken__ = storages.get("__accessToken__");
+    const __user__ = storages.get("__user__");
 
-    if (__accessToken__) {
+    if (__user__) {
       next();
     } else {
       next({ path: "/login", replace: true });
@@ -83,6 +83,8 @@ export default {
     },
   },
   mounted() {
+    this.initUserinfo();
+
     this.$bus.$on("updateBoardView", () => {
       this.getBoardList();
     });
@@ -92,9 +94,9 @@ export default {
   },
   methods: {
     initUserinfo() {
-      const userProfile = storages.get("userProfile") || {};
-
-      this.userProfile = Object.freeze(userProfile);
+      const __user__ = storages.get("__user__");
+      const __role__ = storages.get("__role__");
+      this.userProfile = Object.freeze({ user: __user__, role: __role__ });
     },
     getBoardList() {
       const data = { otn2000: { boardname: "board_view", type: "get_info" } };

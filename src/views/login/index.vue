@@ -39,8 +39,8 @@ export default {
       loginInfo: {
         boardname: "NMU",
         type: "get_privilege",
-        username: "manuweb", //ordin manuf admin 生产用户:manuweb 默认密码:cdata666666 管理用户: adminweb 默认密码:cdata888888
-        password: "cdata666666",
+        username: "adminweb", //ordin manuf admin 生产用户:manuweb 默认密码:cdata666666 管理用户: adminweb 默认密码:cdata888888
+        password: "cdata888888",
       },
     };
   },

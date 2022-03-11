@@ -2,16 +2,23 @@
   <div>
     <div class="inner-container-title">{{ $t("USER_MANAGE.USER_LIST") }}</div>
 
-    <el-table :data="dataTable" tooltip-effect="dark" style="width: 100%">
+    <el-table :data="dataTable" border size="mini" tooltip-effect="dark" style="width: 100%">
       <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
-      <el-table-column prop="name1" :label="$t('USER_MANAGE.USER_NAME')"></el-table-column>
-      <el-table-column prop="name2" :label="$t('COMMON.PASSWORD')"></el-table-column>
-      <el-table-column prop="name3" :label="$t('USER_MANAGE.USER_LEVEL')"></el-table-column>
-      <el-table-column prop="name4" :label="$t('USER_MANAGE.CREATE_TIME')"></el-table-column>
+      <el-table-column prop="username" :label="$t('USER_MANAGE.USER_NAME')"></el-table-column>
+      <el-table-column prop="privilege" :label="$t('USER_MANAGE.USER_LEVEL')">
+        <template v-slot="{ row }">
+          {{ row.privilege | mapRoleName }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="create_time" :label="$t('USER_MANAGE.CREATE_TIME')">
+        <template v-slot="{ row }">
+          {{ row.create_time | formatTime }}
+        </template>
+      </el-table-column>
       <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">
-        <template>
+        <template v-slot="{ row }">
           <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
-          <button class="def-btn">{{ $t("COMMON.DELETE") }}</button>
+          <button class="def-btn" v-if="row.privilege == '0'">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
@@ -27,7 +34,7 @@
     </div>
 
     <div class="user-btns-wrapper">
-      <button class="def-btn">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" @click="getUserList">{{ $t("COMMON.REFRESH") }}</button>
       <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
       <button class="def-btn" @click="addUserItem">{{ $t("USER_MANAGE.ADD_USER") }}</button>
     </div>
@@ -51,9 +58,31 @@ export default {
       ],
     };
   },
+  filters: {
+    mapRoleName(v) {
+      return ["一般用户", "生产用户", "管理员"][v] || v;
+    },
+  },
+  created() {
+    this.getUserList();
+  },
   methods: {
     addUserItem() {
       this.addUserArg.push(Date.now());
+    },
+    getUserList() {
+      this.dataTable = [];
+
+      const data = { otn2000: { boardname: "NMU", type: "get_userlist" } };
+
+      this.$http
+        .post(data)
+        .then(({ otn2000_ack: { userlist = [] } }) => {
+          this.dataTable = userlist;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
   },
 };

@@ -336,7 +336,7 @@ $border-color: #aaa;
     position: relative;
     padding: 0 3px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
     display: flex;
     box-sizing: border-box;
   }

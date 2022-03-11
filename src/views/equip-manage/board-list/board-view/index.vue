@@ -385,9 +385,14 @@ $border-color: #aaa;
 }
 
 .board-change-btns {
-  text-align: right;
   padding: 10px 10px;
+  display: flex;
+  justify-content: flex-end;
   background-color: #fff;
+
+  & > div {
+    margin-left: 10px;
+  }
 }
 
 .board-table-container {

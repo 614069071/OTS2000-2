@@ -11,7 +11,7 @@
         <div class="system-info-item">
           <span>{{ $t("HOME.DEVICE_SN") }}</span>
           <span>
-            <template v-if="isTatic || isRole == '1'">{{ systemInfo.sn }}</template>
+            <template v-if="isTatic || isRole != '1'">{{ systemInfo.sn }}</template>
             <input v-if="!isTatic && isRole == '1'" class="def-input" type="text" v-model="systemInfo.sn" />
           </span>
         </div>
@@ -41,8 +41,9 @@
           </span>
         </div>
         <div class="system-info-change-wrapper">
-          <button v-if="isTatic" class="def-btn" v-permission="'prod'" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
-          <template v-else>
+          <button v-if="isTatic && isRole != '0'" class="def-btn" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
+
+          <template v-else-if="isRole != '0'">
             <button class="def-btn" @click="submitChangeFrom">{{ $t("COMMON.SUBMIT") }}</button>
             <button class="def-btn" @click="cancelChangeForm">{{ $t("COMMON.CANCEL") }}</button>
           </template>

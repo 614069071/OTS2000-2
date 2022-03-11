@@ -34,7 +34,11 @@ Vue.directive("permission", {
     const permissions = rolePermissions[role];
     const makePermissions = makeMap(permissions);
     const has = makePermissions(value);
+    console.log("permission", role, has);
+
     if (!has) {
+      console.log("permission noooo");
+
       el.style.display = "none";
 
       setTimeout(() => {

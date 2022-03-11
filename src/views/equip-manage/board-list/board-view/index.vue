@@ -17,7 +17,7 @@
         <tr>
           <td>{{ $t("LIST.PRODUCTION_DATE") }}</td>
           <td>
-            <el-date-picker v-if="isAdmin" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
+            <el-date-picker v-if="isRole == '1'" v-model="titeData.mfgdate" size="mini" type="date" value-format="yyyy-MM-dd" />
 
             <template v-else>
               {{ titeData.mfgdate }}
@@ -25,7 +25,7 @@
           </td>
           <td>{{ $t("COMMON.SN") }}</td>
           <td>
-            <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.sn" />
+            <input class="def-input" v-if="isRole == '1'" type="text" v-model="titeData.sn" />
 
             <template v-else>
               {{ titeData.sn }}
@@ -45,7 +45,7 @@
         <tr>
           <td>{{ $t("COMMON.MAC_ADDRESS") }}</td>
           <td>
-            <input class="def-input" v-if="isAdmin" type="text" v-model="titeData.mac_address" />
+            <input class="def-input" v-if="isRole == '1'" type="text" v-model="titeData.mac_address" />
 
             <template v-else>
               {{ titeData.mac_address }}
@@ -143,7 +143,7 @@ export default {
   },
   data() {
     return {
-      isAdmin: storages.get("__isAdmin__") || false,
+      isRole: storages.get("__role__") || false,
       titeData: {
         sn: "",
         desc: "",
@@ -212,7 +212,7 @@ export default {
     setTilte() {
       const { mfgdate, sn, desc } = this.titeData;
       const { boardname, slot } = this.info;
-      const iSuperData = this.isAdmin ? { mfgdate, sn } : {};
+      const iSuperData = this.isRole == "1" ? { mfgdate, sn } : {};
       const data = { otn2000: { type: "post_title", boardname, desc, slot, ...iSuperData } };
 
       this.setTilteDisabled = true;

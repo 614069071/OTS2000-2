@@ -11,11 +11,11 @@
         <div class="login-user-main">
           <div class="login-user-wrapper">
             <div class="login-user-before"></div>
-            <input type="text" :placeholder="$t('LOGIN.USER_NAME')" />
+            <input type="text" v-model="loginInfo.username" :placeholder="$t('LOGIN.USER_NAME')" />
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="password" :placeholder="$t('COMMON.PASSWORD')" />
+            <input type="password" v-model="loginInfo.password" :placeholder="$t('COMMON.PASSWORD')" />
           </div>
           <button class="login-submit" @click="simulateLogin">{{ $t("LOGIN.LOGIN") }}</button>
         </div>
@@ -38,32 +38,8 @@ export default {
     return {
       langType: "1",
       loginInfo: {
-        loginAccount: "", //admin
-        loginPassword: "", //admin
-      },
-      rules: {
-        loginAccount: [
-          {
-            validator(rule, value, callback) {
-              if (value) {
-                callback();
-              } else {
-                callback(new Error("请输入账号"));
-              }
-            },
-          },
-        ],
-        loginPassword: [
-          {
-            validator(rule, value, callback) {
-              if (value) {
-                callback();
-              } else {
-                callback(new Error("请输入密码"));
-              }
-            },
-          },
-        ],
+        username: "", //ordin manu admin
+        password: "", //默认123
       },
     };
   },
@@ -74,24 +50,25 @@ export default {
   },
   created() {},
   methods: {
-    login() {
-      // 模拟登录
-      const login_form = this.$refs.login_form;
-
-      login_form
-        .validate()
-        .then(() => {
-          // this.$load();
-          this.simulateLogin();
-        })
-        .catch(() => {});
-    },
     simulateLogin() {
-      setTimeout(() => {
-        storages.set("__accessToken__", 123);
-        storages.set("__isAdmin__", true);
-        this.$router.push("/");
-      }, 1000);
+      const { username } = this.loginInfo;
+      const roles = ["ordin", "manu", "admin"];
+      const roleType = roles.indexOf(username);
+
+      console.log(roleType);
+
+      if (roleType > -1) {
+        setTimeout(() => {
+          /* 0 普通 1 生产 2 管理员*/
+
+          console.log("1111");
+          storages.set("__accessToken__", 123);
+          storages.set("__role__", roleType);
+          this.$router.push("/");
+        }, 1000);
+      } else {
+        console.log("失败");
+      }
     },
     loginRequest() {
       this.$http

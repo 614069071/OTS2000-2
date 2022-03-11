@@ -21,10 +21,10 @@ export default {
   },
   computed: {
     menuTreeColle() {
-      const role = "admin";
-      const MANU = "manu";
-      const ADMIN = "admin";
-      const ORDINARY = "ordinary";
+      const role = storages.get("__role__") || "0";
+      const ORDINARY = "0";
+      const MANU = "1";
+      const ADMIN = "2";
 
       const menus = [
         {
@@ -164,7 +164,7 @@ export default {
               menuName: this.$t("MENU.UPGRADE"),
               menuLink: "/upgrade",
               meta: {
-                role: [ADMIN, ORDINARY],
+                role: [ADMIN],
               },
             },
             {
@@ -179,8 +179,9 @@ export default {
         },
       ];
 
-      console.log(perToMenus(role, menus));
-      return menus;
+      const roleMenus = perToMenus(role, menus);
+
+      return roleMenus;
     },
   },
 };

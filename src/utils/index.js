@@ -343,3 +343,15 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
 
   return result;
 }
+
+export function perToMenus(role, items) {
+  const result = items.filter(menu => {
+    const f = menu.meta && menu.meta.role && menu.meta.role.includes(role);
+
+    menu.children = f && menu.children && menu.children.length ? perToMenus(role, menu.children) : [];
+
+    return f;
+  });
+
+  return result;
+}

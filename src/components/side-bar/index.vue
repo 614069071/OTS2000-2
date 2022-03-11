@@ -9,7 +9,7 @@
 
 <script>
 import MiddleMenu from "./middle-menu";
-import { storages } from "@/utils";
+import { storages, perToMenus } from "@/utils";
 
 export default {
   name: "side-bar",
@@ -21,78 +21,125 @@ export default {
   },
   computed: {
     menuTreeColle() {
-      return [
+      const role = "admin";
+      const MANU = "manu";
+      const ADMIN = "admin";
+      const ORDINARY = "ordinary";
+
+      const menus = [
         {
           icon: "icon-system",
           menuName: this.$t("MENU.DEVICE_MANAGE"),
+          meta: {
+            role: [MANU, ADMIN, ORDINARY],
+          },
           children: [
             {
               icon: "",
               menuName: this.$t("MENU.DEVICE_VIEW"),
               menuLink: "/",
+              meta: {
+                role: [MANU, ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.BOARD_LIST"),
               menuLink: "/board-list",
+              meta: {
+                role: [MANU, ADMIN, ORDINARY],
+              },
             },
           ],
         },
         {
           icon: "icon-warning",
           menuName: this.$t("MENU.ALARM_MANAGE"),
+          meta: {
+            role: [ADMIN, ORDINARY],
+          },
           children: [
             {
               icon: "",
               menuName: this.$t("MENU.ALARM_CONFIG"),
               menuLink: "/alarm-manage",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.CURRENT_ALARM"),
               menuLink: "/alarm-manage/current-alarm",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.HISTORY_ALARM"),
               menuLink: "/alarm-manage/history-alarm",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
           ],
         },
         {
           icon: "icon-earth",
           menuName: this.$t("MENU.NET_MANAGE"),
+          meta: {
+            role: [ADMIN, ORDINARY],
+          },
           children: [
             {
               icon: "",
               menuName: this.$t("MENU.IP_CONFIG"),
               menuLink: "/network-manage",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.SNMP_CONFIG"),
               menuLink: "/network-manage/snmp-config",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.PORT_INFO"),
               menuLink: "/network-manage/port-info",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.CAS_CONFIG"),
               menuLink: "/network-manage/cascade-config",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
           ],
         },
         {
           icon: "icon-security",
           menuName: this.$t("MENU.SEC_MANAGE"),
+          meta: {
+            role: [ADMIN, ORDINARY],
+          },
           children: [
             {
               icon: "",
               menuName: this.$t("MENU.USER_MANAGE"),
               menuLink: "/safety-manage",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
           ],
         },
@@ -100,40 +147,41 @@ export default {
           icon: "icon-ampl",
           menuId: 5,
           menuName: this.$t("MENU.MAIN_MANAGE"),
+          meta: {
+            role: [ADMIN, ORDINARY],
+          },
           children: [
             {
               icon: "",
               menuName: this.$t("MENU.SYS_INFO"),
               menuLink: "/maint-manage",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.UPGRADE"),
               menuLink: "/upgrade",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
             {
               icon: "",
               menuName: this.$t("MENU.RUN_LOG"),
               menuLink: "/maint-manage/run-log",
+              meta: {
+                role: [ADMIN, ORDINARY],
+              },
             },
           ],
         },
       ];
+
+      console.log(perToMenus(role, menus));
+      return menus;
     },
-
-    // 	function deal(arr, pre) {
-    // 		arr.forEach((e, i) => {
-    // 			if (!e.meta) e.meta = {};
-    // 			e.meta.index = pre ? `${pre}-${i}` : `${i}`;
-    // 			if (e.children && e.children.length) {
-    // 				deal(e.children, e.meta.index);
-    // 			}
-    // 		});
-    // 	}
-
-    // 	deal(items);
-    // 	return items;
-    // },
   },
 };
 </script>

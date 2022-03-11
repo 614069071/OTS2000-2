@@ -10,22 +10,22 @@
 
     <div class="board-trx-wrapper otu25g-trx-wrapper1">
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Cin1</span></div>
+        <div class="trx-item-line-small"><span>Cin</span><i></i>1<i></i><span>Lin</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Lin1</span></div>
+        <div class="trx-item-guide"></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Lin2</span></div>
+        <div class="trx-item-line-small"><span>Cin</span><i></i>2<i></i><span>Lin</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx3</span><span>Rx3</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Lin2</span></div>
+        <div class="trx-item-guide"></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx4</span><span>Rx4</span></div>
       </div>
@@ -57,22 +57,22 @@
 
     <div class="board-trx-wrapper otu25g-trx-wrapper2">
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Cin3</span></div>
+        <div class="trx-item-line-small"><span>Cin</span><i></i>3<i></i><span>Lin</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx5</span><span>Rx5</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Lin3</span></div>
+        <div class="trx-item-guide"></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx6</span><span>Rx6</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Cin4</span></div>
+        <div class="trx-item-line-small"><span>Cin</span><i></i>4<i></i><span>Lin</span></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx7</span><span>Rx7</span></div>
       </div>
       <div class="trx-item">
-        <div class="trx-item-guide"><span>Lin4</span></div>
+        <div class="trx-item-guide"></div>
         <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx8</span><span>Rx8</span></div>
       </div>

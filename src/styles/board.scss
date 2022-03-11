@@ -196,6 +196,50 @@
   transform: scale(0.7);
 
   .trx-item {
+    .trx-item-line {
+      height: 14px;
+      width: 58px;
+      line-height: 14px;
+      white-space: nowrap;
+      padding-left: 40px;
+      box-sizing: border-box;
+
+      span {
+        width: 20px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      i {
+        width: 28px;
+        display: inline-block;
+        border-bottom: 1px solid #333;
+        margin: 0 4px 3px 4px;
+      }
+    }
+
+    .trx-item-line-small {
+      height: 14px;
+      width: 58px;
+      line-height: 14px;
+      white-space: nowrap;
+      padding-left: 19px;
+      box-sizing: border-box;
+
+      span {
+        width: 17px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      i {
+        width: 15px;
+        display: inline-block;
+        border-bottom: 1px solid #333;
+        margin: 0 2px 3px 2px;
+      }
+    }
+
     .trx-item-guide {
       text-align: center;
       height: 14px;

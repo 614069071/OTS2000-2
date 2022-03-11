@@ -15,7 +15,7 @@
           </div>
           <div class="login-ps-wrapper">
             <div class="login-ps-before"></div>
-            <input type="password" v-model="loginInfo.password" :placeholder="$t('COMMON.PASSWORD')" />
+            <input type="password" v-model="loginInfo.password" maxlength="20" :placeholder="$t('COMMON.PASSWORD')" />
           </div>
           <button class="login-submit" @click="loginRequest">{{ $t("LOGIN.LOGIN") }}</button>
         </div>
@@ -36,12 +36,11 @@ export default {
   components: { LoginHeader, LoginFooter },
   data() {
     return {
-      langType: "1",
       loginInfo: {
         boardname: "NMU",
         type: "get_privilege",
         username: "manuweb", //ordin manuf admin 生产用户:manuweb 默认密码:cdata666666 管理用户: adminweb 默认密码:cdata888888
-        password: "cdata666666", //默认123
+        password: "cdata666666",
       },
     };
   },

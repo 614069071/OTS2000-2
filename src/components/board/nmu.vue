@@ -3,7 +3,7 @@
     <div class="board-item-name"><span>NMU</span></div>
 
     <div class="board-link-wrapper nmu-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">OLINK2</span></div>
       <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK3</span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">BLINK</span></div>
@@ -19,7 +19,7 @@
     <div class="board-trx-wrapper nmu-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
@@ -34,7 +34,7 @@
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
         <div class="eth-item-title">ETH1</div>
-        <div class="eth-item-main suc"></div>
+        <div class="eth-item-main"></div>
       </div>
       <div class="eth-item">
         <div class="eth-item-title">ETH2</div>

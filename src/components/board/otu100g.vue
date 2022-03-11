@@ -2,7 +2,7 @@
   <div class="board-otu100g-view-wrapper composite board-item-view-wrapper">
     <div class="board-item-name"><span>40&100G OTU</span></div>
     <div class="board-link-wrapper otu100g-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
@@ -13,7 +13,7 @@
     <div class="board-trx-wrapper otu100g-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>

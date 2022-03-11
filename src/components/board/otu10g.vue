@@ -2,7 +2,7 @@
   <div class="board-otu10g-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>4*10G OTU</span></div>
     <div class="board-link-wrapper otu10g-link-wrapper1">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
@@ -11,7 +11,7 @@
     <div class="board-trx-wrapper otu10g-trx-wrapper1">
       <div class="trx-item">
         <div class="trx-item-guide"><span>Cin1</span></div>
-        <div class="trx-item-main suc"></div>
+        <div class="trx-item-main"></div>
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
       <div class="trx-item">

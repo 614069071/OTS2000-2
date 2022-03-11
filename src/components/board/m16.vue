@@ -2,7 +2,7 @@
   <div class="board-m16-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>M16</span></div>
     <div class="board-link-wrapper m16-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>

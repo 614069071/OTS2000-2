@@ -19,6 +19,7 @@ export function difference(object, base) {
 
 function makeMap(arr) {
   const obj = {};
+
   arr.forEach(e => (obj[e] = true));
 
   return function(k) {

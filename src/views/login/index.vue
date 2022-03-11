@@ -38,7 +38,7 @@ export default {
     return {
       langType: "1",
       loginInfo: {
-        username: "", //ordin manu admin
+        username: "admin", //ordin manu admin
         password: "", //默认123
       },
     };
@@ -55,19 +55,16 @@ export default {
       const roles = ["ordin", "manu", "admin"];
       const roleType = roles.indexOf(username);
 
-      console.log(roleType);
-
       if (roleType > -1) {
         setTimeout(() => {
           /* 0 普通 1 生产 2 管理员*/
 
-          console.log("1111");
           storages.set("__accessToken__", 123);
           storages.set("__role__", roleType);
           this.$router.push("/");
         }, 1000);
       } else {
-        console.log("失败");
+        alert(this.$t("LOGIN.VALID_USER_AND_PASS_ERROR"));
       }
     },
     loginRequest() {

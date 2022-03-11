@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="inner-container-title">{{ $t("USER_MANAGE.USER_LIST") }}</div>
+    <div class="inner-container-title">
+      {{ $t("USER_MANAGE.USER_LIST") }} <button class="button-refresh-board-list" @click="getUserList">{{ $t("COMMON.REFRESH") }}</button>
+    </div>
 
     <el-table :data="dataTable" border size="mini" tooltip-effect="dark" style="width: 100%">
       <!-- <el-table-column type="index" label="序号" width="50"> </el-table-column> -->
@@ -26,16 +28,19 @@
     <div class="add-user-config-wrapper" v-for="item in addUserArg" :key="item">
       <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_NAME')" />
       <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
+      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
       <el-select size="small" :placeholder="$t('USER_MANAGE.INPUT_USER_LEVEL')" v-model="dataForm.name3">
-        <el-option :label="$t('USER_MANAGE.ADMIN')" value="1"></el-option>
-        <el-option :label="$t('USER_MANAGE.AVERAGE')" value="2"></el-option>
+        <!-- <el-option :label="$t('USER_MANAGE.ADMIN')" value="1"></el-option> -->
+        <el-option :label="$t('USER_MANAGE.AVERAGE')" value="0"></el-option>
       </el-select>
-      <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
+
+      <div>
+        <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
+        <button class="def-btn">{{ $t("COMMON.CANCEL") }}</button>
+      </div>
     </div>
 
     <div class="user-btns-wrapper">
-      <button class="def-btn" @click="getUserList">{{ $t("COMMON.REFRESH") }}</button>
-      <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
       <button class="def-btn" @click="addUserItem">{{ $t("USER_MANAGE.ADD_USER") }}</button>
     </div>
   </div>

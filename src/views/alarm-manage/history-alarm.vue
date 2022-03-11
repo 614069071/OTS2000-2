@@ -85,18 +85,22 @@
       </el-table-column>
       <el-table-column :label="$t('COMMON.CONTROL')" width="140">
         <template v-slot="{ row }">
-          <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">{{ $t("COMMON.CONFIRM") }}</button>
-          <button class="def-btn" @click="deleteAlarm(row)">{{ $t("COMMON.DELETE") }}</button>
+          <div v-permission="'control'">
+            <button v-if="!row.confirm_time" class="def-btn" @click="confimAlarm(row)">{{ $t("COMMON.CONFIRM") }}</button>
+            <button class="def-btn" @click="deleteAlarm(row)">{{ $t("COMMON.DELETE") }}</button>
+          </div>
         </template>
       </el-table-column>
     </el-table>
 
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
-        <button class="def-btn" @click="delCheckAlarm">{{ $t("ALARM_COMMON.DELETE_CHECK") }}</button>
-        <button class="def-btn" @click="delAllAlarm">{{ $t("ALARM_COMMON.DELETE_ALL") }}</button>
-        <button class="def-btn" @click="confimCheckAlarm">{{ $t("ALARM_COMMON.CONFIRM_CHECK") }}</button>
-        <button class="def-btn" @click="confimAllAlarm">{{ $t("ALARM_COMMON.CONFIRM_ALL") }}</button>
+        <div v-permission="'control'">
+          <button class="def-btn" @click="delCheckAlarm">{{ $t("ALARM_COMMON.DELETE_CHECK") }}</button>
+          <button class="def-btn" @click="delAllAlarm">{{ $t("ALARM_COMMON.DELETE_ALL") }}</button>
+          <button class="def-btn" @click="confimCheckAlarm">{{ $t("ALARM_COMMON.CONFIRM_CHECK") }}</button>
+          <button class="def-btn" @click="confimAllAlarm">{{ $t("ALARM_COMMON.CONFIRM_ALL") }}</button>
+        </div>
       </div>
 
       <div class="pagination-switch-btns">

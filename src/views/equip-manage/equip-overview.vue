@@ -41,7 +41,7 @@
           </span>
         </div>
         <div class="system-info-change-wrapper">
-          <button v-if="isTatic" class="def-btn" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
+          <button v-if="isTatic" class="def-btn" v-permission="'prod'" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
           <template v-else>
             <button class="def-btn" @click="submitChangeFrom">{{ $t("COMMON.SUBMIT") }}</button>
             <button class="def-btn" @click="cancelChangeForm">{{ $t("COMMON.CANCEL") }}</button>

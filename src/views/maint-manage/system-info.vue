@@ -18,8 +18,10 @@
       <!-- <div class="system-info-item-other"><span class="item-before">系统运行时间</span><span class="item-after">21分钟</span></div> -->
 
       <div class="system-info-btns">
-        <button class="def-btn" @click="getTimeConfig">{{ $t("COMMON.REFRESH") }}</button>
-        <button class="def-btn" @click="setTimeConfig">{{ $t("COMMON.SUBMIT") }}</button>
+        <div v-permission="'control'">
+          <button class="def-btn" @click="getTimeConfig">{{ $t("COMMON.REFRESH") }}</button>
+          <button class="def-btn" @click="setTimeConfig">{{ $t("COMMON.SUBMIT") }}</button>
+        </div>
       </div>
 
       <div class="inner-container-title">{{ $t("SYSTEM_INFO.CASE_TEMP") }}</div>
@@ -35,8 +37,10 @@
     </div>
 
     <div class="system-info-btns">
-      <button class="def-btn" @click="getTempConfig">{{ $t("COMMON.REFRESH") }}</button>
-      <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.SUBMIT") }}</button>
+      <div v-permission="'control'">
+        <button class="def-btn" @click="getTempConfig">{{ $t("COMMON.REFRESH") }}</button>
+        <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.SUBMIT") }}</button>
+      </div>
     </div>
   </div>
 </template>

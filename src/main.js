@@ -19,11 +19,13 @@ Vue.prototype.$difference = difference;
 
 Vue.config.productionTip = false;
 
+const PROD = "prod"; //生产
 const CONTROL = "control"; //操作
 const EDITOR = "editor"; //编辑
 const DELETE = "delete"; //删除
 const ADD = "add"; //新增
-const rolePermissions = [[], [CONTROL], [CONTROL, EDITOR, DELETE, ADD]];
+// 0 普通 1 生产 2 管理员
+const rolePermissions = [[], [CONTROL, PROD], [CONTROL, EDITOR, DELETE, ADD]];
 
 Vue.directive("permission", {
   bind(el, binding) {
@@ -32,12 +34,14 @@ Vue.directive("permission", {
     const permissions = rolePermissions[role];
     const makePermissions = makeMap(permissions);
     const has = makePermissions(value);
-    setTimeout(() => {
-      if (has) return;
+    if (!has) {
+      el.style.display = "none";
 
-      const parent = el.parentElement || el.parentNode;
-      parent.removeChild(el);
-    });
+      setTimeout(() => {
+        const parent = el.parentElement || el.parentNode;
+        parent.removeChild(el);
+      });
+    }
   },
 });
 

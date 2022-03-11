@@ -10,14 +10,14 @@
       <el-table-column prop="name5" :label="$t('RUN_LOG.CONTROL_WAY')"></el-table-column>
       <el-table-column :label="$t('COMMON.CONTROL')" width="120">
         <template>
-          <button class="def-btn">{{ $t("COMMON.DELETE") }}</button>
+          <button v-permission="'control'" class="def-btn">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
 
     <div class="inner-pagination-wrapper inner-pagination-colle">
       <div class="pagination-btns-wrapper">
-        <button class="def-btn">{{ $t("RUN_LOG.DELETE_ALL") }}</button>
+        <button v-permission="'control'" class="def-btn">{{ $t("RUN_LOG.DELETE_ALL") }}</button>
       </div>
 
       <div class="pagination-switch-btns">

@@ -318,8 +318,12 @@
   .cfp2-k {
     width: 100px;
     height: 40px;
-    background-color: #00b050;
+    background-color: #ccc;
     border: 1px solid #000;
+  }
+
+  .cfp2-k.suc {
+    background-color: #00b050;
   }
 
   .cfp2-n {

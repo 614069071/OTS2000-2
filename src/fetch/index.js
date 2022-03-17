@@ -27,4 +27,5 @@ serve.interceptors.response.use(
 export default {
   post: data => serve.post("/action/jsoncdt", data),
   get: params => serve.post("/action/jsoncdt", { params }),
+  action: serve.post,
 };

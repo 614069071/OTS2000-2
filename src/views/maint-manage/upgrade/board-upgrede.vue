@@ -18,10 +18,10 @@
 
     <div class="chose-wrapper">
       <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
-      <input type="file" accept=".bin" name="" id="" />
+      <input ref="uploadRef" type="file" accept=".bin" name="" id="" />
     </div>
     <div class="board-upgrade-submit-wrapper">
-      <button class="def-btn" type="primary">{{ $t("UPGRADE.UPGRADE") }}</button>
+      <button class="def-btn" @click="upload">{{ $t("UPGRADE.UPGRADE") }}</button>
     </div>
   </div>
 </template>
@@ -34,6 +34,24 @@ export default {
       formData: {},
       fileList: [],
     };
+  },
+  methods: {
+    upload() {
+      const file = this.$refs.uploadRef.value;
+
+      const fd = new FormData();
+      fd.append("slot", 8);
+      fd.append("file", file);
+
+      this.$http
+        .action("/action/upload", fd)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

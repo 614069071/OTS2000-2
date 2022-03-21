@@ -276,7 +276,7 @@ export const mapAlarmTypes = {
     light: [null, "C1", "L1", "C2", "L2", "C3", "L3", "C4", "L4"],
   },
   4: {
-    name: "2*10G OTU板",
+    name: "2*10G OCP板",
     light: [null, "C1", "1L2", "2L1", "1L1", "C2", "2L2"],
   },
   5: {
@@ -284,11 +284,11 @@ export const mapAlarmTypes = {
     light: [null, "C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
   },
   6: {
-    name: "200G CFP2 OTU板",
+    name: "40G&100G MUX板",
     light: [],
   },
   7: {
-    name: "40G&100G MUX板",
+    name: "200G CFP2 OTU板",
     light: [null, "SFP28-1", "SFP28-2", "SFP28-3", "SFP28-4", "QSFP28"],
   },
   8: {

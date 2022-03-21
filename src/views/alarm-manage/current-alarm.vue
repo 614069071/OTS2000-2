@@ -38,7 +38,7 @@
       </el-form>
 
       <div class="current-alarm-search-submit">
-        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.SEARCH") }}</button>
+        <button class="def-btn" @click="initGetList">{{ $t("COMMON.SEARCH") }}</button>
         <button class="def-btn" @click="resetDataForm">{{ $t("COMMON.RESET") }}</button>
       </div>
     </div>
@@ -99,7 +99,7 @@
       </div>
 
       <div class="pagination-switch-btns">
-        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.REFRESH") }}</button>
+        <button class="def-btn" @click="initGetList">{{ $t("COMMON.REFRESH") }}</button>
         <button class="def-btn" :disabled="prevDisabled" @click="prevPage">{{ $t("COMMON.PREV_PAGE") }}</button>
         <button class="def-btn" :disabled="nextDisabled" @click="nextPage">{{ $t("COMMON.NEXT_PAGE") }}</button>
       </div>
@@ -148,6 +148,10 @@ export default {
     },
   },
   methods: {
+    initGetList() {
+      this.page = 1;
+      this.getAlarmList();
+    },
     resetDataForm() {
       this.dataForm = { slot: 255, level: 255 };
     },

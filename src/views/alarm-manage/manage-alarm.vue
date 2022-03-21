@@ -36,7 +36,7 @@
       </el-form-item>
 
       <el-form-item>
-        <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.SEARCH") }}</button>
+        <button class="def-btn" @click="initGetList">{{ $t("COMMON.SEARCH") }}</button>
       </el-form-item>
     </el-form>
 
@@ -71,7 +71,7 @@
 
     <div class="alarm-list-controls">
       <button class="def-btn" @click="submitAlarm">{{ $t("COMMON.SUBMIT") }}</button>
-      <button class="def-btn" @click="getAlarmList">{{ $t("COMMON.REFRESH") }}</button>
+      <button class="def-btn" @click="initGetList">{{ $t("COMMON.REFRESH") }}</button>
       <button class="def-btn" :disabled="prevDisabled" @click="prevPage">{{ $t("COMMON.PREV_PAGE") }}</button>
       <button class="def-btn" :disabled="nextDisabled" @click="nextPage">{{ $t("COMMON.NEXT_PAGE") }}</button>
     </div>
@@ -109,6 +109,10 @@ export default {
     this.$bus.$off("onBoardList");
   },
   methods: {
+    initGetList() {
+      this.page = 1;
+      this.getAlarmList();
+    },
     getAlarmList() {
       const data = { otn2000: { type: "get_alarmconfig", boardname: "NMU", ...this.dataForm, start_page: this.page, rows: this.total } };
 

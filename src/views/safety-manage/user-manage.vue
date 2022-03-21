@@ -14,7 +14,7 @@
       </el-table-column>
       <el-table-column prop="create_time" :label="$t('USER_MANAGE.CREATE_TIME')">
         <template v-slot="{ row }">
-          {{ row.create_time | formatTime }}
+          {{ (row.create_time * 1000) | formatTime }}
         </template>
       </el-table-column>
       <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">

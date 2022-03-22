@@ -55,10 +55,8 @@
           <span>{{ $t("HOME.POWER_TYPE_1") }}</span>
           <span>
             {{
-              systemInfo.source_1.output > 0
-                ? `${systemInfo.source_1.type ? $t("COMMON.DC") : $t("COMMON.AC")} ${systemInfo.source_1.on_off ? $t("COMMON.ON") : $t("COMMON.OFF")} ${$t(
-                    "COMMON.OUTPUT"
-                  )} ${systemInfo.source_1.output.toFixed(2)}（V）`
+              systemInfo.source_1.on_off
+                ? (systemInfo.source_1.type ? $t("COMMON.DC") : $t("COMMON.AC")) + `${$t("COMMON.ON")} ${$t("COMMON.OUTPUT")} ${systemInfo.source_1.output.toFixed(2)}（V）`
                 : $t("COMMON.NO_OUTPUT")
             }}
           </span>
@@ -67,10 +65,8 @@
           <span>{{ $t("HOME.POWER_TYPE_2") }}</span>
           <span>
             {{
-              systemInfo.source_2.output > 0
-                ? `${systemInfo.source_2.type ? $t("COMMON.DC") : $t("COMMON.AC")} ${systemInfo.source_2.on_off ? $t("COMMON.ON") : $t("COMMON.OFF")} ${$t(
-                    "COMMON.OUTPUT"
-                  )} ${systemInfo.source_2.output.toFixed(2)}（V）`
+              systemInfo.source_2.on_off
+                ? (systemInfo.source_2.type ? $t("COMMON.DC") : $t("COMMON.AC")) + `${$t("COMMON.ON")} ${$t("COMMON.OUTPUT")} ${systemInfo.source_2.output.toFixed(2)}（V）`
                 : $t("COMMON.NO_OUTPUT")
             }}
           </span>

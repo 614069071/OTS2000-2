@@ -232,7 +232,7 @@ export default {
       })
         .then(() => {
           const { slot, start_time, end_time, level } = this.dataForm;
-          const data = { otn2000: { boardname: "NMU", slot, start_time, end_time, level, type: "delpart_curralarm" } };
+          const data = { otn2000: { boardname: "NMU", slot, start_time, end_time, level, type: "del_curralarm" } };
 
           this.$http
             .post(data)

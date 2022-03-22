@@ -277,7 +277,7 @@ export const mapAlarmTypes = {
   },
   4: {
     name: "2*10G OCP板",
-    light: [null, "C1", "1L1", "1L2", "C2", "2L1", "2L2"],
+    light: [null, "C1", "1L2", "1L1", "C2", "2L2", "2L1"],
   },
   5: {
     name: "4*25G OTU板",

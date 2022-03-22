@@ -293,6 +293,7 @@ export const mapAlarmTypes = {
   },
   8: {
     name: "EDFA板",
+    light: [null, "T1", "T2", "T3"],
   },
   9: {
     name: "NMU板",
@@ -302,9 +303,11 @@ export const mapAlarmTypes = {
   },
   10: {
     name: "OLP板",
+    light: [null, "主线路", "备线路", "本地线路"],
   },
   11: {
     name: "DCM板",
+    light: [null, "T1", "T2", "T3"],
   },
 };
 

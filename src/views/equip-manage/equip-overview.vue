@@ -8,17 +8,18 @@
           <span>{{ $t("HOME.DEVICE_TYPE") }}</span>
           <span>{{ systemInfo.device_type }} </span>
         </div>
-        <div class="system-info-item">
+        <!-- <div class="system-info-item">
           <span>{{ $t("HOME.DEVICE_SN") }}</span>
           <span>
             <template v-if="isTatic || isRole != '1'">{{ systemInfo.sn }}</template>
             <input v-if="!isTatic && isRole == '1'" class="def-input" type="text" v-model="systemInfo.sn" />
           </span>
-        </div>
+        </div> -->
         <div class="system-info-item">
-          <span>{{ $t("COMMON.HARDWARE_VERSION") }}</span>
-          <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
+          <span>{{ $t("COMMON.FIRMWARE_VERSION") }}</span
+          ><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
         </div>
+
         <div class="system-info-item">
           <span>{{ $t("HOME.DEVICE_ID") }}</span>
           <span>
@@ -72,8 +73,8 @@
           </span>
         </div>
         <div class="system-info-item">
-          <span>{{ $t("COMMON.FIRMWARE_VERSION") }}</span
-          ><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
+          <span>{{ $t("COMMON.HARDWARE_VERSION") }}</span>
+          <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
         </div>
         <div class="system-info-item">
           <span>{{ $t("HOME.SYSTEM_TIME") }}</span
@@ -83,10 +84,10 @@
           <span>{{ $t("HOME.RUN_TIME") }}</span>
           <span>{{ systemInfo.run_time | formatSeconds }}</span>
         </div>
-        <div class="system-info-item">
+        <!-- <div class="system-info-item">
           <span>{{ $t("COMMON.WEB_VERSION") }}</span
           ><span>{{ systemInfo.web_ver ? `V${systemInfo.web_ver}` : "" }}</span>
-        </div>
+        </div> -->
       </div>
     </div>
 

@@ -51,21 +51,21 @@
           {{ (page - 1) * total + $index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="occur_time" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
+      <el-table-column prop="occur_time" width="140" :label="$t('ALARM_COMMON.OCCURRENCE_TIME')">
         <template v-slot="{ row }">
           {{ (row.occur_time * 1000) | formatTime }}
         </template>
       </el-table-column>
-      <el-table-column prop="occur_time" :label="$t('COMMON.END_TIME')">
+      <el-table-column prop="occur_time" width="140" :label="$t('COMMON.END_TIME')">
         <template v-slot="{ row }">
           {{ (row.end_time * 1000) | formatTime }}
         </template>
       </el-table-column>
       <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="100"></el-table-column>
-      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
+      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="140">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
-      <el-table-column prop="id" :label="$t('ALARM_COMMON.ALARM_NAME')" width="180">
+      <el-table-column prop="id" :label="$t('ALARM_COMMON.ALARM_NAME')">
         <template v-slot="{ row }">{{ row | mapBoardAlarmName }}</template>
       </el-table-column>
       <el-table-column prop="level" :label="$t('ALARM_COMMON.ALARM_LEVEL')" width="100">
@@ -74,7 +74,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="name6" :label="$t('ALARM_COMMON.ALARM_CAUSE')"></el-table-column>
-      <el-table-column prop="confirm_time" :label="$t('ALARM_COMMON.CONFIRM_TIME')">
+      <el-table-column prop="confirm_time" width="140" :label="$t('ALARM_COMMON.CONFIRM_TIME')">
         <template v-slot="{ row }">
           <template v-if="row.confirm_time">
             {{ (row.confirm_time * 1000) | formatTime }}

@@ -47,7 +47,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="slot" :label="$t('COMMON.SLOT_NUMBER')" width="100"></el-table-column>
-      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="120">
+      <el-table-column prop="board_type" :label="$t('COMMON.BOARD_TYPE')" width="140">
         <template v-slot="{ row }">{{ row.board_type | mapBoardType }}</template>
       </el-table-column>
       <el-table-column prop="portno" :label="$t('COMMON.PORT')" width="60"></el-table-column>

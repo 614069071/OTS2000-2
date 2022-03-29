@@ -2,7 +2,7 @@
   <div class="board-ocp-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>2*10G OCP</span></div>
     <div class="board-link-wrapper ocp-link-wrapper1">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>

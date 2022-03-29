@@ -2,7 +2,7 @@
   <div class="board-dco200g-view-wrapper composite board-item-view-wrapper">
     <div class="board-item-name"><span>200G CFP2 DCO</span></div>
     <div class="board-link-wrapper dco200g-link-wrapper1">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">C1LOS</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">C1LOS</span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">C2LOS</span></div>
       <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">L1LOS</span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">RATE</span></div>

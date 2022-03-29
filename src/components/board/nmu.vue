@@ -3,7 +3,7 @@
     <div class="board-item-name"><span>NMU</span></div>
 
     <div class="board-link-wrapper nmu-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">OLINK2</span></div>
       <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK3</span></div>
       <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">BLINK</span></div>

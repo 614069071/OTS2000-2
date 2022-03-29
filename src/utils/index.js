@@ -258,6 +258,7 @@ export const alarmTypes = {
   38: "系统电压高告警", //1 直流 2 交流
   39: "系统电压低告警", //1 直流 2 交流
   40: "风扇板警告",
+  41: "激光器温度",
 };
 
 export const mapAlarmTypes = {
@@ -289,7 +290,9 @@ export const mapAlarmTypes = {
   },
   7: {
     name: "200G CFP2 OTU板",
-    light: [null, "SFP28-1", "SFP28-2", "SFP28-3", "SFP28-4", "QSFP28"],
+    lols: [null, "CCH1", "CCH2", "CCH3", "CCH4", "CCH5", "CCH6", "CCH7", "CCH8"],
+    model: [null, "QSFP28-1模块CH1", "QSFP28-1模块CH2", "QSFP28-1模块CH3", "QSFP28-1模块CH4", "QSFP28-2模块CH1", "QSFP28-2模块CH2", "QSFP28-2模块CH3", "QSFP28-2模块CH4"],
+    other: { 1: "QSFP28-1", 2: "QSFP28-2", 9: "CFP2" },
   },
   8: {
     name: "EDFA板",
@@ -326,7 +329,17 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
 
   // 200G CFP2 OTU相干板
   if (boardType == 7) {
-    return;
+    // lol los
+    if ([2, 3].includes(alarmId)) {
+      return mapAlarmTypes[7]["lols"][port] + " " + alarmTypes[alarmId];
+    }
+
+    // 电流 发射功率 接受功率
+    if ([10, 11, 20, 21, 26, 12, 13, 22, 23, 14, 15, 24, 25].includes(alarmId)) {
+      return mapAlarmTypes[7]["model"][port] + " " + alarmTypes[alarmId];
+    }
+
+    return mapAlarmTypes[7]["other"][port] + " " + alarmTypes[alarmId];
   }
 
   // NMU板

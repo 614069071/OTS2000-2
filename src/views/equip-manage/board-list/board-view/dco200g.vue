@@ -121,17 +121,6 @@
           <td>{{ infoData.QSFP2.link_status ? infoData.QSFP2.channel4.current : "NA" }}</td>
         </tr>
         <tr>
-          <td>{{ $t("COMMON.RESERVER") }}1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
           <td>{{ $t("BOARD_INFO.VOLTAGE") }}（V）</td>
           <td>
             <div class="coll-4">{{ infoData.QSFP1.link_status ? infoData.QSFP1.voltage : "NA" }}</div>

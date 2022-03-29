@@ -126,15 +126,6 @@
           <td>{{ infoData.channels[1].link_status.Sec_Line ? infoData.channels[1].temp.Sec_Line : "NA" }}</td>
         </tr>
         <tr>
-          <td>{{ $t("COMMON.RESERVER") }}1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
           <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
             <select v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].tx_disable.client">
@@ -503,24 +494,6 @@
             <input v-if="infoData.channels[1].link_status.Sec_Line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.Sec_Line" />
             <template v-else>NA</template>
           </td>
-        </tr>
-        <tr>
-          <td>{{ $t("COMMON.RESERVER") }}2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>{{ $t("COMMON.RESERVER") }}3</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       </table>
     </div>

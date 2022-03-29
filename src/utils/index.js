@@ -334,21 +334,21 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
   if (boardType == 7) {
     // lol los
     if ([2, 3].includes(alarmId)) {
-      return mapAlarmTypes[7]["lols"][port] + " " + alarmTypes[alarmId];
+      return (mapAlarmTypes[7]["lols"][port] || "") + " " + alarmTypes[alarmId];
     }
 
     // 电流 发射功率 接受功率
     if ([10, 11, 20, 21, 26, 12, 13, 22, 23, 14, 15, 24, 25].includes(alarmId)) {
-      return mapAlarmTypes[7]["model"][port] + " " + alarmTypes[alarmId];
+      return (mapAlarmTypes[7]["model"][port] || "") + " " + alarmTypes[alarmId];
     }
 
-    return mapAlarmTypes[7]["other"][port] + " " + alarmTypes[alarmId];
+    return (mapAlarmTypes[7]["other"][port] || "") + " " + alarmTypes[alarmId];
   }
 
   // NMU板
   if (boardType == 9) {
     //光线路LOS
-    if ([2, 5].includes(alarmId)) return mapAlarmTypes[9]["light"][port] + " " + alarmTypes[alarmId];
+    if ([2, 5].includes(alarmId)) return (mapAlarmTypes[9]["light"][port] || "") + " " + alarmTypes[alarmId];
 
     //系统电压告警
     if ([36, 37, 38, 39].includes(alarmId)) return alarmTypes[alarmId];

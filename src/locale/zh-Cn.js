@@ -139,6 +139,7 @@ export default {
   },
   ALARM_SET: {
     ALARM_SET: "告警设置",
+    SHIELD_ALL: "一键屏蔽",
   },
   CURRENT_ALARM: {
     CURRENT_ALARM: "当前告警",

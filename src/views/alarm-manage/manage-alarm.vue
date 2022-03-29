@@ -2,43 +2,47 @@
   <div>
     <div class="inner-container-title">{{ $t("ALARM_SET.ALARM_SET") }}</div>
 
-    <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
-      <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
-        <el-select size="mini" v-model="dataForm.slot">
-          <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
-          <el-option :label="$t('COMMON.SLOT') + slot" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
-          <el-option :label="$t('COMMON.SLOT') + 8" :value="8"></el-option>
-        </el-select>
-      </el-form-item>
+    <div class="manage-alarm-search-wrapper">
+      <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
+        <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
+          <el-select size="mini" v-model="dataForm.slot">
+            <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + slot" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
+            <el-option :label="$t('COMMON.SLOT') + 8" :value="8"></el-option>
+          </el-select>
+        </el-form-item>
 
-      <el-form-item :label="$t('COMMON.PORT_NUMBER')">
-        <el-select size="mini" v-model="dataForm.portno">
-          <el-option :label="$t('COMMON.ALL_PORT')" :value="255"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 1" :value="1"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 2" :value="2"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 3" :value="3"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 4" :value="4"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 5" :value="5"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 6" :value="6"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 7" :value="7"></el-option>
-          <el-option :label="$t('COMMON.PORT') + 8" :value="8"></el-option>
-        </el-select>
-      </el-form-item>
+        <el-form-item :label="$t('COMMON.PORT_NUMBER')">
+          <el-select size="mini" v-model="dataForm.portno">
+            <el-option :label="$t('COMMON.ALL_PORT')" :value="255"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 1" :value="1"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 2" :value="2"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 3" :value="3"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 4" :value="4"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 5" :value="5"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 6" :value="6"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 7" :value="7"></el-option>
+            <el-option :label="$t('COMMON.PORT') + 8" :value="8"></el-option>
+          </el-select>
+        </el-form-item>
 
-      <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
-        <el-select size="mini" v-model="dataForm.level">
-          <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
-          <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
-          <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>
-          <el-option :label="$t('COMMON.MAIN')" :value="2"></el-option>
-          <el-option :label="$t('COMMON.SEVERITY')" :value="3"></el-option>
-        </el-select>
-      </el-form-item>
+        <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
+          <el-select size="mini" v-model="dataForm.level">
+            <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
+            <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
+            <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>
+            <el-option :label="$t('COMMON.MAIN')" :value="2"></el-option>
+            <el-option :label="$t('COMMON.SEVERITY')" :value="3"></el-option>
+          </el-select>
+        </el-form-item>
 
-      <el-form-item>
-        <button class="def-btn" @click="initGetList">{{ $t("COMMON.SEARCH") }}</button>
-      </el-form-item>
-    </el-form>
+        <el-form-item>
+          <button class="def-btn" @click="initGetList">{{ $t("COMMON.SEARCH") }}</button>
+        </el-form-item>
+      </el-form>
+
+      <button class="def-btn shield-all-button" @click="shieldAll">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
+    </div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
       <el-table-column :label="$t('COMMON.SERIAL')" width="60">
@@ -146,21 +150,20 @@ export default {
     },
     submitAlarm() {
       const cfg_records = this.dataTable.filter(e => e.static !== e.status);
-
-      if (!cfg_records.length) return;
-
       const data = { otn2000: { slot: cfg_records[0]["slot"], type: "post_alarmconfig", cfg_records } };
 
-      console.log(data);
-
-      this.$http
-        .post(data)
-        .then(() => {
-          this.getAlarmList();
-        })
-        .catch(() => {
-          alert(this.$t("COMMON.FAIL"));
-        });
+      cfg_records.length &&
+        this.$http
+          .post(data)
+          .then(() => {
+            // this.getAlarmList();
+          })
+          .catch(() => {
+            alert(this.$t("COMMON.FAIL"));
+          })
+          .finally(() => {
+            this.getAlarmList();
+          });
     },
     prevPage() {
       this.dataTable = [];
@@ -171,6 +174,24 @@ export default {
       this.dataTable = [];
       this.page += 1;
       this.getAlarmList();
+    },
+    shieldAll() {
+      this.dataTable.forEach(e => (e.status = 1));
+
+      const data = { otn2000: { slot: this.dataTable[0]["slot"], type: "post_alarmconfig", cfg_records: this.dataTable } };
+
+      this.dataTable.length &&
+        this.$http
+          .post(data)
+          .then(() => {
+            // this.getAlarmList();
+          })
+          .catch(() => {
+            alert(this.$t("COMMON.FAIL"));
+          })
+          .finally(() => {
+            this.getAlarmList();
+          });
     },
   },
 };
@@ -184,5 +205,14 @@ export default {
 .alarm-list-controls {
   padding: 10px 0;
   text-align: right;
+}
+
+.manage-alarm-search-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shield-all-button {
+  margin-top: 7px;
 }
 </style>

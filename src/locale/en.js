@@ -138,6 +138,7 @@ export default {
   },
   ALARM_SET: {
     ALARM_SET: "Alarm set",
+    SHIELD_ALL: "一键屏蔽",
   },
   CURRENT_ALARM: {
     CURRENT_ALARM: "Current alarm",

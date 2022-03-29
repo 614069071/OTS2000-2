@@ -41,7 +41,10 @@
         </el-form-item>
       </el-form>
 
-      <button class="def-btn shield-all-button" @click="shieldAll">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
+      <div class="shield-all-button">
+        <button class="def-btn" @click="shieldAll">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
+        <button class="def-btn" @click="openAll">{{ $t("ALARM_SET.OPEN_ALL") }}</button>
+      </div>
     </div>
 
     <el-table border size="mini" :data="dataTable" tooltip-effect="dark" style="width: 100%">
@@ -177,6 +180,24 @@ export default {
     },
     shieldAll() {
       this.dataTable.forEach(e => (e.status = 1));
+
+      const data = { otn2000: { slot: this.dataTable[0]["slot"], type: "post_alarmconfig", cfg_records: this.dataTable } };
+
+      this.dataTable.length &&
+        this.$http
+          .post(data)
+          .then(() => {
+            // this.getAlarmList();
+          })
+          .catch(() => {
+            alert(this.$t("COMMON.FAIL"));
+          })
+          .finally(() => {
+            this.getAlarmList();
+          });
+    },
+    openAll() {
+      this.dataTable.forEach(e => (e.status = 0));
 
       const data = { otn2000: { slot: this.dataTable[0]["slot"], type: "post_alarmconfig", cfg_records: this.dataTable } };
 

@@ -20,7 +20,7 @@
       <div class="system-info-btns">
         <div v-permission="'control'">
           <button class="def-btn" @click="getTimeConfig">{{ $t("COMMON.REFRESH") }}</button>
-          <button class="def-btn" @click="setTimeConfig">{{ $t("COMMON.SUBMIT") }}</button>
+          <button class="def-btn" @click="setTimeConfig">{{ $t("COMMON.APPLY") }}</button>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
     <div class="system-info-btns">
       <div v-permission="'control'">
         <button class="def-btn" @click="getTempConfig">{{ $t("COMMON.REFRESH") }}</button>
-        <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.SUBMIT") }}</button>
+        <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.APPLY") }}</button>
       </div>
     </div>
   </div>

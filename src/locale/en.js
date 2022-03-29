@@ -78,6 +78,7 @@ export default {
     PREPARE_REA: "Prepare",
     CUT_BACK: "Cut back",
     UN_CUT_BACK: "Don't cut back",
+    APPLY: "Apply",
   },
   LOGIN: {
     LOGIN: "Login",

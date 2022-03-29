@@ -4,7 +4,7 @@ export default {
     CANCEL: "取消",
     CHANGE: "修改",
     REFRESH: "刷新",
-    RESET: "重置",
+    RESET: "复位",
     SEARCH: "查询",
     HARDWARE_VERSION: "硬件版本",
     SOFTWARE_VERSION: "软件版本",
@@ -79,6 +79,7 @@ export default {
     PREPARE_REA: "备",
     CUT_BACK: "回切",
     UN_CUT_BACK: "不回切",
+    APPLY: "应用",
   },
   LOGIN: {
     LOGIN: "登录",

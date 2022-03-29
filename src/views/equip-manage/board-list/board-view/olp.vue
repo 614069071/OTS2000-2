@@ -102,7 +102,7 @@
     <div class="board-change-btns">
       <button class="def-btn" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
       <div v-permission="'control'">
-        <button class="def-btn" @click="setInfo">{{ $t("COMMON.SUBMIT") }}</button>
+        <button class="def-btn" @click="setInfo">{{ $t("COMMON.APPLY") }}</button>
         <button class="def-btn" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
       </div>
     </div>

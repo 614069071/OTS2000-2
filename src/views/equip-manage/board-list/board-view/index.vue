@@ -66,7 +66,7 @@
 
     <div class="board-change-btns">
       <button class="def-btn" :disabled="refreshTitleDisabled" @click="refreshGetTitle">{{ $t("COMMON.REFRESH") }}</button>
-      <button v-permission="'control'" class="def-btn" :disabled="setTilteDisabled" @click="setTilte">{{ $t("COMMON.SUBMIT") }}</button>
+      <button v-permission="'control'" class="def-btn" :disabled="setTilteDisabled" @click="setTilte">{{ $t("COMMON.APPLY") }}</button>
     </div>
 
     <div class="board-type-container" v-if="isRole != '1' && info.boardname && ['m16', 'd16', 'md8', 'm40', 'd40', 'md16sfa', 'md16sfb', 'dcm'].indexOf(info.boardname) < 0">

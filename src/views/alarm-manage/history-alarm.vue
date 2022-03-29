@@ -200,7 +200,7 @@ export default {
       })
         .then(() => {
           const { id } = row;
-          const data = { otn2000: { boardname: "NMU", type: "conf_curralarm", id, confirm_time: parseInt(Date.now() / 1000) } };
+          const data = { otn2000: { boardname: "NMU", type: "conf_histalarm", id, confirm_time: parseInt(Date.now() / 1000) } };
 
           this.$http
             .post(data)

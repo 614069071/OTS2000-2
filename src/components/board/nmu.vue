@@ -3,10 +3,14 @@
     <div class="board-item-name"><span>NMU</span></div>
 
     <div class="board-link-wrapper nmu-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">OLINK1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">OLINK2</span></div>
-      <div class="board-light"><span class="k-name">PROG</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">OLINK3</span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">BLINK</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[4] ? 'suc' : ''"></span><span class="k-name">OLINK1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[5] ? 'suc' : ''"></span><span class="k-name">OLINK2</span></div>
+      <div class="board-light">
+        <span class="k-name">PROG</span><span class="k-item" :class="light[2] ? 'suc' : ''"></span><span class="k-item" :class="light[6] ? 'suc' : ''"></span><span class="k-name">OLINK3</span>
+      </div>
+      <div class="board-light">
+        <span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'suc' : ''"></span><span class="k-item" :class="light[7] ? 'suc' : ''"></span><span class="k-name">BLINK</span>
+      </div>
     </div>
 
     <div class="board-console-wrapper"><span>Console</span></div>
@@ -19,30 +23,30 @@
     <div class="board-trx-wrapper nmu-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[3] ? 'suc' : ''"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[4] ? 'suc' : ''"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx3</span><span>Rx3</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[5] ? 'suc' : ''"></div>
       </div>
     </div>
 
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
         <div class="eth-item-title">ETH1</div>
-        <div class="eth-item-main"></div>
+        <div class="eth-item-main" :class="port[0] ? 'suc' : ''"></div>
       </div>
       <div class="eth-item">
         <div class="eth-item-title">ETH2</div>
-        <div class="eth-item-main"></div>
+        <div class="eth-item-main" :class="port[1] ? 'suc' : ''"></div>
       </div>
       <div class="eth-item">
         <div class="eth-item-title">ETH3</div>
-        <div class="eth-item-main"></div>
+        <div class="eth-item-main" :class="port[2] ? 'suc' : ''"></div>
       </div>
     </div>
     <div class="board-usb-wrapper nmu-usb-wrapper">
@@ -56,6 +60,24 @@
 export default {
   name: "board-nmu",
   props: ["data"],
+  computed: {
+    port() {
+      return this.data.port_status
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+    light() {
+      return this.data.light_status
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+  },
+  mounted() {
+    console.log("num data", this.port, this.light);
+  },
+  methods: {},
 };
 </script>
 

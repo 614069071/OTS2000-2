@@ -50,9 +50,9 @@ export default {
         role: "管理员",
       },
       dataTable: [
+        { status: 1, boardname: "otu10g" },
         // { status: 1, boardname: "dco200g" },
         // { status: 1, boardname: "otu100g" },
-        // { status: 1, boardname: "otu10g" },
         // { status: 1, boardname: "olp" },
         // { status: 1, boardname: "edfa" },
         // { status: 1, boardname: "otu25g" },
@@ -83,10 +83,10 @@ export default {
   },
   watch: {
     $route: {
-      handler() {
-        this.getBoardList();
-      },
-      immediate: true,
+      // handler() {
+      //   this.getBoardList();
+      // },
+      // immediate: true,
     },
   },
   mounted() {

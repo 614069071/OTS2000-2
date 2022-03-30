@@ -62,22 +62,18 @@ export default {
   props: ["data"],
   computed: {
     port() {
-      return this.data.port_status
+      return (this.data.port_status || 0)
         .toString(2)
         .split("")
         .map(e => Number(e));
     },
     light() {
-      return this.data.light_status
+      return (this.data.light_status || 0)
         .toString(2)
         .split("")
         .map(e => Number(e));
     },
   },
-  mounted() {
-    console.log("num data", this.port, this.light);
-  },
-  methods: {},
 };
 </script>
 

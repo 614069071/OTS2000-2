@@ -41,6 +41,7 @@ import LayoutControl from "./layout-control";
 import { storages } from "@/utils";
 
 let timerCount = 0;
+let boardTimer = null;
 
 export default {
   name: "Layout",
@@ -138,11 +139,14 @@ export default {
           this.dataTable = [];
         })
         .finally(() => {
-          if (timerCount >= 5) return;
+          if (timerCount >= 5) {
+            clearTimeout(boardTimer);
+            return;
+          }
 
-          setTimeout(() => {
+          boardTimer = setTimeout(() => {
             this.getBoardList();
-          }, 1000);
+          }, 2000);
         });
     },
     refreshSystem() {

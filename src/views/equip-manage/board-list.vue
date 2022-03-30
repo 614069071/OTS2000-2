@@ -50,18 +50,15 @@
       </el-table-column>
     </el-table>
 
-    <pupur :visible.sync="dialogVisible">
+    <!-- <pupur :visible.sync="dialogVisible">
       <board-view :info="boardData" :visible.sync="dialogVisible"></board-view>
-    </pupur>
+    </pupur> -->
   </div>
 </template>
 
 <script>
-import BoardView from "./board-view";
-
 export default {
   name: "board-list",
-  components: { BoardView },
   data() {
     return {
       dataForm: {},
@@ -74,16 +71,11 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("onBoardView", v => {
-      this.lookDetail(v);
-    });
-
     this.$bus.$on("onBoardList", v => {
       this.dataTable = v;
     });
   },
   beforeDestroy() {
-    this.$bus.$off("onBoardView");
     this.$bus.$off("onBoardList");
   },
   filters: {
@@ -112,16 +104,18 @@ export default {
   },
   methods: {
     lookDetail(data) {
-      const { boardname, status } = data;
+      // const { boardname, status } = data;
 
-      if (!status) return;
+      // if (!status) return;
 
-      const boardName = boardname.toLowerCase();
+      // const boardName = boardname.toLowerCase();
 
-      this.boardType = boardName;
-      this.boardTilte = boardName;
-      this.boardData = data;
-      this.dialogVisible = true;
+      // this.boardType = boardName;
+      // this.boardTilte = boardName;
+      // this.boardData = data;
+      // this.dialogVisible = true;
+
+      this.$bus.$emit("onBoardView", data);
     },
     refresh() {
       this.$bus.$emit("updateBoardView");

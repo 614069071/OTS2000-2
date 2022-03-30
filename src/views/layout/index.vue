@@ -25,19 +25,24 @@
         </div>
       </main>
     </div>
+
+    <pupur :visible.sync="dialogVisible">
+      <board-view :info="boardData" :visible.sync="dialogVisible"></board-view>
+    </pupur>
   </div>
 </template>
 
 <script>
 import Structure from "@/components/structure";
 import SideBar from "@/components/side-bar";
+import BoardView from "./board-view";
 import LayoutHeader from "./layout-header";
 import LayoutControl from "./layout-control";
 import { storages } from "@/utils";
 
 export default {
   name: "Layout",
-  components: { SideBar, Structure, LayoutHeader, LayoutControl },
+  components: { SideBar, Structure, LayoutHeader, LayoutControl, BoardView },
   data() {
     return {
       userProfile: {
@@ -63,6 +68,8 @@ export default {
         // { status: 1, boardname: "m40" },
       ],
       timerCount: 0,
+      boardData: {},
+      dialogVisible: false,
     };
   },
   beforeRouteEnter(to, form, next) {
@@ -88,9 +95,16 @@ export default {
     this.$bus.$on("updateBoardView", () => {
       this.getBoardList();
     });
+
+    this.$bus.$on("onBoardView", v => {
+      this.boardData = v;
+      this.dialogVisible = true;
+    });
   },
   beforeDestroy() {
+    console.log("1111");
     this.$bus.$off("updateBoardView");
+    this.$bus.$off("onBoardView");
   },
   methods: {
     initUserinfo() {

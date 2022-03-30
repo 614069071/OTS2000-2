@@ -59,6 +59,9 @@ export default {
       this.$bus.$emit("onBoardView", v);
     },
   },
+  beforeDestroy() {
+    this.$bus.$off("onBoardView");
+  },
 };
 </script>
 

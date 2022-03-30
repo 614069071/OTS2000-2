@@ -40,6 +40,8 @@ import LayoutHeader from "./layout-header";
 import LayoutControl from "./layout-control";
 import { storages } from "@/utils";
 
+let timerCount = 0;
+
 export default {
   name: "Layout",
   components: { SideBar, Structure, LayoutHeader, LayoutControl, BoardView },
@@ -82,12 +84,15 @@ export default {
     }
   },
   watch: {
-    $route: {
-      handler() {
-        this.getBoardList();
-      },
-      immediate: true,
-    },
+    // $route: {
+    //   handler() {
+    //     this.getBoardList();
+    //   },
+    //   immediate: true,
+    // },
+  },
+  created() {
+    this.getBoardList();
   },
   mounted() {
     this.initUserinfo();
@@ -104,7 +109,6 @@ export default {
     });
   },
   beforeDestroy() {
-    console.log("1111");
     this.$bus.$off("updateBoardView");
     this.$bus.$off("onBoardView");
   },
@@ -126,9 +130,19 @@ export default {
 
           this.dataTable = list;
           this.$bus.$emit("onBoardList", list);
+          timerCount = 0;
         })
         .catch(() => {
+          timerCount++;
+
           this.dataTable = [];
+        })
+        .finally(() => {
+          if (timerCount >= 5) return;
+
+          setTimeout(() => {
+            this.getBoardList();
+          }, 1000);
         });
     },
     refreshSystem() {

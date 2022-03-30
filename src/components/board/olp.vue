@@ -2,13 +2,13 @@
   <div class="board-olp-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>OLP</span></div>
     <div class="board-link-wrapper olp-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-name">Rx1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-name">Rx2</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[5] ? 'war' : 'suc'"></span><span class="k-name">Rx1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[6] ? 'war' : 'suc'"></span><span class="k-name">Rx2</span></div>
       <div class="board-light">
-        <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span><span class="k-item" :class="light[7] ? 'suc' : 'war'"></span><span class="k-name">Rx</span>
+        <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? 'war' : 'suc'"></span><span class="k-name">Rx</span>
       </div>
       <div class="board-light">
-        <span class="k-name">Pri</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span><span class="k-item" :class="light[4] ? 'suc' : 'war'"></span><span class="k-name">Sec</span>
+        <span class="k-name">Pri</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span><span class="k-item" :class="light[4] ? 'war' : 'suc'"></span><span class="k-name">Sec</span>
       </div>
     </div>
 

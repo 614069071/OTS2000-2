@@ -5,8 +5,8 @@
     <div class="board-link-wrapper d40-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'suc' : 'war'"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span></div>
     </div>
 
     <!-- <div class="board-console-wrapper"><span>Console</span></div>

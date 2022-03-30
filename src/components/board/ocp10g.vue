@@ -4,8 +4,8 @@
     <div class="board-link-wrapper ocp-link-wrapper1">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'suc' : 'war'"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span></div>
     </div>
 
     <div class="board-trx-wrapper ocp-trx-wrapper1">
@@ -28,13 +28,13 @@
 
     <div class="board-link-wrapper ocp-link-wrapper2">
       <div class="board-light">
-        <span class="k-name">1L1LOS</span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-item" :class="light[8] ? 'suc' : 'war'"></span><span class="k-name">2L1LOS</span>
+        <span class="k-name">1L1LOS</span><span class="k-item" :class="light[5] ? 'war' : 'suc'"></span><span class="k-item" :class="light[8] ? 'war' : 'suc'"></span><span class="k-name">2L1LOS</span>
       </div>
       <div class="board-light">
-        <span class="k-name">1L2LOS</span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-item" :class="light[9] ? 'suc' : 'war'"></span><span class="k-name">2L2LOS</span>
+        <span class="k-name">1L2LOS</span><span class="k-item" :class="light[6] ? 'war' : 'suc'"></span><span class="k-item" :class="light[9] ? 'war' : 'suc'"></span><span class="k-name">2L2LOS</span>
       </div>
       <div class="board-light">
-        <span class="k-name">1CLOS</span><span class="k-item" :class="light[4] ? 'suc' : 'war'"></span><span class="k-item" :class="light[7] ? 'suc' : 'war'"></span><span class="k-name">2CLOS</span>
+        <span class="k-name">1CLOS</span><span class="k-item" :class="light[4] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? 'war' : 'suc'"></span><span class="k-name">2CLOS</span>
       </div>
     </div>
 

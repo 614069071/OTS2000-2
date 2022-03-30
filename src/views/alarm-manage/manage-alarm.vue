@@ -15,14 +15,7 @@
         <el-form-item :label="$t('COMMON.PORT_NUMBER')">
           <el-select size="mini" v-model="dataForm.portno">
             <el-option :label="$t('COMMON.ALL_PORT')" :value="255"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 1" :value="1"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 2" :value="2"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 3" :value="3"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 4" :value="4"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 5" :value="5"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 6" :value="6"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 7" :value="7"></el-option>
-            <el-option :label="$t('COMMON.PORT') + 8" :value="8"></el-option>
+            <el-option :label="$t('COMMON.PORT') + item" :value="item" v-for="item in 8" :key="item"></el-option>
           </el-select>
         </el-form-item>
 

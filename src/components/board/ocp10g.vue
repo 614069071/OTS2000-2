@@ -4,48 +4,54 @@
     <div class="board-link-wrapper ocp-link-wrapper1">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'suc' : 'war'"></span></div>
     </div>
 
     <div class="board-trx-wrapper ocp-trx-wrapper1">
       <div class="trx-item">
         <div class="trx-item-line"><span>Cin</span><i></i><span>L2in</span><i></i><span>L1in</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[0] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx</span><span>Rx</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[1] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[2] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
     </div>
 
     <div class="board-link-wrapper ocp-link-wrapper2">
-      <div class="board-light"><span class="k-name">1L1LOS</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">2L2LOS</span></div>
-      <div class="board-light"><span class="k-name">1L2LOS</span><span class="k-item war"></span><span class="k-item"></span><span class="k-name">2L1LOS</span></div>
-      <div class="board-light"><span class="k-name">1CLOS</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">2CLOS</span></div>
+      <div class="board-light">
+        <span class="k-name">1L1LOS</span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-item" :class="light[9] ? 'suc' : 'war'"></span><span class="k-name">2L2LOS</span>
+      </div>
+      <div class="board-light">
+        <span class="k-name">1L2LOS</span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-item" :class="light[8] ? 'suc' : 'war'"></span><span class="k-name">2L1LOS</span>
+      </div>
+      <div class="board-light">
+        <span class="k-name">1CLOS</span><span class="k-item" :class="light[4] ? 'suc' : 'war'"></span><span class="k-item" :class="light[7] ? 'suc' : 'war'"></span><span class="k-name">2CLOS</span>
+      </div>
     </div>
 
     <div class="board-trx-wrapper ocp-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-line"><span>Cin</span><i></i><span>L2in</span><i></i><span>L1in</span></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[3] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx</span><span>Rx</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[4] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-guide"></div>
-        <div class="trx-item-main"></div>
+        <div class="trx-item-main" :class="port[5] ? 'suc' : ''"></div>
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
       </div>
     </div>
@@ -61,6 +67,20 @@
 export default {
   name: "board-ocp10g",
   props: ["data"],
+  computed: {
+    port() {
+      return (this.data.port_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+    light() {
+      return (this.data.light_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+  },
 };
 </script>
 

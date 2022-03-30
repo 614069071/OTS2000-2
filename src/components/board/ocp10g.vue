@@ -28,10 +28,10 @@
 
     <div class="board-link-wrapper ocp-link-wrapper2">
       <div class="board-light">
-        <span class="k-name">1L1LOS</span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-item" :class="light[9] ? 'suc' : 'war'"></span><span class="k-name">2L2LOS</span>
+        <span class="k-name">1L1LOS</span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-item" :class="light[8] ? 'suc' : 'war'"></span><span class="k-name">2L1LOS</span>
       </div>
       <div class="board-light">
-        <span class="k-name">1L2LOS</span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-item" :class="light[8] ? 'suc' : 'war'"></span><span class="k-name">2L1LOS</span>
+        <span class="k-name">1L2LOS</span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-item" :class="light[9] ? 'suc' : 'war'"></span><span class="k-name">2L2LOS</span>
       </div>
       <div class="board-light">
         <span class="k-name">1CLOS</span><span class="k-item" :class="light[4] ? 'suc' : 'war'"></span><span class="k-item" :class="light[7] ? 'suc' : 'war'"></span><span class="k-name">2CLOS</span>

@@ -20,11 +20,11 @@
       <div class="tx-rx-inner-item">
         <div class="tx-rx-item">
           <div class="tx-rx-item-main"></div>
-          <i>OUT</i>
+          <i>L1</i>
         </div>
         <div class="tx-rx-item">
           <div class="tx-rx-item-main"></div>
-          <i>IN</i>
+          <i>L2</i>
         </div>
       </div>
     </div>

@@ -4,8 +4,8 @@
     <div class="board-link-wrapper md8-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'suc' : 'war'"></span></div>
     </div>
 
     <div class="tx-rx-wrapper">
@@ -111,6 +111,14 @@
 export default {
   name: "board-md8",
   props: ["data"],
+  computed: {
+    light() {
+      return (this.data.light_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+  },
 };
 </script>
 

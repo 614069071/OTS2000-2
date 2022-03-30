@@ -97,6 +97,8 @@ export default {
     });
 
     this.$bus.$on("onBoardView", v => {
+      if (!v.status) return;
+
       this.boardData = v;
       this.dialogVisible = true;
     });

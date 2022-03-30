@@ -1,7 +1,7 @@
 <template>
   <div class="board-view-wrapper">
     <div class="board-view-view-wrapper">
-      <component v-if="info.boardname" :is="'board-' + info.boardname.toLowerCase()" :info="info"></component>
+      <component v-if="info.boardname" :is="'board-' + info.boardname.toLowerCase()" :data="info || {}"></component>
     </div>
 
     <div class="board-view-form-wrapper">

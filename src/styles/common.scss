@@ -214,6 +214,19 @@ button:disabled {
   }
 }
 
+.run-link {
+  width: 100px;
+  height: 100px;
+  background-color: #dedede;
+  animation: link 1s steps(1) infinite;
+}
+
+@keyframes link {
+  74% {
+    background-color: #1ef087;
+  }
+}
+
 // element
 .el-table__header-wrapper thead tr th {
   background-color: #f5f7fa !important;

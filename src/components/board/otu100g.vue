@@ -4,8 +4,8 @@
     <div class="board-link-wrapper otu100g-link-wrapper">
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span></div>
-      <div class="board-light"><span class="k-name">STAT</span><span class="k-item"></span></div>
+      <div class="board-light"><span class="k-name">LINK</span><span class="k-item" :class="light[2] ? '' : 'run-link'"></span></div>
+      <div class="board-light"><span class="k-name">STAT</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span></div>
     </div>
 
     <div class="board-console-wrapper"><span>Console</span></div>
@@ -69,6 +69,20 @@
 export default {
   name: "board-otu100g",
   props: ["data"],
+  computed: {
+    port() {
+      return (this.data.port_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+    light() {
+      return (this.data.light_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+  },
 };
 </script>
 

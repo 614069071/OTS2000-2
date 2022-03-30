@@ -34,10 +34,10 @@
     <div class="board-link-column-wrapper otu10g-link-wrapper2">
       <div class="link-light">
         <div class="link-name">C1LOS</div>
-        <div class="link-square" :class="light[4] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[5] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[6] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[7] ? 'war' : 'suc'"></div>
+        <div class="link-square" :class="light[4] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[5] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[6] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[7] ? '' : 'suc'"></div>
         <div class="link-name">L1LOS</div>
         <div class="link-name">C2LOS</div>
         <div class="link-name">L2LOS</div>
@@ -45,10 +45,10 @@
 
       <div class="link-light">
         <div class="link-name">C3LOS</div>
-        <div class="link-square" :class="light[8] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[9] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[10] ? 'war' : 'suc'"></div>
-        <div class="link-square" :class="light[11] ? 'war' : 'suc'"></div>
+        <div class="link-square" :class="light[8] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[9] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[10] ? '' : 'suc'"></div>
+        <div class="link-square" :class="light[11] ? '' : 'suc'"></div>
         <div class="link-name">L3LOS</div>
         <div class="link-name">C4LOS</div>
         <div class="link-name">L4LOS</div>

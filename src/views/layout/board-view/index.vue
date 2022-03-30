@@ -38,7 +38,7 @@
           <td>{{ $t("HOME.DEVICE_TYPE") }}</td>
           <td>{{ titeData.device_type }}</td>
           <td>{{ $t("COMMON.STATUS") }}</td>
-          <td>{{ titeData.status ? $t("COMMON.ALARM") : $t("COMMON.NORMAL") }}</td>
+          <td>{{ titeData.alarm_status ? $t("BOARD_INFO.HAVE_ALARM") : $t("BOARD_INFO.NO_ALARM") }}</td>
           <td>{{ $t("COMMON.DES") }}</td>
           <td><input class="def-input" type="text" maxlength="30" v-model="titeData.desc" /></td>
         </tr>

@@ -306,5 +306,7 @@ export default {
     INIT_POWER_DIFF_BET_STAND_LINE: "Initial power difference between active and standby lines",
     GAIN_VAL: "Gain value",
     POWER_VAL: "Power value",
+    HAVE_ALARM: "Have alarm",
+    NO_ALARM: "No alarm",
   },
 };

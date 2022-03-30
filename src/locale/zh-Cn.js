@@ -307,5 +307,7 @@ export default {
     INIT_POWER_DIFF_BET_STAND_LINE: "主备线路初始功率差", //
     GAIN_VAL: "增益值", //
     POWER_VAL: "功率值", //
+    HAVE_ALARM: "有告警",
+    NO_ALARM: "无告警",
   },
 };

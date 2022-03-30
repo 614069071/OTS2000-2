@@ -5,7 +5,7 @@
     <div class="manage-alarm-search-wrapper">
       <el-form class="current-alarm-search" inline label-width="100px" :model="dataForm" @submit.native.prevent>
         <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
-          <el-select size="mini" v-model="dataForm.slot">
+          <el-select size="mini" v-model="dataForm.slot" @change="slotChange">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.SLOT') + slot" :value="slot" v-for="{ slot } in onlineBoardList" :key="slot"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 8" :value="8"></el-option>

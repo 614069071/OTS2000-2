@@ -2,10 +2,14 @@
   <div class="board-olp-view-wrapper board-item-view-wrapper">
     <div class="board-item-name"><span>OLP</span></div>
     <div class="board-link-wrapper olp-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item"></span><span class="k-name">Rx1</span></div>
-      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item"></span><span class="k-name">Rx2</span></div>
-      <div class="board-light"><span class="k-name">LINK</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Rx</span></div>
-      <div class="board-light"><span class="k-name">Pri</span><span class="k-item"></span><span class="k-item"></span><span class="k-name">Sec</span></div>
+      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[5] ? 'suc' : 'war'"></span><span class="k-name">Rx1</span></div>
+      <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[6] ? 'suc' : 'war'"></span><span class="k-name">Rx2</span></div>
+      <div class="board-light">
+        <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span><span class="k-item" :class="light[7] ? 'suc' : 'war'"></span><span class="k-name">Rx</span>
+      </div>
+      <div class="board-light">
+        <span class="k-name">Pri</span><span class="k-item" :class="light[2] ? 'suc' : 'war'"></span><span class="k-item" :class="light[4] ? 'suc' : 'war'"></span><span class="k-name">Sec</span>
+      </div>
     </div>
 
     <div class="board-console-wrapper"><span>Console</span></div>
@@ -56,6 +60,20 @@
 export default {
   name: "board-olp",
   props: ["data"],
+  computed: {
+    port() {
+      return (this.data.port_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+    light() {
+      return (this.data.light_status || 0)
+        .toString(2)
+        .split("")
+        .map(e => Number(e));
+    },
+  },
 };
 </script>
 

@@ -414,140 +414,141 @@
           <tr>
             <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
             <td>
-              <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.client" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model="infoData.channels[0].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_L.line" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model="infoData.channels[0].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_L.client" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model="infoData.channels[1].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_L.line" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model="infoData.channels[1].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[2].rcv_thr_L.client" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model="infoData.channels[2].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[2].rcv_thr_L.line" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model="infoData.channels[2].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[3].rcv_thr_L.client" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model="infoData.channels[3].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[3].rcv_thr_L.line" />
+              <Limit :min="-10" :max="-18" v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model="infoData.channels[3].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
             <td>
-              <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.client" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model="infoData.channels[0].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[0].rcv_thr_H.line" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model="infoData.channels[0].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_H.client" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model="infoData.channels[1].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[1].rcv_thr_H.line" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model="infoData.channels[1].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[2].rcv_thr_H.client" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model="infoData.channels[2].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[2].rcv_thr_H.line" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model="infoData.channels[2].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[3].rcv_thr_H.client" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model="infoData.channels[3].rcv_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[3].rcv_thr_H.line" />
+              <Limit :min="-1" :max="3" v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model="infoData.channels[3].rcv_thr_H.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
             <td>
-              <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.client" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model="infoData.channels[0].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_L.line" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model="infoData.channels[0].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_L.client" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model="infoData.channels[1].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_L.line" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model="infoData.channels[1].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[2].tx_thr_L.client" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model="infoData.channels[2].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[2].tx_thr_L.line" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model="infoData.channels[2].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[3].tx_thr_L.client" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model="infoData.channels[3].tx_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[3].tx_thr_L.line" />
+              <Limit :min="-5" :max="-8" v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model="infoData.channels[3].tx_thr_L.line" />
               <template v-else>NA</template>
             </td>
           </tr>
           <tr>
             <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
             <td>
-              <input v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.client" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[0].link_status.client" type="text" class="def-input" v-model="infoData.channels[0].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[0].tx_thr_H.line" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[0].link_status.line" type="text" class="def-input" v-model="infoData.channels[0].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.client" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[1].link_status.client" type="text" class="def-input" v-model="infoData.channels[1].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[1].tx_thr_H.line" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[1].link_status.line" type="text" class="def-input" v-model="infoData.channels[1].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[2].tx_thr_H.client" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[2].link_status.client" type="text" class="def-input" v-model="infoData.channels[2].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[2].tx_thr_H.line" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[2].link_status.line" type="text" class="def-input" v-model="infoData.channels[2].tx_thr_H.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model.number="infoData.channels[3].tx_thr_H.client" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[3].link_status.client" type="text" class="def-input" v-model="infoData.channels[3].tx_thr_H.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <input v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[3].tx_thr_H.line" />
+              <Limit :min="0" :max="5" v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model="infoData.channels[3].tx_thr_H.line"></Limit>
+              <!-- <input v-if="infoData.channels[3].link_status.line" type="text" class="def-input" v-model.number="infoData.channels[3].tx_thr_H.line" /> -->
               <template v-else>NA</template>
             </td>
           </tr>

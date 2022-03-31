@@ -191,6 +191,10 @@ export default {
         this.$http
           .post(data)
           .then(res => {
+            if (res.otn2000_ack.boardname === "board_view") {
+              return reject();
+            }
+
             this.titeData = res.otn2000_ack;
 
             resolve(res.otn2000_ack);

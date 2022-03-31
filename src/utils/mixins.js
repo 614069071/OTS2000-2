@@ -31,6 +31,9 @@ export default {
         this.$http
           .post(data)
           .then(res => {
+            if (res.otn2000_ack.boardname === "board_view") {
+              return reject();
+            }
             this.infoData = res.otn2000_ack || {};
             this.clonData = this.$clone(res.otn2000_ack);
             resolve();

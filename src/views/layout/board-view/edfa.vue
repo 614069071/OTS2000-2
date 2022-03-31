@@ -115,7 +115,6 @@
               <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
                 <Limit :min="-1" :max="20" v-model="infoData.APC_output_power" />
-                <!-- <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-1" :max="20"></el-input-number> -->
               </td>
             </template>
 
@@ -133,25 +132,13 @@
         <tr>
           <td>{{ $t("BOARD_INFO.INPUT_THR_LOWER_ALARM") }}（dBm）</td>
           <td>
-            <input type="text" class="def-input" v-model.number="infoData.lum_input_thr" />
-            <!-- v-limit="{ key: 'infoData.lum_input_thr', min: 0, max: 10 }" -->
-            <!-- 
-              info.bdtype
-              OBA模块阈值范围在-26—+12dBm；
-              OLA模块阈值范围在-33—+5dBm；
-              OPA模块阈值范围在-33—+5dBm； 
-            -->
+            <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" :max="12" v-model="infoData.lum_input_thr" />
+            <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" :max="5" v-model="infoData.lum_input_thr" />
           </td>
           <td>{{ $t("BOARD_INFO.OUTPUT_OPT_POWER_ALARM_THR") }}（dBm）</td>
           <td>
-            <input type="text" class="def-input" v-model.number="infoData.lum_output_thr" />
-
-            <!-- 
-              info.bdtype
-              OBA模块阈值范围在-11—+20.5dBm；
-              OLA模块阈值范围在-14—+20.5dBm；
-              OPA模块阈值范围在-8—+20.5dBm；
-             -->
+            <Limit v-if="info.bdtype === 'OBA20G22'" :min="-11" :max="20.5" v-model="infoData.lum_output_thr" />
+            <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-8" :max="20.5" v-model="infoData.lum_output_thr" />
           </td>
         </tr>
 
@@ -170,12 +157,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.LOWER_MODULE_TEMP_THRESHOLD") }}（℃）</td>
           <td>
-            <input type="text" class="def-input" v-model.number="infoData.mod_temp_low" />
-            <!-- 
-              OBA模块阈值范围在-55—+70℃；
-              OLA模块阈值范围在-55—+70℃；
-              OPA模块阈值范围在-55—+70℃； 
-            -->
+            <Limit :min="-55" :max="70" v-model="infoData.mod_temp_low" />
           </td>
           <td>PUMP{{ $t("BOARD_INFO.LOWER_TEMP_THRESHOLD") }}（℃）</td>
           <td>
@@ -186,25 +168,12 @@
         <tr>
           <td>{{ $t("BOARD_INFO.UPPER_MODULE_TEMP_THRESHOLD") }}（℃）</td>
           <td>
-            <input type="text" class="def-input" placeholder="有效范围-55~70℃" v-model.number="infoData.mod_temp_high" />
-
-            <!-- 
-              info.bdtype
-              OBA模块阈值范围在-55—+70℃；
-              OLA模块阈值范围在-55—+70℃；
-              OPA模块阈值范围在-55—+70℃； 
-            -->
+            <Limit :min="-55" :max="70" v-model="infoData.mod_temp_high" />
           </td>
           <td>PUMP{{ $t("BOARD_INFO.SHUT_OFF_POWER") }}（dBm）</td>
           <td>
-            <input class="def-input" type="text" v-model.number="infoData.sw_power" />
-
-            <!-- 
-              info.bdtype
-              OBA模块阈值范围在-26—+4dBm；
-              OLA模块阈值范围在-33—+5dBm；
-              OPA模块阈值范围在-33—+5dBm；
-             -->
+            <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" v-model="infoData.sw_power" />
+            <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" v-model="infoData.sw_power" />
           </td>
         </tr>
       </table>

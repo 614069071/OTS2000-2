@@ -311,7 +311,7 @@
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.tx_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="3" v-model="infoData.QSFP1.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -321,7 +321,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :max="3" v-model="infoData.QSFP2.tx_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="3" v-model="infoData.QSFP2.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>

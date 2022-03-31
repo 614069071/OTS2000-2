@@ -183,7 +183,7 @@ export default {
       this.$http
         .post(data)
         .then(res => {
-          if (!res.otn2000_ack) return;
+          if (!res.otn2000_ack || res.otn2000_ack.boardname !== "sys_view") return;
 
           this.systemInfo = res.otn2000_ack;
         })
@@ -191,7 +191,7 @@ export default {
           timerCount++;
         })
         .finally(() => {
-          this.startTimer();
+          // this.startTimer();
         });
     },
     submitChangeFrom() {

@@ -140,7 +140,7 @@ export default {
           this.dataTable = [];
         })
         .finally(() => {
-          this.startTimer();
+          // this.startTimer();
         });
     },
     startTimer() {

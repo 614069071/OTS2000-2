@@ -58,7 +58,7 @@ export default {
 
       this.$http
         .post(data)
-        .then(({ otn2000_ack: { code, privilege } }) => {
+        .then(({ otn2000_ack: { code, privilege = "0" } }) => {
           // 0: 成功 1：用户不存在  2：密码错误 else：获取权限失败
 
           if (!code) {

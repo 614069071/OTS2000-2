@@ -31,7 +31,7 @@ Vue.directive("permission", {
   bind(el, binding) {
     const { value } = binding;
     const role = storages.get("__role__") || "0";
-    const permissions = rolePermissions[role];
+    const permissions = rolePermissions[role] || [];
     const makePermissions = makeMap(permissions);
     const has = makePermissions(value);
 

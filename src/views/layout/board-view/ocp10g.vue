@@ -49,14 +49,16 @@
           <td>{{ $t("BOARD_INFO.WORK_STATE") }}</td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[0].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }}
+              <!-- {{ infoData.channels[0].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }} -->
+              {{ mapWorkState1 }}
             </div>
           </td>
           <td></td>
           <td></td>
           <td>
             <div class="coll-3">
-              {{ infoData.channels[1].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }}
+              <!-- {{ infoData.channels[1].work_status ? $t("COMMON.PREPARE_REA") : $t("COMMON.MAIN_REA") }} -->
+              {{ mapWorkState2 }}
             </div>
           </td>
           <td></td>
@@ -609,6 +611,36 @@ export default {
         }),
       },
     };
+  },
+  computed: {
+    mapWorkState1() {
+      try {
+        const { client, Pri_Line, Sec_Line } = this.infoData.channels[0].link_status;
+        const work_status = this.infoData.channels[0].work_status;
+
+        if (!client || (!Pri_Line && !Sec_Line)) {
+          return "NA";
+        } else {
+          return work_status ? this.$t("COMMON.PREPARE_REA") : this.$t("COMMON.MAIN_REA");
+        }
+      } catch (error) {
+        return "NA";
+      }
+    },
+    mapWorkState2() {
+      try {
+        const { client, Pri_Line, Sec_Line } = this.infoData.channels[1].link_status;
+        const work_status = this.infoData.channels[1].work_status;
+
+        if (!client || (!Pri_Line && !Sec_Line)) {
+          return "NA";
+        } else {
+          return work_status ? this.$t("COMMON.PREPARE_REA") : this.$t("COMMON.MAIN_REA");
+        }
+      } catch (error) {
+        return "NA";
+      }
+    },
   },
 };
 </script>

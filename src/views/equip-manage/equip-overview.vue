@@ -172,6 +172,9 @@ export default {
   mounted() {
     this.getSystemInfo();
   },
+  beforeDestroy() {
+    this.clearTimer();
+  },
   methods: {
     // 首页概览
     getSystemInfo() {
@@ -211,6 +214,8 @@ export default {
       this.isTatic = true;
     },
     startTimer() {
+      this.clearTimer();
+
       timer = setTimeout(() => {
         if (timerCount >= 5) return;
 

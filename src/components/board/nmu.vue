@@ -39,16 +39,16 @@
 
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
-        <div class="eth-item-title">ETH1</div>
         <div class="eth-item-main" :class="port[0] ? 'suc' : ''"></div>
+        <div class="eth-item-title">ETH1</div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-title">ETH2</div>
         <div class="eth-item-main" :class="port[1] ? 'suc' : ''"></div>
+        <div class="eth-item-title">ETH2</div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-title">ETH3</div>
         <div class="eth-item-main" :class="port[2] ? 'suc' : ''"></div>
+        <div class="eth-item-title">ETH3</div>
       </div>
     </div>
     <div class="board-usb-wrapper nmu-usb-wrapper">
@@ -92,7 +92,7 @@ export default {
 
   .nmu-eth-wrapper {
     left: 300px;
-    bottom: -5px;
+    bottom: -8px;
   }
 
   .nmu-usb-wrapper {

@@ -53,24 +53,24 @@ export default {
         role: "管理员",
       },
       dataTable: [
-        // { status: 1, boardname: "otu10g" },
         // { status: 1, boardname: "dco200g" },
+        { status: 1, boardname: "otu10g" },
+        { status: 1, boardname: "ocp10g" },
+        { status: 1, boardname: "edfa" },
+        //
         // { status: 1, boardname: "otu100g" },
-        // { status: 1, boardname: "olp" },
-        // { status: 1, boardname: "edfa" },
-        // { status: 1, boardname: "otu25g" },
-        // { status: 1, boardname: "ocp10g" },
-        // { status: 1, boardname: "nmu" },
-        // { status: 1, boardname: "md16sfa" },
-        // { status: 1, boardname: "md16sfb" },
-        // { status: 1, boardname: "dcm" },
-        // { status: 1, boardname: "m16" },
-        // { status: 1, boardname: "d16" },
-        // { status: 1, boardname: "md8" },
+        { status: 1, boardname: "olp" },
+        { status: 1, boardname: "otu25g" },
+        { status: 1, boardname: "nmu" },
+        { status: 1, boardname: "md16sfa" },
+        { status: 1, boardname: "md16sfb" },
+        { status: 1, boardname: "dcm" },
+        { status: 1, boardname: "m16" },
+        { status: 1, boardname: "d16" },
+        { status: 1, boardname: "md8" },
         // { status: 1, boardname: "d40" },
         // { status: 1, boardname: "m40" },
       ],
-      timerCount: 0,
       boardData: {},
       dialogVisible: false,
     };
@@ -112,6 +112,7 @@ export default {
   beforeDestroy() {
     this.$bus.$off("updateBoardView");
     this.$bus.$off("onBoardView");
+    this.clearTimer();
   },
   methods: {
     initUserinfo() {
@@ -139,36 +140,23 @@ export default {
           this.dataTable = [];
         })
         .finally(() => {
-          if (timerCount >= 5) {
-            clearTimeout(boardTimer);
-            return;
-          }
-
-          boardTimer = setTimeout(() => {
-            this.getBoardList();
-          }, 2000);
+          this.startTimer();
         });
     },
-    refreshSystem() {
-      this.timer && clearInterval(this.timer);
-      this.timerCount = 60;
-      this.getBoardList();
-    },
     startTimer() {
-      this.timer = setInterval(() => {
-        this.timerCount -= 1;
-
-        if (this.timerCount <= 0) {
-          this.timerCount = 60;
-          this.getBoardList();
-        }
-      }, 1000);
+      if (timerCount >= 5) {
+        this.clearTimer();
+        return;
+      }
+      boardTimer = setTimeout(() => {
+        this.getBoardList();
+      }, 500);
     },
     clearTimer() {
-      clearInterval(this.timer);
+      clearInterval(boardTimer);
 
-      this.timer = null;
-      this.timerCount = 60;
+      boardTimer = null;
+      timerCount = 0;
     },
   },
 };

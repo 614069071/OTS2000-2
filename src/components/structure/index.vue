@@ -1,5 +1,7 @@
 <template>
   <div class="structure-wrapper">
+    <span class="power-hint"></span>
+    <span class="alarm-hint"></span>
     <div class="structure-inner-wrapper">
       <div class="structure-item-wrapper" v-for="(item, index) in list" :key="index" @click="setBoard(item)">
         <div class="structure-board-inner">
@@ -98,5 +100,28 @@ export default {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.power-hint,
+.alarm-hint {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #ececec;
+  top: 165px;
+}
+
+.power-hint {
+  right: 86px;
+  background-color: #1ef087;
+}
+
+.alarm-hint {
+  right: 73px;
+}
+
+.alarm-hint.war {
+  background-color: #ff6262;
 }
 </style>

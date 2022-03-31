@@ -131,6 +131,9 @@
 <script>
 import { storages } from "@/utils";
 
+let timerCount = 0;
+let timer = null;
+
 export default {
   name: "equip-overview",
   data() {
@@ -181,8 +184,11 @@ export default {
 
           this.systemInfo = res.otn2000_ack;
         })
-        .catch(err => {
-          console.log(err);
+        .catch(() => {
+          timerCount++;
+        })
+        .finally(() => {
+          this.startTimer();
         });
     },
     submitChangeFrom() {
@@ -203,6 +209,19 @@ export default {
     },
     cancelChangeForm() {
       this.isTatic = true;
+    },
+    startTimer() {
+      timer = setTimeout(() => {
+        if (timerCount >= 5) return;
+
+        this.getSystemInfo();
+      }, 1000);
+    },
+    clearTimer() {
+      clearInterval(timer);
+
+      timer = null;
+      timerCount = 0;
     },
   },
 };

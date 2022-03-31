@@ -15,7 +15,7 @@
         <el-form-item :label="$t('COMMON.PORT_NUMBER')">
           <el-select size="mini" v-model="dataForm.portno">
             <el-option :label="$t('COMMON.ALL_PORT')" :value="255"></el-option>
-            <el-option :label="$t('COMMON.PORT') + item" :value="item" v-for="item in 8" :key="item"></el-option>
+            <el-option :label="$t('COMMON.PORT') + item" :value="item" v-for="item in mapPorts" :key="item"></el-option>
           </el-select>
         </el-form-item>
 
@@ -79,6 +79,29 @@
 </template>
 
 <script>
+const mapBoardPorts = (v = "") => {
+  console.log("vvvv", v);
+  let port = 0;
+  let n = v.toUpperCase();
+
+  switch (n) {
+    case "NMU":
+    case "OCP10g":
+      port = 6;
+      break;
+    case "OTU10g":
+      port = 8;
+      break;
+    case "DCO200G":
+      port = 3;
+      break;
+    default:
+      port = 0;
+  }
+
+  return port;
+};
+
 export default {
   name: "manage-alarm",
   data() {
@@ -97,13 +120,15 @@ export default {
       nextDisabled: true,
     };
   },
-  mapPorts() {
-    //根据不同单板显示不同的端口
-    const slot = this.dataForm.slot;
-    const { boardname } = this.onlineBoardList.find(e => e.slot === slot);
-    const mapBoardPorts = { EDFA: [] };
+  computed: {
+    mapPorts() {
+      //根据不同单板显示不同的端口
+      const slot = this.dataForm.slot;
+      const item = this.onlineBoardList.find(e => e.slot === slot) || {};
+      const boardname = slot === 8 ? "NMU" : item.boardname;
 
-    return mapBoardPorts[boardname] || [];
+      return mapBoardPorts(boardname);
+    },
   },
   created() {
     this.getAlarmList();

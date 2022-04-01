@@ -262,6 +262,8 @@ export const alarmTypes = {
   42: "激光器温度低警告",
   43: "激光器温度高告警",
   44: "激光器温度高告警",
+  45: "LOS", //CPF2_LOS
+  46: "LOL", //CPF2_LOL
 };
 
 export const mapAlarmTypes = {
@@ -296,6 +298,7 @@ export const mapAlarmTypes = {
     lols: [null, "CCH1", "CCH2", "CCH3", "CCH4", "CCH5", "CCH6", "CCH7", "CCH8", "CFP2"],
     model: [null, "QSFP28-1模块CH1", "QSFP28-1模块CH2", "QSFP28-1模块CH3", "QSFP28-1模块CH4", "QSFP28-2模块CH1", "QSFP28-2模块CH2", "QSFP28-2模块CH3", "QSFP28-2模块CH4", "CFP2"],
     other: { 1: "QSFP28-1", 2: "QSFP28-2", 9: "CFP2" },
+    cpf2: [null, "LCH1", "LCH2", "LCH3", "LCH4", "LCH5", "LCH6", "LCH7", "LCH8"],
   },
   8: {
     name: "EDFA板",
@@ -340,6 +343,11 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
     // 电流 发射功率 接受功率
     if ([10, 11, 20, 21, 26, 12, 13, 22, 23, 14, 15, 24, 25].includes(alarmId)) {
       return (mapAlarmTypes[7]["model"][port] || "") + " " + alarmTypes[alarmId];
+    }
+
+    // cfp2 模块
+    if ([45, 46].includes(alarmId)) {
+      return (mapAlarmTypes[7]["cfp2"][port] || "") + " " + alarmTypes[alarmId];
     }
 
     return (mapAlarmTypes[7]["other"][port] || "") + " " + alarmTypes[alarmId];

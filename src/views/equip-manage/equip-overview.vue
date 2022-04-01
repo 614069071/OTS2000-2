@@ -191,7 +191,7 @@ export default {
           timerCount++;
         })
         .finally(() => {
-          // this.startTimer();
+          this.startTimer();
         });
     },
     submitChangeFrom() {

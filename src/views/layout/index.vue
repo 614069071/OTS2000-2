@@ -54,20 +54,20 @@ export default {
       },
       dataTable: [
         // { status: 1, boardname: "dco200g" },
-        { status: 1, boardname: "otu10g" },
-        { status: 1, boardname: "ocp10g" },
-        { status: 1, boardname: "edfa" },
+        // { status: 1, boardname: "otu10g" },
+        // { status: 1, boardname: "ocp10g" },
+        // { status: 1, boardname: "edfa" },
         //
         // { status: 1, boardname: "otu100g" },
-        { status: 1, boardname: "olp" },
-        { status: 1, boardname: "otu25g" },
-        { status: 1, boardname: "nmu" },
-        { status: 1, boardname: "md16sfa" },
-        { status: 1, boardname: "md16sfb" },
-        { status: 1, boardname: "dcm" },
-        { status: 1, boardname: "m16" },
-        { status: 1, boardname: "d16" },
-        { status: 1, boardname: "md8" },
+        // { status: 1, boardname: "olp" },
+        // { status: 1, boardname: "otu25g" },
+        // { status: 1, boardname: "nmu" },
+        // { status: 1, boardname: "md16sfa" },
+        // { status: 1, boardname: "md16sfb" },
+        // { status: 1, boardname: "dcm" },
+        // { status: 1, boardname: "m16" },
+        // { status: 1, boardname: "d16" },
+        // { status: 1, boardname: "md8" },
         // { status: 1, boardname: "d40" },
         // { status: 1, boardname: "m40" },
       ],
@@ -140,7 +140,7 @@ export default {
           this.dataTable = [];
         })
         .finally(() => {
-          // this.startTimer();
+          this.startTimer();
         });
     },
     startTimer() {
@@ -150,7 +150,7 @@ export default {
       }
       boardTimer = setTimeout(() => {
         this.getBoardList();
-      }, 500);
+      }, 2000);
     },
     clearTimer() {
       clearInterval(boardTimer);

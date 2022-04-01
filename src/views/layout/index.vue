@@ -73,6 +73,7 @@ export default {
       ],
       boardData: {},
       dialogVisible: false,
+      currentBoard: 0,
     };
   },
   beforeRouteEnter(to, form, next) {
@@ -104,10 +105,12 @@ export default {
 
     this.$bus.$on("onBoardView", v => {
       if (!v.status) return;
-
+      this.currentBoard = v.slot - 1;
       this.boardData = v;
       this.dialogVisible = true;
     });
+
+    this.$bus.$emit("autoUpdateBoardView", 1);
   },
   beforeDestroy() {
     this.$bus.$off("updateBoardView");
@@ -131,6 +134,7 @@ export default {
           const list = res.otn2000_ack.channels || [];
 
           this.dataTable = list;
+          this.boardData = list[this.currentBoard];
           this.$bus.$emit("onBoardList", list);
           timerCount = 0;
         })

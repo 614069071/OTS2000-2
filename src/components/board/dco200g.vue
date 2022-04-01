@@ -23,13 +23,13 @@
 
     <div class="board-cfp2-wrapper cfp2-dco200g-wrapper">
       <div class="cfp2-n"><span class="f-10">Tx</span><span class="f-10">Rx</span></div>
-      <div class="cfp2-k" :class="port[3] ? 'suc' : ''"></div>
+      <div class="cfp2-k" :class="port[2] ? 'suc' : ''"></div>
     </div>
 
     <div class="board-trx-big-wrapper dco200g-trx-wrapper2">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
-        <div class="trx-item-main" :class="port[2] ? 'suc' : ''"></div>
+        <div class="trx-item-main" :class="port[1] ? 'suc' : ''"></div>
       </div>
     </div>
 

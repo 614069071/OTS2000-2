@@ -25,29 +25,29 @@
     <div class="board-trx-wrapper nmu-trx-wrapper">
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx1</span><span>Rx1</span></div>
-        <div class="trx-item-main" :class="port[2] ? 'suc' : ''"></div>
+        <div class="trx-item-main" :class="port[3] ? 'suc' : ''"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx2</span><span>Rx2</span></div>
-        <div class="trx-item-main" :class="port[1] ? 'suc' : ''"></div>
+        <div class="trx-item-main" :class="port[4] ? 'suc' : ''"></div>
       </div>
       <div class="trx-item">
         <div class="trx-item-footer"><span>Tx3</span><span>Rx3</span></div>
-        <div class="trx-item-main" :class="port[0] ? 'suc' : ''"></div>
+        <div class="trx-item-main" :class="port[5] ? 'suc' : ''"></div>
       </div>
     </div>
 
     <div class="board-eth-wrapper nmu-eth-wrapper">
       <div class="eth-item">
-        <div class="eth-item-main" :class="port[5] ? 'suc' : ''"></div>
+        <div class="eth-item-main" :class="port[0] ? 'suc' : ''"></div>
         <div class="eth-item-title">ETH1</div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-main" :class="port[4] ? 'suc' : ''"></div>
+        <div class="eth-item-main" :class="port[1] ? 'suc' : ''"></div>
         <div class="eth-item-title">ETH2</div>
       </div>
       <div class="eth-item">
-        <div class="eth-item-main" :class="port[3] ? 'suc' : ''"></div>
+        <div class="eth-item-main" :class="port[2] ? 'suc' : ''"></div>
         <div class="eth-item-title">ETH3</div>
       </div>
     </div>
@@ -67,13 +67,15 @@ export default {
       return (this.data.port_status || 0)
         .toString(2)
         .split("")
-        .map(e => Number(e));
+        .map(e => Number(e))
+        .reverse();
     },
     light() {
       return (this.data.light_status || 0)
         .toString(2)
         .split("")
-        .map(e => Number(e));
+        .map(e => Number(e))
+        .reverse();
     },
   },
 };

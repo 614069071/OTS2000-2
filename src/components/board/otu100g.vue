@@ -74,13 +74,15 @@ export default {
       return (this.data.port_status || 0)
         .toString(2)
         .split("")
-        .map(e => Number(e));
+        .map(e => Number(e))
+        .reverse();
     },
     light() {
       return (this.data.light_status || 0)
         .toString(2)
         .split("")
-        .map(e => Number(e));
+        .map(e => Number(e))
+        .reverse();
     },
   },
 };

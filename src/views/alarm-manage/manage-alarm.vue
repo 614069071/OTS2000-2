@@ -93,7 +93,7 @@ const mapBoardPorts = (v = "") => {
       port = 8;
       break;
     case "DCO200G":
-      port = 3;
+      port = 9;
       break;
     default:
       port = 0;

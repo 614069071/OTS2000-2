@@ -97,7 +97,7 @@
         <div class="state-title"><i class="c-icon icon-setting"></i>{{ $t("HOME.FAN_STATE") }}</div>
         <div class="state-inner-wrapper">
           <div class="fan-wrapper" :class="systemInfo.fan_status ? '' : 'error'">
-            <div class="fan-blade"></div>
+            <div class="fan-blade" :class="systemInfo.fan_status ? 'run' : ''"></div>
           </div>
           <div class="state-footer">{{ systemInfo.fan_status || 0 }}rpm</div>
         </div>
@@ -316,6 +316,9 @@ export default {
       width: 60px;
       height: 60px;
       background: url("../../assets/images/fan-bo.jpg") center/contain no-repeat;
+    }
+
+    .fan-blade.run {
       animation: rotate linear 1.4s infinite;
     }
   }

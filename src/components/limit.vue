@@ -1,14 +1,14 @@
 <template>
   <div class="input-limit-wrapper">
     <div class="input-text-hint" v-show="display">{{ hint }}</div>
-    <input class="def-input" type="text" :value="vale" @input="change($event)" />
+    <input class="def-input" type="text" :disabled="disabled" :value="vale" @input="change($event)" />
   </div>
 </template>
 
 <script>
 export default {
   name: "Limit",
-  props: { min: Number, max: Number, value: [String, Number] },
+  props: { min: Number, max: Number, value: [String, Number], disabled: Boolean },
   data() {
     return {
       hint: "",

@@ -311,7 +311,7 @@
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :min="3" v-model="infoData.QSFP1.tx_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :max="3" v-model="infoData.QSFP1.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -321,7 +321,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :min="3" v-model="infoData.QSFP2.tx_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :max="3" v-model="infoData.QSFP2.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -354,7 +354,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" v-model="infoData.CFP2.launch_power" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.launch_power" />
             <template v-else>NA</template>
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template> -->
           </td>
@@ -374,19 +374,19 @@
         <tr>
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-23" v-model="infoData.CFP2.rcv_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-23" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" /> -->
             <template v-else>NA</template>
           </td>
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :max="8" v-model="infoData.CFP2.rcv_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :max="8" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" /> -->
             <template v-else>NA</template>
           </td>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" v-model="infoData.CFP2.tx_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" /> -->
             <template v-else>NA</template>
           </td>
@@ -394,13 +394,13 @@
         <tr>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :max="5" v-model="infoData.CFP2.tx_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" /> -->
             <template v-else>NA</template>
           </td>
           <td>{{ $t("BOARD_INFO.LASER_SWITCH") }}</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.tx_disable">
+            <select v-if="infoData.CFP2.link_status" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_disable">
               <option :value="1">关</option>
               <option :value="0">开</option>
             </select>
@@ -413,7 +413,7 @@
               <option :value="0">C21-C60</option>
             </select> -->
 
-            <input type="text" class="def-input" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
+            <input type="text" class="def-input" :disabled="cfp2Disable" v-if="infoData.CFP2.link_status" v-model.number="infoData.CFP2.light_channel" />
 
             <template v-else>NA</template>
           </td>
@@ -421,7 +421,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.MODU_MODE") }}</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.Modulation_mode">
+            <select v-if="infoData.CFP2.link_status" :disabled="cfp2Disable" v-model="infoData.CFP2.Modulation_mode">
               <!-- 先默认一个 -->
               <option :value="3">DP-16QAM</option>
 
@@ -440,7 +440,7 @@
           </td>
           <td>FEC{{ $t("BOARD_INFO.MODEL") }}</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.FEC_mode">
+            <select v-if="infoData.CFP2.link_status" :disabled="cfp2Disable" v-model="infoData.CFP2.FEC_mode">
               <!-- 先默认一个 -->
               <option :value="0">{{ $t("COMMON.NO") }}</option>
               <option :value="3">O-FEC</option>
@@ -459,7 +459,7 @@
           </td>
           <td>{{ $t("BOARD_INFO.LOOP_CONTAROL") }}</td>
           <td>
-            <select v-if="infoData.CFP2.link_status" v-model="infoData.CFP2.loop">
+            <select v-if="infoData.CFP2.link_status" :disabled="cfp2Disable" v-model="infoData.CFP2.loop">
               <!-- 待根据不同模块做判断修改 -->
               <!-- <template v-if="infoData.CFP2.cfp2_type === 10"></template>
               <template v-if="infoData.CFP2.cfp2_type == 0"></template> -->
@@ -602,6 +602,11 @@ export default {
       const state = [null, "初始化状态", "低功耗状态", "高功耗打开状态", "发送禁止状态", "发送打开状态", "Ready状态", "失效状态", "发送关闭状态", "高功耗关闭状态"];
 
       return state[v] || v;
+    },
+  },
+  computed: {
+    cfp2Disable() {
+      return this.infoData.CFP2.cfp2_states !== 6;
     },
   },
   methods: {

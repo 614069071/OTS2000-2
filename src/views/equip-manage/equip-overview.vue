@@ -74,7 +74,7 @@
         </div>
         <div class="system-info-item">
           <span>{{ $t("COMMON.HARDWARE_VERSION") }}</span>
-          <span>{{ systemInfo.h_ver ? `V${systemInfo.h_ver}` : "" }} </span>
+          <span>{{ systemInfo.h_rev ? `V${systemInfo.h_rev}` : "" }} </span>
         </div>
         <div class="system-info-item">
           <span>{{ $t("HOME.SYSTEM_TIME") }}</span
@@ -154,7 +154,7 @@ export default {
           output: 0,
         },
         sn: "",
-        h_ver: "",
+        h_rev: "",
         sys_time: "",
         run_time: 0,
         web_ver: "",

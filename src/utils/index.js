@@ -294,7 +294,7 @@ export const mapAlarmTypes = {
     light: [],
   },
   7: {
-    name: "200G CFP2 OTU板",
+    name: "200G CFP2 DCO板",
     lols: [null, "CCH1", "CCH2", "CCH3", "CCH4", "CCH5", "CCH6", "CCH7", "CCH8", "CFP2"],
     model: [null, "QSFP28-1模块CH1", "QSFP28-1模块CH2", "QSFP28-1模块CH3", "QSFP28-1模块CH4", "QSFP28-2模块CH1", "QSFP28-2模块CH2", "QSFP28-2模块CH3", "QSFP28-2模块CH4", "CFP2"],
     other: { 1: "QSFP28-1", 2: "QSFP28-2", 9: "CFP2" },

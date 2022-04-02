@@ -8,7 +8,7 @@
         <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? '' : 'run-link'"></span><span class="k-item" :class="light[6] ? '' : 'suc'"></span><span class="k-name">L1LOS</span>
       </div>
       <div class="board-light">
-        <span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? 'war' : 'suc'"></span><span class="k-name">TYPE</span>
+        <span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? '' : 'suc'"></span><span class="k-name">TYPE</span>
       </div>
     </div>
 

@@ -17,7 +17,7 @@
         </div> -->
         <div class="system-info-item">
           <span>{{ $t("COMMON.FIRMWARE_VERSION") }}</span
-          ><span>{{ systemInfo.p_ver ? `V${systemInfo.p_ver}` : "" }}</span>
+          ><span>{{ systemInfo.s_rev ? `V${systemInfo.s_rev}` : "" }}</span>
         </div>
 
         <div class="system-info-item">
@@ -165,6 +165,7 @@ export default {
         location: "",
         contacts: "",
         dev_sign: "",
+        s_rev: "",
       },
     };
   },

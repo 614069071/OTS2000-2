@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"npm run dev:w\" \"npm run dev:x\"",
+    "dev": "concurrently \"npm run dev:w\" \"npm run dev:x\"",
     "dev:w": "vue-cli-service serve --mode deve",
     "dev:x": "vue-cli-service serve --mode test",
     "build": "vue-cli-service build --mode prod",

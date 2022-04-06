@@ -218,7 +218,7 @@ button:disabled {
   width: 100px;
   height: 100px;
   background-color: #dedede;
-  animation: link 1s steps(1) infinite;
+  animation: link 0.1s steps(1) infinite;
 }
 
 @keyframes link {

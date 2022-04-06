@@ -34,9 +34,9 @@
         </el-form-item>
       </el-form>
 
-      <div class="shield-all-button">
-        <button class="def-btn" @click="shieldAll">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
-        <button class="def-btn" @click="openAll">{{ $t("ALARM_SET.OPEN_ALL") }}</button>
+      <div class="shield-all-button" v-show="dataForm.slot !== 255">
+        <button class="def-btn" @click="shieldAll(0)">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
+        <button class="def-btn" @click="shieldAll(1)">{{ $t("ALARM_SET.OPEN_ALL") }}</button>
       </div>
     </div>
 
@@ -204,41 +204,24 @@ export default {
       this.page += 1;
       this.getAlarmList();
     },
-    shieldAll() {
-      this.dataTable.forEach(e => (e.status = 1));
+    shieldAll(enable) {
+      const slot = this.dataForm.slot;
 
-      const data = { otn2000: { slot: this.dataTable[0]["slot"], type: "post_alarmconfig", cfg_records: this.dataTable } };
+      if (slot === 255) return;
 
-      this.dataTable.length &&
-        this.$http
-          .post(data)
-          .then(() => {
-            // this.getAlarmList();
-          })
-          .catch(() => {
-            alert(this.$t("COMMON.FAIL"));
-          })
-          .finally(() => {
-            this.getAlarmList();
-          });
-    },
-    openAll() {
-      this.dataTable.forEach(e => (e.status = 0));
+      const boardname = slot === 8 ? "NMU" : this.onlineBoardList.find(e => e.slot === slot).boardname;
+      // enable 0 屏蔽 1 开启
+      const data = { otn2000: { slot, boardname, enable, type: "postall_alarmconfig" } };
 
-      const data = { otn2000: { slot: this.dataTable[0]["slot"], type: "post_alarmconfig", cfg_records: this.dataTable } };
-
-      this.dataTable.length &&
-        this.$http
-          .post(data)
-          .then(() => {
-            // this.getAlarmList();
-          })
-          .catch(() => {
-            alert(this.$t("COMMON.FAIL"));
-          })
-          .finally(() => {
-            this.getAlarmList();
-          });
+      this.$http
+        .post(data)
+        .then(() => {})
+        .catch(() => {
+          alert(this.$t("COMMON.FAIL"));
+        })
+        .finally(() => {
+          this.getAlarmList();
+        });
     },
   },
 };

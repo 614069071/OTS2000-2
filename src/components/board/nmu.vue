@@ -3,15 +3,19 @@
     <div class="board-item-name"><span>NMU</span></div>
 
     <div class="board-link-wrapper nmu-link-wrapper">
-      <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[4] ? '' : 'run-link'"></span><span class="k-name">OLINK1</span></div>
       <div class="board-light">
-        <span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[5] ? '' : 'run-link'"></span><span class="k-name">OLINK2</span>
+        <span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[4] ? 'suc' : 'run-link'"></span><span class="k-name">OLINK1</span>
       </div>
       <div class="board-light">
-        <span class="k-name">PROG</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span><span class="k-item" :class="light[6] ? '' : 'run-link'"></span><span class="k-name">OLINK3</span>
+        <span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[5] ? 'suc' : 'run-link'"></span><span class="k-name">OLINK2</span>
       </div>
       <div class="board-light">
-        <span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? '' : 'run-link'"></span><span class="k-name">BLINK</span>
+        <span class="k-name">PROG</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span><span class="k-item" :class="light[6] ? 'suc' : 'run-link'"></span
+        ><span class="k-name">OLINK3</span>
+      </div>
+      <div class="board-light">
+        <span class="k-name">STAT</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? 'suc' : 'run-link'"></span
+        ><span class="k-name">BLINK</span>
       </div>
     </div>
 

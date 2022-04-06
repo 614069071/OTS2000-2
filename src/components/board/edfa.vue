@@ -5,7 +5,7 @@
       <div class="board-light"><span class="k-name">PWR</span><span class="k-item suc"></span><span class="k-item" :class="light[4] ? 'war' : 'suc'"></span><span class="k-name">Ptemp</span></div>
       <div class="board-light"><span class="k-name">RUN</span><span class="k-item run-los"></span><span class="k-item" :class="light[5] ? 'war' : 'suc'"></span><span class="k-name">Pcur</span></div>
       <div class="board-light">
-        <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? '' : 'run-link'"></span><span class="k-item" :class="light[6] ? 'war' : 'suc'"></span><span class="k-name">In</span>
+        <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'run-link'"></span><span class="k-item" :class="light[6] ? 'war' : 'suc'"></span><span class="k-name">In</span>
       </div>
       <div class="board-light">
         <span class="k-name">Temp</span><span class="k-item" :class="light[3] ? 'war' : 'suc'"></span><span class="k-item" :class="light[7] ? 'war' : 'suc'"></span><span class="k-name">Out</span>

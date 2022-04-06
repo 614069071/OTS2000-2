@@ -35,8 +35,8 @@
       </el-form>
 
       <div class="shield-all-button" v-show="dataForm.slot !== 255">
-        <button class="def-btn" @click="shieldAll(0)">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
-        <button class="def-btn" @click="shieldAll(1)">{{ $t("ALARM_SET.OPEN_ALL") }}</button>
+        <button class="def-btn" @click="shieldAll(1)">{{ $t("ALARM_SET.SHIELD_ALL") }}</button>
+        <button class="def-btn" @click="shieldAll(0)">{{ $t("ALARM_SET.OPEN_ALL") }}</button>
       </div>
     </div>
 
@@ -80,16 +80,15 @@
 
 <script>
 const mapBoardPorts = (v = "") => {
-  console.log("vvvv", v);
   let port = 0;
   let n = v.toUpperCase();
 
   switch (n) {
     case "NMU":
-    case "OCP10g":
+    case "OCP10G":
       port = 6;
       break;
-    case "OTU10g":
+    case "OTU10G":
       port = 8;
       break;
     case "DCO200G":

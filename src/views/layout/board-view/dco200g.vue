@@ -606,7 +606,7 @@ export default {
   },
   computed: {
     cfp2Disable() {
-      return this.infoData.CFP2.cfp2_states !== 6;
+      return this.infoData.CFP2.cfp2_states !== 2;
     },
   },
   methods: {

@@ -42,7 +42,7 @@
           </span>
         </div>
         <div class="system-info-change-wrapper">
-          <button v-if="isTatic && isRole != '0'" class="def-btn" @click="isTatic = false">{{ $t("COMMON.CHANGE") }}</button>
+          <button v-if="isTatic && isRole != '0'" class="def-btn" @click="changeSys">{{ $t("COMMON.CHANGE") }}</button>
 
           <template v-else-if="isRole != '0'">
             <button class="def-btn" @click="submitChangeFrom">{{ $t("COMMON.SUBMIT") }}</button>
@@ -209,10 +209,14 @@ export default {
         .catch(err => {
           console.log(err);
           alert(this.$t("COMMON.FAIL"));
+        })
+        .finally(() => {
+          this.getSystemInfo();
         });
     },
     cancelChangeForm() {
       this.isTatic = true;
+      this.getSystemInfo();
     },
     startTimer() {
       this.clearTimer();
@@ -228,6 +232,10 @@ export default {
 
       timer = null;
       timerCount = 0;
+    },
+    changeSys() {
+      this.isTatic = false;
+      this.clearTimer();
     },
   },
 };

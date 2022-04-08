@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="inner-container-title">{{ $t("SYSTEM_INFO.CASE_TEMP") }}</div>
+      <!-- <div class="inner-container-title">{{ $t("SYSTEM_INFO.CASE_TEMP") }}</div>
       <div class="system-info-item-other">
         <span class="item-before">{{ $t("SYSTEM_INFO.LOW_TEMP") }}</span>
         <span class="item-after"><input type="text" class="def-input" /> ℃</span>
@@ -33,15 +33,15 @@
       <div class="system-info-item-other">
         <span class="item-before">{{ $t("SYSTEM_INFO.HIG_TEMP") }}</span
         ><span class="item-after"><input type="text" class="def-input" /> ℃</span>
-      </div>
+      </div> -->
     </div>
 
-    <div class="system-info-btns">
+    <!-- <div class="system-info-btns">
       <div v-permission="'control'">
         <button class="def-btn" @click="getTempConfig">{{ $t("COMMON.REFRESH") }}</button>
         <button class="def-btn" @click="setTempConfig">{{ $t("COMMON.APPLY") }}</button>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

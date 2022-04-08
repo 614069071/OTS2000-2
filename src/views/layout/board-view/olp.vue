@@ -21,11 +21,11 @@
           </td>
         </tr>
         <tr>
-          <td>{{ $t("BOARD_INFO.MAIN_LINE_RECE_SIGNAL") }}</td>
+          <td>{{ $t("BOARD_INFO.MAIN_LINE_RECE_SIGNAL") }}（dBm）</td>
           <td>{{ infoData.main_rx_signal_power | signal }}</td>
-          <td>{{ $t("BOARD_INFO.STANDBY_LINE_OPTICAL_SIGNAL") }}</td>
+          <td>{{ $t("BOARD_INFO.STANDBY_LINE_OPTICAL_SIGNAL") }}（dBm）</td>
           <td>{{ infoData.slave_rx_signal_power | signal }}</td>
-          <td>{{ $t("BOARD_INFO.LOCAL_LINE_OPTICAL_SIGNAL") }}</td>
+          <td>{{ $t("BOARD_INFO.LOCAL_LINE_OPTICAL_SIGNAL") }}（dBm）</td>
           <td>{{ infoData.local_rx_signal_power | signal }}</td>
         </tr>
         <tr>
@@ -144,7 +144,7 @@ export default {
       if (val < -30) {
         return "收光弱";
       } else if (val >= -30 && val <= 14) {
-        return val + "dBm";
+        return val;
       } else {
         return "收光强";
       }

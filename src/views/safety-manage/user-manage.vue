@@ -19,7 +19,7 @@
       </el-table-column>
       <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">
         <template v-slot="{ row }">
-          <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
+          <button class="def-btn" @click="modifyItem(row.username)">{{ $t("COMMON.CHANGE") }}</button>
           <button class="def-btn" v-if="row.privilege == '0'" @click="delItem(row.username)">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
@@ -130,6 +130,9 @@ export default {
     },
     delItem(username) {
       const data = { otn2000: { boardname: "NMU", username, type: "del_user" } };
+      const isDel = confirm(this.$t("COMMON.DELETE"));
+
+      if (!isDel) return;
 
       this.$http
         .post(data)
@@ -143,6 +146,26 @@ export default {
           console.log("finally");
           this.getUserList();
         });
+    },
+    modifyItem(username) {
+      const password = window.prompt(this.$t("COMMON.PASSWORD"));
+      const data = { otn2000: { boardname: "NMU", username, password, type: "modify_user" } };
+
+      if (password.length) {
+        this.$http
+          .post(data)
+          .then(res => {
+            console.log("mo", res);
+            alert(this.$t("COMMON.SUCCESS"));
+          })
+          .catch(err => {
+            console.log("err", err);
+            alert(this.$t("COMMON.FAIL"));
+          })
+          .finally(() => {
+            console.log("finally");
+          });
+      }
     },
   },
 };

@@ -17,10 +17,10 @@
           {{ (row.create_time * 1000) | formatTime }}
         </template>
       </el-table-column>
-      <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">
+      <el-table-column :label="$t('COMMON.CONTROL')" width="160">
         <template v-slot="{ row }">
-          <button class="def-btn" @click="modifyItem(row.username)">{{ $t("COMMON.CHANGE") }}</button>
-          <button class="def-btn" v-if="row.privilege == '0'" @click="delItem(row.username)">{{ $t("COMMON.DELETE") }}</button>
+          <button class="def-btn" @click="modifyItem(row.username)" v-permission="'control'">{{ $t("COMMON.CHANGE") }}</button>
+          <button class="def-btn" v-if="row.privilege == '0'" @click="delItem(row.username)" v-permission="'control'">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="user-btns-wrapper">
-      <button class="def-btn" @click="addUserItem">{{ $t("USER_MANAGE.ADD_USER") }}</button>
+      <button class="def-btn" @click="addUserItem" v-permission="'delete'">{{ $t("USER_MANAGE.ADD_USER") }}</button>
     </div>
   </div>
 </template>

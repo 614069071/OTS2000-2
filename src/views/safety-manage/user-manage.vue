@@ -20,23 +20,23 @@
       <el-table-column :label="$t('USER_MANAGE.CHANGE_PASSWORD')" width="160">
         <template v-slot="{ row }">
           <button class="def-btn">{{ $t("COMMON.CHANGE") }}</button>
-          <button class="def-btn" v-if="row.privilege == '0'">{{ $t("COMMON.DELETE") }}</button>
+          <button class="def-btn" v-if="row.privilege == '0'" @click="delItem(row.username)">{{ $t("COMMON.DELETE") }}</button>
         </template>
       </el-table-column>
     </el-table>
 
-    <div class="add-user-config-wrapper" v-for="item in addUserArg" :key="item">
-      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_NAME')" />
-      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
-      <input class="def-input" type="text" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
-      <el-select size="small" :placeholder="$t('USER_MANAGE.INPUT_USER_LEVEL')" v-model="dataForm.name3">
-        <!-- <el-option :label="$t('USER_MANAGE.ADMIN')" value="1"></el-option> -->
+    <div class="add-user-config-wrapper" v-show="isAddUser">
+      <input class="def-input" type="text" v-model="dataForm.username" :placeholder="$t('USER_MANAGE.INPUT_USER_NAME')" />
+      <input class="def-input" type="text" v-model="dataForm.password" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
+      <input class="def-input" type="text" v-model="dataForm.repassword" :placeholder="$t('USER_MANAGE.INPUT_USER_PASSWORD')" />
+      <!-- <el-select size="small" :placeholder="$t('USER_MANAGE.INPUT_USER_LEVEL')" v-model="dataForm.name3">
+        <el-option :label="$t('USER_MANAGE.ADMIN')" value="1"></el-option>
         <el-option :label="$t('USER_MANAGE.AVERAGE')" value="0"></el-option>
-      </el-select>
+      </el-select> -->
 
       <div>
-        <button class="def-btn">{{ $t("COMMON.SUBMIT") }}</button>
-        <button class="def-btn">{{ $t("COMMON.CANCEL") }}</button>
+        <button class="def-btn" @click="submitAddFrom">{{ $t("COMMON.SUBMIT") }}</button>
+        <button class="def-btn" @click="cancelAddFrom">{{ $t("COMMON.CANCEL") }}</button>
       </div>
     </div>
 
@@ -51,8 +51,14 @@ export default {
   name: "user-manage",
   data() {
     return {
-      dataForm: {},
-      addUserArg: [],
+      dataForm: {
+        boardname: "NMU",
+        username: "",
+        password: "",
+        repassword: "",
+        type: "add_user",
+      },
+      isAddUser: false,
       dataTable: [
         {
           name1: "webadmin",
@@ -73,7 +79,7 @@ export default {
   },
   methods: {
     addUserItem() {
-      this.addUserArg.push(Date.now());
+      this.isAddUser = true;
     },
     getUserList() {
       this.dataTable = [];
@@ -89,17 +95,68 @@ export default {
           console.log(err);
         });
     },
+    submitAddFrom() {
+      const { repassword, ...other } = this.dataForm;
+
+      if (repassword !== other.password || !other.username) {
+        return alert(this.$t("COMMON.FAIL"));
+      }
+
+      const data = { otn2000: other };
+
+      this.$http
+        .post(data)
+        .then(res => {
+          console.log("add", res);
+        })
+        .catch(err => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          console.log("finally");
+          this.getUserList();
+          this.cancelAddFrom();
+        });
+    },
+    cancelAddFrom() {
+      this.isAddUser = false;
+      this.dataForm = {
+        boardname: "NMU",
+        username: "",
+        password: "",
+        repassword: "",
+        type: "add_user",
+      };
+    },
+    delItem(username) {
+      const data = { otn2000: { boardname: "NMU", username, type: "del_user" } };
+
+      this.$http
+        .post(data)
+        .then(res => {
+          console.log("add", res);
+        })
+        .catch(err => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          console.log("finally");
+          this.getUserList();
+        });
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .add-user-config-wrapper {
-  padding-right: 100px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+
+  & > * + * {
+    margin-left: 15px;
+  }
 }
 
 .user-btns-wrapper {

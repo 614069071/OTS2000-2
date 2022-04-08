@@ -24,21 +24,21 @@
           <span>{{ $t("HOME.DEVICE_ID") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.dev_sign }}</template>
-            <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" />
+            <input v-else class="def-input" type="text" v-model="systemInfo.dev_sign" maxlength="32" />
           </span>
         </div>
         <div class="system-info-item">
           <span>{{ $t("HOME.DEVICE_LOCALTION") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.location }}</template>
-            <input v-else class="def-input" type="text" v-model="systemInfo.location" />
+            <input v-else class="def-input" type="text" v-model="systemInfo.location" maxlength="32" />
           </span>
         </div>
         <div class="system-info-item">
           <span>{{ $t("HOME.CONCART") }}</span>
           <span>
             <template v-if="isTatic">{{ systemInfo.contacts }}</template>
-            <input v-else class="def-input" type="text" v-model="systemInfo.contacts" />
+            <input v-else class="def-input" type="text" v-model="systemInfo.contacts" maxlength="32" />
           </span>
         </div>
         <div class="system-info-change-wrapper">

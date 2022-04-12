@@ -183,6 +183,10 @@ export default {
     INPUT_USER_LEVEL: "请选择用户级别",
     ADMIN: "管理员",
     AVERAGE: "普通用户",
+    UN_MODIFY_PASS: "密码不一致",
+    PASS_EMPTY: "密码不能为空",
+    NEW_PASS: "新密码",
+    RE_PASS: "再次输入",
   },
   SYSTEM_INFO: {
     SET_TIME: "设置时间",

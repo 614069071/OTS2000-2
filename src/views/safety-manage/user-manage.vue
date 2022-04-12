@@ -43,6 +43,17 @@
     <div class="user-btns-wrapper">
       <button class="def-btn" @click="addUserItem" v-permission="'delete'">{{ $t("USER_MANAGE.ADD_USER") }}</button>
     </div>
+
+    <div class="modify-pupur-wrapper" v-show="modifyVisible">
+      <div class="modify-title">{{ $t("USER_MANAGE.NEW_PASS") }}</div>
+      <div class="modify-input"><input v-model="modifyForm.password1" type="password" maxlength="10" /></div>
+      <div class="modify-title">{{ $t("USER_MANAGE.RE_PASS") }}</div>
+      <div class="modify-input"><input v-model="modifyForm.password2" type="password" maxlength="10" /></div>
+      <div class="confirm-controls">
+        <button class="def-btn" @click="modifyCancel">{{ $t("COMMON.CANCEL") }}</button>
+        <button class="def-btn" @click="modifySubmit">{{ $t("COMMON.SUBMIT") }}</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,6 +78,12 @@ export default {
           name4: "2020-2-10",
         },
       ],
+      modifyForm: {
+        password1: "",
+        password2: "",
+      },
+      modifyVisible: false,
+      modifyName: "",
     };
   },
   filters: {
@@ -147,11 +164,30 @@ export default {
           this.getUserList();
         });
     },
-    modifyItem(username) {
-      const password = window.prompt(this.$t("COMMON.PASSWORD"));
-      const data = { otn2000: { boardname: "NMU", username, password, type: "modify_user" } };
+    modifyItem(name) {
+      this.modifyVisible = true;
+      this.modifyName = name;
+    },
+    modifyCancel() {
+      this.modifyForm = { password1: "", password2: "" };
+      this.modifyVisible = false;
+    },
+    modifySubmit() {
+      const { password1, password2 } = this.modifyForm;
 
-      if (password.length) {
+      if (password1 !== password2) {
+        alert(this.$t("USER_MANAGE.UN_MODIFY_PASS"));
+        return;
+      }
+
+      if (!password1.length) {
+        alert(this.$t("USER_MANAGE.PASS_EMPTY"));
+        return;
+      }
+
+      const data = { otn2000: { boardname: "NMU", username: this.modifyName, password: password1, type: "modify_user" } };
+
+      if (password1.length) {
         this.$http
           .post(data)
           .then(res => {
@@ -164,6 +200,7 @@ export default {
           })
           .finally(() => {
             console.log("finally");
+            this.modifyCancel();
           });
       }
     },
@@ -185,5 +222,42 @@ export default {
 .user-btns-wrapper {
   margin-top: 10px;
   text-align: right;
+}
+
+.modify-pupur-wrapper {
+  position: fixed;
+  width: 400px;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  .modify-input {
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border: 1px solid #000;
+    width: 100%;
+    box-sizing: border-box;
+    input {
+      width: 100%;
+    }
+  }
+
+  .modify-title {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .confirm-controls {
+    margin: 10px 0 0 0;
+    text-align: right;
+  }
 }
 </style>

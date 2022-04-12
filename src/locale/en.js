@@ -182,6 +182,10 @@ export default {
     INPUT_USER_LEVEL: "Please select the user level",
     ADMIN: "Admin",
     AVERAGE: "Average ",
+    UN_MODIFY_PASS: "The passwords are inconsistent",
+    PASS_EMPTY: "The password cannot be empty",
+    NEW_PASS: "New password",
+    RE_PASS: "Enter your password again",
   },
   SYSTEM_INFO: {
     SET_TIME: "Set time",

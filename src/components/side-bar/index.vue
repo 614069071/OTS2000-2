@@ -85,47 +85,47 @@ export default {
             },
           ],
         },
-        {
-          icon: "icon-earth",
-          menuName: this.$t("MENU.NET_MANAGE"),
-          meta: {
-            role: [ADMIN, ORDIN],
-          },
-          children: [
-            {
-              icon: "",
-              menuName: this.$t("MENU.IP_CONFIG"),
-              menuLink: "/network-manage",
-              meta: {
-                role: [ADMIN],
-              },
-            },
-            {
-              icon: "",
-              menuName: this.$t("MENU.SNMP_CONFIG"),
-              menuLink: "/network-manage/snmp-config",
-              meta: {
-                role: [ADMIN],
-              },
-            },
-            {
-              icon: "",
-              menuName: this.$t("MENU.PORT_INFO"),
-              menuLink: "/network-manage/port-info",
-              meta: {
-                role: [ADMIN, ORDIN],
-              },
-            },
-            {
-              icon: "",
-              menuName: this.$t("MENU.CAS_CONFIG"),
-              menuLink: "/network-manage/cascade-config",
-              meta: {
-                role: [ADMIN],
-              },
-            },
-          ],
-        },
+        // {
+        //   icon: "icon-earth",
+        //   menuName: this.$t("MENU.NET_MANAGE"),
+        //   meta: {
+        //     role: [ADMIN, ORDIN],
+        //   },
+        //   children: [
+        //     {
+        //       icon: "",
+        //       menuName: this.$t("MENU.IP_CONFIG"),
+        //       menuLink: "/network-manage",
+        //       meta: {
+        //         role: [ADMIN],
+        //       },
+        //     },
+        //     {
+        //       icon: "",
+        //       menuName: this.$t("MENU.SNMP_CONFIG"),
+        //       menuLink: "/network-manage/snmp-config",
+        //       meta: {
+        //         role: [ADMIN],
+        //       },
+        //     },
+        //     {
+        //       icon: "",
+        //       menuName: this.$t("MENU.PORT_INFO"),
+        //       menuLink: "/network-manage/port-info",
+        //       meta: {
+        //         role: [ADMIN, ORDIN],
+        //       },
+        //     },
+        //     {
+        //       icon: "",
+        //       menuName: this.$t("MENU.CAS_CONFIG"),
+        //       menuLink: "/network-manage/cascade-config",
+        //       meta: {
+        //         role: [ADMIN],
+        //       },
+        //     },
+        //   ],
+        // },
         {
           icon: "icon-security",
           menuName: this.$t("MENU.SEC_MANAGE"),
@@ -159,22 +159,22 @@ export default {
                 role: [ADMIN, ORDIN],
               },
             },
-            {
-              icon: "",
-              menuName: this.$t("MENU.UPGRADE"),
-              menuLink: "/upgrade",
-              meta: {
-                role: [ADMIN],
-              },
-            },
-            {
-              icon: "",
-              menuName: this.$t("MENU.RUN_LOG"),
-              menuLink: "/maint-manage/run-log",
-              meta: {
-                role: [ADMIN, ORDIN],
-              },
-            },
+            // {
+            //   icon: "",
+            //   menuName: this.$t("MENU.UPGRADE"),
+            //   menuLink: "/upgrade",
+            //   meta: {
+            //     role: [ADMIN],
+            //   },
+            // },
+            // {
+            //   icon: "",
+            //   menuName: this.$t("MENU.RUN_LOG"),
+            //   menuLink: "/maint-manage/run-log",
+            //   meta: {
+            //     role: [ADMIN, ORDIN],
+            //   },
+            // },
           ],
         },
       ];

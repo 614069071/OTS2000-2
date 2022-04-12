@@ -79,6 +79,7 @@ export default {
     CUT_BACK: "Cut back",
     UN_CUT_BACK: "Don't cut back",
     APPLY: "Apply",
+    CONIFRM_RESTORE: "确定重启吗？",
   },
   LOGIN: {
     LOGIN: "Login",

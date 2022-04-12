@@ -80,6 +80,7 @@ export default {
     CUT_BACK: "回切",
     UN_CUT_BACK: "不回切",
     APPLY: "应用",
+    CONIFRM_RESTORE: "确定重启吗？",
   },
   LOGIN: {
     LOGIN: "登录",

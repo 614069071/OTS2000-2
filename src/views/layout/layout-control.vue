@@ -1,7 +1,7 @@
 <template>
   <div class="aside-footer-wrapper">
     <div class="setting-btns-wrapper">
-      <div class="setting-btn-wrapper">
+      <div class="setting-btn-wrapper" @click="restore">
         <div><i class="c-icon icon-back"></i></div>
         <div>{{ $t("LOYOUT.RESTART") }}</div>
       </div>
@@ -27,6 +27,15 @@ export default {
   },
   mounted() {
     console.log("mounted");
+  },
+  methods: {
+    restore() {
+      const isResore = window.confirm(this.$t("COMMON.CONIFRM_RESTORE"));
+
+      if (!isResore) return;
+
+      console.log("重启");
+    },
   },
 };
 </script>

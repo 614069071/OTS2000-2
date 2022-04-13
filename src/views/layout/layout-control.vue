@@ -65,6 +65,8 @@ export default {
     },
     startReboot() {
       this.isStart = true;
+      this.$bus.$emit("stopUpdateBoardView");
+      this.$bus.$emit("stopUpdateSys");
 
       setTimeout(() => {
         this.$router.push("/login");

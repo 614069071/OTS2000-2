@@ -110,6 +110,10 @@ export default {
     });
 
     this.$bus.$emit("autoUpdateBoardView", 1);
+
+    this.$bus.$on("stopUpdateBoardView", () => {
+      this.clearTimer();
+    });
   },
   beforeDestroy() {
     this.$bus.$off("updateBoardView");

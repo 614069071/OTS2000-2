@@ -172,6 +172,10 @@ export default {
   created() {},
   mounted() {
     this.getSystemInfo();
+
+    this.$bus.$on("stopUpdateSys", () => {
+      this.clearTimer();
+    });
   },
   beforeDestroy() {
     this.clearTimer();

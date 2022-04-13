@@ -13,6 +13,13 @@
         <div>{{ $t("LOYOUT.EXIT") }}</div>
       </div>
     </div>
+
+    <div class="progress-pupur-wrapper" v-show="isStart">
+      <div class="progress-title">设备正在重新启动。</div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-inner" :class="isStart ? 'start' : ''"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,7 +28,9 @@ import { storages } from "@/utils";
 export default {
   name: "LayoutControl",
   data() {
-    return {};
+    return {
+      isStart: false,
+    };
   },
   computed: {
     isAdmin() {
@@ -51,6 +60,15 @@ export default {
         })
         .catch(() => {})
         .finally(() => {});
+
+      this.startReboot();
+    },
+    startReboot() {
+      this.isStart = true;
+
+      setTimeout(() => {
+        this.$router.push("/login");
+      }, 36000);
     },
   },
 };
@@ -74,6 +92,48 @@ export default {
       border-left: 1px solid #848484;
       margin: 0 30px;
     }
+  }
+}
+
+.progress-pupur-wrapper {
+  position: fixed;
+  width: 400px;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  .progress-title {
+    height: 36px;
+    list-style: 36px;
+    font-size: 16px;
+  }
+
+  .progress-bar-wrapper {
+    width: 100%;
+    height: 20px;
+    background-color: #cecece;
+  }
+
+  .progress-bar-inner {
+    width: 0%;
+    height: 20px;
+    background-color: var(--dft-color);
+  }
+
+  .progress-bar-inner.start {
+    animation: width linear 36s forwards;
+  }
+}
+
+@keyframes width {
+  to {
+    width: 100%;
   }
 }
 </style>

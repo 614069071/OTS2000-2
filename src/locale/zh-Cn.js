@@ -47,7 +47,6 @@ export default {
     DOWN: "脱位",
     DES: "信息描述",
     RESTOR_DEF: "恢复默认",
-
     VALUE_CANNOT_LESS: "有效值不能小于",
     VALUE_CANNOT_GREATER: "有效值不能大于",
     VALUE_VALID: "请输入有效的值",
@@ -81,6 +80,7 @@ export default {
     UN_CUT_BACK: "不回切",
     APPLY: "应用",
     CONIFRM_RESTORE: "确定重启吗？",
+    RESET1: "重置",
   },
   LOGIN: {
     LOGIN: "登录",

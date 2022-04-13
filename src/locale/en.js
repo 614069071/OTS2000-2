@@ -80,6 +80,7 @@ export default {
     UN_CUT_BACK: "Don't cut back",
     APPLY: "Apply",
     CONIFRM_RESTORE: "确定重启吗？",
+    RESET1: "Reset",
   },
   LOGIN: {
     LOGIN: "Login",

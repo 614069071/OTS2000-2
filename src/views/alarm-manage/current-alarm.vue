@@ -39,7 +39,7 @@
 
       <div class="current-alarm-search-submit">
         <button class="def-btn" @click="initGetList">{{ $t("COMMON.SEARCH") }}</button>
-        <button class="def-btn" @click="resetDataForm">{{ $t("COMMON.RESET") }}</button>
+        <button class="def-btn" @click="resetDataForm">{{ $t("COMMON.RESET1") }}</button>
       </div>
     </div>
 

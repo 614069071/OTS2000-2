@@ -214,17 +214,23 @@ button:disabled {
   }
 }
 
+// .run-link {
+//   width: 100px;
+//   height: 100px;
+//   background-color: #dedede;
+//   animation: link 0.1s steps(1) infinite;
+// }
+
+// @keyframes link {
+//   74% {
+//     background-color: #1ef087;
+//   }
+// }
+
 .run-link {
   width: 100px;
   height: 100px;
   background-color: #dedede;
-  animation: link 0.1s steps(1) infinite;
-}
-
-@keyframes link {
-  74% {
-    background-color: #1ef087;
-  }
 }
 
 // element

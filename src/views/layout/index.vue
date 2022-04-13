@@ -113,6 +113,7 @@ export default {
 
     this.$bus.$on("stopUpdateBoardView", () => {
       this.clearTimer();
+      this.dataTable = [];
     });
   },
   beforeDestroy() {

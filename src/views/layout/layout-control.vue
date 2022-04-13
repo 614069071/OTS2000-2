@@ -34,7 +34,15 @@ export default {
 
       if (!isResore) return;
 
-      console.log("重启");
+      const data = { otn2000: { boardname: "NMU", type: "reboot" } };
+
+      this.$http
+        .post(data)
+        .then(res => {
+          console.log("reboot", res);
+        })
+        .catch(() => {})
+        .finally(() => {});
     },
   },
 };

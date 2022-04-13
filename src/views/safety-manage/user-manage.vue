@@ -147,22 +147,23 @@ export default {
     },
     delItem(username) {
       const data = { otn2000: { boardname: "NMU", username, type: "del_user" } };
-      const isDel = confirm(this.$t("COMMON.DELETE"));
 
-      if (!isDel) return;
-
-      this.$http
-        .post(data)
-        .then(res => {
-          console.log("add", res);
+      this.$confirm(this.$t("COMMON.DELETE_USER"))
+        .then(() => {
+          this.$http
+            .post(data)
+            .then(res => {
+              console.log("add", res);
+            })
+            .catch(err => {
+              console.log("err", err);
+            })
+            .finally(() => {
+              console.log("finally");
+              this.getUserList();
+            });
         })
-        .catch(err => {
-          console.log("err", err);
-        })
-        .finally(() => {
-          console.log("finally");
-          this.getUserList();
-        });
+        .catch(() => {});
     },
     modifyItem(name) {
       this.modifyVisible = true;

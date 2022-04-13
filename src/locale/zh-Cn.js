@@ -81,6 +81,7 @@ export default {
     APPLY: "应用",
     CONIFRM_RESTORE: "确定重启吗？",
     RESET1: "重置",
+    DELETE_USER: "确定删除该用户吗？",
   },
   LOGIN: {
     LOGIN: "登录",

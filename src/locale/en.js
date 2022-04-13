@@ -81,6 +81,7 @@ export default {
     APPLY: "Apply",
     CONIFRM_RESTORE: "确定重启吗？",
     RESET1: "Reset",
+    DELETE_USER: "Are you sure to delete the user?",
   },
   LOGIN: {
     LOGIN: "Login",

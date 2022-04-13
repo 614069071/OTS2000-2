@@ -47,21 +47,23 @@ export default {
   },
   methods: {
     restore() {
-      const isResore = window.confirm(this.$t("COMMON.CONIFRM_RESTORE"));
+      this.$confirm(this.$t("COMMON.CONIFRM_RESTORE"))
+        .then(() => {
+          const data = { otn2000: { boardname: "NMU", type: "reboot" } };
 
-      if (!isResore) return;
+          this.$http
+            .post(data)
+            .then(res => {
+              console.log("reboot", res);
+            })
+            .catch(() => {})
+            .finally(() => {});
 
-      const data = { otn2000: { boardname: "NMU", type: "reboot" } };
-
-      this.$http
-        .post(data)
-        .then(res => {
-          console.log("reboot", res);
+          this.startReboot();
         })
-        .catch(() => {})
-        .finally(() => {});
-
-      this.startReboot();
+        .catch(() => {
+          // console.log('cancel');
+        });
     },
     startReboot() {
       this.isStart = true;

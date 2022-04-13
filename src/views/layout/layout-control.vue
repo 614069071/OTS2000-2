@@ -1,12 +1,12 @@
 <template>
   <div class="aside-footer-wrapper">
     <div class="setting-btns-wrapper">
-      <div class="setting-btn-wrapper" @click="restore">
+      <div v-if="isAdmin" class="setting-btn-wrapper" @click="restore">
         <div><i class="c-icon icon-back"></i></div>
         <div>{{ $t("LOYOUT.RESTART") }}</div>
       </div>
 
-      <div class="vertical-line"></div>
+      <div v-if="isAdmin" class="vertical-line"></div>
 
       <div class="setting-btn-wrapper" @click="$router.push('/login')">
         <div><i class="c-icon icon-next"></i></div>
@@ -17,10 +17,18 @@
 </template>
 
 <script>
+import { storages } from "@/utils";
 export default {
   name: "LayoutControl",
   data() {
     return {};
+  },
+  computed: {
+    isAdmin() {
+      const role = storages.get("__role__");
+      const isAdmin = role === "2";
+      return isAdmin;
+    },
   },
   created() {
     console.log("created");

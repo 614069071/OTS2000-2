@@ -13,7 +13,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('COMMON.SLOT_NUMBER')">
-          <el-select size="mini" v-model="dataForm.slot">
+          <el-select size="mini" v-model="dataForm.slot" @change="setCacheCond('slot', $event)">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 1" :value="1"></el-option>
             <el-option :label="$t('COMMON.SLOT') + 2" :value="2"></el-option>
@@ -27,7 +27,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('ALARM_COMMON.ALARM_LEVEL')">
-          <el-select size="mini" v-model="dataForm.level">
+          <el-select size="mini" v-model="dataForm.level" @change="setCacheCond('level', $event)">
             <el-option :label="$t('COMMON.ALL')" :value="255"></el-option>
             <el-option :label="$t('COMMON.HINT')" :value="0"></el-option>
             <el-option :label="$t('COMMON.MINOR')" :value="1"></el-option>
@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import { storages } from "@/utils";
 export default {
   name: "current-alarm",
   data() {
@@ -135,8 +136,11 @@ export default {
     };
   },
   created() {
+    const cacheCond = storages.get("__cache_cond__") || {};
+    this.dataForm = cacheCond;
     this.getAlarmList();
   },
+  mounted() {},
   computed: {
     mapStartTime() {
       if (!this.dataForm.start_time) return;
@@ -307,6 +311,11 @@ export default {
       this.dataTable = [];
       this.page += 1;
       this.getAlarmList();
+    },
+    setCacheCond(key, value) {
+      const cacheCond = storages.get("__cache_cond__") || {};
+      cacheCond[key] = value;
+      storages.set("__cache_cond__", cacheCond);
     },
   },
 };

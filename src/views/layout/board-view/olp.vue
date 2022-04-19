@@ -38,9 +38,11 @@
           </td>
           <td>{{ $t("BOARD_INFO.WTR_TIME_SWITCH") }}（min）</td>
           <td>
-            <custom-select
+            <limit-select
               v-model="infoData.wtr_time"
               :disabled="!!infoData.protmode"
+              :min="5"
+              :max="30"
               :options="[
                 { label: '5', value: 5 },
                 { label: '10', value: 10 },
@@ -50,8 +52,10 @@
           </td>
           <td>{{ $t("BOARD_INFO.MAIN_LINE_ALARM_THRESHOLD") }}（dBm）</td>
           <td>
-            <custom-select
+            <limit-select
               v-model="infoData.main_line_alarm_thre"
+              :min="-30"
+              :max="15"
               :options="[
                 { label: '-15', value: -15 },
                 { label: '-18', value: -18 },
@@ -62,8 +66,10 @@
         <tr>
           <td>{{ $t("BOARD_INFO.INITIAL_DIFF_BETWEEN") }}（dB）</td>
           <td>
-            <custom-select
+            <limit-select
               v-model="infoData.main_slave_initdiff"
+              :min="-5"
+              :max="5"
               :options="[
                 { label: '1', value: 1 },
                 { label: '2', value: 2 },
@@ -76,8 +82,10 @@
           </td>
           <td>{{ $t("BOARD_INFO.ALARM_THRESHOLD_LINE_STANDBY") }}</td>
           <td>
-            <custom-select
+            <limit-select
               v-model="infoData.slave_line_alarm_thre"
+              :min="-30"
+              :max="15"
               :options="[
                 { label: '-15', value: -15 },
                 { label: '-18', value: -18 },
@@ -86,8 +94,10 @@
           </td>
           <td>{{ $t("BOARD_INFO.CHANGE_DIFF_COND") }}（dB）</td>
           <td>
-            <custom-select
+            <limit-select
               v-model="infoData.switch_condition_diff"
+              :min="3"
+              :max="10"
               :disabled="!!infoData.protmode"
               :options="[
                 { label: '4', value: 4 },
@@ -112,10 +122,11 @@
 <script>
 import mixins from "@/utils/mixins";
 import CustomSelect from "@/components/custom-select";
+import LimitSelect from "@/components/limit-select";
 
 export default {
   name: "olp",
-  components: { CustomSelect },
+  components: { CustomSelect, LimitSelect },
   mixins: [mixins],
   data() {
     return {

@@ -121,12 +121,11 @@
 
 <script>
 import mixins from "@/utils/mixins";
-import CustomSelect from "@/components/custom-select";
 import LimitSelect from "@/components/limit-select";
 
 export default {
   name: "olp",
-  components: { CustomSelect, LimitSelect },
+  components: { LimitSelect },
   mixins: [mixins],
   data() {
     return {

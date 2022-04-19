@@ -103,5 +103,9 @@ export default {
     padding: 0 5px;
     color: #fff;
   }
+
+  input {
+    width: 150px;
+  }
 }
 </style>

@@ -414,35 +414,35 @@
           <tr>
             <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].rcv_thr_L.client" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[0].link_status.client" v-model="infoData.channels[0].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[0].link_status.line" v-model="infoData.channels[0].rcv_thr_L.line" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[0].link_status.line" v-model="infoData.channels[0].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].rcv_thr_L.client" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[1].link_status.client" v-model="infoData.channels[1].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[1].link_status.line" v-model="infoData.channels[1].rcv_thr_L.line" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[1].link_status.line" v-model="infoData.channels[1].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[2].link_status.client" v-model="infoData.channels[2].rcv_thr_L.client" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[2].link_status.client" v-model="infoData.channels[2].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[2].link_status.line" v-model="infoData.channels[2].rcv_thr_L.line" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[2].link_status.line" v-model="infoData.channels[2].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[3].link_status.client" v-model="infoData.channels[3].rcv_thr_L.client" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[3].link_status.client" v-model="infoData.channels[3].rcv_thr_L.client" />
               <template v-else>NA</template>
             </td>
             <td>
-              <Limit :min="-10" :max="-18" v-if="infoData.channels[3].link_status.line" v-model="infoData.channels[3].rcv_thr_L.line" />
+              <Limit :min="-18" :max="-10" v-if="infoData.channels[3].link_status.line" v-model="infoData.channels[3].rcv_thr_L.line" />
               <template v-else>NA</template>
             </td>
           </tr>

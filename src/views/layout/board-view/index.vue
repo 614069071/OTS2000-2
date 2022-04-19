@@ -380,7 +380,7 @@ $border-color: #aaa;
   .coll-4 > .def-input,
   td > .def-input {
     width: 100%;
-    max-width: 240px;
+    max-width: 150px;
   }
 
   .el-date-editor.el-input {

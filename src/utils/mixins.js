@@ -71,8 +71,11 @@ export default {
 
       this.$http
         .post(data)
-        .then(() => {
-          this.setInfoDisabled = false;
+        .then(res => {
+          if (res.otn2000_ack.code !== 0) {
+            return alert(this.$t("COMMON.FAIL"));
+          }
+
           this.getInfo().catch(() => {
             alert(this.$t("COMMON.FAIL"));
           });

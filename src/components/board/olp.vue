@@ -8,7 +8,7 @@
         <span class="k-name">LINK</span><span class="k-item" :class="light[2] ? 'suc' : 'run-link'"></span><span class="k-item" :class="light[7] ? 'war' : 'suc'"></span><span class="k-name">Rx</span>
       </div>
       <div class="board-light">
-        <span class="k-name">Pri</span><span class="k-item" :class="light[2] ? 'war' : 'suc'"></span><span class="k-item" :class="light[4] ? 'war' : 'suc'"></span><span class="k-name">Sec</span>
+        <span class="k-name">Pri</span><span class="k-item" :class="light[2] ? 'suc' : ''"></span><span class="k-item" :class="light[4] ? 'suc' : ''"></span><span class="k-name">Sec</span>
       </div>
     </div>
 

@@ -381,3 +381,11 @@ export function perToMenus(role, items) {
 
   return result;
 }
+
+export function decimalToBinary(num = 0) {
+  return num
+    .toString(2)
+    .split("")
+    .map(Number)
+    .reverse();
+}

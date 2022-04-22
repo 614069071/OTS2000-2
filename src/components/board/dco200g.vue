@@ -41,23 +41,17 @@
 </template>
 
 <script>
+import { decimalToBinary } from "@/utils";
+
 export default {
   name: "board-dco200g",
   props: ["data"],
   computed: {
     port() {
-      return (this.data.port_status || 0)
-        .toString(2)
-        .split("")
-        .map(e => Number(e))
-        .reverse();
+      return decimalToBinary(this.data.port_status);
     },
     light() {
-      return (this.data.light_status || 0)
-        .toString(2)
-        .split("")
-        .map(e => Number(e))
-        .reverse();
+      return decimalToBinary(this.data.light_status);
     },
   },
 };

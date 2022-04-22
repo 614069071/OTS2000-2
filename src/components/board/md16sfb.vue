@@ -116,16 +116,14 @@
 </template>
 
 <script>
+import { decimalToBinary } from "@/utils";
+
 export default {
   name: "board-md16sfb",
   props: ["data"],
   computed: {
     light() {
-      return (this.data.light_status || 0)
-        .toString(2)
-        .split("")
-        .map(e => Number(e))
-        .reverse();
+      return decimalToBinary(this.data.light_status);
     },
   },
 };

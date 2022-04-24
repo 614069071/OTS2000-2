@@ -159,14 +159,14 @@ export default {
                 role: [ADMIN, ORDIN],
               },
             },
-            // {
-            //   icon: "",
-            //   menuName: this.$t("MENU.UPGRADE"),
-            //   menuLink: "/upgrade",
-            //   meta: {
-            //     role: [ADMIN],
-            //   },
-            // },
+            {
+              icon: "",
+              menuName: this.$t("MENU.UPGRADE"),
+              menuLink: "/upgrade",
+              meta: {
+                role: [ADMIN],
+              },
+            },
             // {
             //   icon: "",
             //   menuName: this.$t("MENU.RUN_LOG"),

@@ -98,46 +98,4 @@ export default {
     }
   }
 }
-
-.progress-pupur-wrapper {
-  position: fixed;
-  width: 400px;
-  left: 50%;
-  top: 30%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  box-sizing: border-box;
-
-  .progress-title {
-    height: 36px;
-    list-style: 36px;
-    font-size: 16px;
-  }
-
-  .progress-bar-wrapper {
-    width: 100%;
-    height: 20px;
-    background-color: #cecece;
-  }
-
-  .progress-bar-inner {
-    width: 0%;
-    height: 20px;
-    background-color: var(--dft-color);
-  }
-
-  .progress-bar-inner.start {
-    animation: width linear 36s forwards;
-  }
-}
-
-@keyframes width {
-  to {
-    width: 100%;
-  }
-}
 </style>

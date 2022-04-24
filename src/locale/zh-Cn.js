@@ -82,6 +82,7 @@ export default {
     CONIFRM_RESTORE: "确定重启吗？",
     RESET1: "重置",
     DELETE_USER: "确定删除该用户吗？",
+    VERSION: "版本号",
   },
   LOGIN: {
     LOGIN: "登录",
@@ -210,6 +211,12 @@ export default {
     NEED_UPGRADE_BOARD: "需要升级的单板",
     UPGRADE_BOARD: "升级单板固件",
     CHECK_UPGRADE_FILE: "选择升级文件",
+    CHECK_UPGRADE_FILE2: "请选择升级文件",
+    CHECK_UPGRADE_SLOT: "请选择需要升级的单板",
+    SELECT_FILE: "选择文件",
+    UPLOAD_FILE: "上传文件",
+    UPGRADE_SUC: "升级成功",
+    UPGRADE_ERR: "升级失败",
   },
   RUN_LOG: {
     LOG_LIST: "日志列表",

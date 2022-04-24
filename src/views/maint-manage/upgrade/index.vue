@@ -2,7 +2,7 @@
   <div>
     <div class="inner-header-wrapper">
       <div class="upgrade-switch-wrapper">
-        <div class="upgrade-item f18" :class="current === 'backup-reboot' ? 'active' : ''" @click="current = 'backup-reboot'">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</div>
+        <!-- <div class="upgrade-item f18" :class="current === 'backup-reboot' ? 'active' : ''" @click="current = 'backup-reboot'">{{ $t("UPGRADE.BACKUP_AND_RESTORE") }}</div> -->
         <div class="upgrade-item f18" :class="current === 'system-upgrade' ? 'active' : ''" @click="current = 'system-upgrade'">{{ $t("UPGRADE.SYS_UPGRADE") }}</div>
         <div class="upgrade-item f18" :class="current === 'board-upgrede' ? 'active' : ''" @click="current = 'board-upgrede'">{{ $t("UPGRADE.BOARD_UPGRADE") }}</div>
       </div>
@@ -24,7 +24,7 @@ export default {
   components: { BackupReboot, SystemUpgrade, boardUpgrede },
   data() {
     return {
-      current: "backup-reboot",
+      current: "system-upgrade",
       dataForm: {},
       addUserArg: [],
       dataTable: [

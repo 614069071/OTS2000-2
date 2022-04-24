@@ -82,6 +82,7 @@ export default {
     CONIFRM_RESTORE: "确定重启吗？",
     RESET1: "Reset",
     DELETE_USER: "Are you sure to delete the user?",
+    VERSION: "版本号",
   },
   LOGIN: {
     LOGIN: "Login",
@@ -210,6 +211,12 @@ export default {
     NEED_UPGRADE_BOARD: "Boards to be upgraded",
     UPGRADE_BOARD: "Upgrading board Firmware",
     CHECK_UPGRADE_FILE: "Select the upgrade File",
+    CHECK_UPGRADE_FILE2: "Select the upgrade File",
+    CHECK_UPGRADE_SLOT: "Select the upgrade board",
+    SELECT_FILE: "Select file",
+    UPLOAD_FILE: "Upload file",
+    UPGRADE_SUC: "upgrade success",
+    UPGRADE_ERR: "upgrade fail",
   },
   RUN_LOG: {
     LOG_LIST: "Log list",

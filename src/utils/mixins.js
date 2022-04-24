@@ -31,7 +31,8 @@ export default {
         this.$http
           .post(data)
           .then(res => {
-            if (res.otn2000_ack.code !== 0 || res.otn2000_ack.type !== "get_info" || res.otn2000_ack.boardname === "sys_view") {
+            // if (res.otn2000_ack.code !== 0 || res.otn2000_ack.type !== "get_info" || res.otn2000_ack.boardname === "sys_view") {
+            if (res.otn2000_ack.type !== "get_info" || res.otn2000_ack.boardname === "sys_view") {
               return reject();
             }
             this.infoData = res.otn2000_ack || {};

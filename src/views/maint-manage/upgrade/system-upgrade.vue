@@ -1,8 +1,8 @@
 <template>
   <div class="chose-wrapper">
     <span>{{ $t("UPGRADE.CHECK_UPGRADE_FILE") }}</span>
-    <input type="file" accept=".bin" name="" id="" />
-    <button class="def-btn" @click="upgradeSubmit">{{ $t("UPGRADE.UPGRADE") }}</button>
+    <input ref="uploadRef" type="file" accept=".bin" name="" id="" />
+    <button class="def-btn" @click="upload">{{ $t("UPGRADE.UPGRADE") }}</button>
   </div>
 </template>
 
@@ -16,8 +16,25 @@ export default {
     };
   },
   methods: {
-    upgradeSubmit() {
-      console.log("file");
+    upload() {
+      const [file] = this.$refs.uploadRef.files;
+
+      console.log("file", file);
+
+      return;
+
+      // const fd = new FormData();
+      // fd.append("slot", 8);
+      // fd.append("file", file);
+
+      // this.$http
+      //   .action("/action/upload", fd)
+      //   .then(res => {
+      //     console.log(res);
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
     },
   },
 };

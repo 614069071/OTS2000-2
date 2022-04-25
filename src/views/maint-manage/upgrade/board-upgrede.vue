@@ -24,8 +24,7 @@
     <div class="chose-wrapper">
       <span></span>
       <button class="def-btn" @click="uploadFileSubmit">{{ $t("UPGRADE.UPLOAD_FILE") }}</button>
-
-      <button class="def-btn" @click="startUpgrade">{{ $t("UPGRADE.UPGRADE") }}</button>
+      <button class="def-btn" style="margin-left:30px;" :disabled="!isCheckFile" @click="startUpgrade">{{ $t("UPGRADE.UPGRADE") }}</button>
     </div>
 
     <div class="progress-pupur-wrapper" v-show="isStart">
@@ -39,7 +38,7 @@
 
 <script>
 let pupurExcutorTimer = null;
-let restoreCount = 0;
+let restoreTimer = null;
 
 export default {
   name: "board-upgrede",
@@ -47,10 +46,11 @@ export default {
     return {
       uploadFile: null,
       isStart: false,
-      onlineBoardList: [],
+      onlineBoardList: [], //[{ slot: 4, boardname: "olp" }],
       uploadSlot: null,
       isUpgrade: true,
       pupurHint: "单板升级中...",
+      isCheckFile: false,
     };
   },
   computed: {
@@ -65,6 +65,9 @@ export default {
     this.$bus.$on("onBoardList", v => {
       this.onlineBoardList = v.filter(e => e.status && e.slot !== 8);
     });
+  },
+  beforeDestroy() {
+    this.$bus.$off("onBoardList");
   },
   methods: {
     uploadChange(e) {
@@ -93,6 +96,7 @@ export default {
             alert(this.$t("COMMON.FAIL"));
           } else {
             alert(this.$t("COMMON.SUCCESS"));
+            this.isCheckFile = true;
           }
         })
         .catch(() => {
@@ -128,7 +132,9 @@ export default {
 
             setTimeout(() => {
               this.pupurHint = "单板重启中...";
-              this.getBoardList();
+              setTimeout(() => {
+                this.getBoardList();
+              }, 5000);
             }, 1000);
           } else {
             /* 
@@ -165,30 +171,21 @@ export default {
           if (!res) return;
 
           const list = res.otn2000_ack.channels || [];
-
-          if (restoreCount > 2) {
-            const ver = list.find(e => e.slot === this.uploadSlot).s_ver;
-            this.pupurHint = "重启成功，当前版本为" + ver;
-            restoreCount = 0;
-
-            setTimeout(() => {
-              this.initConfig();
-            }, 1000);
-          }
-        })
-        .catch(() => {})
-        .finally(() => {
-          restoreCount++;
+          const ver = list.find(e => e.slot === this.uploadSlot).s_ver;
+          this.pupurHint = "重启成功，当前版本为" + ver;
 
           setTimeout(() => {
-            this.getBoardList();
-          }, 1000);
-        });
+            this.initConfig();
+          }, 2000);
+        })
+        .catch(() => {})
+        .finally(() => {});
     },
     initConfig() {
       this.isStart = false;
       this.isUpgrade = true;
       this.pupurHint = "单板升级中...";
+      clearTimeout(restoreTimer);
     },
   },
 };

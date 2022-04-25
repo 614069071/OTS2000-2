@@ -333,6 +333,7 @@
 .board-usb-wrapper {
   position: absolute;
   font-size: 12px;
+  // height: 21px;
   transform: scale(0.6);
 
   .usb-title {
@@ -340,9 +341,9 @@
   }
 
   .usb-main {
-    width: 36px;
+    width: 43px;
     height: 16px;
-    background: url(../assets/images/board/usb.svg) center/contain no-repeat;
+    background: url(../assets/images/board/console.png) center/42px no-repeat;
   }
 }
 

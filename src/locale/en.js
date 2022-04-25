@@ -214,7 +214,7 @@ export default {
     CHECK_UPGRADE_FILE2: "Select the upgrade File",
     CHECK_UPGRADE_SLOT: "Select the upgrade board",
     SELECT_FILE: "Select file",
-    UPLOAD_FILE: "Upload file",
+    UPLOAD_FILE: "Upload",
     UPGRADE_SUC: "upgrade success",
     UPGRADE_ERR: "upgrade fail",
   },

@@ -214,7 +214,7 @@ export default {
     CHECK_UPGRADE_FILE2: "请选择升级文件",
     CHECK_UPGRADE_SLOT: "请选择需要升级的单板",
     SELECT_FILE: "选择文件",
-    UPLOAD_FILE: "上传文件",
+    UPLOAD_FILE: "上传",
     UPGRADE_SUC: "升级成功",
     UPGRADE_ERR: "升级失败",
   },

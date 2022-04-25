@@ -19,17 +19,18 @@
         <label for="upload" class="upload-check-button">{{ $t("UPGRADE.SELECT_FILE") }}</label>
         <div class="file-name-wrapper">{{ fileName }}</div>
       </div>
-      <button class="def-btn" @click="uploadFileSubmit">{{ $t("UPGRADE.UPLOAD_FILE") }}</button>
     </div>
 
     <div class="chose-wrapper">
       <span></span>
+      <button class="def-btn" @click="uploadFileSubmit">{{ $t("UPGRADE.UPLOAD_FILE") }}</button>
+
       <button class="def-btn" @click="startUpgrade">{{ $t("UPGRADE.UPGRADE") }}</button>
     </div>
 
     <div class="progress-pupur-wrapper" v-show="isStart">
-      <div class="progress-title">单板升级中...</div>
-      <div class="progress-bar-wrapper">
+      <div class="progress-title">{{ pupurHint }}</div>
+      <div class="progress-bar-wrapper" v-if="isUpgrade">
         <div class="progress-bar-inner" :class="isStart ? 'upload-start' : ''"></div>
       </div>
     </div>
@@ -38,6 +39,7 @@
 
 <script>
 let pupurExcutorTimer = null;
+let restoreCount = 0;
 
 export default {
   name: "board-upgrede",
@@ -47,6 +49,8 @@ export default {
       isStart: false,
       onlineBoardList: [],
       uploadSlot: null,
+      isUpgrade: true,
+      pupurHint: "单板升级中...",
     };
   },
   computed: {
@@ -85,14 +89,18 @@ export default {
       this.$http
         .action("/action/upload", fd)
         .then(res => {
-          console.log(res);
-
           if (res.otn2000_ack.retcode !== 0) {
-            return alert(this.$t("COMMON.FAIL"));
+            alert(this.$t("COMMON.FAIL"));
+          } else {
+            alert(this.$t("COMMON.SUCCESS"));
           }
         })
-        .catch(err => {
-          console.log(err);
+        .catch(() => {
+          alert(this.$t("COMMON.FAIL"));
+
+          setTimeout(() => {
+            this.isStart = false;
+          }, 1000);
         });
     },
     startUpgrade() {
@@ -108,27 +116,79 @@ export default {
       //  timeout: 1000,
 
       this.$http
-        .action("/action/jsoncdt", data, { timeout: 20000 })
+        .action("/action/jsoncdt", data, { timeout: 10000 })
         .then(res => {
           console.log("start res", res);
           clearTimeout(pupurExcutorTimer);
 
-          pupurExcutorTimer = setTimeout(() => {
-            if (res.otn2000_ack.code === 0) {
-              // 成功
-              alert(this.$t("UPGRADE.UPGRADE_SUC"));
-            } else {
-              // 失败 1 发送文件长度失败 2 发送MD5SUN失败 3 发送文件数据失败 4 接受单板响应失败 5 flash出错 6 md5sum校验出错 7 位置错误
-              alert(this.$t("UPGRADE.UPGRADE_ERR"));
-            }
-          }, 100);
+          if (res.otn2000_ack.code === 0) {
+            // 成功
+            // alert(this.$t("UPGRADE.UPGRADE_SUC"));
+            this.pupurHint = this.$t("UPGRADE.UPGRADE_SUC");
+
+            setTimeout(() => {
+              this.pupurHint = "单板重启中...";
+              this.getBoardList();
+            }, 1000);
+          } else {
+            /* 
+              @失败
+              1 发送文件长度失败 
+              2 发送MD5SUN失败 
+              3 发送文件数据失败 
+              4 接受单板响应失败 
+              5 flash出错 
+              6 md5sum校验出错 
+              7 位置错误
+             */
+            // alert(this.$t("UPGRADE.UPGRADE_ERR"));
+            this.pupurHint = this.$t("UPGRADE.UPGRADE_ERR");
+          }
         })
         .catch(err => {
-          console.log('"start err', err);
+          console.log("start err", err);
+          this.pupurHint = this.$t("UPGRADE.UPGRADE_ERR");
+          setTimeout(() => {
+            this.isStart = false;
+          }, 1000);
         })
         .finally(() => {
-          this.isStart = false;
+          this.isUpgrade = false;
         });
+    },
+    getBoardList() {
+      const data = { otn2000: { boardname: "board_view", type: "get_info" } };
+
+      this.$http
+        .post(data)
+        .then(res => {
+          if (!res) return;
+
+          const list = res.otn2000_ack.channels || [];
+
+          if (restoreCount > 2) {
+            const ver = list.find(e => e.slot === this.uploadSlot).s_ver;
+            this.pupurHint = "重启成功，当前版本为" + ver;
+            restoreCount = 0;
+
+            setTimeout(() => {
+              this.initConfig();
+            }, 1000);
+          }
+        })
+        .catch(() => {})
+        .finally(() => {
+          restoreCount++;
+
+          setTimeout(() => {
+            this.getBoardList();
+          }, 1000);
+        });
+    },
+    initConfig() {
+      this.isStart = false;
+      this.isUpgrade = true;
+      this.pupurHint = "单板升级中...";
     },
   },
 };

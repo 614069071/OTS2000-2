@@ -190,6 +190,7 @@ export default {
     PASS_EMPTY: "密码不能为空",
     NEW_PASS: "新密码",
     RE_PASS: "再次输入",
+    PASS_VALIDADE: "请输入小于20位的数字或字母组合",
   },
   SYSTEM_INFO: {
     SET_TIME: "设置时间",

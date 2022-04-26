@@ -190,6 +190,7 @@ export default {
     PASS_EMPTY: "The password cannot be empty",
     NEW_PASS: "New password",
     RE_PASS: "Enter your password again",
+    PASS_VALIDADE: "Enter a number or letter combination less than 20 characters",
   },
   SYSTEM_INFO: {
     SET_TIME: "Set time",

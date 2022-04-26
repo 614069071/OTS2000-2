@@ -46,9 +46,9 @@
 
     <div class="modify-pupur-wrapper" v-show="modifyVisible">
       <div class="modify-title">{{ $t("USER_MANAGE.NEW_PASS") }}</div>
-      <div class="modify-input"><input v-model="modifyForm.password1" type="password" maxlength="10" /></div>
+      <div class="modify-input"><input v-model="modifyForm.password1" type="password" maxlength="20" /></div>
       <div class="modify-title">{{ $t("USER_MANAGE.RE_PASS") }}</div>
-      <div class="modify-input"><input v-model="modifyForm.password2" type="password" maxlength="10" /></div>
+      <div class="modify-input"><input v-model="modifyForm.password2" type="password" maxlength="20" /></div>
       <div class="confirm-controls">
         <button class="def-btn" @click="modifyCancel">{{ $t("COMMON.CANCEL") }}</button>
         <button class="def-btn" @click="modifySubmit">{{ $t("COMMON.SUBMIT") }}</button>
@@ -175,6 +175,12 @@ export default {
     },
     modifySubmit() {
       const { password1, password2 } = this.modifyForm;
+      const reg = /^[0-9A-Za-z]{6,20}$/g;
+
+      if (!reg.test(password1)) {
+        alert(this.$t("USER_MANAGE.PASS_VALIDADE"));
+        return;
+      }
 
       if (password1 !== password2) {
         alert(this.$t("USER_MANAGE.UN_MODIFY_PASS"));

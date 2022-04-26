@@ -175,7 +175,7 @@ export default {
     },
     modifySubmit() {
       const { password1, password2 } = this.modifyForm;
-      const reg = /^[0-9A-Za-z]{6,20}$/g;
+      const reg = /^[0-9A-Za-z]{8,20}$/g;
 
       if (!reg.test(password1)) {
         alert(this.$t("USER_MANAGE.PASS_VALIDADE"));

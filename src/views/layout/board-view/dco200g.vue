@@ -386,7 +386,7 @@
           </td>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" /> -->
             <template v-else>NA</template>
           </td>
@@ -394,7 +394,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" /> -->
             <template v-else>NA</template>
           </td>

@@ -68,8 +68,8 @@
           <td>
             <limit-select
               v-model="infoData.main_slave_initdiff"
-              :min="-5"
-              :max="5"
+              :min="-30"
+              :max="10"
               :options="[
                 { label: '1', value: 1 },
                 { label: '2', value: 2 },
@@ -85,7 +85,7 @@
             <limit-select
               v-model="infoData.slave_line_alarm_thre"
               :min="-30"
-              :max="15"
+              :max="10"
               :options="[
                 { label: '-15', value: -15 },
                 { label: '-18', value: -18 },

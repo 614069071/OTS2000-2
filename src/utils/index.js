@@ -257,13 +257,15 @@ export const alarmTypes = {
   37: "系统温度低告警",
   38: "系统电压高告警", //1 直流 2 交流
   39: "系统电压低告警", //1 直流 2 交流
-  40: "风扇板警告",
+  40: "风扇板通讯不上",
   41: "激光器温度高警告",
   42: "激光器温度低警告",
   43: "激光器温度高告警",
   44: "激光器温度高告警",
   45: "LOS", //CPF2_LOS
   46: "LOL", //CPF2_LOL
+  47: "转速为0", //风扇板
+  48: "转速不匹配", //风扇板
 };
 
 export const mapAlarmTypes = {
@@ -325,6 +327,12 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
   /* 
     (40G&100G MUX板)  (200G CFP2 OTU相干板) NMU板 模块尚未定义
   */
+
+  if ([47, 48].includes(alarmId)) {
+    // 风扇板
+    return "风扇板" + port + alarmTypes[alarmId];
+  }
+
   // 40G&100G MUX板
   if (boardType == 6) {
     if (alarmId == 5) {
@@ -388,4 +396,17 @@ export function decimalToBinary(num = 0) {
     .split("")
     .map(Number)
     .reverse();
+}
+
+export function isChecks(obj) {
+  const toArr = Object.values(obj);
+  const result = toArr.every(e => {
+    if (typeof e === "object") {
+      return isChecks(e);
+    }
+
+    return e;
+  });
+
+  return result;
 }

@@ -172,8 +172,8 @@
           </td>
           <td>PUMP{{ $t("BOARD_INFO.SHUT_OFF_POWER") }}（dBm）</td>
           <td>
-            <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" v-model="infoData.sw_power" />
-            <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" v-model="infoData.sw_power" />
+            <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" :max="4" v-model="infoData.sw_power" />
+            <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" :max="5" v-model="infoData.sw_power" />
           </td>
         </tr>
       </table>

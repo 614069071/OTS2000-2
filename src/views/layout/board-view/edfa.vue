@@ -78,19 +78,19 @@
             </template>
           </template>
 
-          <!-- OLA 带单板-->
-          <!-- <template v-if="info.bdtype === 'OLA20G22'">
+          <!-- OLA 单板-->
+          <template v-if="info.bdtype === 'OLA20G22'">
             <template v-if="infoData.mode === 3">
               <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
-                <el-input-number v-model="infoData.gain" size="mini" :min="19" :max="25"></el-input-number>
+                <Limit :min="19" :max="25" v-model="infoData.gain" />
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
-                <el-input-number v-model="infoData.APC_output_power" size="mini" :min="-11" :max="20"></el-input-number>
+                <Limit :min="-11" :max="20" v-model="infoData.gain" />
               </td>
             </template>
 
@@ -98,7 +98,7 @@
               <td></td>
               <td></td>
             </template>
-          </template> -->
+          </template>
 
           <!-- OPA -->
           <template v-else-if="info.bdtype === 'OPA20G32'">
@@ -134,11 +134,13 @@
           <td>
             <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" :max="12" v-model="infoData.lum_input_thr" />
             <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" :max="5" v-model="infoData.lum_input_thr" />
+            <Limit v-else-if="info.bdtype === 'OLA20G22'" :min="-33" :max="5" v-model="infoData.lum_input_thr" />
           </td>
           <td>{{ $t("BOARD_INFO.OUTPUT_OPT_POWER_ALARM_THR") }}（dBm）</td>
           <td>
             <Limit v-if="info.bdtype === 'OBA20G22'" :min="-11" :max="20.5" v-model="infoData.lum_output_thr" />
             <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-8" :max="20.5" v-model="infoData.lum_output_thr" />
+            <Limit v-else-if="info.bdtype === 'OLA20G22'" :min="-14" :max="20.5" v-model="infoData.lum_output_thr" />
           </td>
         </tr>
 
@@ -174,6 +176,7 @@
           <td>
             <Limit v-if="info.bdtype === 'OBA20G22'" :min="-26" :max="4" v-model="infoData.sw_power" />
             <Limit v-else-if="info.bdtype === 'OPA20G32'" :min="-33" :max="5" v-model="infoData.sw_power" />
+            <Limit v-else-if="info.bdtype === 'OLA20G22'" :min="-33" :max="5" v-model="infoData.sw_power" />
           </td>
         </tr>
       </table>

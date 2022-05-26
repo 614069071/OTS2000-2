@@ -206,7 +206,7 @@ export default {
   display: inline-block;
   text-align: center;
   color: #959595;
-  width: 100px;
+  width: 180px;
   padding-right: 30px;
   text-align: right;
 }

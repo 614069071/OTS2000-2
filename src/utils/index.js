@@ -215,122 +215,88 @@ export function dealPhone(str = "") {
   return str.slice(0, 3) + "****" + str.slice(7);
 } */
 
-export const alarmLevels = [i18nToKey("COMMON.HINT"), i18nToKey("COMMON.MINOR"), i18nToKey("COMMON.MAIN"), i18nToKey("COMMON.SEVERITY")];
+export let alarmLevels = [];
 
-const alarmTypesArr = {
-  // 1: "", //"链路Link Down",
-  // 2: "", //"LOS", //光线路LOS
-  // 3: "", //"LOL", //光线路LOL
-  // 4: "", //"光线路光功率低",
-  // 5: "", //"模块不在位",
-  // 6: "", //"光模块温度高警告",
-  // 7: "", //"光模块温度低警告",
-  // 8: "", //"光模块电压高警告",
-  // 9: "", //"光模块电压低警告",
-  // 10: "", //"光模块电流高警告",
-  // 11: "", //"光模块电流低警告",
-  // 12: "", //"光模块发送光功率高警告",
-  // 13: "", //"光模块发送光功率低警告",
-  // 14: "", //"光模块接收光功率高警告",
-  // 15: "", //"光模块接收光功率低警告",
-  // 16: "", //"光模块温度高告警",
-  // 17: "", //"光模块温度低告警",
-  // 18: "", //"光模块电压高告警",
-  // 19: "", //"光模块电压低告警",
-  // 20: "", //"光模块电流高告警",
-  // 21: "", //"光模块电流低告警",
-  // 22: "", //"光模块发送光功率高告警",
-  // 23: "", //"光模块发送光功率低告警",
-  // 24: "", //"光模块接收光功率高告警",
-  // 25: "", //"光模块接收光功率低告警",
-  // 26: "", //"Pump电流高告警",
-  // 27: "", //"Pump温度过高告警",
-  // 28: "", //"Pump温度过低告警",
-  // 29: "", //"EDFA模块温度过高告警",
-  // 30: "", //"EDFA模块温度过低告警",
-  // 31: "", //"输入光功率低告警",
-  // 32: "", //"输出光功率低告警",
-  // 33: "", //"主线路光功率低告警",
-  // 34: "", //"备线路光功率低告警",
-  // 35: "", //"本地线路发光功率低告警",
-  // 36: "", //"系统温度高告警",
-  // 37: "", //"系统温度低告警",
-  // 38: "", //"系统电压高告警", //1 直流 2 交流
-  // 39: "", //"系统电压低告警", //1 直流 2 交流
-  // 40: "", //"风扇板通讯不上",
-  // 41: "", //"激光器温度高警告",
-  // 42: "", //"激光器温度低警告",
-  // 43: "", //"激光器温度高告警",
-  // 44: "", //"激光器温度高告警",
-  // 45: "", //"LOS", //CPF2_LOS
-  // 46: "", //"LOL", //CPF2_LOL
-  // 47: "", //"转速为0", //风扇板
-  // 48: "", //"转速不匹配", //风扇板
+export const updateAlarmLevels = () => {
+  alarmLevels = [i18nToKey("COMMON.HINT"), i18nToKey("COMMON.MINOR"), i18nToKey("COMMON.MAIN"), i18nToKey("COMMON.SEVERITY")];
 };
 
 export const updateAlarmTypes = () => {
   for (let i = 1; i <= 48; i++) {
-    alarmTypesArr[i] = i18nToKey(`BOARD_NAME.${i}`);
+    alarmTypes[i] = i18nToKey(`BOARD_NAME.${i}`);
   }
 };
 
-updateAlarmTypes();
+export let alarmTypes = {};
 
-export const alarmTypes = alarmTypesArr;
+export const updateMapAlarmTypes = () => {
+  mapAlarmTypes = {
+    // boardtype       确定板类型
+    // alarmid         确定告警类型
+    // portno + value  确定告警名称
 
-export const mapAlarmTypes = {
-  // boardtype       确定板类型
-  // alarmid         确定告警类型
-  // portno + value  确定告警名称
-
-  1: {
-    name: "Mx合波板",
-  },
-  2: {
-    name: "Dx分波板",
-  },
-  3: {
-    name: "4*10G OTU板",
-    light: [null, "C1", "L1", "C2", "L2", "C3", "L3", "C4", "L4"],
-  },
-  4: {
-    name: "2*10G OCP板",
-    light: [null, "C1", "1L2", "1L1", "C2", "2L2", "2L1"],
-  },
-  5: {
-    name: "4*25G OTU板",
-    light: [null, "C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
-  },
-  6: {
-    name: "40G&100G MUX板",
-    light: [],
-  },
-  7: {
-    name: "200G CFP2 DCO板",
-    lols: [null, "CCH1", "CCH2", "CCH3", "CCH4", "CCH5", "CCH6", "CCH7", "CCH8", "CFP2"],
-    model: [null, "QSFP28-1模块CH1", "QSFP28-1模块CH2", "QSFP28-1模块CH3", "QSFP28-1模块CH4", "QSFP28-2模块CH1", "QSFP28-2模块CH2", "QSFP28-2模块CH3", "QSFP28-2模块CH4", "CFP2"],
-    other: { 1: "QSFP28-1", 5: "QSFP28-2", 9: "CFP2" },
-    cfp2: [null, "LCH1", "LCH2", "LCH3", "LCH4", "LCH5", "LCH6", "LCH7", "LCH8", "LCH"],
-  },
-  8: {
-    name: "EDFA板",
-    light: [null, "T1", "T2", "T3"],
-  },
-  9: {
-    name: "NMU板",
-    light: [null, "SFP1", "SFP2", "SFP3"],
-    38: [null, "直流", "交流"],
-    39: [null, "直流", "交流"],
-  },
-  10: {
-    name: "OLP板",
-    light: [null, "主线路", "备线路", "本地线路"],
-  },
-  11: {
-    name: "DCM板",
-    light: [null, "T1", "T2", "T3"],
-  },
+    1: {
+      name: i18nToKey("BOARD_TYPE.1"),
+    },
+    2: {
+      name: i18nToKey("BOARD_TYPE.2"),
+    },
+    3: {
+      name: i18nToKey("BOARD_TYPE.3"),
+      light: [null, "C1", "L1", "C2", "L2", "C3", "L3", "C4", "L4"],
+    },
+    4: {
+      name: i18nToKey("BOARD_TYPE.4"),
+      light: [null, "C1", "1L2", "1L1", "C2", "2L2", "2L1"],
+    },
+    5: {
+      name: i18nToKey("BOARD_TYPE.5"),
+      light: [null, "C1", "C2", "C3", "C4", "L1", "L2", "L3", "L4"],
+    },
+    6: {
+      name: i18nToKey("BOARD_TYPE.6"),
+      light: [],
+    },
+    7: {
+      name: i18nToKey("BOARD_TYPE.7"),
+      lols: [null, "CCH1", "CCH2", "CCH3", "CCH4", "CCH5", "CCH6", "CCH7", "CCH8", "CFP2"],
+      model: [
+        null,
+        "C",
+        i18nToKey("BOARD_TYPE.Q1C2"),
+        i18nToKey("BOARD_TYPE.Q1C3"),
+        i18nToKey("BOARD_TYPE.Q1C4"),
+        i18nToKey("BOARD_TYPE.Q2C1"),
+        i18nToKey("BOARD_TYPE.Q2C2"),
+        i18nToKey("BOARD_TYPE.Q2C3"),
+        i18nToKey("BOARD_TYPE.Q2C4"),
+        "CFP2",
+      ],
+      other: { 1: "QSFP28-1", 5: "QSFP28-2", 9: "CFP2" },
+      cfp2: [null, "LCH1", "LCH2", "LCH3", "LCH4", "LCH5", "LCH6", "LCH7", "LCH8", "LCH"],
+    },
+    8: {
+      name: i18nToKey("BOARD_TYPE.8"),
+      light: [null, "T1", "T2", "T3"],
+    },
+    9: {
+      name: i18nToKey("BOARD_TYPE.9"),
+      light: [null, "SFP1", "SFP2", "SFP3"],
+      38: [null, i18nToKey("BOARD_TYPE.DC"), i18nToKey("BOARD_TYPE.AC")],
+      39: [null, i18nToKey("BOARD_TYPE.DC"), i18nToKey("BOARD_TYPE.AC")],
+    },
+    10: {
+      name: i18nToKey("BOARD_TYPE.10"),
+      light: [null, i18nToKey("BOARD_TYPE.M_LINE"), i18nToKey("BOARD_TYPE.B_LINE"), i18nToKey("BOARD_TYPE.L_LINE")],
+    },
+    11: {
+      name: i18nToKey("BOARD_TYPE.11"),
+      light: [null, "T1", "T2", "T3"],
+    },
+  };
 };
+
+export let mapAlarmTypes = {};
 
 export function mapBoardAlarmName(boardType, alarmId, port) {
   // const elect = { 1: "直流", 2: "交流" };//alarmId 38 39
@@ -340,7 +306,7 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
 
   if ([47, 48].includes(alarmId)) {
     // 风扇板
-    return "风扇板" + port + alarmTypes[alarmId];
+    return i18nToKey("BOARD_TYPE.FAN") + " " + port + alarmTypes[alarmId];
   }
 
   // 40G&100G MUX板
@@ -387,6 +353,14 @@ export function mapBoardAlarmName(boardType, alarmId, port) {
 
   return result;
 }
+
+export const updateAlarmNameAssoc = () => {
+  updateMapAlarmTypes();
+  updateAlarmTypes();
+  updateAlarmLevels();
+};
+
+updateAlarmNameAssoc();
 
 export function perToMenus(role, items) {
   const result = items.filter(menu => {

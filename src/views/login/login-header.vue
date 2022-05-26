@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { updateAlarmNameAssoc } from "@/utils";
 import { setI18Locale } from "@/locale";
 export default {
   name: "LoginHeader",
@@ -34,6 +35,8 @@ export default {
     langChange(e) {
       const value = e.target.value;
       setI18Locale(value);
+
+      updateAlarmNameAssoc();
     },
   },
 };

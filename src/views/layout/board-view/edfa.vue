@@ -83,14 +83,14 @@
             <template v-if="infoData.mode === 3">
               <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
-                <Limit :min="19" :max="25" v-model="infoData.gain" />
+                <Limit :min="19" :max="25" v-model="infoData.APC_output_power" />
               </td>
             </template>
 
             <template v-else-if="infoData.mode === 2">
               <td>{{ $t("BOARD_INFO.POWER_VAL") }}</td>
               <td>
-                <Limit :min="-11" :max="20" v-model="infoData.gain" />
+                <Limit :min="-11" :max="20" v-model="infoData.APC_output_power" />
               </td>
             </template>
 

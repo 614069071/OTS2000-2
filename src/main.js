@@ -3,11 +3,10 @@ import App from "@/App.vue";
 import router from "@/router";
 import i18n from "@/locale";
 import fetch from "@/fetch";
-import { formatSeconds, clone, difference, formatTime, mapAlarmTypes, alarmLevels, mapBoardAlarmName } from "@/utils";
+import { formatSeconds, clone, difference, formatTime, mapAlarmTypes, alarmLevels, mapBoardAlarmName, storages, makeMap } from "@/utils";
 import Structure from "@/components/structure";
 import Pupur from "@/components/pupur";
 import Limit from "@/components/limit";
-import { storages, makeMap } from "@/utils";
 
 import "@/element";
 import "@/styles";
@@ -56,4 +55,4 @@ Vue.filter("mapBoardType", v => (mapAlarmTypes[v] || {}).name || v);
 Vue.filter("mapAlarmLevel", v => alarmLevels[v] || v);
 Vue.filter("mapBoardAlarmName", v => mapBoardAlarmName(v.board_type, v.alarmtype, v.portno));
 
-new Vue({ router, i18n, render: h => h(App) }).$mount("#app");
+export default new Vue({ router, i18n, render: h => h(App) }).$mount("#app");

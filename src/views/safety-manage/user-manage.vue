@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import { i18nToKey } from "@/locale";
+
 export default {
   name: "user-manage",
   data() {
@@ -88,7 +90,7 @@ export default {
   },
   filters: {
     mapRoleName(v) {
-      return ["一般用户", "生产用户", "管理员"][v] || v;
+      return [i18nToKey("SUP.AVERAGE"), i18nToKey("SUP.PRODUCER"), i18nToKey("SUP.ADMIN")][v] || v;
     },
   },
   created() {

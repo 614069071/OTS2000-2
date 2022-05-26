@@ -5,9 +5,9 @@
       <table class="board-table" border="1">
         <tr>
           <td>{{ $t("BOARD_INFO.INPUT_OPT_POWER") }}（dBm）</td>
-          <td>{{ infoData.lum_input === 327.67 ? "无输入" : infoData.lum_input }}</td>
+          <td>{{ infoData.lum_input === 327.67 ? $t("SUP.NO_INPUT") : infoData.lum_input }}</td>
           <td>{{ $t("BOARD_INFO.OUTPUT_OPT_POWER") }}（dBm）</td>
-          <td>{{ infoData.lum_output === 327.67 ? "无输出" : infoData.lum_output }}</td>
+          <td>{{ infoData.lum_output === 327.67 ? $t("SUP.NO_OUTPUT") : infoData.lum_output }}</td>
           <td>TEC{{ $t("BOARD_INFO.REF_ELE_CURRENT") }}（mA）</td>
           <td>{{ infoData.tec_cold_cur }}</td>
         </tr>
@@ -83,7 +83,7 @@
             <template v-if="infoData.mode === 3">
               <td>{{ $t("BOARD_INFO.GAIN_VAL") }}</td>
               <td>
-                <Limit :min="19" :max="25" v-model="infoData.APC_output_power" />
+                <Limit :min="19" :max="25" v-model="infoData.gain" />
               </td>
             </template>
 

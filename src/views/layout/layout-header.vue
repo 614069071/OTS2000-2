@@ -12,12 +12,14 @@
 </template>
 
 <script>
+import { i18nToKey } from "@/locale";
+
 export default {
   name: "LayoutHeader",
   props: ["user"],
   filters: {
     mapRoleLevel(v) {
-      return ["普通用户", "生产用户", "管理员"][v] || v;
+      return [i18nToKey("SUP.AVERAGE"), i18nToKey("SUP.PRODUCER"), i18nToKey("SUP.ADMIN")][v] || v;
     },
   },
 };

@@ -369,10 +369,10 @@
             <td>
               <div class="coll-2">
                 <select v-model="infoData.channels[0].loop_mode">
-                  <option :value="0">不环回</option>
-                  <option :value="1">客户侧环回</option>
-                  <option :value="2">线路侧环回</option>
-                  <option :value="3">都环回</option>
+                  <option :value="0">{{ $t("SUP.NO_LOOPBACK") }}</option>
+                  <option :value="1">{{ $t("SUP.CLIENT") }}</option>
+                  <option :value="2">{{ $t("SUP.LINE") }}</option>
+                  <option :value="3">{{ $t("SUP.BOTH") }}</option>
                 </select>
               </div>
             </td>
@@ -380,10 +380,10 @@
             <td>
               <div class="coll-2">
                 <select v-model="infoData.channels[1].loop_mode">
-                  <option :value="0">不环回</option>
-                  <option :value="1">客户侧环回</option>
-                  <option :value="2">线路侧环回</option>
-                  <option :value="3">都环回</option>
+                  <option :value="0">{{ $t("SUP.NO_LOOPBACK") }}</option>
+                  <option :value="1">{{ $t("SUP.CLIENT") }}</option>
+                  <option :value="2">{{ $t("SUP.LINE") }}</option>
+                  <option :value="3">{{ $t("SUP.BOTH") }}</option>
                 </select>
               </div>
             </td>
@@ -391,10 +391,10 @@
             <td>
               <div class="coll-2">
                 <select v-model="infoData.channels[2].loop_mode">
-                  <option :value="0">不环回</option>
-                  <option :value="1">客户侧环回</option>
-                  <option :value="2">线路侧环回</option>
-                  <option :value="3">都环回</option>
+                  <option :value="0">{{ $t("SUP.NO_LOOPBACK") }}</option>
+                  <option :value="1">{{ $t("SUP.CLIENT") }}</option>
+                  <option :value="2">{{ $t("SUP.LINE") }}</option>
+                  <option :value="3">{{ $t("SUP.BOTH") }}</option>
                 </select>
               </div>
             </td>
@@ -402,10 +402,10 @@
             <td>
               <div class="coll-2">
                 <select v-model="infoData.channels[3].loop_mode">
-                  <option :value="0">不环回</option>
-                  <option :value="1">客户侧环回</option>
-                  <option :value="2">线路侧环回</option>
-                  <option :value="3">都环回</option>
+                  <option :value="0">{{ $t("SUP.NO_LOOPBACK") }}</option>
+                  <option :value="1">{{ $t("SUP.CLIENT") }}</option>
+                  <option :value="2">{{ $t("SUP.LINE") }}</option>
+                  <option :value="3">{{ $t("SUP.BOTH") }}</option>
                 </select>
               </div>
             </td>

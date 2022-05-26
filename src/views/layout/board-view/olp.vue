@@ -152,11 +152,11 @@ export default {
       if (val !== 0 && !val) return "NA";
 
       if (val < -30) {
-        return "收光弱";
+        return this.$t("SUP.WEAK");
       } else if (val >= -30 && val <= 14) {
         return val;
       } else {
-        return "收光强";
+        return this.$t("SUP.STRONG");
       }
     },
   },

@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     fileName() {
-      return this.uploadFile ? this.uploadFile.name : "未选择任何文件";
+      return this.uploadFile ? this.uploadFile.name : this.$t("SUP.NO_FILE_SELECT");
     },
     uploadBoard() {
       return this.onlineBoardList.find(e => e.slot === this.uploadSlot) || {};

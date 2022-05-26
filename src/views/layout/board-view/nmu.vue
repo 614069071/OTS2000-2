@@ -94,9 +94,9 @@
         </tr>
         <tr>
           <td>{{ $t("BOARD_INFO.DUPLEX") }}</td>
-          <td>{{ infoData.eth1.eth_status ? (infoData.eth1.full_status ? "全双工" : "半双工") : "NA" }}</td>
-          <td>{{ infoData.eth2.eth_status ? (infoData.eth2.full_status ? "全双工" : "半双工") : "NA" }}</td>
-          <td>{{ infoData.eth3.eth_status ? (infoData.eth3.full_status ? "全双工" : "半双工") : "NA" }}</td>
+          <td>{{ infoData.eth1.eth_status ? (infoData.eth1.full_status ? $t("SUP.FULL_DUPLEXT") : $t("SUP.HALF_DUPLEXT")) : "NA" }}</td>
+          <td>{{ infoData.eth2.eth_status ? (infoData.eth2.full_status ? $t("SUP.FULL_DUPLEXT") : $t("SUP.HALF_DUPLEXT")) : "NA" }}</td>
+          <td>{{ infoData.eth3.eth_status ? (infoData.eth3.full_status ? $t("SUP.FULL_DUPLEXT") : $t("SUP.HALF_DUPLEXT")) : "NA" }}</td>
         </tr>
       </table>
     </div>

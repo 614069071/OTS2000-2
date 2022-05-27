@@ -57,7 +57,18 @@
             <!-- 测试 -->
           </td>
           <td>
-            <!-- <Limit :min="0" :max="30" v-model="test.text"></Limit> -->
+            <!-- <Limit :max="0" v-model="test.text" :check.sync="checks.name1"></Limit> -->
+            <!-- <limit-select
+              v-model="test.tex"
+              :min="5"
+              :max="30"
+              :check.sync="checks.name1"
+              :options="[
+                { label: '5', value: 5 },
+                { label: '10', value: 10 },
+                { label: '15', value: 15 },
+              ]"
+            /> -->
             <!-- <input v-limit="{ min: 2, max: 120, data: test.text }" type="text" class="def-input" v-model="test.text" /> -->
           </td>
         </tr>
@@ -100,6 +111,7 @@ import BoardOtu100g from "@/components/board/otu100g";
 import BoardDco200g from "@/components/board/dco200g";
 import BoardMd16sfa from "@/components/board/md16sfa";
 import BoardMd16sfb from "@/components/board/md16sfb";
+import LimitSelect from "@/components/limit-select";
 import { storages, isSimilar, isNoBoardType } from "@/utils";
 import { i18nToKey } from "@/locale";
 
@@ -116,6 +128,7 @@ export default {
     },
   },
   components: {
+    LimitSelect,
     BoardOtu10g,
     BoardNmu,
     BoardOlp,
@@ -161,6 +174,7 @@ export default {
       test: {
         text: "",
       },
+      checks: {},
     };
   },
   watch: {
@@ -245,6 +259,9 @@ export default {
         })
         .then(() => {})
         .catch(() => {});
+    },
+    testlook() {
+      console.log(this.checks);
     },
   },
 };

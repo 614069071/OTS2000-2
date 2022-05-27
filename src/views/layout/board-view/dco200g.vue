@@ -241,7 +241,7 @@
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :min="-12" :max="3" v-model="infoData.QSFP1.rcv_thr_L" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-12" :max="3" v-model="infoData.QSFP1.rcv_thr_L" :check.sync="validate.QSFP1.rcv_thr_L" />
 
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_L" /> -->
               <template v-else>NA</template>
@@ -252,7 +252,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :min="-12" :max="3" v-model="infoData.QSFP2.rcv_thr_L" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-12" :max="3" v-model="infoData.QSFP2.rcv_thr_L" :check.sync="validate.QSFP2.rcv_thr_L" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_L" /> -->
               <template v-else>NA</template>
             </div>
@@ -265,7 +265,7 @@
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :min="-12" :max="3" v-model="infoData.QSFP1.rcv_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-12" :max="3" v-model="infoData.QSFP1.rcv_thr_H" :check.sync="validate.QSFP1.rcv_thr_H" />
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.rcv_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -275,7 +275,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :min="-12" :max="3" v-model="infoData.QSFP2.rcv_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-12" :max="3" v-model="infoData.QSFP2.rcv_thr_H" :check.sync="validate.QSFP2.rcv_thr_H" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.rcv_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -288,7 +288,7 @@
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :min="-7" :max="3" v-model="infoData.QSFP1.tx_thr_L" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-7" :max="3" v-model="infoData.QSFP1.tx_thr_L" :check.sync="validate.QSFP1.tx_thr_L" />
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_L" /> -->
               <template v-else>NA</template>
             </div>
@@ -298,7 +298,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :min="-7" :max="3" v-model="infoData.QSFP2.tx_thr_L" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-7" :max="3" v-model="infoData.QSFP2.tx_thr_L" :check.sync="validate.QSFP2.tx_thr_L" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_L" /> -->
               <template v-else>NA</template>
             </div>
@@ -311,7 +311,7 @@
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm）</td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP1.link_status" :min="-7" :max="3" v-model="infoData.QSFP1.tx_thr_H" />
+              <Limit v-if="infoData.QSFP1.link_status" :min="-7" :max="3" v-model="infoData.QSFP1.tx_thr_H" :check.sync="validate.QSFP1.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP1.link_status" type="text" class="def-input" v-model.number="infoData.QSFP1.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -321,7 +321,7 @@
           <td></td>
           <td>
             <div class="coll-4">
-              <Limit v-if="infoData.QSFP2.link_status" :min="-7" :max="3" v-model="infoData.QSFP2.tx_thr_H" />
+              <Limit v-if="infoData.QSFP2.link_status" :min="-7" :max="3" v-model="infoData.QSFP2.tx_thr_H" :check.sync="validate.QSFP2.tx_thr_H" />
               <!-- <input v-if="infoData.QSFP2.link_status" type="text" class="def-input" v-model.number="infoData.QSFP2.tx_thr_H" /> -->
               <template v-else>NA</template>
             </div>
@@ -354,7 +354,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.TRANS_OPTICAL_POWER") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.launch_power" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="5" :disabled="cfp2Disable" v-model="infoData.CFP2.launch_power" :check.sync="validate.CFP2.launch_power" />
             <template v-else>NA</template>
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.launch_power" /><template v-else>NA</template> -->
           </td>
@@ -374,19 +374,19 @@
         <tr>
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-23" :max="8" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-23" :max="8" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_L" :check.sync="validate.CFP2.rcv_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_L" /> -->
             <template v-else>NA</template>
           </td>
           <td>{{ $t("BOARD_INFO.RECE_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-23" :max="8" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-23" :max="8" :disabled="cfp2Disable" v-model="infoData.CFP2.rcv_thr_H" :check.sync="validate.CFP2.rcv_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.rcv_thr_H" /> -->
             <template v-else>NA</template>
           </td>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_LOWER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_L" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_L" :check.sync="validate.CFP2.tx_thr_L" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_L" /> -->
             <template v-else>NA</template>
           </td>
@@ -394,7 +394,7 @@
         <tr>
           <td>{{ $t("BOARD_INFO.SEND_LIGHT_POWER_UPPER_THRESHOLD") }}（dBm)</td>
           <td>
-            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_H" />
+            <Limit v-if="infoData.CFP2.link_status" :min="-8" :max="6" :disabled="cfp2Disable" v-model="infoData.CFP2.tx_thr_H" :check.sync="validate.CFP2.tx_thr_H" />
             <!-- <input v-if="infoData.CFP2.link_status" type="text" class="def-input" v-model.number="infoData.CFP2.tx_thr_H" /> -->
             <template v-else>NA</template>
           </td>
@@ -480,7 +480,7 @@
       <button class="def-btn" :disabled="refreshInfoDisabled" @click="refreshGetInfo">{{ $t("COMMON.REFRESH") }}</button>
 
       <div v-permission="'control'">
-        <button class="def-btn" :disabled="setInfoDisabled" @click="setInfo">{{ $t("COMMON.APPLY") }}</button>
+        <button class="def-btn" :disabled="!isValidatePass || setInfoDisabled" @click="setInfo">{{ $t("COMMON.APPLY") }}</button>
         <button class="def-btn" :disabled="restorInfoDisabled" @click="restorInfo">{{ $t("COMMON.RESET") }}</button>
         <button class="def-btn" :disabled="restoreDefaultInfoDisabled" @click="restoreDefaultInfo">{{ $t("COMMON.RESTOR_DEF") }}</button>
       </div>
@@ -490,6 +490,7 @@
 
 <script>
 import mixins from "@/utils/mixins";
+import { isChecks } from "@/utils";
 
 export default {
   name: "dco200g",
@@ -595,6 +596,11 @@ export default {
           loop: 0,
         },
       },
+      validate: {
+        QSFP1: {},
+        QSFP2: {},
+        CFP2: {},
+      },
     };
   },
   filters: {
@@ -607,6 +613,9 @@ export default {
   computed: {
     cfp2Disable() {
       return this.infoData.CFP2.cfp2_states === 2;
+    },
+    isValidatePass() {
+      return isChecks(this.validate);
     },
   },
   methods: {
@@ -631,6 +640,9 @@ export default {
     },
     changeModeQsfp2() {
       this.infoData.QSFP1.FEC_mode = this.infoData.QSFP2.FEC_mode;
+    },
+    validateForm() {
+      console.log(this.isValidatePass);
     },
   },
 };

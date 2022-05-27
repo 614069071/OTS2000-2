@@ -243,6 +243,5 @@ export default {
 
 .shield-all-button {
   margin-top: 7px;
-  width: 164px;
 }
 </style>

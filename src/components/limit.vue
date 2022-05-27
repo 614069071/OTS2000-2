@@ -21,13 +21,89 @@ export default {
   //   },
   // },
   watch: {
-    value(data) {
+    value: {
+      handler(data) {
+        const reg = /(^[-]?[0-9]{0,}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
+        const { min, max } = this;
+        const val = Number(data);
+        let check = true;
+
+        if (data === "") {
+          check = false;
+        }
+
+        if ((data || data == "0") && reg.test(data) && data !== "-" && data !== ".") {
+          if (!!min || min === 0) {
+            this.hint = this.$t("COMMON.VALUE_CANNOT_LESS") + min;
+            if (val || val === 0) {
+              if (val < min) {
+                this.display = true;
+                check = false;
+              } else {
+                this.display = false;
+                check = true;
+              }
+            } else {
+              check = false;
+            }
+            // this.display =  && val < min;
+          }
+
+          if (!!max || max === 0) {
+            this.hint = this.$t("COMMON.VALUE_CANNOT_GREATER") + max;
+            if (val || val === 0) {
+              if (val > max) {
+                this.display = true;
+                check = false;
+              } else {
+                this.display = false;
+                check = true;
+              }
+            } else {
+              check = false;
+            }
+            // this.display = (val || val === 0) && val > max;
+            // check = false;
+          }
+
+          if ((!!min || min === 0) && (!!max || max === 0)) {
+            this.hint = this.$t("COMMON.VALUE_RANG") + min + "~" + max;
+            if (val || val === 0) {
+              if (val > max || val < min) {
+                this.display = true;
+                check = false;
+              } else {
+                this.display = false;
+                check = true;
+              }
+            } else {
+              check = false;
+            }
+            // this.display = (val || val === 0) && (val > max || val < min);
+          }
+        } else {
+          this.hint = this.$t("COMMON.VALUE_VALID");
+          this.display = true;
+          check = false;
+        }
+
+        this.$emit("update:check", check);
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    change(e) {
+      /*
       const reg = /(^[-]?[0-9]{0,}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
       const { min, max } = this;
+      */
+      const data = e.target.value;
       const val = Number(data);
 
       if (data != 0 && !data) return;
 
+      /*
       if (reg.test(data) && data !== "-" && data !== ".") {
         if (!!min || min === 0) {
           this.hint = this.$t("COMMON.VALUE_CANNOT_LESS") + min;
@@ -47,39 +123,6 @@ export default {
         this.hint = this.$t("COMMON.VALUE_VALID");
         this.display = !!data.length;
       }
-    },
-  },
-  methods: {
-    change(e) {
-      /* 
-      const reg = /(^[-]?[0-9]{0,}([.][0-9]{0,})?$)|(^[-]?0?(\.[0-9]{0,})?$)/;
-      const { min, max } = this; 
-      */
-      const data = e.target.value;
-      const val = Number(data);
-
-      if (data != 0 && !data) return;
-
-      /* 
-      if (reg.test(data) && data !== "-" && data !== ".") {
-        if (!!min || min === 0) {
-          this.hint = this.$t("COMMON.VALUE_CANNOT_LESS") + min;
-          this.display = (val || val === 0) && val < min;
-        }
-
-        if (!!max || max === 0) {
-          this.hint = this.$t("COMMON.VALUE_CANNOT_GREATER") + max;
-          this.display = (val || val === 0) && val > max;
-        }
-
-        if ((!!min || min === 0) && (!!max || max === 0)) {
-          this.hint = this.$t("COMMON.VALUE_RANG") + min + "~" + max;
-          this.display = (val || val === 0) && (val > max || val < min);
-        }
-      } else {
-        this.hint = this.$t("COMMON.VALUE_VALID");
-        this.display = !!data.length;
-      } 
       */
 
       this.$emit("input", !data || isNaN(val) ? data : val);
